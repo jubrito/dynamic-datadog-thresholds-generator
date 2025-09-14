@@ -1,3 +1,7 @@
 export const Configuration = () => {
-  return <>OI</>;
+  return (
+    <section className="w-full">
+      <p>OI</p>
+    </section>
+  );
 };
