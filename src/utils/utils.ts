@@ -20,8 +20,8 @@ export const getStatistics = (
   };
 };
 
-export const getSortedAscending = (values: number[]) =>
+export const getSortedAscending = (values: percentile[]) =>
   values.sort((a, b) => a - b);
 
-export const getWithNDecimalPlaces = (value: number, decimalPlaces = 3) =>
+export const getWithNDecimalPlaces = (value: percentile, decimalPlaces = 3) =>
   value.toFixed(decimalPlaces);
