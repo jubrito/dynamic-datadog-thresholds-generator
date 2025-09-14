@@ -5,7 +5,7 @@ import { ThresholdResults } from "../ThresholdResults/ThresholdResults";
 
 type ThresholdsProps = {
   endpointName?: string;
-  p95Values: percentile[];
+  percentileValues: percentile[];
   warningThreshold?: number;
   criticalThreshold?: number;
 };
@@ -14,7 +14,7 @@ export const Thresholds = ({
   endpointName,
   warningThreshold: receivedWarningThreshold,
   criticalThreshold: receivedCriticalThreshold,
-  p95Values,
+  percentileValues: p95Values,
 }: ThresholdsProps) => {
   const sortedP95Values = getSortedAscending(p95Values);
   const p95stats = getStatistics(sortedP95Values);

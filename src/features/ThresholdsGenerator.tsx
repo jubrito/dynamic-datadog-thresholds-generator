@@ -13,7 +13,7 @@ export const ThresholdsGenerator = () => {
       <UploadCsvBox setThresholdData={setThresholdData} />
       <Thresholds
         endpointName={thresholdData.endpointPath}
-        p95Values={thresholdData.metricValues}
+        percentileValues={thresholdData.metricValues}
       />
     </>
   );
