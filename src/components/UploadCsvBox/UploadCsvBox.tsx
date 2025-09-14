@@ -73,7 +73,7 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
 
   return (
     <>
-      <h3>Upload Datadog Metrics csv file</h3>
+      <h3 className="text-lg">Upload Datadog Metrics csv file</h3>
       <FilePond
         onupdatefiles={handleCsvUpload}
         onremovefile={() =>
