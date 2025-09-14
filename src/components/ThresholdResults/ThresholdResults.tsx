@@ -1,9 +1,9 @@
-import type { EndpointStats, P95Value } from "../../types/types";
+import type { EndpointStats, percentile } from "../../types/types";
 
 type ThresholdProps = {
   endpointStats: EndpointStats;
-  warningThreshold?: P95Value;
-  criticalThreshold?: P95Value;
+  warningThreshold?: percentile;
+  criticalThreshold?: percentile;
 };
 
 export const ThresholdResults = ({

@@ -1,14 +1,14 @@
-import type { P95Value } from "../types/types";
+import type { percentile } from "../types/types";
 import { getWithNDecimalPlaces } from "./utils";
 
-export const getAverage = (sortedPercentiles: P95Value[]) => {
+export const getAverage = (sortedPercentiles: percentile[]) => {
   const numberOfItems = sortedPercentiles.length;
   const sum = sortedPercentiles.reduce((acc, value) => acc + value, 0);
   const approximation = getWithNDecimalPlaces(sum / numberOfItems);
   return parseFloat(approximation);
 };
 
-export const getMedian = (sortedPercentiles: P95Value[]) => {
+export const getMedian = (sortedPercentiles: percentile[]) => {
   const numberOfItems = sortedPercentiles.length;
   if (numberOfItems === 1) {
     const [firstItem] = sortedPercentiles;

@@ -1,4 +1,4 @@
-import type { P95Value, ThresholdsConfig } from "../types/types";
+import type { percentile, ThresholdsConfig } from "../types/types";
 import {
   filterExtremeValues,
   getIQR,
@@ -15,7 +15,7 @@ import { getWithNDecimalPlaces } from "./utils";
  * @returns warning and critical thresholds
  */
 export const computeAdaptiveThresholds = (
-  sortedPercentiles: P95Value[],
+  sortedPercentiles: percentile[],
   { warning, critical }: ThresholdsConfig
 ) => {
   const { percentile: warningPercentile, factor: warningFactor } = warning;

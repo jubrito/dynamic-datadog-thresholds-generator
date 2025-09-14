@@ -1,7 +1,9 @@
-import type { EndpointStats, P95Value } from "../types/types";
+import type { EndpointStats, percentile } from "../types/types";
 import { getAverage, getMedian } from "./statistics";
 
-export const getStatistics = (sortedPercentiles: P95Value[]): EndpointStats => {
+export const getStatistics = (
+  sortedPercentiles: percentile[]
+): EndpointStats => {
   const minimum = sortedPercentiles[0];
   const maximum = sortedPercentiles[sortedPercentiles.length - 1];
   const average = getAverage(sortedPercentiles);
