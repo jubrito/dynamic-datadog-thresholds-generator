@@ -14,12 +14,12 @@ export const Thresholds = ({
   endpointName,
   warningThreshold: receivedWarningThreshold,
   criticalThreshold: receivedCriticalThreshold,
-  percentileValues: p95Values,
+  percentileValues,
 }: ThresholdsProps) => {
-  const sortedP95Values = getSortedAscending(p95Values);
-  const p95stats = getStatistics(sortedP95Values);
+  const sortedPercentileValues = getSortedAscending(percentileValues);
+  const percentileStats = getStatistics(sortedPercentileValues);
   const { warningThreshold, criticalThreshold } = computeAdaptiveThresholds(
-    sortedP95Values,
+    sortedPercentileValues,
     {
       warning: {
         factor: 3,
@@ -35,9 +35,9 @@ export const Thresholds = ({
   return (
     <>
       {endpointName && <h2>{endpointName}</h2>}
-      {sortedP95Values.length > 0 && (
+      {sortedPercentileValues.length > 0 && (
         <ThresholdResults
-          endpointStats={p95stats}
+          endpointStats={percentileStats}
           warningThreshold={receivedWarningThreshold ?? warningThreshold}
           criticalThreshold={receivedCriticalThreshold ?? criticalThreshold}
         />

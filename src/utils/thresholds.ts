@@ -10,7 +10,7 @@ import { getWithNDecimalPlaces } from "./utils";
  * Calculates thresholds based on warning and critical percentiles and factors:
  * Warning: Focus on consistently slow days (Recommended; 95th percentile of received percentiles)
  * Critical: Focus on outlier spikes, tail latency (Recommended: 99th percentile of received percentiles)
- * @param – sortedPercentiles: The p95 values extracted from the endpoint metrics
+ * @param – sortedPercentiles: The percentile values extracted from the endpoint metrics (e.g P95)
  * @param – {warning, critical}: The warning and critical percentiles and factors
  * @returns warning and critical thresholds
  */
@@ -20,16 +20,16 @@ export const computeAdaptiveThresholds = (
 ) => {
   const { percentile: warningPercentile, factor: warningFactor } = warning;
   const { percentile: criticalPercentile, factor: criticalFactor } = critical;
-  const filteredP95 = filterExtremeValues(sortedPercentiles);
+  const filteredPercentiles = filterExtremeValues(sortedPercentiles);
   const warningInterpolatedPercentile = getInterpolatedPercentile(
     warningPercentile,
-    filteredP95
+    filteredPercentiles
   );
   const criticalInterpolatedPercentile = getInterpolatedPercentile(
     criticalPercentile,
-    filteredP95
+    filteredPercentiles
   );
-  const iqr = getIQR(filteredP95);
+  const iqr = getIQR(filteredPercentiles);
 
   if (iqr == undefined) {
     console.warn("Failt to calculate thresholds due to insufficient data.");
