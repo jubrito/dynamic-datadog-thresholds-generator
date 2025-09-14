@@ -1,8 +1,8 @@
-import type { EndpointStats, percentile } from "../types/types";
+import type { EndpointStats, Percentile } from "../types/types";
 import { getAverage, getMedian } from "./statistics";
 
 export const getStatistics = (
-  sortedPercentiles: percentile[]
+  sortedPercentiles: Percentile[]
 ): EndpointStats => {
   const minimum = sortedPercentiles[0];
   const maximum = sortedPercentiles[sortedPercentiles.length - 1];
@@ -20,8 +20,8 @@ export const getStatistics = (
   };
 };
 
-export const getSortedAscending = (values: percentile[]) =>
+export const getSortedAscending = (values: Percentile[]) =>
   values.sort((a, b) => a - b);
 
-export const getWithNDecimalPlaces = (value: percentile, decimalPlaces = 3) =>
+export const getWithNDecimalPlaces = (value: Percentile, decimalPlaces = 3) =>
   value.toFixed(decimalPlaces);

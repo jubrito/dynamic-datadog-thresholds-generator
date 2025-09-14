@@ -1,14 +1,14 @@
-import type { percentile } from "../types/types";
+import type { Percentile } from "../types/types";
 import { getWithNDecimalPlaces } from "./utils";
 
-export const getAverage = (sortedPercentiles: percentile[]) => {
+export const getAverage = (sortedPercentiles: Percentile[]) => {
   const numberOfItems = sortedPercentiles.length;
   const sum = sortedPercentiles.reduce((acc, value) => acc + value, 0);
   const approximation = getWithNDecimalPlaces(sum / numberOfItems);
   return parseFloat(approximation);
 };
 
-export const getMedian = (sortedPercentiles: percentile[]) => {
+export const getMedian = (sortedPercentiles: Percentile[]) => {
   const numberOfItems = sortedPercentiles.length;
   if (numberOfItems === 1) {
     const [firstItem] = sortedPercentiles;

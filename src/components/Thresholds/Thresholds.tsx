@@ -1,11 +1,11 @@
-import type { percentile } from "../../types/types";
+import type { Percentile } from "../../types/types";
 import { computeAdaptiveThresholds } from "../../utils/thresholds";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { ThresholdResults } from "../ThresholdResults/ThresholdResults";
 
 type ThresholdsProps = {
   endpointName?: string;
-  percentileValues: percentile[];
+  percentileValues: Percentile[];
   warningThreshold?: number;
   criticalThreshold?: number;
 };

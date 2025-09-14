@@ -7,6 +7,7 @@ export const ThresholdsGenerator = () => {
   const [thresholdData, setThresholdData] = useState<ThresholdData>({
     metricValues: [],
   });
+
   return (
     <>
       <h1>Dynamic Threshold Generator for Datadog Monitors</h1>

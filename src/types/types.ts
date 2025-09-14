@@ -1,11 +1,11 @@
-export type percentile = number;
+export type Percentile = number;
 
 export type EndpointStats = {
   sorted: string;
-  minimum: percentile;
-  maximum: percentile;
-  average: percentile;
-  median: percentile;
+  minimum: Percentile;
+  maximum: Percentile;
+  average: Percentile;
+  median: Percentile;
   numberOfElements: number;
 };
 
