@@ -3,7 +3,6 @@ import type { ThresholdData } from "../types/types";
 import { UploadCsvBox } from "../components/UploadCsvBox/UploadCsvBox";
 import { Thresholds } from "../components/Thresholds/Thresholds";
 import { Documentation } from "../components/Documentation/Documentation";
-import { Configuration } from "../components/Configuration/Configuration";
 
 export const ThresholdsGenerator = () => {
   const [thresholdData, setThresholdData] = useState<ThresholdData>({
@@ -11,15 +10,14 @@ export const ThresholdsGenerator = () => {
   });
 
   return (
-    <>
-      <Configuration />
-      <h1>Dynamic Threshold Generator for Datadog Monitors</h1>
+    <section className="flex flex-col gap-6">
+      <h1 className="text-4xl">Dynamic Datadog Threshold Generator</h1>
       <Documentation />
       <UploadCsvBox setThresholdData={setThresholdData} />
       <Thresholds
         endpointName={thresholdData.endpointPath}
         percentileValues={thresholdData.metricValues}
       />
-    </>
+    </section>
   );
 };
