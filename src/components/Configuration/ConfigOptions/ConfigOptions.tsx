@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { Line } from "@rc-component/progress";
 
 type ConfigOptionsProps = {
-  thresholdOption: string;
+  thresholdType: "Critical" | "Warning";
+  defaultPercentile: number;
 };
 
-export const ConfigOptions = ({ thresholdOption }: ConfigOptionsProps) => {
-  const [percentile, setPercentile] = useState(95);
+export const ConfigOptions = ({
+  thresholdType,
+  defaultPercentile,
+}: ConfigOptionsProps) => {
+  const [percentile, setPercentile] = useState(defaultPercentile);
 
   const handlePercentileChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -15,30 +18,36 @@ export const ConfigOptions = ({ thresholdOption }: ConfigOptionsProps) => {
   };
 
   return (
-    <div className="flex w-full flex-col gap-5">
-      <p className="text-2xl">{thresholdOption} Threshold</p>
-      <div className="flex items-center">
-        <p className="text-xl">Base percentile</p>
-        <input
-          className="ml-5 bg-gray-900 pl-5 text-center"
-          type="number"
-          min="1"
-          max="99"
-          value={percentile}
-          onChange={handlePercentileChange}
-        />
-      </div>
-      <div>
-        <div>
-          <p className="inline text-sm">Low</p>
-          <Line
-            className="w-32 h-auto inline mx-3"
-            percent={percentile}
-            strokeWidth={2}
+    <div className="flex w-max flex-col">
+      <p className="text-2xl">{thresholdType} Threshold</p>
+      <div className="mt-5">
+        <div className="flex items-center">
+          <p className="text-xl font-bold">Base percentile</p>
+          <input
+            className="ml-5 bg-gray-900 pl-4 text-center"
+            type="number"
+            min="1"
+            max="99"
+            value={percentile}
+            onChange={handlePercentileChange}
           />
-          <p className="inline text-sm">High</p>
         </div>
-        <p className="pl-15 text-sm">rigorousness</p>
+        <>
+          <div className="w-max mt-2">
+            <p className="inline text-sm font-italic">Low</p>
+            <input
+              type="range"
+              className="w-34 h-auto inline mx-3 align-middle"
+              min="1"
+              max="99"
+              value={percentile}
+              onChange={handlePercentileChange}
+            />
+
+            <p className="inline text-sm">High</p>
+          </div>
+          <p className="pl-15 text-sm italic">rigorousness</p>
+        </>
       </div>
     </div>
   );
