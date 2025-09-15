@@ -30,7 +30,7 @@ export const RangeConfig = ({
   return (
     <div className="mt-5">
       <div className="flex items-center">
-        <label className="text-xl font-bold" htmlFor={rangeFieldId}>
+        <label className="text-xl" htmlFor={rangeFieldId}>
           {labels.field}
         </label>
         <input
@@ -48,7 +48,7 @@ export const RangeConfig = ({
           <p className="inline text-sm font-italic">{lowLabel}</p>
           <input
             type="range"
-            className="w-23 h-auto inline mx-3 align-middle"
+            className="w-23 h-auto inline mx-3 align-middle accent-cyan-500"
             min="1"
             max="99"
             value={percentile}

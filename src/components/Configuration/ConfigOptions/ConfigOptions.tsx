@@ -13,7 +13,7 @@ export const ConfigOptions = ({
 }: ConfigOptionsProps) => {
   return (
     <div className="flex w-max flex-col">
-      <p className="text-2xl">{thresholdType} Threshold</p>
+      <p className="font-bold text-xl text-left">{thresholdType} Threshold</p>
       <RangeConfig
         defaultValue={defaultPercentile}
         labels={{
