@@ -20,6 +20,7 @@ export const RangeConfig = ({
   const lowLabel = labels?.lowLabel || "Lower";
   const highLabel = labels?.highLabel || "Higher";
   const rangeBarLabel = labels?.rangeBarLabel || "Rigorousness";
+  const accentColor = percentile >= 50 ? "accent-cyan-500" : "accent-white";
 
   const handlePercentileChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -48,7 +49,7 @@ export const RangeConfig = ({
           <p className="inline text-sm font-italic">{lowLabel}</p>
           <input
             type="range"
-            className="w-23 h-auto inline mx-3 align-middle accent-cyan-500"
+            className={`w-23 h-auto inline mx-3 align-middle ${accentColor}`}
             min="1"
             max="99"
             value={percentile}
