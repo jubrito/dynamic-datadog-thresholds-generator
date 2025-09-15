@@ -2,7 +2,7 @@ import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 
 export const Configuration = () => {
   return (
-    <section className="flex flex-col items-end size-max">
+    <section className="flex flex-col lg:items-end items-center size-max">
       <h2 className="font-bold text-2xl w-full bg-[#2a2c3e] pl-8 py-3 text-left rounded-t-lg">
         Generator configuration
       </h2>
