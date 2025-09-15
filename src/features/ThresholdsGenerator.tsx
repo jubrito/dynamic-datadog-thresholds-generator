@@ -10,8 +10,10 @@ export const ThresholdsGenerator = () => {
   });
 
   return (
-    <section className="flex flex-col gap-6 text-left w-fit">
-      <h1 className="text-4xl w-max">Dynamic Datadog Threshold Generator</h1>
+    <section className="flex flex-col gap-6 text-left">
+      <h1 className="font-bold text-3xl">
+        Dynamic Datadog Threshold Generator
+      </h1>
       <Documentation />
       <UploadCsvBox setThresholdData={setThresholdData} />
       <Thresholds
