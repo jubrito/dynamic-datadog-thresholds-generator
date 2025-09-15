@@ -10,14 +10,14 @@ export const Configuration = () => {
       <div className="p-8 w-full h-full bg-[#11131f] max-w-[505px] rounded-b-lg">
         <div className="flex justify-between">
           <ConfigOptions
-            thresholdType="Critical"
-            defaultPercentile={99}
-            defaultFactor={95}
-          />
-          <ConfigOptions
             thresholdType="Warning"
             defaultPercentile={95}
             defaultFactor={80}
+          />
+          <ConfigOptions
+            thresholdType="Critical"
+            defaultPercentile={99}
+            defaultFactor={95}
           />
         </div>
         <p className="mt-8 text-sm">
