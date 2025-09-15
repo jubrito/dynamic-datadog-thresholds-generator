@@ -16,16 +16,14 @@ export const RangeConfig = ({
   defaultValue,
   labels,
 }: RangeConfigProps) => {
-  const [percentile, setPercentile] = useState(defaultValue);
+  const [value, setValue] = useState(defaultValue);
   const lowLabel = labels?.lowLabel || "Lower";
   const highLabel = labels?.highLabel || "Higher";
   const rangeBarLabel = labels?.rangeBarLabel || "Rigorousness";
-  const accentColor = percentile >= 50 ? "accent-cyan-500" : "accent-white";
+  const accentColor = value >= 50 ? "accent-cyan-500" : "accent-white";
 
-  const handlePercentileChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setPercentile(Math.round(parseInt(event.target.value)));
+  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(Math.round(parseInt(event.target.value)));
   };
 
   return (
@@ -40,8 +38,8 @@ export const RangeConfig = ({
           type="number"
           min="1"
           max="99"
-          value={percentile}
-          onChange={handlePercentileChange}
+          value={value}
+          onChange={handleRangeChange}
         />
       </div>
       <>
@@ -50,10 +48,10 @@ export const RangeConfig = ({
           <input
             type="range"
             className={`w-23 h-auto inline mx-3 align-middle ${accentColor}`}
-            min="1"
+            min="0"
             max="99"
-            value={percentile}
-            onChange={handlePercentileChange}
+            value={value}
+            onChange={handleRangeChange}
           />
 
           <p className="inline text-sm">{highLabel}</p>
