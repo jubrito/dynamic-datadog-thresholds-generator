@@ -73,18 +73,24 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
 
   return (
     <>
-      <h3 className="text-lg">Upload Datadog Metrics csv file</h3>
-      <FilePond
-        onupdatefiles={handleCsvUpload}
-        onremovefile={() =>
-          setThresholdData({ metricValues: [], endpointPath: undefined })
-        }
-        allowMultiple={false}
-        maxFiles={1}
-        server={null}
-        name="files"
-        labelIdle="Click here or Drag & Drop a csv file to upload"
-      />
+      <h3 className="text-lg" id="extract-and-upload-csv-description">
+        Extract a Datadog endpoint metrics csv file using any percentile
+        aggregation and upload it to generate warning and critical thresholds
+        suggestions.
+      </h3>
+      <div aria-describedby="extract-and-upload-csv-description">
+        <FilePond
+          onupdatefiles={handleCsvUpload}
+          onremovefile={() =>
+            setThresholdData({ metricValues: [], endpointPath: undefined })
+          }
+          allowMultiple={false}
+          maxFiles={1}
+          server={null}
+          name="files"
+          labelIdle="Click here or Drag & Drop a csv file to upload"
+        />
+      </div>
     </>
   );
 };
