@@ -20,19 +20,19 @@ export const Thresholds = ({
     sortedPercentileValues,
     thresholdsConfig
   );
+  const resultsFound = sortedPercentileValues.length > 0;
 
   return (
-    <section className="bg-[#11131f] border-white border-1 rounded-xl p-8">
-      {endpointName && (
-        <h2 className="underscore font-bold text-2xl">{endpointName}</h2>
-      )}
-
-      {sortedPercentileValues.length > 0 && (
-        <ThresholdResults
-          endpointStats={percentileStats}
-          warningThreshold={warningThreshold}
-          criticalThreshold={criticalThreshold}
-        />
+    <section>
+      {endpointName && resultsFound && (
+        <div className="bg-[#11131f] border-white border-1 rounded-xl p-8">
+          <h2 className="underscore font-bold text-2xl">{endpointName}</h2>
+          <ThresholdResults
+            endpointStats={percentileStats}
+            warningThreshold={warningThreshold}
+            criticalThreshold={criticalThreshold}
+          />
+        </div>
       )}
     </section>
   );
