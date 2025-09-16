@@ -25,5 +25,10 @@ describe("utils", () => {
       const joined = `${values[0]}, ${values[1]}, ${values[2]}`;
       expect(sorted).toBe(joined);
     });
+
+    it("should return median", () => {
+      const { median } = getStatistics(values);
+      expect(median).toBe(values[1]);
+    });
   });
 });
