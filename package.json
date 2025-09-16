@@ -11,6 +11,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
     "@tailwindcss/vite": "^4.1.13",
     "@types/papaparse": "^5.3.16",
     "filepond": "^4.32.9",
