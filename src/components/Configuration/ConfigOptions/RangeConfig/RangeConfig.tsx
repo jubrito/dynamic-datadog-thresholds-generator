@@ -63,7 +63,7 @@ export const RangeConfig = ({
 
           <p className="inline text-sm">{highLabel}</p>
         </div>
-        <p className="text-sm italic">{rangeBarLabel}</p>
+        <p className="text-sm italic text-left">{rangeBarLabel}</p>
       </>
     </div>
   );

@@ -51,7 +51,7 @@ export const Configuration = ({
             }}
           />
         </div>
-        <p className="mt-8 text-sm">
+        <p className="mt-8 text-sm text-left">
           Tip: High rigour factors and percentiles will generate stricter
           results and lead to less noisy alerts by increasing rigorousness and
           focusing on the slowest requests instead of the typical ones.
