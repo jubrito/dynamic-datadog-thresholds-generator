@@ -2,22 +2,28 @@ import { getStatistics } from "./utils";
 
 describe("utils", () => {
   describe("getStatistics", () => {
-    const sorted = [1, 2, 3];
+    const values = [1, 2, 3];
 
     it("should return minimum", () => {
-      const { minimum } = getStatistics(sorted);
-      expect(minimum).toBe(sorted[0]);
+      const { minimum } = getStatistics(values);
+      expect(minimum).toBe(values[0]);
     });
 
     it("should return maximum", () => {
-      const { maximum } = getStatistics(sorted);
-      expect(maximum).toBe(sorted[sorted.length - 1]);
+      const { maximum } = getStatistics(values);
+      expect(maximum).toBe(values[values.length - 1]);
     });
 
     it("should return average", () => {
-      const { average } = getStatistics(sorted);
-      const avg = (sorted[0] + sorted[1] + sorted[2]) / sorted.length;
+      const { average } = getStatistics(values);
+      const avg = (values[0] + values[1] + values[2]) / values.length;
       expect(average).toBe(avg);
+    });
+
+    it("should return values joined with a comma", () => {
+      const { sorted } = getStatistics(values);
+      const joined = `${values[0]}, ${values[1]}, ${values[2]}`;
+      expect(sorted).toBe(joined);
     });
   });
 });
