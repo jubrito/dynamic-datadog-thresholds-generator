@@ -1,39 +1,45 @@
-import { getStatistics } from "./utils";
+import { getSortedAscending, getStatistics } from "./utils";
 
 describe("utils", () => {
-  describe("getStatistics", () => {
-    const values = [1, 2, 3];
+  const valuesSorted = [1, 2, 3, 4];
+  const valuesNotSorted = [3, 1, 2, 4];
 
+  describe("getStatistics", () => {
     it("should return minimum", () => {
-      const { minimum } = getStatistics(values);
-      expect(minimum).toBe(values[0]);
+      const { minimum } = getStatistics(valuesSorted);
+      expect(minimum).toBe(valuesSorted[0]);
     });
 
     it("should return maximum", () => {
-      const { maximum } = getStatistics(values);
-      expect(maximum).toBe(values[values.length - 1]);
+      const { maximum } = getStatistics(valuesSorted);
+      expect(maximum).toBe(valuesSorted[valuesSorted.length - 1]);
     });
 
     it("should return average", () => {
-      const { average } = getStatistics(values);
-      const avg = (values[0] + values[1] + values[2]) / values.length;
+      const { average } = getStatistics(valuesSorted);
+      const avg =
+        (valuesSorted[0] +
+          valuesSorted[1] +
+          valuesSorted[2] +
+          valuesSorted[3]) /
+        valuesSorted.length;
       expect(average).toBe(avg);
     });
 
     it("should return values joined with a comma", () => {
-      const { sorted } = getStatistics(values);
-      const joined = `${values[0]}, ${values[1]}, ${values[2]}`;
+      const { sorted } = getStatistics(valuesSorted);
+      const joined = `${valuesSorted[0]}, ${valuesSorted[1]}, ${valuesSorted[2]}, ${valuesSorted[3]}`;
       expect(sorted).toBe(joined);
     });
 
     it("should return median", () => {
-      const { median } = getStatistics(values);
-      expect(median).toBe(values[1]);
+      const { median } = getStatistics(valuesSorted);
+      expect(median).toBe((valuesSorted[1] + valuesSorted[2]) / 2);
     });
 
     it("should return number of elements", () => {
-      const { numberOfElements } = getStatistics(values);
-      expect(numberOfElements).toBe(values.length);
+      const { numberOfElements } = getStatistics(valuesSorted);
+      expect(numberOfElements).toBe(valuesSorted.length);
     });
   });
 });
