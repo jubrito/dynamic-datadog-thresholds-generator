@@ -23,7 +23,7 @@ export const EndpointStatistics = ({
         </div>
       </div>
       {showStats && (
-        <div>
+        <div aria-expanded={showStats}>
           <p>
             <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
           </p>
