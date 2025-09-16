@@ -1,4 +1,4 @@
-import type { Percentile } from "../../types/types";
+import type { Percentile, ThresholdsConfig } from "../../types/types";
 import { computeAdaptiveThresholds } from "../../utils/thresholds";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { ThresholdResults } from "../ThresholdResults/ThresholdResults";
@@ -6,30 +6,19 @@ import { ThresholdResults } from "../ThresholdResults/ThresholdResults";
 type ThresholdsProps = {
   endpointName?: string;
   percentileValues: Percentile[];
-  warningThreshold?: number;
-  criticalThreshold?: number;
+  thresholdsConfig: ThresholdsConfig;
 };
 
 export const Thresholds = ({
   endpointName,
-  warningThreshold: receivedWarningThreshold,
-  criticalThreshold: receivedCriticalThreshold,
   percentileValues,
+  thresholdsConfig,
 }: ThresholdsProps) => {
   const sortedPercentileValues = getSortedAscending(percentileValues);
   const percentileStats = getStatistics(sortedPercentileValues);
   const { warningThreshold, criticalThreshold } = computeAdaptiveThresholds(
     sortedPercentileValues,
-    {
-      warning: {
-        factor: 3,
-        percentile: 95,
-      },
-      critical: {
-        factor: 4,
-        percentile: 99,
-      },
-    }
+    thresholdsConfig
   );
 
   return (
@@ -38,8 +27,8 @@ export const Thresholds = ({
       {sortedPercentileValues.length > 0 && (
         <ThresholdResults
           endpointStats={percentileStats}
-          warningThreshold={receivedWarningThreshold ?? warningThreshold}
-          criticalThreshold={receivedCriticalThreshold ?? criticalThreshold}
+          warningThreshold={warningThreshold}
+          criticalThreshold={criticalThreshold}
         />
       )}
     </>
