@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ThresholdConfig } from "../../../../types/types";
 
 type RangeConfigProps = {
   rangeFieldId: string;
@@ -9,12 +10,16 @@ type RangeConfigProps = {
     lowLabel?: string;
     highLabel?: string;
   };
+  updateConfigProperty: (
+    config: ThresholdConfig["percentile"] | ThresholdConfig["factor"]
+  ) => void;
 };
 
 export const RangeConfig = ({
   rangeFieldId,
   defaultValue,
   labels,
+  updateConfigProperty,
 }: RangeConfigProps) => {
   const [value, setValue] = useState(defaultValue);
   const lowLabel = labels?.lowLabel || "Lower";
@@ -23,7 +28,9 @@ export const RangeConfig = ({
   const accentColor = value >= 50 ? "accent-cyan-500" : "accent-white";
 
   const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Math.round(parseInt(event.target.value)));
+    const updatedValue = Math.round(parseInt(event.target.value));
+    setValue(updatedValue);
+    updateConfigProperty(updatedValue);
   };
 
   return (
