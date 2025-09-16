@@ -30,5 +30,10 @@ describe("utils", () => {
       const { median } = getStatistics(values);
       expect(median).toBe(values[1]);
     });
+
+    it("should return number of elements", () => {
+      const { numberOfElements } = getStatistics(values);
+      expect(numberOfElements).toBe(values.length);
+    });
   });
 });
