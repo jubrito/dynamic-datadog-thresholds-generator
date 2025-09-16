@@ -19,6 +19,7 @@ export const EndpointStatistics = ({
           <button
             onClick={() => setShowStats((prevValue) => !prevValue)}
             aria-controls={statsSectionId}
+            className="bg-white text-black p-2 cursor-pointer"
           >
             <KeyboardArrowDownIcon />
             Show endpoint insights
