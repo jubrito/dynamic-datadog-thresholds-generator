@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { EndpointStats } from "../../../types/types";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 type EndpointStatisticsProps = {
   endpointStats: EndpointStats;
@@ -19,9 +20,12 @@ export const EndpointStatistics = ({
           <button
             onClick={() => setShowStats((prevValue) => !prevValue)}
             aria-controls={statsSectionId}
-            className="cursor-pointer text-lg"
+            className="cursor-pointer text-xl"
           >
-            <KeyboardArrowDownIcon />
+            <div aria-hidden="true">
+              {!showStats && <VisibilityIcon />}
+              {showStats && <VisibilityOffIcon />}
+            </div>
             Show endpoint insights
           </button>
         </div>
@@ -29,12 +33,13 @@ export const EndpointStatistics = ({
       {showStats && (
         <div aria-expanded={showStats} id={statsSectionId}>
           <p>
-            <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
-          </p>
-          <p>
             <strong>Number of values analyzed:</strong>
             {endpointStats.numberOfElements}
           </p>
+          <p>
+            <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
+          </p>
+
           <p>
             <strong>Minimum:</strong> {endpointStats.minimum}
             <strong>Maximum:</strong> {endpointStats.maximum}
