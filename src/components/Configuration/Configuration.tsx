@@ -1,6 +1,19 @@
+import type { ThresholdsConfig } from "../../types/types";
 import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 
-export const Configuration = () => {
+type ConfigurationProps = {
+  thresholdsConfig: ThresholdsConfig;
+  updateThresholdsConfig: React.Dispatch<
+    React.SetStateAction<ThresholdsConfig>
+  >;
+};
+
+export const Configuration = ({
+  thresholdsConfig,
+  updateThresholdsConfig,
+}: ConfigurationProps) => {
+  const { critical, warning } = thresholdsConfig;
+
   return (
     <section className="flex flex-col lg:items-end items-center size-max">
       <h2 className="font-bold text-2xl w-full bg-[#2a2c3e] pl-8 py-3 text-left rounded-t-lg">
@@ -11,13 +24,31 @@ export const Configuration = () => {
         <div className="flex justify-between">
           <ConfigOptions
             thresholdType="Warning"
-            defaultPercentile={95}
-            defaultFactor={80}
+            defaultPercentile={warning.percentile}
+            defaultFactor={warning.factor}
+            updateConfig={(config) => {
+              updateThresholdsConfig((prevValue) => ({
+                ...prevValue,
+                warning: {
+                  ...prevValue.warning,
+                  ...config,
+                },
+              }));
+            }}
           />
           <ConfigOptions
             thresholdType="Critical"
-            defaultPercentile={99}
-            defaultFactor={95}
+            defaultPercentile={critical.percentile}
+            defaultFactor={critical.factor}
+            updateConfig={(config) => {
+              updateThresholdsConfig((prevValue) => ({
+                ...prevValue,
+                critical: {
+                  ...prevValue.warning,
+                  ...config,
+                },
+              }));
+            }}
           />
         </div>
         <p className="mt-8 text-sm">
