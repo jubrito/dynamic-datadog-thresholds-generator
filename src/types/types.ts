@@ -14,13 +14,12 @@ export type ThresholdData = {
   endpointPath?: string;
 };
 
+export type ThresholdConfig = {
+  percentile: number;
+  factor: number;
+};
+
 export type ThresholdsConfig = {
-  warning: {
-    percentile: number;
-    factor: number;
-  };
-  critical: {
-    percentile: number;
-    factor: number;
-  };
+  warning: ThresholdConfig;
+  critical: ThresholdConfig;
 };
