@@ -1,4 +1,4 @@
-import type { EndpointStats, Percentile } from "../types/types";
+import { EndpointStats, Percentile } from "../types/types";
 import { getAverage, getMedian } from "./statistics";
 
 export const getStatistics = (
