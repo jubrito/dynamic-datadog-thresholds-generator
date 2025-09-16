@@ -16,12 +16,12 @@ export const Home = () => {
   });
 
   return (
-    <main className="grid xl:grid-cols-2 grid-cols-1 grid-rows-1">
+    <main className="grid xl:grid-cols-2 grid-cols-1 grid-rows-1 gap-15">
+      <ThresholdsGenerator thresholdsConfig={thresholdsConfig} />
       <Configuration
         thresholdsConfig={thresholdsConfig}
         updateThresholdsConfig={setThresholdsConfig}
       />
-      <ThresholdsGenerator thresholdsConfig={thresholdsConfig} />
     </main>
   );
 };

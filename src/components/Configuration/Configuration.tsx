@@ -15,13 +15,13 @@ export const Configuration = ({
   const { critical, warning } = thresholdsConfig;
 
   return (
-    <section className="flex flex-col lg:items-end items-center size-max">
+    <section className="flex flex-col lg:items-end items-center size-full">
       <h2 className="font-bold text-2xl w-full bg-[#2a2c3e] pl-8 py-3 text-left rounded-t-lg">
         Generator configuration
       </h2>
 
-      <div className="p-5 w-full h-full bg-[#11131f] max-w-[505px] rounded-b-lg">
-        <div className="flex justify-between">
+      <div className="p-5 w-full h-full bg-[#11131f] rounded-b-lg">
+        <div className="flex justify-between gap-5">
           <ConfigOptions
             thresholdType="Warning"
             defaultPercentile={warning.percentile}
