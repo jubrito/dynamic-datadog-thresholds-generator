@@ -15,13 +15,13 @@ export const ThresholdResults = ({
 
   return (
     <>
-      <div className="content">
+      <div>
         <strong>
           <ul>
-            <li className="critical">
+            <li>
               <h3>Suggested CRITICAL Threshold: {criticalThreshold}</h3>
             </li>
-            <li className="warning">
+            <li>
               <h3>Suggested WARNING Threshold: {warningThreshold}</h3>
             </li>
           </ul>
@@ -35,11 +35,8 @@ export const ThresholdResults = ({
         </p>
         <p>
           <strong>Minimum:</strong> {endpointStats.minimum}
-          <span className="mr-10">, </span>
           <strong>Maximum:</strong> {endpointStats.maximum}
-          <span className="mr-10">, </span>
           <strong>Average:</strong> {endpointStats.average}
-          <span className="mr-10">, </span>
           <strong>Median:</strong> {endpointStats.median}
         </p>
         {insufficientData && (
