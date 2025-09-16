@@ -11,24 +11,27 @@ export const EndpointStatistics = ({
 }: EndpointStatisticsProps) => {
   const [showStats, setShowStats] = useState(false);
   const insufficientData = endpointStats.numberOfElements < 4;
-
+  const statsSectionId = "endpoint-highlights";
   return (
     <>
       <div>
         <div className="flex">
-          <button onClick={() => setShowStats((prevValue) => !prevValue)}>
+          <button
+            onClick={() => setShowStats((prevValue) => !prevValue)}
+            aria-controls={statsSectionId}
+          >
             <KeyboardArrowDownIcon />
             Show endpoint insights
           </button>
         </div>
       </div>
       {showStats && (
-        <div aria-expanded={showStats}>
+        <div aria-expanded={showStats} id={statsSectionId}>
           <p>
             <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
           </p>
           <p>
-            <strong>Number of values analyzed:</strong>{" "}
+            <strong>Number of values analyzed:</strong>
             {endpointStats.numberOfElements}
           </p>
           <p>
