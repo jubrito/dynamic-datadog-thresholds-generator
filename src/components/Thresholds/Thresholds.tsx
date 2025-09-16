@@ -22,8 +22,8 @@ export const Thresholds = ({
   );
 
   return (
-    <>
-      {endpointName && <h2>{endpointName}</h2>}
+    <section className="bg-black">
+      {endpointName && <h2 className="font-bold text-2xl">{endpointName}</h2>}
       {sortedPercentileValues.length > 0 && (
         <ThresholdResults
           endpointStats={percentileStats}
@@ -31,6 +31,6 @@ export const Thresholds = ({
           criticalThreshold={criticalThreshold}
         />
       )}
-    </>
+    </section>
   );
 };
