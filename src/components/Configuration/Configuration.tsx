@@ -20,7 +20,7 @@ export const Configuration = ({
         Generator configuration
       </h2>
 
-      <div className="p-8 w-full h-full bg-[#11131f] max-w-[505px] rounded-b-lg">
+      <div className="p-5 w-full h-full bg-[#11131f] max-w-[505px] rounded-b-lg">
         <div className="flex justify-between">
           <ConfigOptions
             thresholdType="Warning"
