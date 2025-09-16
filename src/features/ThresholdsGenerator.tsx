@@ -1,10 +1,16 @@
 import { useState } from "react";
-import type { ThresholdData } from "../types/types";
+import type { ThresholdData, ThresholdsConfig } from "../types/types";
 import { UploadCsvBox } from "../components/UploadCsvBox/UploadCsvBox";
 import { Thresholds } from "../components/Thresholds/Thresholds";
 import { Documentation } from "../components/Documentation/Documentation";
 
-export const ThresholdsGenerator = () => {
+type ThresholdsGeneratorProps = {
+  thresholdsConfig: ThresholdsConfig;
+};
+
+export const ThresholdsGenerator = ({
+  thresholdsConfig,
+}: ThresholdsGeneratorProps) => {
   const [thresholdData, setThresholdData] = useState<ThresholdData>({
     metricValues: [],
   });
@@ -19,6 +25,7 @@ export const ThresholdsGenerator = () => {
       <Thresholds
         endpointName={thresholdData.endpointPath}
         percentileValues={thresholdData.metricValues}
+        thresholdsConfig={thresholdsConfig}
       />
     </section>
   );
