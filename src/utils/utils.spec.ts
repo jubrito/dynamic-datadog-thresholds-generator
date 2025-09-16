@@ -1,4 +1,8 @@
-import { getSortedAscending, getStatistics } from "./utils";
+import {
+  getSortedAscending,
+  getStatistics,
+  getWithNDecimalPlaces,
+} from "./utils";
 
 describe("utils", () => {
   const valuesSorted = [1, 2, 3, 4];
@@ -47,6 +51,17 @@ describe("utils", () => {
     it("should sort ascending", () => {
       const sorted = getSortedAscending(valuesNotSorted);
       expect(sorted).toStrictEqual(valuesSorted);
+    });
+  });
+
+  describe("getWithNDecimalPlaces", () => {
+    it("should get value with n decimal places", () => {
+      const value = 3.12345;
+      expect(getWithNDecimalPlaces(value, 1)).toBe("3.1");
+      expect(getWithNDecimalPlaces(value, 2)).toBe("3.12");
+      expect(getWithNDecimalPlaces(value, 3)).toBe("3.123");
+      expect(getWithNDecimalPlaces(value, 4)).toBe("3.1235"); // rounds up
+      expect(getWithNDecimalPlaces(value, 5)).toBe("3.12345");
     });
   });
 });
