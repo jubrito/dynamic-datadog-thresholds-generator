@@ -20,11 +20,12 @@ export const Thresholds = ({
     sortedPercentileValues,
     thresholdsConfig
   );
-  const resultsFound = sortedPercentileValues.length > 0;
+  const resultsWereGenerated =
+    endpointName && sortedPercentileValues.length > 0;
 
   return (
     <section>
-      {endpointName && resultsFound && (
+      {resultsWereGenerated && (
         <div className="bg-[#11131f] border-white border-1 rounded-xl p-8">
           <h2 className="underscore font-bold text-2xl">{endpointName}</h2>
           <ThresholdResults
