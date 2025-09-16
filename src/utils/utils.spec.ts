@@ -42,4 +42,11 @@ describe("utils", () => {
       expect(numberOfElements).toBe(valuesSorted.length);
     });
   });
+
+  describe("getSortedAscending", () => {
+    it("should sort ascending", () => {
+      const sorted = getSortedAscending(valuesNotSorted);
+      expect(sorted).toStrictEqual(valuesSorted);
+    });
+  });
 });
