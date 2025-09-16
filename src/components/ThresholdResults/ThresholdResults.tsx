@@ -16,16 +16,14 @@ export const ThresholdResults = ({
   return (
     <>
       <div>
-        <strong>
-          <ul>
-            <li>
-              <h3>Suggested CRITICAL Threshold: {criticalThreshold}</h3>
-            </li>
-            <li>
-              <h3>Suggested WARNING Threshold: {warningThreshold}</h3>
-            </li>
-          </ul>
-        </strong>
+        <div className="flex gap-5">
+          <h3 className="font-bold text-xl my-5 p-2 bg-pink-500 w-max">
+            Critical Threshold {criticalThreshold}
+          </h3>
+          <h3 className="font-bold my-5 text-xl p-2 bg-[#F66500] w-max">
+            Warning Threshold {warningThreshold}
+          </h3>
+        </div>
         <p>
           <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
         </p>
