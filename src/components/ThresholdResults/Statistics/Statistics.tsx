@@ -29,7 +29,7 @@ export const EndpointStatistics = ({
         </div>
       </button>
       {showStats && (
-        <div className="bg-[#171929] mt-2 p-6">
+        <div className="bg-[#171929] mt-5">
           <div
             className="flex flex-wrap gap-4"
             aria-expanded={showStats}
