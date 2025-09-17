@@ -10,6 +10,10 @@ type RangeConfigProps = {
     lowLabel?: string;
     highLabel?: string;
   };
+  limits: {
+    min: number;
+    max: number;
+  };
   updateConfigProperty: (
     config: ThresholdConfig["percentile"] | ThresholdConfig["factor"]
   ) => void;
@@ -20,6 +24,7 @@ export const RangeConfig = ({
   defaultValue,
   labels,
   updateConfigProperty,
+  limits,
 }: RangeConfigProps) => {
   const [value, setValue] = useState(defaultValue);
   const lowLabel = labels?.lowLabel || "Lower";
@@ -43,8 +48,8 @@ export const RangeConfig = ({
           id={rangeFieldId}
           className="ml-3 bg-gray-900 pl-2 text-center"
           type="number"
-          min="1"
-          max="99"
+          min={limits.min}
+          max={limits.max}
           value={value}
           onChange={handleRangeChange}
         />
@@ -55,8 +60,8 @@ export const RangeConfig = ({
           <input
             type="range"
             className={`w-23 h-auto inline mx-3 align-middle ${accentColor}`}
-            min="0"
-            max="99"
+            min={limits.min}
+            max={limits.max}
             value={value}
             onChange={handleRangeChange}
           />
