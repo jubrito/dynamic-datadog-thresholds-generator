@@ -26,7 +26,7 @@ export const Thresholds = ({
   return (
     <section>
       {resultsWereGenerated && (
-        <div className="bg-[#171929] p-5 pt-2 rounded-xl">
+        <div className="bg-[#171929] p-5 pt-3 rounded-xl">
           <h2 className="underscore font-bold text-2xl">
             <span className="sr-only">Endpoint name: </span>
             {endpointName}
