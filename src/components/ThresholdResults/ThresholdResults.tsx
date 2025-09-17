@@ -1,5 +1,4 @@
 import type { EndpointStats, Percentile } from "../../types/types";
-import { EndpointStatistics } from "./Statistics/Statistics";
 
 type ThresholdProps = {
   endpointStats: EndpointStats;
@@ -8,7 +7,6 @@ type ThresholdProps = {
 };
 
 export const ThresholdResults = ({
-  endpointStats,
   warningThreshold,
   criticalThreshold,
 }: ThresholdProps) => {
@@ -22,7 +20,6 @@ export const ThresholdResults = ({
           Critical threshold: {criticalThreshold}
         </h3>
       </div>
-      <EndpointStatistics endpointStats={endpointStats} />
     </>
   );
 };
