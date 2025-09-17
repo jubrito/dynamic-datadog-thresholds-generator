@@ -29,8 +29,8 @@ export const EndpointStatistics = ({
           onClick={() => setShowStats((prevValue) => !prevValue)}
           aria-controls={statsSectionId}
           className="
-            transition-all duration-1000
-            cursor-pointer text-lg font-bold bg-[#2a2c3e] text-white p-2 rounded-lg"
+            transition-all duration-50
+            cursor-pointer text-lg font-bold bg-[#2a2c3e] text-white p-2 rounded-lg hover:border-1"
         >
           <div className="flex">
             <div className="pr-3" aria-hidden="true">
