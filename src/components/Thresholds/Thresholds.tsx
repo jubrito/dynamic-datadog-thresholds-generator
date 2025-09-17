@@ -26,7 +26,7 @@ export const Thresholds = ({
   return (
     <section>
       {resultsWereGenerated && (
-        <div className="bg-[#0f131e] p-6 rounded-xl">
+        <div className="bg-[#171929] p-6 rounded-xl">
           <h2 className="underscore font-bold text-2xl">{endpointName}</h2>
           <ThresholdResults
             endpointStats={percentileStats}
