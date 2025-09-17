@@ -23,7 +23,7 @@ export const EndpointStatistics = ({
   return (
     <>
       <div
-        className={`p-5 rounded-xl transition duration-1000 ${showMainStyleTransition} ${showMainInsightsTransition}`}
+        className={`p-5 rounded-xl transition duration-500 ${showMainStyleTransition} ${showMainInsightsTransition}`}
       >
         <button
           onClick={() => setShowStats((prevValue) => !prevValue)}

@@ -25,19 +25,22 @@ export const Thresholds = ({
 
   return (
     <section>
-      {resultsWereGenerated && (
-        <div className="bg-[#171929] p-5 pt-3 rounded-xl">
-          <h2 className="underscore font-bold text-2xl">
-            <span className="sr-only">Endpoint name: </span>
-            {endpointName}
-          </h2>
-          <ThresholdResults
-            endpointStats={percentileStats}
-            warningThreshold={warningThreshold}
-            criticalThreshold={criticalThreshold}
-          />
-        </div>
-      )}
+      <div
+        className={`${
+          resultsWereGenerated ? "opacity-100" : "opacity-0"
+        } transition-opacity duration-500 bg-[#171929] p-5 pt-3 rounded-xl`}
+        aria-expanded={!!resultsWereGenerated}
+      >
+        <h2 className="font-bold text-2xl">
+          <span className="sr-only">Endpoint name: </span>
+          {endpointName}
+        </h2>
+        <ThresholdResults
+          endpointStats={percentileStats}
+          warningThreshold={warningThreshold}
+          criticalThreshold={criticalThreshold}
+        />
+      </div>
     </section>
   );
 };
