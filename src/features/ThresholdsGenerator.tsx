@@ -16,7 +16,7 @@ export const ThresholdsGenerator = ({
   });
 
   return (
-    <section className="flex flex-col gap-6 text-left bg-[#0f131e] p-6 rounded-xl">
+    <section className="flex flex-col gap-4 text-left bg-[#0f131e] p-5 rounded-xl">
       <Documentation />
       <UploadCsvBox setThresholdData={setThresholdData} />
       <Thresholds
