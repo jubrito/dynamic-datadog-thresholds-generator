@@ -18,7 +18,7 @@ export const EndpointStatistics = ({
       <button
         onClick={() => setShowStats((prevValue) => !prevValue)}
         aria-controls={statsSectionId}
-        className="cursor-pointer text-xl"
+        className="cursor-pointer text-md font-bold"
       >
         <div className="flex">
           <div className="pr-3" aria-hidden="true">
