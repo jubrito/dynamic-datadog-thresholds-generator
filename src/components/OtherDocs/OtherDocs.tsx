@@ -1,8 +1,8 @@
-type DocumentationProps = {
+type OtherDocsProps = {
   visible?: false;
 };
 
-export const Documentation = ({ visible = false }: DocumentationProps) => {
+export const OtherDocs = ({ visible = false }: OtherDocsProps) => {
   if (!visible) return null;
 
   return (
