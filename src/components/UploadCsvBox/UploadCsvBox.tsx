@@ -90,6 +90,7 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
             server={null}
             name="files"
             labelIdle="Click here or Drag & Drop a csv file to upload"
+            className="custom-filepond"
           />
         </div>
       </div>
