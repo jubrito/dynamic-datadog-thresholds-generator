@@ -15,45 +15,59 @@ export const EndpointStatistics = ({
   const statsSectionId = "endpoint-highlights";
   return (
     <>
-      <div>
+      <button
+        onClick={() => setShowStats((prevValue) => !prevValue)}
+        aria-controls={statsSectionId}
+        className="cursor-pointer text-xl"
+      >
         <div className="flex">
-          <button
-            onClick={() => setShowStats((prevValue) => !prevValue)}
-            aria-controls={statsSectionId}
-            className="cursor-pointer text-xl"
-          >
-            <div aria-hidden="true">
-              {!showStats && <VisibilityIcon />}
-              {showStats && <VisibilityOffIcon />}
-            </div>
-            Show endpoint insights
-          </button>
+          <div className="pr-3" aria-hidden="true">
+            {!showStats && <VisibilityIcon />}
+            {showStats && <VisibilityOffIcon />}
+          </div>
+          <span className="mt-0.5">Show endpoint insights</span>
         </div>
-      </div>
+      </button>
       {showStats && (
-        <div aria-expanded={showStats} id={statsSectionId}>
-          <p>
-            <strong>Number of values analyzed:</strong>
-            {endpointStats.numberOfElements}
-          </p>
-          <p>
-            <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
-          </p>
-
-          <p>
-            <strong>Minimum:</strong> {endpointStats.minimum}
-            <strong>Maximum:</strong> {endpointStats.maximum}
-            <strong>Average:</strong> {endpointStats.average}
-            <strong>Median:</strong> {endpointStats.median}
-          </p>
-          {insufficientData && (
-            <p>
-              <i>
-                <strong>Note:</strong> Not enough data: enter more than four
-                values for a more accurate result.
-              </i>
+        <div className="bg-[#171929] mt-2 p-6">
+          <div
+            className="flex flex-wrap gap-4"
+            aria-expanded={showStats}
+            id={statsSectionId}
+          >
+            <p className="border-1 p-3 rounded-lg flex-grow-1">
+              <strong>Number of values analyzed: </strong>
+              {endpointStats.numberOfElements}
             </p>
-          )}
+            <p className="border-1 p-3 rounded-lg flex-grow-1">
+              <strong>Minimum: </strong>
+              {endpointStats.minimum}
+            </p>
+            <p className="border-1 p-3 rounded-lg flex-grow-1">
+              <strong>Maximum: </strong>
+              {endpointStats.maximum}
+            </p>
+            <p className="border-1 p-3 rounded-lg flex-grow-1">
+              <strong>Average: </strong>
+              {endpointStats.average}
+            </p>
+            <p className="border-1 p-3 rounded-lg flex-grow-1">
+              <strong>Median: </strong>
+              {endpointStats.median}
+            </p>
+            <p className="border-1 p-3 rounded-lg flex-grow-1">
+              <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
+            </p>
+            <p></p>
+            {insufficientData && (
+              <p>
+                <i>
+                  <strong>Note:</strong> Not enough data: enter more than four
+                  values for a more accurate result.
+                </i>
+              </p>
+            )}
+          </div>
         </div>
       )}
     </>
