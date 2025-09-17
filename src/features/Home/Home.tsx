@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Configuration } from "../../components/Configuration/Configuration";
 import { ThresholdsGenerator } from "../ThresholdsGenerator";
-import type { ThresholdsConfig } from "../../types/types";
+import type { ThresholdData, ThresholdsConfig } from "../../types/types";
+import { getSortedAscending, getStatistics } from "../../utils/utils";
+import { EndpointStatistics } from "../../components/ThresholdResults/Statistics/Statistics";
 
 export const Home = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
@@ -14,6 +16,12 @@ export const Home = () => {
       percentile: 95,
     },
   });
+  const [thresholdData, setThresholdData] = useState<ThresholdData>({
+    metricValues: [],
+  });
+  const percentileValues = thresholdData.metricValues;
+  const sortedPercentileValues = getSortedAscending(percentileValues);
+  const percentileStats = getStatistics(sortedPercentileValues);
 
   return (
     <main className="grid xl:grid-cols-2 grid-cols-2 grid-rows-1 gap-7">
@@ -33,11 +41,21 @@ export const Home = () => {
           </span>
         </h3>
       </div>
-      <ThresholdsGenerator thresholdsConfig={thresholdsConfig} />
+      <ThresholdsGenerator
+        thresholdsConfig={thresholdsConfig}
+        thresholdData={thresholdData}
+        updateThresholdData={setThresholdData}
+      />
       <Configuration
         thresholdsConfig={thresholdsConfig}
         updateThresholdsConfig={setThresholdsConfig}
       />
+      <div className="col-span-2 max-h-min text-left">
+        <EndpointStatistics
+          endpointStats={percentileStats}
+          showInsights={thresholdData.metricValues.length > 0}
+        />
+      </div>
     </main>
   );
 };
