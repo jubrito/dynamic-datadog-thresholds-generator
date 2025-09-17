@@ -15,80 +15,95 @@ export const EndpointStatistics = ({
   const [showStats, setShowStats] = useState(false);
   const insufficientData = endpointStats.numberOfElements < 4;
   const statsSectionId = "endpoint-highlights";
+  const showMainStyleTransition = showStats
+    ? "bg-[#0f131e] border-3 border-[#0f131e]"
+    : "bg-[#0f131e]";
+  const showMainInsightsTransition = showInsights ? "opacity-100" : "opacity-0";
 
   return (
     <>
-      {showInsights && (
-        <div
-          className={`p-5 rounded-xl delay-400 transition duration-1000 
-            ${
-              showStats
-                ? "bg-[#0f131e] border-3 border-[#0f131e]"
-                : "bg-[#0f131e]"
-            }
-            `}
-        >
-          <button
-            onClick={() => setShowStats((prevValue) => !prevValue)}
-            aria-controls={statsSectionId}
-            className="
+      <div
+        className={`p-5 rounded-xl transition duration-1000 ${showMainStyleTransition} ${showMainInsightsTransition}`}
+      >
+        <button
+          onClick={() => setShowStats((prevValue) => !prevValue)}
+          aria-controls={statsSectionId}
+          className="
             transition-all duration-1000
             cursor-pointer text-lg font-bold bg-[#2a2c3e] text-white p-2 rounded-lg"
-          >
-            <div className="flex">
-              <div className="pr-3" aria-hidden="true">
-                {!showStats && <VisibilityIcon />}
-                {showStats && <VisibilityOffIcon />}
-              </div>
-              <span className="mt-0.5 w-max">
-                {!showStats && <span>Show </span>}
-                {showStats && <span>Hide </span>}
-                endpoint insights
-              </span>
+        >
+          <div className="flex">
+            <div className="pr-3" aria-hidden="true">
+              {!showStats && <VisibilityIcon />}
+              {showStats && <VisibilityOffIcon />}
             </div>
-          </button>
-          <div
-            className={` ${
-              showStats ? "delay-400 max-h-96 mt-5" : "max-h-0 mt-0"
-            } flex flex-wrap gap-4 transition-all duration-1000 ease-in-out ease-out overflow-hidden`}
-            aria-expanded={showStats}
-            id={statsSectionId}
-          >
-            <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
-              <strong>Number of values analyzed: </strong>
-              {endpointStats.numberOfElements}
-            </p>
-            <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
-              <strong>Minimum: </strong>
-              {endpointStats.minimum}
-            </p>
-            <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
-              <strong>Maximum: </strong>
-              {endpointStats.maximum}
-            </p>
-            <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
-              <strong>Average: </strong>
-              {endpointStats.average}
-            </p>
-            <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
-              <strong>Median: </strong>
-              {endpointStats.median}
-            </p>
-            <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
-              <strong>Sorted percentiles:</strong> [{endpointStats.sorted}]
-            </p>
-            <p></p>
-            {insufficientData && (
-              <p>
-                <i>
-                  <strong>Note:</strong> Not enough data: enter more than four
-                  values for a more accurate result.
-                </i>
-              </p>
-            )}
+            <span className="mt-0.5 w-max">
+              {!showStats && <span>Show </span>}
+              {showStats && <span>Hide </span>}
+              endpoint insights
+            </span>
           </div>
+        </button>
+        <div
+          className={` ${
+            showStats ? "delay-400 max-h-96 mt-5" : "max-h-0 mt-0"
+          } flex flex-wrap gap-4 transition-all duration-1000 ease-in-out ease-out overflow-hidden`}
+          aria-expanded={showStats}
+          id={statsSectionId}
+        >
+          <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+            <strong>
+              Number of values analyzed:
+              <span className="ml-2 text-cyan-500">
+                {endpointStats.numberOfElements}
+              </span>
+            </strong>
+          </p>
+          <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+            <strong>
+              Minimum:
+              <span className="ml-2 text-cyan-500">
+                {endpointStats.minimum}
+              </span>
+            </strong>
+          </p>
+          <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+            <strong>
+              Maximum:
+              <span className="ml-2 text-cyan-500">
+                {endpointStats.maximum}
+              </span>
+            </strong>
+          </p>
+          <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+            <strong>
+              Average:
+              <span className="ml-2 text-cyan-500">
+                {endpointStats.average}
+              </span>
+            </strong>
+          </p>
+          <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+            <strong>
+              Median:
+              <span className="ml-2 text-cyan-500">{endpointStats.median}</span>
+            </strong>
+          </p>
+          <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1 h-18 overflow-auto">
+            <strong>Sorted percentiles: </strong>
+            <span className="ml-2 text-cyan-300">[{endpointStats.sorted}]</span>
+          </p>
+          <p></p>
+          {insufficientData && (
+            <p>
+              <i>
+                <strong>Note:</strong> Not enough data: enter more than four
+                values for a more accurate result.
+              </i>
+            </p>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };
