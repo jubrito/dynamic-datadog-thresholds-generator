@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Configuration } from "../../components/Configuration/Configuration";
-import { ThresholdsGenerator } from "../ThresholdsGenerator";
+import { ThresholdsGenerator } from "../ThresholdsGenerator/ThresholdsGenerator";
 import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { EndpointStatistics } from "../../components/ThresholdResults/Statistics/Statistics";
