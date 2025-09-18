@@ -2,8 +2,11 @@ import { Link } from "react-router";
 
 export const Nav = () => {
   return (
-    <nav aria-labelledby="main-menu-label" className="gap-5 bg-[#0f131e]">
-      <div className="max-w-355 my-0 mx-auto">
+    <nav
+      aria-labelledby="main-menu-label"
+      className="gap-5 bg-[#0f131e] fixed w-full h-20"
+    >
+      <div className="max-w-350 my-0 mx-auto">
         <h2 id="main-menu-label" className="sr-only">
           Main Menu
         </h2>

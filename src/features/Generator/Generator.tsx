@@ -24,7 +24,7 @@ export const Generator = () => {
   const percentileStats = getStatistics(sortedPercentileValues);
 
   return (
-    <section className="grid xl:grid-cols-2 grid-cols-2 grid-rows-1 gap-7 p-10">
+    <section className="grid xl:grid-cols-2 grid-cols-2 grid-rows-1 gap-7">
       <div className="col-span-2 max-h-min text-left">
         <h1 className="font-bold text-3xl uppercase">
           Dynamic Threshold Generator
