@@ -1,5 +1,6 @@
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
+import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
 type ObservabilityProps = {
@@ -21,9 +22,7 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
         In distributed systems, observability tools are critical to detect,
         debug, and resolve performance issues before they impact users.
       </p>
-      <div className="py-4">
-        <hr />
-      </div>
+      <Divider />
       <div>
         <p className="font-bold text-lg">Observability practices can:</p>
         <ul className="list-inside list-disc">
@@ -31,9 +30,7 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
           <li>Provide faster feedback.</li>
         </ul>
       </div>
-      <div className="py-4">
-        <hr />
-      </div>
+      <Divider />
       <div>
         <p className="text-bold">The three pillars of observability are:</p>
         <div className="flex gap-5 mt-3">
@@ -42,14 +39,12 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
           <span className="bg-pink-600 p-3 px-15">Metrics</span>
         </div>
       </div>
-      <div className="py-4">
-        <hr />
-      </div>
       <p>
         To address observability, we can use tools such as Datadog, a plataform
         that provides an observability service to monitor servers, databases,
         tools, and services, through a SaaS-based data analytics platform.
       </p>
+      <Divider />
       <PreviousNextButtons
         next={{
           label: "Datadog",

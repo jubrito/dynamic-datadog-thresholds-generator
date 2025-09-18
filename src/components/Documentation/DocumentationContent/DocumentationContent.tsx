@@ -15,14 +15,16 @@ export const DocumentationContent = ({
   openDocumentation,
 }: DocumentationContentProps) => {
   return (
-    <div className="p-13 text-left">
+    <div className="p-13 text-left w-250">
       {documentationSectionOpen.observability && (
         <Observability openDocumentation={openDocumentation} />
       )}
       {documentationSectionOpen.datadog && (
         <Datadog openDocumentation={openDocumentation} />
       )}
-      {documentationSectionOpen.thresholds && <Thresholds />}
+      {documentationSectionOpen.thresholds && (
+        <Thresholds openDocumentation={openDocumentation} />
+      )}
     </div>
   );
 };

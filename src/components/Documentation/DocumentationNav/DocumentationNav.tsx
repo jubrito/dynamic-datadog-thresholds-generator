@@ -13,7 +13,7 @@ export const DocumentationNav = ({
   documentationSectionOpen,
 }: DocumentationNavProps) => {
   return (
-    <div className="bg-black h-dvh w-40">
+    <div className="bg-black h-dvh w-40 fixed">
       <ul className="flex flex-col gap-8 mt-15 text-left pl-7 cursor-pointer">
         <li>
           <button

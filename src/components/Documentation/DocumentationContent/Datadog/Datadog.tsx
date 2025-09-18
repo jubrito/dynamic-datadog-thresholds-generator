@@ -1,6 +1,7 @@
 import DatadogLogo from "../../../../assets/datadog-logo.jpg";
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
+import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
 type DatadogProps = {
@@ -46,9 +47,7 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
         When configuring monitors, you can define thresholds to create alerts
         and receive notifications about your endpoints.
       </p>
-      <div className="py-4">
-        <hr />
-      </div>
+      <Divider />
       <PreviousNextButtons
         previous={{
           label: "Observability",
