@@ -13,45 +13,30 @@
 A customizable dynamic threshold generator for Datadog that allows anyone to create and manage, and track events.
 
 <img width="1267" height="527" alt="image" src="https://github.com/user-attachments/assets/8357547c-994e-4fab-9702-c0d111c8d292" />
+
 ## **Progress**
 
-![](https://us-central1-progress-markdown.cloudfunctions.net/progress/30)
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/50)
 
 ## Features
 
-### Key principles
-
-- **Accessibility by design** – Built to be accessible to everyone, with support for mouse, screen readers, and keyboard navigation.
-
-- **Test-Driven Quality** – Rigorously tested (Jest, React Testing Library) to ensure reliability and maintainability.
-
-- **Optimized Performance** – Lightweight and fast for an improved user experience.
-
-– **Customizable & Scalable** – Modular architecture (Redux, React) to enable extending new features and improve scalability.
-
 ### Included features:
 
-- **Event Creation** – Add, edit, and delete events.
+- **Threshold configuration** – Define the base percentile and the rigour factor to be less or more strict when generating thresholds.
 
-- **Day and Month Views** – Interact with events in either a calendar month view or a daily planner view.
+- **CSV file upload** – Upload Datadog endpoint metrics files using the percentile aggregation to generate dynamic results.
 
-- **Responsive Design** – Works on different devices and screen sizes.
+- **Documentation** – Use the documentation about Datadog, Monitors configuration, Thresholds, and more to learn more about Observability. 
 
-- **Current hour** – Highlights the current hour in day-view mode.
+### In progress:
 
-### Features in progress:
+- Improving testability
 
-- **Recurring Events** – Set repeating events (daily, weekly, monthly).
+- Improving accessibility
 
-- **TO-DO List Integration** – Connect tasks with calendar events for a better planning experience.
+- Finishing adding all documentation 
 
-- **Drag and Drop** – Update events by dragging and dropping.
-
-- **Web Hosting** – Deploy the app for public access.
-
-- **Styling** – Enhance the UI/UX.
-
-- **Database Connection** – Store and persist user data.
+- Responsiveness
 
 ## Installation
 
@@ -60,7 +45,7 @@ A customizable dynamic threshold generator for Datadog that allows anyone to cre
 2. Navigate to the project directory:
 
 ```sh
-cd planner-with-calendar
+cd dynamic-datadog-thresholds-generator
 ```
 
 3. Install dependencies:
@@ -82,6 +67,6 @@ npm run test
 ```
 
 ## License
+MIT
 
-[MIT](https://github.com/arthurfiorette/try/blob/main/LICENSE)
 
