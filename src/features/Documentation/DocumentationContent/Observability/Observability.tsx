@@ -1,4 +1,14 @@
-export const Observability = () => {
+import { OpenDocumentationSection } from "../../../../types/types";
+import { closeDocumentationSections } from "../../../../utils/constants";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+
+type ObservabilityProps = {
+  openDocumentation: React.Dispatch<
+    React.SetStateAction<OpenDocumentationSection>
+  >;
+};
+
+export const Observability = ({ openDocumentation }: ObservabilityProps) => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Observability</h1>
@@ -32,6 +42,31 @@ export const Observability = () => {
           <span className="bg-pink-600 p-3 px-15">Metrics</span>
         </div>
       </div>
+      <div className="py-4">
+        <hr />
+      </div>
+      <p>
+        To address observability, we can use tools such as Datadog, a plataform
+        that provides an observability service to monitor servers, databases,
+        tools, and services, through a SaaS-based data analytics platform.
+      </p>
+      <button
+        onClick={() =>
+          openDocumentation({
+            ...closeDocumentationSections,
+            datadog: true,
+          })
+        }
+        className={
+          "relative group text-lg hover:text-white cursor-pointer w-fit"
+        }
+      >
+        <span>
+          {<NavigateNextIcon />}{" "}
+          <span className="font-bold">Next: Datadog</span>
+        </span>
+        <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
+      </button>
     </div>
   );
 };

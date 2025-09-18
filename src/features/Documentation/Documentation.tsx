@@ -8,6 +8,7 @@ export const Documentation = () => {
   const [openDocumentationSection, setOpenDocumentationSection] =
     useState<OpenDocumentationSection>({
       observability: true,
+      datadog: false,
     });
   return (
     <section className={`${mainGridStyle} w-full`}>
@@ -17,6 +18,7 @@ export const Documentation = () => {
       />
       <div className="col-start-2 col-end-4">
         <DocumentationContent
+          openDocumentation={setOpenDocumentationSection}
           documentationSectionOpen={openDocumentationSection}
         />
       </div>
