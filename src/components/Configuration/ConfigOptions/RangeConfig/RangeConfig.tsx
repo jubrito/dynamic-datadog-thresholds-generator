@@ -59,7 +59,7 @@ export const RangeConfig = ({
           <p className="inline text-sm italic">{lowLabel}</p>
           <input
             type="range"
-            className={`h-auto inline mx-4 my-2 align-middle ${accentColor}`}
+            className={`h-auto w-18 inline mx-4 my-2 align-middle ${accentColor}`}
             min={limits.min}
             max={limits.max}
             value={value}

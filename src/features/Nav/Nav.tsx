@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { mainGridStyle } from "../../utils/styles";
 
 export const Nav = () => {
   return (
@@ -6,11 +7,11 @@ export const Nav = () => {
       aria-labelledby="main-menu-label"
       className="gap-5 bg-[#0f131e] fixed w-full h-20"
     >
-      <div className="max-w-350 my-0 mx-auto">
-        <h2 id="main-menu-label" className="sr-only">
-          Main Menu
-        </h2>
-        <ul className="flex px-10 py-5 w-full">
+      <h2 id="main-menu-label" className="sr-only">
+        Main Menu
+      </h2>
+      <div className={`${mainGridStyle} my-0 mx-auto`}>
+        <ul className="col-start-2 col-end-3 flex px-10 py-5 w-full">
           <li className="py-1 px-3 rounded-md">
             <Link to={"/"}>
               <p className="relative group text-[#dedae3] text-xl hover:text-white cursor-pointer">

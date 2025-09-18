@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <main className="grid grid-col-1 grid-row-2 gap-2">
         <Nav />
-        <div className="my-0 mx-auto max-w-350 mt-18 p-13">
+        <div className="mt-18">
           <Routes>
             <Route path="/" element={<Generator />} />
             <Route path="/documentation" element={<Documentation />} />

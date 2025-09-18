@@ -1,3 +1,7 @@
 export const DocumentationContent = () => {
-  return <p>Documentation content</p>;
+  return (
+    <div className="p-13 pl-10">
+      <p className="text-white">Documentation content</p>
+    </div>
+  );
 };
