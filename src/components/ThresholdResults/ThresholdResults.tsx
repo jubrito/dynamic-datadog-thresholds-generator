@@ -13,12 +13,18 @@ export const ThresholdResults = ({
   return (
     <>
       <div className="flex gap-5">
-        <h3 className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-60 w-1/6 rounded-lg">
+        <p
+          className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-60 w-1/6 rounded-lg"
+          aria-live="polite"
+        >
           Warning threshold: {warningThreshold}
-        </h3>
-        <h3 className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 min-w-60 w-1/6 rounded-lg">
+        </p>
+        <p
+          className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 min-w-60 w-1/6 rounded-lg"
+          aria-live="polite"
+        >
           Critical threshold: {criticalThreshold}
-        </h3>
+        </p>
       </div>
     </>
   );
