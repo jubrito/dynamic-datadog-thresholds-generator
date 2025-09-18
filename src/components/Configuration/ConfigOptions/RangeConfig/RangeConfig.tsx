@@ -56,19 +56,19 @@ export const RangeConfig = ({
       </div>
       <>
         <div className="w-max">
-          <p className="inline text-sm font-italic">{lowLabel}</p>
+          <p className="inline text-sm italic">{lowLabel}</p>
           <input
             type="range"
-            className={`w-23 h-auto inline mx-3 align-middle ${accentColor}`}
+            className={`h-auto inline mx-4 my-2 align-middle ${accentColor}`}
             min={limits.min}
             max={limits.max}
             value={value}
             onChange={handleRangeChange}
           />
 
-          <p className="inline text-sm">{highLabel}</p>
+          <p className="inline text-sm italic">{highLabel}</p>
         </div>
-        <p className="text-sm italic text-left">{rangeBarLabel}</p>
+        <p className="text-sm text-left">{rangeBarLabel}</p>
       </>
     </div>
   );
