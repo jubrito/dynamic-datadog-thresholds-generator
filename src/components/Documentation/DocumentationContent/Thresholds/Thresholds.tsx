@@ -16,15 +16,15 @@ export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
       <p className="text-2xl">What is it and why does it matter?</p>
       <p>
         Thresholds are predefined
-        <span className="text-pink-300 font-bold mr-1">
+        <span className="text-pink-300 font-bold mr-1 mx-1">
           values that trigger alerts
         </span>
         when a metric crosses them. They act as boundaries for monitoring
         conditions, allowing you to define
         <span className="font-bold">
           when a system is considered to be in an
-          <span className="text-pink-300">alert</span> or
-          <span className="text-orange-300">warning</span> state.
+          <span className="text-pink-300 mx-1">alert</span> or
+          <span className="text-orange-300 mx-1">warning</span> state.
         </span>
       </p>
       <Divider />

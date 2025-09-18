@@ -13,10 +13,10 @@ export const ThresholdResults = ({
   return (
     <>
       <div className="flex gap-5">
-        <h3 className="font-bold mt-6 text-lg p-2 bg-[#F66500] w-1/4 rounded-lg">
+        <h3 className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-fit w-1/6 rounded-lg">
           Warning threshold: {warningThreshold}
         </h3>
-        <h3 className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 w-1/4 rounded-lg">
+        <h3 className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 min-w-fit w-1/6 rounded-lg">
           Critical threshold: {criticalThreshold}
         </h3>
       </div>
