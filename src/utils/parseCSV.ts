@@ -1,4 +1,4 @@
-import Papa from "papaparse";
+import * as Papa from "papaparse";
 
 /* Parses a CSV file and returns the data as a two-dimensional array of strings.
  *
