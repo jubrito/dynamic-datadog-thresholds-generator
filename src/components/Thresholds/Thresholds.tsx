@@ -23,7 +23,7 @@ export const Thresholds = ({
     endpointName && sortedPercentileValues.length > 0;
 
   return (
-    <section>
+    <section role="region" aria-live="polite">
       <div
         className={`${
           resultsWereGenerated ? "opacity-100" : "opacity-0"
