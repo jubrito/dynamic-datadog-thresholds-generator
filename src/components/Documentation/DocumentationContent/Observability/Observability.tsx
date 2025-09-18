@@ -19,8 +19,8 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
         by examining outputs, such as metrics and logs.
       </p>
       <p>
-        In distributed systems, observability tools are critical to detect,
-        debug, and resolve performance issues before they impact users.
+        Observability tools are critical to detect, debug, and resolve
+        performance issues before they impact users.
       </p>
       <Divider />
       <div>
