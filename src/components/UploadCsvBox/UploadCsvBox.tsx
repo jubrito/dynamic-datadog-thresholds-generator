@@ -9,10 +9,10 @@ import { parseCSV } from "../../utils/parseCSV";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 type UploadCsvBoxProps = {
-  setThresholdData: React.Dispatch<React.SetStateAction<ThresholdData>>;
+  updateThresholdData: React.Dispatch<React.SetStateAction<ThresholdData>>;
 };
 
-export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
+export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
   const handleValues = (csvRows: string[][], csvHeaders: string[]) => {
     const valuesColumnIndex = csvHeaders.indexOf("value");
 
@@ -62,7 +62,7 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
       const [csvHeaders, ...csvRows] = csvData;
       const metricValues = handleValues(csvRows, csvHeaders);
       const endpointPath = handleEndpointPath(csvRows, csvHeaders);
-      setThresholdData({
+      updateThresholdData({
         metricValues,
         endpointPath,
       });
@@ -72,7 +72,7 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
   };
 
   return (
-    <>
+    <section className="flex flex-col gap-9 text-left bg-[#0f131e] p-5 rounded-xl">
       <div aria-describedby="extract-and-upload-csv-description">
         <h2 className="text-2xl font-bold">CSV File Upload</h2>
         <p className="mt-6 mb-5 text-lg" id="upload-csv-description">
@@ -83,7 +83,7 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
           <FilePond
             onupdatefiles={handleCsvUpload}
             onremovefile={() =>
-              setThresholdData({ metricValues: [], endpointPath: undefined })
+              updateThresholdData({ metricValues: [], endpointPath: undefined })
             }
             allowMultiple={false}
             maxFiles={1}
@@ -94,6 +94,6 @@ export const UploadCsvBox = ({ setThresholdData }: UploadCsvBoxProps) => {
           />
         </div>
       </div>
-    </>
+    </section>
   );
 };

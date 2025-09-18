@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Configuration } from "../../components/Configuration/Configuration";
-import { ThresholdsGenerator } from "../ThresholdsGenerator/ThresholdsGenerator";
 import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { EndpointStatistics } from "../../components/ThresholdResults/Statistics/Statistics";
 import { mainGridStyle } from "../../utils/styles";
 import { Thresholds } from "../../components/Thresholds/Thresholds";
+import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
 
 export const Generator = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
@@ -50,7 +50,7 @@ export const Generator = () => {
                 </span>
               </h3>
             </div>
-            <ThresholdsGenerator updateThresholdData={setThresholdData} />
+            <UploadCsvBox updateThresholdData={setThresholdData} />
           </div>
           <div className="col-start-3">
             <Configuration
