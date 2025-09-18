@@ -1,7 +1,7 @@
 import DatadogLogo from "../../../../assets/datadog-logo.jpg";
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
-import { PreviousNextButtons } from "../../../../features/Documentation/PreviousNextButtons/PreviousNextButtons";
+import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
 type DatadogProps = {
   openDocumentation: React.Dispatch<

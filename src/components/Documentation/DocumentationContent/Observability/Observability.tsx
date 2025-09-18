@@ -1,6 +1,6 @@
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
-import { PreviousNextButtons } from "../../../../features/Documentation/PreviousNextButtons/PreviousNextButtons";
+import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
 type ObservabilityProps = {
   openDocumentation: React.Dispatch<
