@@ -60,7 +60,7 @@ export const Generator = () => {
           </div>
         </div>
         <div className={`${mainGridStyle} text-left`}>
-          <div
+          <section
             className={`${showMainStyleTransition} border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl col-start-2 col-end-4`}
           >
             <Thresholds
@@ -72,7 +72,7 @@ export const Generator = () => {
               endpointStats={percentileStats}
               showInsights={showInsights}
             />
-          </div>
+          </section>
         </div>
       </div>
     </section>

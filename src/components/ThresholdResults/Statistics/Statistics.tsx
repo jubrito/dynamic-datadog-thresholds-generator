@@ -2,6 +2,7 @@ import { useState } from "react";
 import { EndpointStats } from "../../../types/types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { insufficientDataValue } from "../../../utils/constants";
 
 type EndpointStatisticsProps = {
   endpointStats: EndpointStats;
@@ -13,13 +14,17 @@ export const EndpointStatistics = ({
   showInsights,
 }: EndpointStatisticsProps) => {
   const [showStats, setShowStats] = useState(false);
-  const insufficientData = endpointStats.numberOfElements < 4;
+  const insufficientData =
+    endpointStats.numberOfElements < insufficientDataValue;
   const statsSectionId = "endpoint-highlights";
   const showMainInsightsTransition = showInsights ? "opacity-100" : "opacity-0";
 
   return (
     <>
-      <div className={`transition duration-500 ${showMainInsightsTransition}`}>
+      <div
+        className={`transition duration-500 ${showMainInsightsTransition}`}
+        aria-label="Endpoint insights"
+      >
         <button
           onClick={() => setShowStats((prevValue) => !prevValue)}
           aria-controls={statsSectionId}
@@ -91,7 +96,8 @@ export const EndpointStatistics = ({
           {insufficientData && (
             <p>
               <i>
-                <strong>Note:</strong> Not enough data: enter more than four
+                <strong>Note:</strong> Not enough data: enter more than{" "}
+                <span className="mx-1">{insufficientDataValue}</span>
                 values for a more accurate result.
               </i>
             </p>
