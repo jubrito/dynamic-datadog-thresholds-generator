@@ -17,6 +17,10 @@ describe("statistics", () => {
     it("returns the average", () => {
       expect(getAverage(sorted)).toBe(3);
     });
+
+    it("returns NaN for empty array", () => {
+      expect(getAverage([])).toBeNaN();
+    });
   });
 
   describe("getMedian", () => {
@@ -28,6 +32,10 @@ describe("statistics", () => {
     });
     it("returns the value for single element", () => {
       expect(getMedian([7])).toBe(7);
+    });
+
+    it("returns NaN for empty array", () => {
+      expect(getMedian([])).toBeNaN();
     });
   });
 
@@ -44,6 +52,11 @@ describe("statistics", () => {
     it("returns interpolated value for non-integer rank", () => {
       expect(getInterpolatedPercentile(25, sorted)).toBeCloseTo(2);
       expect(getInterpolatedPercentile(75, sorted)).toBeCloseTo(4);
+    });
+
+    it("returns 0 for percentileN < 1", () => {
+      expect(getInterpolatedPercentile(0, [1, 2, 3])).toBe(0);
+      expect(getInterpolatedPercentile(-10, [1, 2, 3])).toBe(0);
     });
   });
 
@@ -65,6 +78,10 @@ describe("statistics", () => {
     it("returns zero if Q1 or Q3 is undefined", () => {
       expect(getIQR([])).toBe(0);
     });
+
+    it("returns 0 if all values are the same", () => {
+      expect(getIQR([2, 2, 2, 2])).toBe(0);
+    });
   });
 
   describe("filterExtremeValues", () => {
@@ -73,6 +90,10 @@ describe("statistics", () => {
     });
     it("returns empty array if IQR is null", () => {
       expect(filterExtremeValues([])).toEqual([]);
+    });
+
+    it("returns original array if no outliers", () => {
+      expect(filterExtremeValues([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
     });
   });
 });
