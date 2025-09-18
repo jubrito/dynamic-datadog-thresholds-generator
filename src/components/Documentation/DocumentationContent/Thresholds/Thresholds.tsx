@@ -52,11 +52,11 @@ export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
             }),
         }}
         next={{
-          label: "Datadog",
+          label: "Monitor Configuration",
           action: () =>
             openDocumentation({
               ...closeDocumentationSections,
-              datadog: true,
+              monitorConfiguration: true,
             }),
         }}
       />
