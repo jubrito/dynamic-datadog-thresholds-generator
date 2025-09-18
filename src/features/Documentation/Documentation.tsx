@@ -1,6 +1,6 @@
 export const Documentation = () => {
   return (
-    <section className="">
+    <section className="w-full">
       <p>Documentation</p>
     </section>
   );
