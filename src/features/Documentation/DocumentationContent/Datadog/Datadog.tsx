@@ -1,8 +1,7 @@
 import DatadogLogo from "../../../../assets/datadog-logo.jpg";
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { PreviousNextButtons } from "../../PreviousNextButtons/PreviousNextButtons";
 
 type DatadogProps = {
   openDocumentation: React.Dispatch<
@@ -50,42 +49,24 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
       <div className="py-4">
         <hr />
       </div>
-      <div className="flex justify-between">
-        <button
-          onClick={() =>
+      <PreviousNextButtons
+        previous={{
+          label: "Observability",
+          action: () =>
             openDocumentation({
               ...closeDocumentationSections,
               observability: true,
-            })
-          }
-          className={
-            "relative group text-lg hover:text-white cursor-pointer w-fit"
-          }
-        >
-          <span>
-            {<ArrowLeftIcon />}
-            <span className="font-bold">Previous: Observability</span>
-          </span>
-          <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-        </button>
-        <button
-          onClick={() =>
+            }),
+        }}
+        next={{
+          label: "Thresholds",
+          action: () =>
             openDocumentation({
               ...closeDocumentationSections,
               thresholds: true,
-            })
-          }
-          className={
-            "relative group text-lg hover:text-white cursor-pointer w-fit"
-          }
-        >
-          <span>
-            <span className="font-bold">Next: Thresholds</span>
-            {<ArrowRightIcon />}
-          </span>
-          <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-        </button>
-      </div>
+            }),
+        }}
+      />
     </>
   );
 };
