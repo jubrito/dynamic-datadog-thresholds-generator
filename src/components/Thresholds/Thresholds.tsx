@@ -1,6 +1,6 @@
 import type { Percentile, ThresholdsConfig } from "../../types/types";
 import { computeAdaptiveThresholds } from "../../utils/thresholds";
-import { getSortedAscending, getStatistics } from "../../utils/utils";
+import { getSortedAscending } from "../../utils/utils";
 import { ThresholdResults } from "../ThresholdResults/ThresholdResults";
 
 type ThresholdsProps = {
@@ -15,7 +15,6 @@ export const Thresholds = ({
   thresholdsConfig,
 }: ThresholdsProps) => {
   const sortedPercentileValues = getSortedAscending(percentileValues);
-  const percentileStats = getStatistics(sortedPercentileValues);
   const { warningThreshold, criticalThreshold } = computeAdaptiveThresholds(
     sortedPercentileValues,
     thresholdsConfig
@@ -36,7 +35,6 @@ export const Thresholds = ({
           {endpointName}
         </h2>
         <ThresholdResults
-          endpointStats={percentileStats}
           warningThreshold={warningThreshold}
           criticalThreshold={criticalThreshold}
         />
