@@ -5,6 +5,7 @@ import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { EndpointStatistics } from "../../components/ThresholdResults/Statistics/Statistics";
 import { mainGridStyle } from "../../utils/styles";
+import { Thresholds } from "../../components/Thresholds/Thresholds";
 
 export const Generator = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
@@ -23,10 +24,14 @@ export const Generator = () => {
   const percentileValues = thresholdData.metricValues;
   const sortedPercentileValues = getSortedAscending(percentileValues);
   const percentileStats = getStatistics(sortedPercentileValues);
+  const showInsights = thresholdData.metricValues.length > 0;
+  const showMainStyleTransition = showInsights
+    ? "bg-[#0f131e] border-3 border-[#0f131e]"
+    : "bg-transparent";
 
   return (
     <section className="p-13">
-      <div className="grid grid-cols-1 grid-rows-2">
+      <div className="grid grid-cols-1 grid-rows-2 gap-7">
         <div className={mainGridStyle}>
           <div className="col-start-2">
             <div className="max-h-min text-left">
@@ -45,11 +50,7 @@ export const Generator = () => {
                 </span>
               </h3>
             </div>
-            <ThresholdsGenerator
-              thresholdsConfig={thresholdsConfig}
-              thresholdData={thresholdData}
-              updateThresholdData={setThresholdData}
-            />
+            <ThresholdsGenerator updateThresholdData={setThresholdData} />
           </div>
           <div className="col-start-3">
             <Configuration
@@ -59,14 +60,19 @@ export const Generator = () => {
           </div>
         </div>
         <div className={`${mainGridStyle} max-h-min text-left`}>
-          <>
-            <div className="col-start-2 col-end-4">
-              <EndpointStatistics
-                endpointStats={percentileStats}
-                showInsights={thresholdData.metricValues.length > 0}
-              />
-            </div>
-          </>
+          <div
+            className={`${showMainStyleTransition} h-min p-5 rounded-xl col-start-2 col-end-4`}
+          >
+            <Thresholds
+              endpointName={thresholdData.endpointPath}
+              percentileValues={thresholdData.metricValues}
+              thresholdsConfig={thresholdsConfig}
+            />
+            <EndpointStatistics
+              endpointStats={percentileStats}
+              showInsights={showInsights}
+            />
+          </div>
         </div>
       </div>
     </section>

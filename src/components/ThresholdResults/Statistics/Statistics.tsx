@@ -15,16 +15,11 @@ export const EndpointStatistics = ({
   const [showStats, setShowStats] = useState(false);
   const insufficientData = endpointStats.numberOfElements < 4;
   const statsSectionId = "endpoint-highlights";
-  const showMainStyleTransition = showStats
-    ? "bg-[#0f131e] border-3 border-[#0f131e]"
-    : "bg-[#0f131e]";
   const showMainInsightsTransition = showInsights ? "opacity-100" : "opacity-0";
 
   return (
     <>
-      <div
-        className={`p-5 rounded-xl transition duration-500 ${showMainStyleTransition} ${showMainInsightsTransition}`}
-      >
+      <div className={`transition duration-500 ${showMainInsightsTransition}`}>
         <button
           onClick={() => setShowStats((prevValue) => !prevValue)}
           aria-controls={statsSectionId}

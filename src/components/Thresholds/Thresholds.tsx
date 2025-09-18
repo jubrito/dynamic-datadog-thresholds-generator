@@ -28,7 +28,7 @@ export const Thresholds = ({
       <div
         className={`${
           resultsWereGenerated ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-500 bg-[#171929] p-5 pt-3 rounded-xl`}
+        } transition-opacity duration-500 rounded-xl pb-7`}
         aria-expanded={!!resultsWereGenerated}
       >
         <h2 className="font-bold text-2xl">
