@@ -6,9 +6,9 @@
 [![Jest](https://img.shields.io/badge/Jest-30.1.3-palevioletred?logo=jest)](https://jestjs.io/)
 [![ESLint](https://img.shields.io/badge/ESLint-9.33-tomato?logo=eslint)](https://eslint.org/)
 [![Filepond](https://img.shields.io/badge/Filepond-4.32.9-gold?logo=filepond)]([https://github.com/pqina/filepond)
-[![Papaparse](https://img.shields.io/badge/Papaparse-5.5.3-gold?logo=papaparse)]([[https://babeljs.io/](https://www.papaparse.com/))
-[![React-Router](https://img.shields.io/badge/ReactRouter-7.9.1-gold?logo=reactrouter)]([https://reactrouter.com/)
-[![Tailwindcss](https://img.shields.io/badge/Babel-4.1.13-gold?logo=tailwind)]([https://tailwindcss.com/)
+[![Papaparse](https://img.shields.io/badge/Papaparse-5.5.3-indigo?logo=papaparse)]([[https://babeljs.io/](https://www.papaparse.com/))
+[![React-Router](https://img.shields.io/badge/ReactRouter-7.9.1-green?logo=reactrouter)]([https://reactrouter.com/)
+[![Tailwindcss](https://img.shields.io/badge/Babel-4.1.13-pink?logo=tailwind)]([https://tailwindcss.com/)
 
 A customizable dynamic threshold generator for Datadog that allows anyone to create and manage, and track events.
 
@@ -84,3 +84,4 @@ npm run test
 ## License
 
 [MIT](https://github.com/arthurfiorette/try/blob/main/LICENSE)
+
