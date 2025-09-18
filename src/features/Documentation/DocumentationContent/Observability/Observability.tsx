@@ -1,6 +1,6 @@
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { PreviousNextButtons } from "../../PreviousNextButtons/PreviousNextButtons";
 
 type ObservabilityProps = {
   openDocumentation: React.Dispatch<
@@ -50,23 +50,16 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
         that provides an observability service to monitor servers, databases,
         tools, and services, through a SaaS-based data analytics platform.
       </p>
-      <button
-        onClick={() =>
-          openDocumentation({
-            ...closeDocumentationSections,
-            datadog: true,
-          })
-        }
-        className={
-          "relative group text-lg hover:text-white cursor-pointer w-fit"
-        }
-      >
-        <span>
-          <span className="font-bold">Next: Datadog</span>
-          {<NavigateNextIcon />}
-        </span>
-        <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-      </button>
+      <PreviousNextButtons
+        next={{
+          label: "Datadog",
+          action: () =>
+            openDocumentation({
+              ...closeDocumentationSections,
+              datadog: true,
+            }),
+        }}
+      />
     </div>
   );
 };
