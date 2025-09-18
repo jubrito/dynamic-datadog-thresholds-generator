@@ -26,8 +26,8 @@ export const Generator = () => {
   const percentileStats = getStatistics(sortedPercentileValues);
   const showInsights = thresholdData.metricValues.length > 0;
   const showMainStyleTransition = showInsights
-    ? "bg-[#0f131e] border-3 border-[#0f131e]"
-    : "bg-transparent";
+    ? "bg-[#0f131e] max-h-113 mt-5"
+    : "bg-transparent max-h-0 mt-0";
 
   return (
     <section className="p-13">
@@ -38,7 +38,7 @@ export const Generator = () => {
               <h1 className="font-bold text-3xl uppercase">
                 Dynamic Threshold Generator
               </h1>
-              <h3 className="text-lg mt-3">
+              <h3 className="text-lg my-7">
                 <span id="extract-and-upload-csv-description">
                   Extract a Datadog endpoint metrics csv file using any
                   percentile aggregation and upload it to generate warning and
@@ -59,9 +59,9 @@ export const Generator = () => {
             />
           </div>
         </div>
-        <div className={`${mainGridStyle} max-h-min text-left`}>
+        <div className={`${mainGridStyle} text-left`}>
           <div
-            className={`${showMainStyleTransition} h-min p-5 rounded-xl col-start-2 col-end-4`}
+            className={`${showMainStyleTransition} border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl col-start-2 col-end-4`}
           >
             <Thresholds
               endpointName={thresholdData.endpointPath}
