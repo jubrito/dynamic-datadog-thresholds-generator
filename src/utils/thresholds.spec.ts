@@ -1,4 +1,7 @@
-import { computeAdaptiveThresholds } from "./thresholds";
+import {
+  computeAdaptiveThresholds,
+  getThresholdWithTukeyFence,
+} from "./thresholds";
 import type { ThresholdsConfig } from "../types/types";
 import * as statistics from "./statistics";
 
@@ -38,6 +41,30 @@ describe("thresholds", () => {
       const result = computeAdaptiveThresholds([], config);
       expect(result.warningThreshold).toBeUndefined();
       expect(result.criticalThreshold).toBeUndefined();
+    });
+  });
+
+  describe("getThresholdWithTukeyFence", () => {
+    it("calculates threshold correctly with positive values", () => {
+      expect(getThresholdWithTukeyFence(10, 2, 5)).toBeCloseTo(20.0);
+    });
+
+    it("returns correct value with zero factor", () => {
+      expect(getThresholdWithTukeyFence(10, 0, 5)).toBeCloseTo(10.0);
+    });
+
+    it("returns correct value with zero IQR", () => {
+      expect(getThresholdWithTukeyFence(10, 2, 0)).toBeCloseTo(10.0);
+    });
+
+    it("handles negative values", () => {
+      expect(getThresholdWithTukeyFence(-5, 2, 3)).toBeCloseTo(1.0);
+    });
+
+    it("returns NaN if any argument is NaN", () => {
+      expect(getThresholdWithTukeyFence(NaN, 2, 3)).toBeNaN();
+      expect(getThresholdWithTukeyFence(10, NaN, 3)).toBeNaN();
+      expect(getThresholdWithTukeyFence(10, 2, NaN)).toBeNaN();
     });
   });
 });

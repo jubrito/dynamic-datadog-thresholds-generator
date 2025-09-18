@@ -61,7 +61,7 @@ export const computeAdaptiveThresholds = (
  * @param iqr - The Interquartile Range (IQR = Q3 - Q1).
  * @returns - Threshold value rounded to specified decimal places.
  */
-const getThresholdWithTukeyFence = (
+export const getThresholdWithTukeyFence = (
   interpolatedPercentile: number,
   factor: number,
   iqr: number
