@@ -32,7 +32,7 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
             </a>
             is a leading full-stack observability platform that automates
             application performance monitoring, log management, infrastructure
-            monitoring, and more. One of its most powerful features are{" "}
+            monitoring, and more. One of its most powerful features are
             <span className="text-indigo-300 font-bold">
               monitors with automated alerts that help teams detect when systems
               degrade or fail.

@@ -3,17 +3,19 @@ import { closeDocumentationSections } from "../../../../utils/constants";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
-type ThresholdsProps = {
+type MonitorConfigurationProps = {
   openDocumentation: React.Dispatch<
     React.SetStateAction<OpenDocumentationSection>
   >;
 };
 
-export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
+export const MonitorConfiguration = ({
+  openDocumentation,
+}: MonitorConfigurationProps) => {
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-4xl font-bold">Thresholds</h1>
-      <p className="text-2xl">What is it and why does it matter?</p>
+      <h1 className="text-4xl font-bold">Monitor Configuration</h1>
+      <p className="text-2xl">How to configure and analyze Datadog monitors?</p>
       <p>
         Thresholds are predefined
         <span className="text-pink-300 font-bold mr-1">

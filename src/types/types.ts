@@ -28,4 +28,5 @@ export type OpenDocumentationSection = {
   observability: boolean;
   datadog: boolean;
   thresholds: boolean;
+  monitorConfiguration: boolean;
 };

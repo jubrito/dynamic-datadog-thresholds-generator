@@ -1,5 +1,6 @@
 import { OpenDocumentationSection } from "../../../types/types";
 import { closeDocumentationSections } from "../../../utils/constants";
+import { DocNavButton } from "./DocNavButton/DocNavButton";
 
 type DocumentationNavProps = {
   openDocumentation: React.Dispatch<
@@ -16,58 +17,52 @@ export const DocumentationNav = ({
     <div className="bg-black h-dvh w-40 fixed">
       <ul className="flex flex-col gap-8 mt-15 text-left pl-7 cursor-pointer">
         <li>
-          <button
+          <DocNavButton
+            label="Observability"
+            isOpen={documentationSectionOpen.observability}
             onClick={() =>
               openDocumentation({
                 ...closeDocumentationSections,
                 observability: true,
               })
             }
-            className={`${
-              documentationSectionOpen.observability
-                ? "text-indigo-300 font-bold"
-                : "text-[#dedae3] "
-            } relative group text-lg hover:text-white cursor-pointer`}
-          >
-            <span>Observability</span>
-            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-          </button>
+          />
         </li>
         <li>
-          <button
+          <DocNavButton
+            label="Datadog"
+            isOpen={documentationSectionOpen.datadog}
             onClick={() =>
               openDocumentation({
                 ...closeDocumentationSections,
                 datadog: true,
               })
             }
-            className={`${
-              documentationSectionOpen.datadog
-                ? "text-indigo-300 font-bold"
-                : "text-[#dedae3] "
-            } relative group text-lg hover:text-white cursor-pointer`}
-          >
-            <span>Datadog</span>
-            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-          </button>
+          />
         </li>
         <li>
-          <button
+          <DocNavButton
+            label="Thresholds"
+            isOpen={documentationSectionOpen.thresholds}
             onClick={() =>
               openDocumentation({
                 ...closeDocumentationSections,
                 thresholds: true,
               })
             }
-            className={`${
-              documentationSectionOpen.thresholds
-                ? "text-indigo-300 font-bold"
-                : "text-[#dedae3] "
-            } relative group text-lg hover:text-white cursor-pointer`}
-          >
-            <span>Thresholds</span>
-            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-          </button>
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Monitor Config"
+            isOpen={documentationSectionOpen.monitorConfiguration}
+            onClick={() =>
+              openDocumentation({
+                ...closeDocumentationSections,
+                monitorConfiguration: true,
+              })
+            }
+          />
         </li>
       </ul>
     </div>

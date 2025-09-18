@@ -10,6 +10,7 @@ export const Documentation = () => {
       observability: true,
       datadog: false,
       thresholds: false,
+      monitorConfiguration: false,
     });
   return (
     <section className={`${mainGridStyle} w-full`}>
