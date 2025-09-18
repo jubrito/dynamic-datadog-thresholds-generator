@@ -23,3 +23,7 @@ export type ThresholdsConfig = {
   warning: ThresholdConfig;
   critical: ThresholdConfig;
 };
+
+export type OpenDocumentationSection = {
+  observability: boolean;
+};

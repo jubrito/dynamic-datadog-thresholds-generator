@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import { mainGridStyle } from "../../utils/styles";
 
 export const Nav = () => {
@@ -13,20 +13,32 @@ export const Nav = () => {
       <div className={`${mainGridStyle} my-0 mx-auto`}>
         <ul className="col-start-2 col-end-3 flex px-10 py-5 w-full">
           <li className="py-1 px-3 rounded-md">
-            <Link to={"/"}>
-              <p className="relative group text-[#dedae3] text-xl hover:text-white cursor-pointer">
-                <span>Generator</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
-              </p>
-            </Link>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-cyan-500" : "text-[#dedae3] "
+                } relative group text-xl hover:text-white cursor-pointer`
+              }
+            >
+              <span>Generator</span>
+              <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
+            </NavLink>
           </li>
           <li className="py-1 px-3 rounded-md">
-            <Link to={"/documentation"}>
-              <p className="relative group text-[#dedae3] text-xl hover:text-white cursor-pointer">
+            <NavLink
+              to={"/documentation"}
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-cyan-500" : "text-[#dedae3] "
+                } relative group text-xl hover:text-white cursor-pointer`
+              }
+            >
+              <p className="relative group text-xl hover:text-white cursor-pointer">
                 <span>Documentation</span>
                 <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
               </p>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

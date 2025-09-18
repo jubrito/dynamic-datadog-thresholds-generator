@@ -1,9 +1,16 @@
+import { OpenDocumentationSection } from "../../../types/types";
 import { Observability } from "./Observability/Observability";
 
-export const DocumentationContent = () => {
+type DocumentationContentProps = {
+  documentationSectionOpen: OpenDocumentationSection;
+};
+
+export const DocumentationContent = ({
+  documentationSectionOpen,
+}: DocumentationContentProps) => {
   return (
     <div className="p-13 text-left">
-      <Observability />
+      {documentationSectionOpen.observability && <Observability />}
     </div>
   );
 };
