@@ -12,7 +12,7 @@
 
 A customizable dynamic threshold generator for Datadog that allows anyone to create and manage, and track events.
 
-<img width="1267" height="527" alt="image" src="https://github.com/user-attachments/assets/8357547c-994e-4fab-9702-c0d111c8d292" />
+https://github.com/user-attachments/assets/d9ff5073-d7b4-4bfb-b229-80884d17dcdb
 
 ## **Progress**
 
@@ -68,5 +68,6 @@ npm run test
 
 ## License
 MIT
+
 
 
