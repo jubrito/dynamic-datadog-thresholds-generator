@@ -41,7 +41,7 @@ export const RangeConfig = ({
   return (
     <div className="mt-5">
       <div className="flex items-center">
-        <label className="text-xl" htmlFor={rangeFieldId}>
+        <label className="text-md" htmlFor={rangeFieldId}>
           {labels.field}
         </label>
         <input

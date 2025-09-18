@@ -38,7 +38,7 @@ export const Generator = () => {
               <h1 className="font-bold text-3xl uppercase">
                 Dynamic Threshold Generator
               </h1>
-              <h3 className="text-lg my-7">
+              <h3 className="text-lg mt-3 mb-5">
                 <span id="extract-and-upload-csv-description">
                   Extract a Datadog endpoint metrics csv file using any
                   percentile aggregation and upload it to generate warning and
