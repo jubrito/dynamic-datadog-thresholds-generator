@@ -12,7 +12,7 @@ export const ThresholdResults = ({
   return (
     <>
       <div className="flex gap-5">
-        {warningThreshold && (
+        {warningThreshold != null && (
           <p
             className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-60 w-1/6 rounded-lg"
             aria-live="polite"
@@ -20,7 +20,7 @@ export const ThresholdResults = ({
             Warning threshold: {warningThreshold}
           </p>
         )}
-        {criticalThreshold && (
+        {criticalThreshold != null && (
           <p
             className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 min-w-60 w-1/6 rounded-lg"
             aria-live="polite"
