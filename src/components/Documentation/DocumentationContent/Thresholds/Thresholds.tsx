@@ -18,6 +18,16 @@ export const Thresholds = () => {
           <span className="text-orange-300">warning</span> state.
         </span>
       </p>
+      <div>
+        <p className="font-bold text-lg">
+          When defining thresholds, static and arbitrary values should be
+          avoided as they can lead to:
+        </p>
+        <ul className="list-inside list-disc">
+          <li className="py-4">Noisy alerts.</li>
+          <li>Missed anomalies.</li>
+        </ul>
+      </div>
     </div>
   );
 };
