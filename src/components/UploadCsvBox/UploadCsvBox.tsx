@@ -17,7 +17,9 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
     const valuesColumnIndex = csvHeaders.indexOf("value");
 
     if (valuesColumnIndex === -1) {
-      alert("Failed to retrieve CSV values to calculate thresholds");
+      alert(
+        "Failed to retrieve CSV values to calculate thresholds. Please upload a valid file."
+      );
       return [];
     }
 
@@ -35,7 +37,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
     const queriesColumnIndex = csvHeaders.indexOf("query");
 
     if (queriesColumnIndex === -1) {
-      alert("Failed to retrieve CSV queries to identify endpoint name");
+      console.warn("Failed to retrieve CSV queries to identify endpoint name");
       return;
     }
 
