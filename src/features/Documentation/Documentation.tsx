@@ -9,6 +9,7 @@ export const Documentation = () => {
     useState<OpenDocumentationSection>({
       observability: true,
       datadog: false,
+      thresholds: false,
     });
   return (
     <section className={`${mainGridStyle} w-full`}>

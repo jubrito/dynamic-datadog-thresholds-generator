@@ -27,4 +27,5 @@ export type ThresholdsConfig = {
 export type OpenDocumentationSection = {
   observability: boolean;
   datadog: boolean;
+  thresholds: boolean;
 };

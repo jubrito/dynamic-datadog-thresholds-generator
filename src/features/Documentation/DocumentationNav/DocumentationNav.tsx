@@ -51,6 +51,24 @@ export const DocumentationNav = ({
             <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
           </button>
         </li>
+        <li>
+          <button
+            onClick={() =>
+              openDocumentation({
+                ...closeDocumentationSections,
+                thresholds: true,
+              })
+            }
+            className={`${
+              documentationSectionOpen.thresholds
+                ? "text-indigo-300 font-bold"
+                : "text-[#dedae3] "
+            } relative group text-lg hover:text-white cursor-pointer`}
+          >
+            <span>Thresholds</span>
+            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
+          </button>
+        </li>
       </ul>
     </div>
   );

@@ -62,8 +62,8 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
         }
       >
         <span>
-          {<NavigateNextIcon />}{" "}
           <span className="font-bold">Next: Datadog</span>
+          {<NavigateNextIcon />}
         </span>
         <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
       </button>

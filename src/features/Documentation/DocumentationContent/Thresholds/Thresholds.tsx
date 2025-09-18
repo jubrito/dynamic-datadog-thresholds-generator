@@ -1,0 +1,23 @@
+export const Thresholds = () => {
+  return (
+    <div className="flex flex-col gap-5">
+      <h1 className="text-4xl font-bold">Thresholds</h1>
+      <p className="text-2xl">What is it and why does it matter?</p>
+      <p>
+        Thresholds are predefined{" "}
+        <span className="text-pink-300 font-bold mr-1">
+          values that trigger alerts
+        </span>
+        when a metric crosses them.
+      </p>
+      <p>
+        They act as boundaries for monitoring conditions, allowing you to define
+        <span className="font-bold">
+          when a system is considered to be in an{" "}
+          <span className="text-pink-300">alert</span> or{" "}
+          <span className="text-orange-300">warning</span> state.
+        </span>
+      </p>
+    </div>
+  );
+};
