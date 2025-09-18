@@ -16,7 +16,7 @@ export const Configuration = ({
 
   return (
     <section
-      className="flex flex-col lg:items-end items-center size-full"
+      className="flex flex-col lg:items-end items-center h-full"
       aria-describedby="configure-generator-description"
     >
       <h2 className="font-bold text-2xl w-full bg-[#2a2c3e] pl-8 py-3 text-left rounded-t-lg">
@@ -57,7 +57,7 @@ export const Configuration = ({
         <p className="mt-6 mb-2 text-md text-left italic">
           Tip: High rigour factors and percentiles will generate stricter
           results and lead to less noisy alerts by increasing rigorousness and
-          focusing on the slowest requests instead of the typical ones.
+          focusing on the slowest requests instead of typical ones.
         </p>
       </div>
     </section>
