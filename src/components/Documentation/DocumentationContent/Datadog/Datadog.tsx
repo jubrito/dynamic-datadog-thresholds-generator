@@ -14,11 +14,12 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
   return (
     <>
       <div className="flex xl:flex-nowrap flex-wrap flex-row gap-5">
-        <div className="max-w-130 min-w-80">
+        <div className="max-w-230 min-w-80">
+          <h1 className="text-4xl font-bold block xl:hidden mb-5">Datadog</h1>
           <img src={DatadogLogo} alt="" />
         </div>
         <div className="flex flex-col gap-5">
-          <h1 className="text-4xl font-bold">Datadog</h1>
+          <h1 className="text-4xl font-bold hidden xl:block">Datadog</h1>
           <p>
             <a
               href="https://www.datadoghq.com/"
@@ -36,7 +37,7 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
               degrade or fail.
             </span>
           </p>
-          <span className="bg-indigo-800 p-3 px-15 w-130">
+          <span className="bg-indigo-800 p-3 px-15 xl:w-full">
             But how to define if a system is degrading or failing?
           </span>
         </div>
