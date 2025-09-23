@@ -1,5 +1,6 @@
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
+import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
@@ -38,9 +39,11 @@ export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
           <li>Missed anomalies.</li>
         </ul>
       </div>
-      <span className="bg-pink-600 p-3 px-7 w-fit font-bold text-lg">
+      <ColorBox style="bg-pink-600 text-white w-fit">
         But how to set appropriate thresholds values when configuring alerts?
-      </span>
+      </ColorBox>
+      {/* <span className="bg-pink-600 p-3 px-7 w-fit font-bold text-lg">
+      </span> */}
       <Divider />
       <PreviousNextButtons
         previous={{
