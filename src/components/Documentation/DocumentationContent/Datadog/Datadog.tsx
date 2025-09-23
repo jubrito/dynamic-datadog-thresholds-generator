@@ -1,6 +1,7 @@
 import DatadogLogo from "../../../../assets/datadog-logo.jpg";
 import { OpenDocumentationSection } from "../../../../types/types";
 import { closeDocumentationSections } from "../../../../utils/constants";
+import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
@@ -32,14 +33,14 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
             is a leading full-stack observability platform that automates
             application performance monitoring, log management, infrastructure
             monitoring, and more. One of its most powerful features are
-            <span className="text-indigo-300 font-bold">
+            <span className="text-indigo-300 font-bold pl-1">
               monitors with automated alerts that help teams detect when systems
               degrade or fail.
             </span>
           </p>
-          <span className="bg-indigo-800 p-3 px-15 xl:w-full">
+          <ColorBox style="bg-indigo-800 text-white">
             But how to define if a system is degrading or failing?
-          </span>
+          </ColorBox>
         </div>
       </div>
       <p className="py-5">
