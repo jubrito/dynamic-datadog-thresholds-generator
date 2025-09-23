@@ -65,7 +65,7 @@ export const MonitorConfiguration = ({
         </p>
       </div>
       <Divider />
-      <p className="not-sr-only text-xl">
+      <p className="not-sr-only text-xl not-sr-only">
         Example of a Datadog monitor configuration page:
       </p>
       <img
