@@ -13,12 +13,10 @@ type DatadogProps = {
 export const Datadog = ({ openDocumentation }: DatadogProps) => {
   return (
     <>
-      <div className="flex">
-        <img
-          src={DatadogLogo}
-          alt=""
-          className="w-130 min-w-80 float-left mr-10"
-        />
+      <div className="flex xl:flex-nowrap flex-wrap flex-row gap-5">
+        <div className="max-w-130 min-w-80">
+          <img src={DatadogLogo} alt="" />
+        </div>
         <div className="flex flex-col gap-5">
           <h1 className="text-4xl font-bold">Datadog</h1>
           <p>
