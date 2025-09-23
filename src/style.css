@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  background-color: #030712;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Drop box before file is dropped */
+.custom-filepond {
+  background-color: #2a2c3e;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Drop box hover before file is dropped */
+.custom-filepond .filepond--drop-label:hover {
+  border: 2px solid white;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+/* Label on the box before file is dropped */
+.custom-filepond .filepond--drop-label label {
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Drop box after file is dropped */
+.custom-filepond .filepond--panel-root {
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* File name box after is dropped */
+.custom-filepond .filepond--file {
+  background-color: #565870;
+}
