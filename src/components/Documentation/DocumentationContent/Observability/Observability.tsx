@@ -24,7 +24,7 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
         Observability tools are critical to detect, debug, and resolve
         performance issues before they impact users.
       </p>
-      <BorderBox styles="my-3">
+      <BorderBox style="my-3">
         <div>
           <p className="font-bold text-lg">Observability practices can:</p>
           <ul className="list-inside list-disc">
