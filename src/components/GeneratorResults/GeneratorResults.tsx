@@ -25,7 +25,7 @@ export const GeneratorResults = ({
     >
       <Thresholds
         endpointName={thresholdData.endpointPath}
-        percentileValues={thresholdData.metricValues}
+        sortedPercentileValues={sortedPercentileValues}
         thresholdsConfig={thresholdsConfig}
       />
       <EndpointStatistics
