@@ -42,8 +42,6 @@ export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
       <ColorBox style="bg-pink-600 text-white w-fit">
         But how to set appropriate thresholds values when configuring alerts?
       </ColorBox>
-      {/* <span className="bg-pink-600 p-3 px-7 w-fit font-bold text-lg">
-      </span> */}
       <Divider />
       <PreviousNextButtons
         previous={{
