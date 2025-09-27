@@ -13,16 +13,22 @@ export const Documentation = () => {
       monitorConfiguration: false,
     });
   return (
-    <section className={`${mainTopSpacing} ${mainHorizontalSpacing}`}>
-      <DocumentationNav
-        openDocumentation={setOpenDocumentationSection}
-        documentationSectionOpen={openDocumentationSection}
-      />
-      <DocumentationContent
-        openDocumentation={setOpenDocumentationSection}
-        documentationSectionOpen={openDocumentationSection}
-      />
-      <div />
+    <section
+      className={`${mainTopSpacing} ${mainHorizontalSpacing} grid-cols-[30px_1fr_200px]`}
+    >
+      <div className="order-3 lg:order-1 ">
+        <DocumentationNav
+          openDocumentation={setOpenDocumentationSection}
+          documentationSectionOpen={openDocumentationSection}
+        />
+      </div>
+      <div className="order-2 lg:order-2">
+        <DocumentationContent
+          openDocumentation={setOpenDocumentationSection}
+          documentationSectionOpen={openDocumentationSection}
+        />
+      </div>
+      <div className="order-1 lg:order-3" />
     </section>
   );
 };

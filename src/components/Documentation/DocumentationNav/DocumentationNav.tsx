@@ -14,8 +14,8 @@ export const DocumentationNav = ({
   documentationSectionOpen,
 }: DocumentationNavProps) => {
   return (
-    <div className="bg-black h-dvh h-auto p-9">
-      <ul className="flex flex-col gap-8 mt-3 text-left cursor-pointer">
+    <div className="bg-black border-l-20 lg:border-l-0 lg:border-r-20 border-[#030712] h-dvh h-auto p-9">
+      <ul className="flex flex-col gap-8 mt-3 cursor-pointer text-right">
         <li>
           <DocNavButton
             label="Observability"
