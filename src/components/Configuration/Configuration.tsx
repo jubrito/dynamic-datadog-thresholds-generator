@@ -24,7 +24,7 @@ export const Configuration = ({
       </h2>
 
       <div className="p-5 w-full h-max bg-[#11131f] rounded-b-lg">
-        <div className="flex justify-between gap-5">
+        <div className="flex gap-5 flex-col md:flex-row ">
           <ConfigOptions
             thresholdType="Warning"
             defaultPercentile={warning.percentile}
