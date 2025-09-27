@@ -11,10 +11,10 @@ export const ThresholdResults = ({
 }: ThresholdProps) => {
   return (
     <>
-      <div className="flex gap-5">
+      <div className="flex gap-5 flex-col md:flex-row">
         {warningThreshold != null && (
           <p
-            className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-60 w-1/6 rounded-lg"
+            className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-60 xl:w-1/6 w-full rounded-lg"
             aria-live="polite"
           >
             Warning threshold: {warningThreshold}
@@ -22,7 +22,7 @@ export const ThresholdResults = ({
         )}
         {criticalThreshold != null && (
           <p
-            className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 min-w-60 w-1/6 rounded-lg"
+            className="font-bold mt-6 p-2 pl-5 text-lg bg-pink-500 min-w-60 xl:w-1/6 w-full rounded-lg"
             aria-live="polite"
           >
             Critical threshold: {criticalThreshold}
