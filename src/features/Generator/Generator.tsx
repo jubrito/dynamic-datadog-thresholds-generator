@@ -26,7 +26,7 @@ export const Generator = () => {
     <section className={`py-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
       <div />
       <div className={`grid gap-7 ${showInsights ? "grid-rows-2" : ""}`}>
-        <div className="grid gap-11 xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)]">
+        <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-2">
           <div className="xl:col-span-2">
             <Introduction />
           </div>
