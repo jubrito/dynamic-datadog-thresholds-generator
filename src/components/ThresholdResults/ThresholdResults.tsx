@@ -11,7 +11,7 @@ export const ThresholdResults = ({
 }: ThresholdProps) => {
   return (
     <>
-      <div className="flex gap-5 flex-col md:flex-row">
+      <div className="flex md:gap-5 flex-col md:flex-row">
         {warningThreshold != null && (
           <p
             className="font-bold mt-6 text-lg p-2 bg-[#F66500] min-w-60 xl:w-1/6 w-full rounded-lg"
