@@ -6,6 +6,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import type { ThresholdData } from "../../types/types";
 import type { FilePondFile } from "filepond";
 import { parseCSV } from "../../utils/parseCSV";
+import { darkGrayBlue } from "../../utils/styles";
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 type UploadCsvBoxProps = {
@@ -76,10 +77,10 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
   return (
     <section
       aria-describedby="extract-and-upload-csv-description"
-      className="flex flex-col gap-3 text-left bg-[#0f131e] p-5 rounded-xl"
+      className={`flex flex-col gap-3 text-left ${darkGrayBlue.background} p-5 rounded-xl`}
     >
       <h2 className="text-2xl font-bold">CSV File Upload</h2>
-      <p className="mt-6 mb-5 text-lg" id="upload-csv-description">
+      <p className="mb-5 text-lg" id="upload-csv-description">
         Upload a Datadog endpoint metrics csv file using the percentile
         aggregation to generate suggested thresholds.
       </p>

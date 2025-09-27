@@ -1,11 +1,11 @@
 import { NavLink } from "react-router";
-import { mainHorizontalSpacing } from "../../utils/styles";
+import { grayerDarkGrayBlue, mainHorizontalSpacing } from "../../utils/styles";
 
 export const Nav = () => {
   return (
     <nav
       aria-labelledby="main-menu-label"
-      className="gap-5 bg-[#0f131e] fixed w-full h-20 z-1000"
+      className={`gap-5 ${grayerDarkGrayBlue.background} fixed w-full h-20 z-1000`}
     >
       <h2 id="main-menu-label" className="sr-only">
         Main Menu

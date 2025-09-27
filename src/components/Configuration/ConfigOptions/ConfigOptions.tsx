@@ -1,4 +1,5 @@
 import type { ThresholdConfig } from "../../../types/types";
+import { mediumGrayBlue } from "../../../utils/styles";
 import { RangeConfig } from "./RangeConfig/RangeConfig";
 
 type ConfigOptionsProps = {
@@ -18,7 +19,9 @@ export const ConfigOptions = ({
   updateConfig,
 }: ConfigOptionsProps) => {
   return (
-    <div className="flex w-full flex-col bg-[#171929] p-6 rounded-md items-start">
+    <div
+      className={`flex w-full flex-col ${mediumGrayBlue.background} p-6 rounded-md items-start`}
+    >
       <p className="font-bold text-xl text-left">{thresholdType} Threshold</p>
       <div className="flex xl:flex-col flex-wrap justify-between gap-2">
         <RangeConfig

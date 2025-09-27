@@ -1,4 +1,5 @@
 import type { ThresholdsConfig } from "../../types/types";
+import { darkGrayBlue } from "../../utils/styles";
 import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 
 type ConfigurationProps = {
@@ -19,11 +20,15 @@ export const Configuration = ({
       className="flex flex-col items-center xl:w-min w-full h-full"
       aria-describedby="configure-generator-description"
     >
-      <h2 className="font-bold text-2xl w-full bg-[#2a2c3e] pl-6 py-3 text-left rounded-t-lg">
+      <h2
+        className={`font-bold text-2xl w-full ${darkGrayBlue.background} pl-6 pt-4 text-left rounded-t-lg`}
+      >
         Generator configuration
       </h2>
 
-      <div className="p-5 w-full h-max bg-[#11131f] rounded-b-lg">
+      <div
+        className={`p-5 w-full h-max ${darkGrayBlue.background} rounded-b-lg`}
+      >
         <div className="flex gap-5 flex-col lg:flex-row flex-wrap xl:flex-nowrap">
           <ConfigOptions
             thresholdType="Warning"

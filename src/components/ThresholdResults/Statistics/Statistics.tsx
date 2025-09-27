@@ -3,6 +3,7 @@ import { EndpointStats } from "../../../types/types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { insufficientDataValue } from "../../../utils/constants";
+import { darkGrayBlue } from "../../../utils/styles";
 
 type EndpointStatisticsProps = {
   endpointStats: EndpointStats;
@@ -51,7 +52,9 @@ export const EndpointStatistics = ({
         aria-expanded={showStats}
         id={statsSectionId}
       >
-        <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+        <p
+          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
+        >
           <strong>
             Number of values analyzed:
             <span className="ml-2 text-cyan-500">
@@ -59,31 +62,41 @@ export const EndpointStatistics = ({
             </span>
           </strong>
         </p>
-        <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+        <p
+          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
+        >
           <strong>
             Minimum:
             <span className="ml-2 text-cyan-500">{endpointStats.minimum}</span>
           </strong>
         </p>
-        <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+        <p
+          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
+        >
           <strong>
             Maximum:
             <span className="ml-2 text-cyan-500">{endpointStats.maximum}</span>
           </strong>
         </p>
-        <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+        <p
+          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
+        >
           <strong>
             Average:
             <span className="ml-2 text-cyan-500">{endpointStats.average}</span>
           </strong>
         </p>
-        <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1">
+        <p
+          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
+        >
           <strong>
             Median:
             <span className="ml-2 text-cyan-500">{endpointStats.median}</span>
           </strong>
         </p>
-        <p className="border-3 border-[#2a2c3e] p-3 rounded-lg flex-grow-1 h-18 overflow-auto">
+        <p
+          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1 h-18 overflow-auto`}
+        >
           <strong>Sorted percentiles: </strong>
           <span className="ml-2 text-cyan-300">[{endpointStats.sorted}]</span>
         </p>
