@@ -12,7 +12,7 @@ export const DocNavButton = ({
     <button
       onClick={onClick}
       className={`${
-        isOpen ? "text-indigo-300 font-bold" : "text-[#dedae3] "
+        isOpen ? "font-bold border-b-1" : "text-[#dedae3] "
       } relative group text-lg hover:text-white cursor-pointer text-right`}
     >
       <span>{label}</span>

@@ -18,8 +18,8 @@ export const Nav = () => {
               to={"/"}
               className={({ isActive }) =>
                 `${
-                  isActive ? "text-cyan-500" : "text-[#dedae3] "
-                } relative group text-xl hover:text-white cursor-pointer`
+                  isActive ? "text-cyan-500 font-bold" : "text-[#dedae3] "
+                } relative group text-xl hover:text-[#64e6ff] cursor-pointer`
               }
             >
               <span>Generator</span>
@@ -31,14 +31,12 @@ export const Nav = () => {
               to={"/documentation"}
               className={({ isActive }) =>
                 `${
-                  isActive ? "text-cyan-500" : "text-[#dedae3] "
-                } relative group text-xl hover:text-white cursor-pointer`
+                  isActive ? "text-cyan-500 font-bold" : "text-[#dedae3] "
+                } relative group text-xl hover:text-[#64e6ff] cursor-pointer`
               }
             >
-              <p className="relative group text-xl hover:text-white cursor-pointer">
-                <span>Documentation</span>
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
-              </p>
+              <span>Documentation</span>
+              <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
             </NavLink>
           </li>
         </ul>
