@@ -27,13 +27,15 @@ export const GeneratorResults = ({
   };
 
   useEffect(() => {
-    if (!showInsights) return;
+    console.log("showInsights changed:", showInsights);
+    // if (showInsights) {
     scrollToResults();
+    // }
   }, [showInsights]);
 
   return (
     <div
-      className={`${showMainStyleTransition} xl:col-span-2 text-left border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl`}
+      className={`${showMainStyleTransition} xl:col-span-2 h-min text-left border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl`}
       ref={resultsRef}
     >
       <Thresholds
@@ -41,10 +43,12 @@ export const GeneratorResults = ({
         sortedPercentileValues={sortedPercentileValues}
         thresholdsConfig={thresholdsConfig}
       />
-      <EndpointStatistics
-        endpointStats={percentileStats}
-        showInsights={showInsights}
-      />
+      {showInsights && (
+        <EndpointStatistics
+          endpointStats={percentileStats}
+          showInsights={showInsights}
+        />
+      )}
     </div>
   );
 };

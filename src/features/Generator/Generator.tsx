@@ -20,10 +20,15 @@ export const Generator = () => {
   const [thresholdData, setThresholdData] = useState<ThresholdData>({
     metricValues: [],
   });
+  const showInsights = thresholdData.metricValues.length > 0;
 
   return (
     <section className={`p-10 ${mainVerticalSpacing} ${mainTopSpacing}`}>
-      <div className="grid xl:grid-cols-2 grid-rows-2 gap-7">
+      <div
+        className={`grid xl:grid-cols-2 gap-7 ${
+          showInsights ? "grid-rows-2" : ""
+        }`}
+      >
         <div className="grid xl:grid-cols-2 xl:col-span-2 gap-7">
           <div className="xl:col-span-2">
             <Introduction />
