@@ -23,10 +23,10 @@ export const Generator = () => {
   const showInsights = thresholdData.metricValues.length > 0;
 
   return (
-    <section className={`p-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
+    <section className={`py-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
+      <div />
       <div className={`grid gap-7 ${showInsights ? "grid-rows-2" : ""}`}>
-        <div className="grid gap-11">
-          {/* <div className="grid xl:grid-cols-2 auto-cols-min xl:col-span-2 gap-11"> */}
+        <div className="grid gap-11 xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)]">
           <div className="xl:col-span-2">
             <Introduction />
           </div>
@@ -41,6 +41,7 @@ export const Generator = () => {
           thresholdsConfig={thresholdsConfig}
         />
       </div>
+      <div />
     </section>
   );
 };

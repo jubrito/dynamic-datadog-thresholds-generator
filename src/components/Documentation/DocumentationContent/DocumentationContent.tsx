@@ -1,5 +1,4 @@
 import { OpenDocumentationSection } from "../../../types/types";
-import { mainHorizontalSpacing } from "../../../utils/styles";
 import { Datadog } from "./Datadog/Datadog";
 import { MonitorConfiguration } from "./MonitorConfiguration/MonitorConfiguration";
 import { Observability } from "./Observability/Observability";
@@ -17,7 +16,7 @@ export const DocumentationContent = ({
   openDocumentation,
 }: DocumentationContentProps) => {
   return (
-    <div className={`p-10 text-left ${mainHorizontalSpacing}`}>
+    <div className={`py-10 text-left`}>
       {documentationSectionOpen.observability && (
         <Observability openDocumentation={openDocumentation} />
       )}

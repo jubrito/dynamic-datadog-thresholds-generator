@@ -76,7 +76,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
   return (
     <section
       aria-describedby="extract-and-upload-csv-description"
-      className="flex flex-col gap-3 text-left bg-[#0f131e] p-5 rounded-xl w-full"
+      className="flex flex-col gap-3 text-left bg-[#0f131e] p-5 rounded-xl"
     >
       <h2 className="text-2xl font-bold">CSV File Upload</h2>
       <p className="mt-6 mb-5 text-lg" id="upload-csv-description">

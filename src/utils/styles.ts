@@ -1,2 +1,3 @@
-export const mainHorizontalSpacing = "px-5 sm:px-10 md:px-50 max-w-350 mx-auto";
+export const mainHorizontalSpacing =
+  "mx-auto grid grid-cols-3 xl:grid-cols-[300px_1fr_300px]";
 export const mainTopSpacing = "mt-5";

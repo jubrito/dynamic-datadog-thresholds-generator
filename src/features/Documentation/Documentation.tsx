@@ -2,7 +2,7 @@ import { useState } from "react";
 import { OpenDocumentationSection } from "../../types/types";
 import { DocumentationContent } from "../../components/Documentation/DocumentationContent/DocumentationContent";
 import { DocumentationNav } from "../../components/Documentation/DocumentationNav/DocumentationNav";
-import { mainTopSpacing } from "../../utils/styles";
+import { mainHorizontalSpacing, mainTopSpacing } from "../../utils/styles";
 
 export const Documentation = () => {
   const [openDocumentationSection, setOpenDocumentationSection] =
@@ -13,9 +13,7 @@ export const Documentation = () => {
       monitorConfiguration: false,
     });
   return (
-    <section
-      className={`w-full flex justify-start align-start ${mainTopSpacing}`}
-    >
+    <section className={`${mainTopSpacing} ${mainHorizontalSpacing}`}>
       <DocumentationNav
         openDocumentation={setOpenDocumentationSection}
         documentationSectionOpen={openDocumentationSection}
@@ -24,6 +22,7 @@ export const Documentation = () => {
         openDocumentation={setOpenDocumentationSection}
         documentationSectionOpen={openDocumentationSection}
       />
+      <div />
     </section>
   );
 };

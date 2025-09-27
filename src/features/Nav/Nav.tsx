@@ -10,8 +10,9 @@ export const Nav = () => {
       <h2 id="main-menu-label" className="sr-only">
         Main Menu
       </h2>
-      <div className={`py-5 my-0 mx-auto ${mainHorizontalSpacing}`}>
-        <ul className="col-start-2 col-end-3 flex justify-between w-max gap-7 w-full">
+      <div className={`py-5 grid-rows-2${mainHorizontalSpacing}`}>
+        <div />
+        <ul className="flex justify-between w-max gap-7 w-full">
           <li className="py-1 rounded-md">
             <NavLink
               to={"/"}
@@ -41,6 +42,7 @@ export const Nav = () => {
             </NavLink>
           </li>
         </ul>
+        <div />
       </div>
     </nav>
   );
