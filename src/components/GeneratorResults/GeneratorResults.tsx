@@ -27,7 +27,6 @@ export const GeneratorResults = ({
   };
 
   useEffect(() => {
-    console.log("showInsights changed:", showInsights);
     if (showInsights) {
       scrollToResults();
     }
