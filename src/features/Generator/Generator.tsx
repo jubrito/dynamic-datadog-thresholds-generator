@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Configuration } from "../../components/Configuration/Configuration";
 import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
-import { mainTopSpacing, mainVerticalSpacing } from "../../utils/styles";
+import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { GeneratorResults } from "../../components/GeneratorResults/GeneratorResults";
 
@@ -23,7 +23,7 @@ export const Generator = () => {
   const showInsights = thresholdData.metricValues.length > 0;
 
   return (
-    <section className={`p-10 ${mainVerticalSpacing} ${mainTopSpacing}`}>
+    <section className={`p-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
       <div className={`grid gap-7 ${showInsights ? "grid-rows-2" : ""}`}>
         <div className="grid gap-11">
           {/* <div className="grid xl:grid-cols-2 auto-cols-min xl:col-span-2 gap-11"> */}
