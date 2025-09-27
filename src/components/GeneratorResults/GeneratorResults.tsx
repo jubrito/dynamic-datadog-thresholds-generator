@@ -28,14 +28,14 @@ export const GeneratorResults = ({
 
   useEffect(() => {
     console.log("showInsights changed:", showInsights);
-    // if (showInsights) {
-    scrollToResults();
-    // }
+    if (showInsights) {
+      scrollToResults();
+    }
   }, [showInsights]);
 
   return (
     <div
-      className={`${showMainStyleTransition} xl:col-span-2 h-min text-left border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl`}
+      className={`${showMainStyleTransition} h-min text-left border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl`}
       ref={resultsRef}
     >
       <Thresholds

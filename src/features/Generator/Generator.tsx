@@ -24,12 +24,9 @@ export const Generator = () => {
 
   return (
     <section className={`p-10 ${mainVerticalSpacing} ${mainTopSpacing}`}>
-      <div
-        className={`grid xl:grid-cols-2 gap-7 ${
-          showInsights ? "grid-rows-2" : ""
-        }`}
-      >
-        <div className="grid xl:grid-cols-2 xl:col-span-2 gap-7">
+      <div className={`grid gap-7 ${showInsights ? "grid-rows-2" : ""}`}>
+        <div className="grid gap-11">
+          {/* <div className="grid xl:grid-cols-2 auto-cols-min xl:col-span-2 gap-11"> */}
           <div className="xl:col-span-2">
             <Introduction />
           </div>
