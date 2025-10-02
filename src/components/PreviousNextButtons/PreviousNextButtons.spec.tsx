@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { PreviousNextButtons } from "./PreviousNextButtons";
+import userEvent from "@testing-library/user-event";
 
 describe("PreviousNextButtons", () => {
   const nextActionMock = jest.fn();
@@ -13,17 +14,21 @@ describe("PreviousNextButtons", () => {
         previous={{ action: previousActionMock, label: previousLabel }}
       />
     );
-    expect(screen.getByText(nextLabel)).toBeInTheDocument();
-    expect(screen.getByText(previousLabel)).toBeInTheDocument();
+    expect(screen.getByText(`Next: ${nextLabel}`)).toBeInTheDocument();
+    expect(screen.getByText(`Previous: ${previousLabel}`)).toBeInTheDocument();
   });
 
-  it("should render previous and next buttons with aria label", () => {
+  it("should render previous and next buttons with aria label", async () => {
     render(
       <PreviousNextButtons
         next={{ action: nextActionMock, label: nextLabel }}
         previous={{ action: previousActionMock, label: previousLabel }}
       />
     );
+
+    await userEvent.click(screen.getByText(`Next: ${nextLabel}`));
+    await userEvent.click(screen.getByText(`Previous: ${previousLabel}`));
+
     expect(
       screen.getByLabelText(`Next page: ${nextLabel}`)
     ).toBeInTheDocument();
