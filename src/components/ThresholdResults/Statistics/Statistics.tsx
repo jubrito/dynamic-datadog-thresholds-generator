@@ -38,8 +38,8 @@ export const EndpointStatistics = ({
       >
         <div className="flex">
           <div className="pr-3" aria-hidden="true">
-            {!showStats && <VisibilityIcon />}
-            {showStats && <VisibilityOffIcon />}
+            {!showStats && <VisibilityIcon aria-hidden="true" />}
+            {showStats && <VisibilityOffIcon aria-hidden="true" />}
           </div>
           <span className="mt-0.5 w-max">
             {!showStats && <span>Show </span>}
