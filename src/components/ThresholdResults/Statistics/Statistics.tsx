@@ -3,7 +3,8 @@ import { EndpointStats } from "../../../types/types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { insufficientDataValue } from "../../../utils/constants";
-import { darkGrayBlue } from "../../../utils/styles";
+import { StatisticsItem } from "./StatisticsItem/StatisticsItem";
+import { isDataSufficient } from "../../../utils/statistics";
 
 type EndpointStatisticsProps = {
   endpointStats: EndpointStats;
@@ -15,8 +16,7 @@ export const EndpointStatistics = ({
   showInsights,
 }: EndpointStatisticsProps) => {
   const [showStats, setShowStats] = useState(false);
-  const insufficientData =
-    endpointStats.numberOfElements < insufficientDataValue;
+  const insufficientData = !isDataSufficient(endpointStats.numberOfElements);
   const statsSectionId = "endpoint-highlights";
   const showMainInsightsTransition = showInsights ? "opacity-100" : "opacity-0";
   const statsResultsRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,6 @@ export const EndpointStatistics = ({
   return (
     <div
       className={`transition duration-500 ${showMainInsightsTransition}`}
-      aria-label="Endpoint insights"
       ref={statsResultsRef}
     >
       <button
@@ -33,6 +32,9 @@ export const EndpointStatistics = ({
         className="
             transition-all duration-100 cursor-pointer text-lg font-bold text-white p-2 pl-0 rounded-lg border-1 border-transparent hover:border-white"
         aria-expanded={showStats ? "true" : "false"}
+        aria-label={`${
+          showStats ? "Hide" : "Show"
+        } endpoint insights visibility`}
       >
         <div className="flex">
           <div className="pr-3" aria-hidden="true">
@@ -50,66 +52,31 @@ export const EndpointStatistics = ({
         className={` ${
           showStats ? "delay-400 max-h-96 mt-5" : "max-h-0 mt-0"
         } flex flex-wrap gap-4 transition-all duration-1000 ease-in-out ease-out overflow-hidden`}
-        aria-expanded={showStats}
         id={statsSectionId}
+        aria-label="Endpoint insights"
       >
-        <p
-          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
-        >
-          <strong>
-            Number of values analyzed:
-            <span className="ml-2 text-cyan-500">
-              {endpointStats.numberOfElements}
-            </span>
-          </strong>
-        </p>
-        <p
-          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
-        >
-          <strong>
-            Minimum:
-            <span className="ml-2 text-cyan-500">{endpointStats.minimum}</span>
-          </strong>
-        </p>
-        <p
-          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
-        >
-          <strong>
-            Maximum:
-            <span className="ml-2 text-cyan-500">{endpointStats.maximum}</span>
-          </strong>
-        </p>
-        <p
-          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
-        >
-          <strong>
-            Average:
-            <span className="ml-2 text-cyan-500">{endpointStats.average}</span>
-          </strong>
-        </p>
-        <p
-          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1`}
-        >
-          <strong>
-            Median:
-            <span className="ml-2 text-cyan-500">{endpointStats.median}</span>
-          </strong>
-        </p>
-        <p
-          className={`border-1 ${darkGrayBlue.border} p-3 rounded-lg flex-grow-1 h-18 overflow-auto`}
-        >
-          <strong>Sorted percentiles: </strong>
-          <span className="ml-2 text-cyan-300">[{endpointStats.sorted}]</span>
-        </p>
-        <p></p>
-        {insufficientData && (
-          <p>
-            <i>
-              <strong>Note:</strong> Not enough data: enter more than{" "}
-              <span className="mx-1">{insufficientDataValue}</span>
-              values for a more accurate result.
-            </i>
-          </p>
+        {showStats && (
+          <>
+            <StatisticsItem
+              label="Number of values analyzed:"
+              value={endpointStats.numberOfElements}
+            />
+            <StatisticsItem label="Minimum:" value={endpointStats.minimum} />
+            <StatisticsItem label="Maximum:" value={endpointStats.maximum} />
+            <StatisticsItem label="Average:" value={endpointStats.average} />
+            <StatisticsItem label="Median:" value={endpointStats.median} />
+            <StatisticsItem
+              label="Sorted percentiles:"
+              value={`[${endpointStats.sorted}]`}
+              styles={{ container: "h-18 overflow-auto" }}
+            />
+            {insufficientData && (
+              <StatisticsItem
+                label={`Not enough data. Enter more than' ${insufficientDataValue} values to generate more accurate results`}
+                styles={{ label: "font-normal italic" }}
+              />
+            )}
+          </>
         )}
       </div>
     </div>
