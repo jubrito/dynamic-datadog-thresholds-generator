@@ -12,6 +12,15 @@ describe("EndpointStatistics", () => {
     sorted: "1,2,5,7,10",
   };
 
+  const statisticsItems = [
+    "Number of values analyzed:",
+    "Minimum:",
+    "Maximum:",
+    "Average:",
+    "Median:",
+    "Sorted percentiles:",
+  ];
+
   it("should visually hide statistics if show insights is false", () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={false} />
@@ -98,4 +107,18 @@ describe("EndpointStatistics", () => {
 
     expect(btn).toHaveAttribute("aria-expanded", "true");
   });
+
+  it.each(statisticsItems)(
+    "should toggle each statistics item when pressing button",
+    async (statisticsItem) => {
+      render(
+        <EndpointStatistics endpointStats={baseStats} showInsights={true} />
+      );
+      await userEvent.click(screen.getByLabelText(/Show endpoint insights/));
+      expect(screen.queryByText(statisticsItem)).toBeInTheDocument();
+
+      await userEvent.click(screen.getByLabelText(/Hide endpoint insights/));
+      expect(screen.queryByText(statisticsItem)).not.toBeInTheDocument();
+    }
+  );
 });
