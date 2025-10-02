@@ -38,7 +38,7 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
         <p className="text-bold">The three pillars of observability are:</p>
         <div className="flex gap-5 mt-3 flex-col md:flex-row text-center">
           <ColorBox style="bg-indigo-600 text-white">Logs</ColorBox>
-          <ColorBox style="">Traces</ColorBox>
+          <ColorBox>Traces</ColorBox>
           <ColorBox style="bg-pink-500 text-white">Metrics</ColorBox>
         </div>
       </div>
