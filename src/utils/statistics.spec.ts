@@ -6,6 +6,7 @@ import {
   getQ3,
   getIQR,
   filterExtremeValues,
+  isDataInsufficient,
 } from "./statistics";
 
 describe("statistics", () => {
@@ -94,6 +95,15 @@ describe("statistics", () => {
 
     it("returns original array if no outliers", () => {
       expect(filterExtremeValues([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+    });
+  });
+
+  describe("isDataInsufficient", () => {
+    it("returns true if array length is less than insufficientDataValue", () => {
+      expect(isDataInsufficient(0)).toBe(true);
+      expect(isDataInsufficient(1)).toBe(true);
+      expect(isDataInsufficient(2)).toBe(true);
+      expect(isDataInsufficient(3)).toBe(true);
     });
   });
 });
