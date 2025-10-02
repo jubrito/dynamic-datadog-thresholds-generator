@@ -4,6 +4,7 @@ import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { EndpointStatistics } from "../ThresholdResults/Statistics/Statistics";
 import { Thresholds } from "../Thresholds/Thresholds";
 import { grayerDarkGrayBlue } from "../../utils/styles";
+import { isDataSufficient } from "../../utils/statistics";
 
 type GeneratorResultsProps = {
   thresholdData: ThresholdData;
@@ -17,8 +18,11 @@ export const GeneratorResults = ({
   const sortedPercentileValues = getSortedAscending(percentileValues);
   const percentileStats = getStatistics(sortedPercentileValues);
   const showInsights = thresholdData.metricValues.length > 0;
+  const enoughDataForInsights = isDataSufficient(percentileValues.length);
   const showMainStyleTransition = showInsights
-    ? `${grayerDarkGrayBlue.background} max-h-113 mt-5`
+    ? `${grayerDarkGrayBlue.background} ${
+        enoughDataForInsights ? "" : "max-h-124"
+      } mt-5`
     : "bg-transparent max-h-0 mt-0";
 
   const resultsRef = useRef<HTMLDivElement>(null);
