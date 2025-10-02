@@ -51,4 +51,16 @@ describe("Thresholds", () => {
     expect(screen.getByText(/Critical threshold:/)).toBeInTheDocument();
     expect(screen.getByText(/20/)).toBeInTheDocument();
   });
+
+  it('should render section with "aria-live" attribute for accessibility', () => {
+    render(
+      <Thresholds
+        sortedPercentileValues={[1]}
+        endpointName={"/"}
+        thresholdsConfig={mockConfig}
+      />
+    );
+    const section = screen.getByRole("region");
+    expect(section).toHaveAttribute("aria-live", "polite");
+  });
 });
