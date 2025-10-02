@@ -18,6 +18,7 @@ export const StatisticsItem = ({
     value: "",
   },
 }: StatisticsItemProps) => {
+  if (!label && !value) return null;
   return (
     <p
       className={`border-1 p-3 rounded-lg flex-grow-1 ${darkGrayBlue.border} ${styles.container}`}
