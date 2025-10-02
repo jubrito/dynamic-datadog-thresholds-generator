@@ -6,4 +6,10 @@ describe("ColorBox", () => {
     const { getByText } = render(<ColorBox>Content</ColorBox>);
     expect(getByText("Content")).toBeInTheDocument();
   });
+  it("should add default styles", () => {
+    const { container } = render(<ColorBox>Content</ColorBox>);
+    expect(container.firstChild).toHaveClass(
+      "p-3 px-15 text-black font-bold bg-cyan-500"
+    );
+  });
 });
