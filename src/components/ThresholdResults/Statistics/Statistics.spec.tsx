@@ -20,7 +20,7 @@ describe("EndpointStatistics", () => {
     expect(region).toHaveClass("opacity-0");
   });
 
-  it("should show stats when button is clicked", async () => {
+  it("should show stats when show button is clicked", async () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={true} />
     );
@@ -28,7 +28,9 @@ describe("EndpointStatistics", () => {
     const section = screen.getByRole("button").closest("div");
     expect(section).toHaveClass("opacity-100");
 
-    await userEvent.click(screen.getByRole("button"));
+    await userEvent.click(
+      screen.getByRole("button", { name: /Show endpoint insights/i })
+    );
 
     const statsSection = screen.getByLabelText("Endpoint insights");
 
@@ -37,22 +39,25 @@ describe("EndpointStatistics", () => {
     });
   });
 
-  it("should hide stats when button is clicked twice", async () => {
+  it("should hide stats when hide button is clicked twice", async () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={true} />
     );
     const section = screen.getByRole("button").closest("div");
     expect(section).toHaveClass("opacity-100");
 
-    await userEvent.click(screen.getByRole("button"));
-
+    await userEvent.click(
+      screen.getByRole("button", { name: /Show endpoint insights/i })
+    );
     const statsSection = screen.getByLabelText("Endpoint insights");
 
     await waitFor(() => {
       expect(statsSection).toHaveClass("max-h-96");
     });
 
-    await userEvent.click(screen.getByRole("button"));
+    await userEvent.click(
+      screen.getByRole("button", { name: /Hide endpoint insights/i })
+    );
 
     expect(statsSection).toHaveClass("max-h-0");
     expect(statsSection).not.toHaveAttribute("aria-expanded", "true");
