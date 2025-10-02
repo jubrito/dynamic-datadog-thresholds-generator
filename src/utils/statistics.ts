@@ -1,4 +1,5 @@
 import type { Percentile } from "../types/types";
+import { insufficientDataValue } from "./constants";
 import { getWithNDecimalPlaces } from "./utils";
 
 export const getAverage = (sortedPercentiles: Percentile[]) => {
@@ -139,4 +140,8 @@ export const filterExtremeValues = (
   const upperFence = q3 + iqrMultiplier * iqr;
 
   return sortedValues.filter((v) => v >= lowerFence && v <= upperFence);
+};
+
+export const isDataInsufficient = (numberOfValues: number) => {
+  return numberOfValues < insufficientDataValue;
 };
