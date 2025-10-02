@@ -12,4 +12,10 @@ describe("ColorBox", () => {
       "p-3 px-15 text-black font-bold bg-cyan-500"
     );
   });
+  it("should apply custom styles", () => {
+    const { container } = render(
+      <ColorBox style="custom-style">Content</ColorBox>
+    );
+    expect(container.firstChild).toHaveClass("custom-style");
+  });
 });
