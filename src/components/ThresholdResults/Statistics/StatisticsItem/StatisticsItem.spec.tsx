@@ -15,4 +15,8 @@ describe("StatisticsItem", () => {
     render(<StatisticsItem value={202} />);
     expect(screen.getByText("202")).toBeInTheDocument();
   });
+  it("should return null when neither label nor value is provided", () => {
+    const { container } = render(<StatisticsItem />);
+    expect(container.firstChild).toBeNull();
+  });
 });
