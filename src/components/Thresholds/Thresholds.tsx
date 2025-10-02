@@ -26,6 +26,7 @@ export const Thresholds = ({
       className={`${
         resultsWereGenerated ? "opacity-100" : "opacity-0"
       } transition-opacity duration-500 rounded-xl pb-7`}
+      aria-live="polite"
     >
       {resultsWereGenerated && (
         <>
