@@ -16,4 +16,14 @@ describe("PreviousNextButtons", () => {
     expect(screen.getByText(nextLabel)).toBeInTheDocument();
     expect(screen.getByText(previousLabel)).toBeInTheDocument();
   });
+  it("should call previous and next buttons when props are provided", () => {
+    render(
+      <PreviousNextButtons
+        next={{ action: nextActionMock, label: nextLabel }}
+        previous={{ action: previousActionMock, label: previousLabel }}
+      />
+    );
+    expect(nextActionMock).toHaveBeenCalledTimes(1);
+    expect(previousActionMock).toHaveBeenCalledTimes(1);
+  });
 });
