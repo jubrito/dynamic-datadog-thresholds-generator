@@ -32,6 +32,7 @@ export const EndpointStatistics = ({
         aria-controls={statsSectionId}
         className="
             transition-all duration-100 cursor-pointer text-lg font-bold text-white p-2 pl-0 rounded-lg border-1 border-transparent hover:border-white"
+        aria-expanded={showStats ? "true" : "false"}
       >
         <div className="flex">
           <div className="pr-3" aria-hidden="true">
