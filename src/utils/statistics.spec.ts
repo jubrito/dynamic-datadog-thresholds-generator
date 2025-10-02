@@ -105,5 +105,12 @@ describe("statistics", () => {
       expect(isDataInsufficient(2)).toBe(true);
       expect(isDataInsufficient(3)).toBe(true);
     });
+
+    it("returns false if array length is equal to or greater than insufficientDataValue", () => {
+      expect(isDataInsufficient(4)).toBe(false);
+      expect(isDataInsufficient(5)).toBe(false);
+      expect(isDataInsufficient(10)).toBe(false);
+      expect(isDataInsufficient(101)).toBe(false);
+    });
   });
 });
