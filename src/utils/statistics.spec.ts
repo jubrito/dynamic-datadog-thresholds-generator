@@ -6,7 +6,7 @@ import {
   getQ3,
   getIQR,
   filterExtremeValues,
-  isDataInsufficient,
+  isDataSufficient,
 } from "./statistics";
 
 describe("statistics", () => {
@@ -98,19 +98,19 @@ describe("statistics", () => {
     });
   });
 
-  describe("isDataInsufficient", () => {
-    it("returns true if array length is less than insufficientDataValue", () => {
-      expect(isDataInsufficient(0)).toBe(true);
-      expect(isDataInsufficient(1)).toBe(true);
-      expect(isDataInsufficient(2)).toBe(true);
-      expect(isDataInsufficient(3)).toBe(true);
+  describe("isDataSufficient", () => {
+    it("returns false if array length is less than insufficientDataValue", () => {
+      expect(isDataSufficient(0)).toBe(false);
+      expect(isDataSufficient(1)).toBe(false);
+      expect(isDataSufficient(2)).toBe(false);
+      expect(isDataSufficient(3)).toBe(false);
+      expect(isDataSufficient(4)).toBe(false);
     });
 
     it("returns false if array length is equal to or greater than insufficientDataValue", () => {
-      expect(isDataInsufficient(4)).toBe(false);
-      expect(isDataInsufficient(5)).toBe(false);
-      expect(isDataInsufficient(10)).toBe(false);
-      expect(isDataInsufficient(101)).toBe(false);
+      expect(isDataSufficient(5)).toBe(true);
+      expect(isDataSufficient(10)).toBe(true);
+      expect(isDataSufficient(101)).toBe(true);
     });
   });
 });
