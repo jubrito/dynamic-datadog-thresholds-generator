@@ -15,9 +15,15 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
   return (
     <>
       <div className="flex xl:flex-nowrap flex-wrap flex-row gap-5">
-        <div className="max-w-230 min-w-80">
+        <div className="min-w-full h-80 max-h-70 xl:h-auto xl:max-h-unset bg-[#100860] relative  xl:max-w-280 xl:min-w-80">
           <h1 className="text-4xl font-bold block xl:hidden mb-5">Datadog</h1>
-          <img src={DatadogLogo} alt="" />
+          <div className="absolute inset-0 flex items-center justify-center xl:block">
+            <img
+              src={DatadogLogo}
+              alt="Datadog"
+              className="w-full h-full object-cover min-w-full xl:min-h-full"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-5">
           <h1 className="text-4xl font-bold hidden xl:block">Datadog</h1>
