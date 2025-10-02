@@ -21,22 +21,24 @@ export const Thresholds = ({
     endpointName && sortedPercentileValues.length > 0;
 
   return (
-    <section role="region" aria-live="polite">
-      <div
-        className={`${
-          resultsWereGenerated ? "opacity-100" : "opacity-0"
-        } transition-opacity duration-500 rounded-xl pb-7`}
-        aria-expanded={!!resultsWereGenerated}
-      >
-        <h2 className="font-bold text-2xl">
-          <span className="sr-only">Endpoint name: </span>
-          {endpointName}
-        </h2>
-        <ThresholdResults
-          warningThreshold={warningThreshold}
-          criticalThreshold={criticalThreshold}
-        />
-      </div>
+    <section
+      role="region"
+      className={`${
+        resultsWereGenerated ? "opacity-100" : "opacity-0"
+      } transition-opacity duration-500 rounded-xl pb-7`}
+    >
+      {resultsWereGenerated && (
+        <>
+          <h2 className="font-bold text-2xl">
+            <span className="sr-only">Endpoint name: </span>
+            {endpointName}
+          </h2>
+          <ThresholdResults
+            warningThreshold={warningThreshold}
+            criticalThreshold={criticalThreshold}
+          />
+        </>
+      )}
     </section>
   );
 };
