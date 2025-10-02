@@ -25,7 +25,7 @@ export const PreviousNextButtons = ({
           }
         >
           <span>
-            {<ArrowLeftIcon />}
+            {<ArrowLeftIcon aria-hidden="true" />}
             <span
               className="font-bold"
               aria-label={`Previous page: ${previous.label}`}
@@ -47,7 +47,7 @@ export const PreviousNextButtons = ({
             <span className="font-bold" aria-label={`Next page: ${next.label}`}>
               Next: {next.label}
             </span>
-            {<ArrowRightIcon />}
+            {<ArrowRightIcon aria-hidden="true" />}
           </span>
           <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
         </button>
