@@ -11,4 +11,8 @@ describe("StatisticsItem", () => {
     render(<StatisticsItem label="Only label:" />);
     expect(screen.getByText("Only label:")).toBeInTheDocument();
   });
+  it("should render only value when label is not provided", () => {
+    render(<StatisticsItem value={202} />);
+    expect(screen.getByText("202")).toBeInTheDocument();
+  });
 });
