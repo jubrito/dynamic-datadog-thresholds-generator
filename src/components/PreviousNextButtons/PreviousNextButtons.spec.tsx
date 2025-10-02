@@ -16,6 +16,22 @@ describe("PreviousNextButtons", () => {
     expect(screen.getByText(nextLabel)).toBeInTheDocument();
     expect(screen.getByText(previousLabel)).toBeInTheDocument();
   });
+
+  it("should render previous and next buttons with aria label", () => {
+    render(
+      <PreviousNextButtons
+        next={{ action: nextActionMock, label: nextLabel }}
+        previous={{ action: previousActionMock, label: previousLabel }}
+      />
+    );
+    expect(
+      screen.getByLabelText(`Next page: ${nextLabel}`)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(`Previous page: ${previousLabel}`)
+    ).toBeInTheDocument();
+  });
+
   it("should call previous and next buttons when props are provided", () => {
     render(
       <PreviousNextButtons
