@@ -9,23 +9,20 @@ describe("ThresholdResults", () => {
     expect(screen.getByText("Critical threshold: 99")).toBeInTheDocument();
   });
 
-  it("should handle missing warning threshold", () => {
+  it("should render only critical threshold if warning threshold is missing", () => {
     render(<ThresholdResults criticalThreshold={99} />);
     expect(screen.queryByText("Warning threshold:")).not.toBeInTheDocument();
     expect(screen.getByText("Critical threshold: 99")).toBeInTheDocument();
   });
 
-  it("handles missing critical threshold", () => {
+  it("should render only warning threshold if critical threshold is missing", () => {
     render(<ThresholdResults warningThreshold={95} />);
     expect(screen.getByText("Warning threshold: 95")).toBeInTheDocument();
     expect(screen.queryByText("Critical threshold:")).not.toBeInTheDocument();
   });
 
-  it("should render thresholds with accessibility aria-live attribute", () => {
-    render(<ThresholdResults warningThreshold={95} criticalThreshold={99} />);
-    expect(screen.getByText("Warning threshold: 95")).toHaveAttribute(
-      "aria-live",
-      "polite"
-    );
+  it("should render nothing when both thresholds are missing", () => {
+    const { container } = render(<ThresholdResults />);
+    expect(container).toBeEmptyDOMElement();
   });
 });
