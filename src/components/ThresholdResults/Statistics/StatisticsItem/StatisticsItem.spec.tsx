@@ -7,4 +7,8 @@ describe("StatisticsItem", () => {
     expect(screen.getByText("label:")).toBeInTheDocument();
     expect(screen.getByText("101")).toBeInTheDocument();
   });
+  it("should render only label when value is not provided", () => {
+    render(<StatisticsItem label="Only label:" />);
+    expect(screen.getByText("Only label:")).toBeInTheDocument();
+  });
 });
