@@ -142,6 +142,6 @@ export const filterExtremeValues = (
   return sortedValues.filter((v) => v >= lowerFence && v <= upperFence);
 };
 
-export const isDataInsufficient = (numberOfValues: number) => {
-  return numberOfValues < insufficientDataValue;
+export const isDataSufficient = (numberOfValues: number) => {
+  return numberOfValues > insufficientDataValue;
 };
