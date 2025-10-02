@@ -7,4 +7,4 @@ export const closeDocumentationSections: OpenDocumentationSection = {
   thresholds: false,
 };
 
-export const insufficientDataValue = 4;
+export const insufficientDataValue = 5;
