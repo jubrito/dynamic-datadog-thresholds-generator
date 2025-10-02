@@ -51,18 +51,4 @@ describe("Thresholds", () => {
     expect(screen.getByText(/Critical threshold:/)).toBeInTheDocument();
     expect(screen.getByText(/20/)).toBeInTheDocument();
   });
-
-  // it("should apply correct aria-expanded attribute", () => {
-  //   render(
-  //     <Thresholds
-  //       endpointName="/api/test"
-  //       percentileValues={[1, 2, 3]}
-  //       thresholdsConfig={mockConfig}
-  //     />
-  //   );
-  //   const container = screen
-  //     .getByText("/api/test")
-  //     .closest("div[aria-expanded]");
-  //   expect(container).toHaveAttribute("aria-expanded", "true");
-  // });
 });
