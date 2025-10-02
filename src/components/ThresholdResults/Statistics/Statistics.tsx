@@ -72,7 +72,7 @@ export const EndpointStatistics = ({
             />
             {insufficientData && (
               <StatisticsItem
-                label={`Not enough data. Enter more than' ${insufficientDataValue} values to generate more accurate results`}
+                label={`Not enough data. Enter more than ${insufficientDataValue} values to generate more accurate results`}
                 styles={{ label: "font-normal italic" }}
               />
             )}
