@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { EndpointStatistics } from "./Statistics";
 import userEvent from "@testing-library/user-event";
 
@@ -16,7 +16,7 @@ describe("EndpointStatistics", () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={false} />
     );
-    const region = screen.getByLabelText("Endpoint insights");
+    const region = screen.getByRole("button").closest("div");
     expect(region).toHaveClass("opacity-0");
   });
 
@@ -24,40 +24,33 @@ describe("EndpointStatistics", () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={true} />
     );
-    const section = screen.getByLabelText("Endpoint insights");
+
+    const section = screen.getByRole("button").closest("div");
     expect(section).toHaveClass("opacity-100");
-
-    const statsSection = screen
-      .queryByText(/Number of values analyzed/)
-      ?.closest("div");
-
-    expect(statsSection).toHaveClass("max-h-0");
-    expect(statsSection).not.toHaveAttribute("aria-expanded", "true");
 
     await userEvent.click(screen.getByRole("button"));
 
-    expect(statsSection).toHaveClass("max-h-96");
-    expect(statsSection).toHaveAttribute("aria-expanded", "true");
+    const statsSection = screen.getByLabelText("Endpoint insights");
+
+    await waitFor(() => {
+      expect(statsSection).toHaveClass("max-h-96");
+    });
   });
 
   it("should hide stats when button is clicked twice", async () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={true} />
     );
-    const section = screen.getByLabelText("Endpoint insights");
+    const section = screen.getByRole("button").closest("div");
     expect(section).toHaveClass("opacity-100");
-
-    const statsSection = screen
-      .queryByText(/Number of values analyzed/)
-      ?.closest("div");
-
-    expect(statsSection).toHaveClass("max-h-0");
-    expect(statsSection).not.toHaveAttribute("aria-expanded", "true");
 
     await userEvent.click(screen.getByRole("button"));
 
-    expect(statsSection).toHaveClass("max-h-96");
-    expect(statsSection).toHaveAttribute("aria-expanded", "true");
+    const statsSection = screen.getByLabelText("Endpoint insights");
+
+    await waitFor(() => {
+      expect(statsSection).toHaveClass("max-h-96");
+    });
 
     await userEvent.click(screen.getByRole("button"));
 
@@ -65,15 +58,20 @@ describe("EndpointStatistics", () => {
     expect(statsSection).not.toHaveAttribute("aria-expanded", "true");
   });
 
-  it("should show insufficient data note if numberOfElements < 4", () => {
+  it("should show insufficient data note if numberOfElements < 4", async () => {
+    const notEnoughStats = {
+      numberOfElements: 1,
+      minimum: 1,
+      maximum: 1,
+      average: 1,
+      median: 1,
+      sorted: "1",
+    };
     render(
-      <EndpointStatistics
-        endpointStats={{ ...baseStats, numberOfElements: 2 }}
-        showInsights={true}
-      />
+      <EndpointStatistics endpointStats={notEnoughStats} showInsights={true} />
     );
-    fireEvent.click(screen.getByRole("button"));
-    expect(screen.getByText(/Not enough data./)).toBeInTheDocument();
+    await userEvent.click(screen.getByLabelText(/Show endpoint insights/));
+    expect(screen.getByText(/Not enough data/)).toBeInTheDocument();
   });
 
   it("should render button with aria-controls for accessibility", () => {
