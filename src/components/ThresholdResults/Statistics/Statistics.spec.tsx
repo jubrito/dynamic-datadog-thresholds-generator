@@ -12,7 +12,7 @@ describe("EndpointStatistics", () => {
     sorted: "1,2,5,7,10",
   };
 
-  it("should visually hide everything if show insights is false", () => {
+  it("should visually hide statistics if show insights is false", () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={false} />
     );
@@ -81,5 +81,16 @@ describe("EndpointStatistics", () => {
     const btn = screen.getByRole("button");
     expect(btn).toHaveAttribute("aria-controls", "endpoint-highlights");
   });
-  it.todo("should render button with aria-expanded for accessibility");
+
+  it("should render button with aria-expanded for accessibility", async () => {
+    render(
+      <EndpointStatistics endpointStats={baseStats} showInsights={true} />
+    );
+    const btn = screen.getByRole("button");
+    expect(btn).toHaveAttribute("aria-expanded", "false");
+
+    await userEvent.click(screen.getByLabelText(/Show endpoint insights/));
+
+    expect(btn).toHaveAttribute("aria-expanded", "true");
+  });
 });
