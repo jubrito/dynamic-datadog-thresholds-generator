@@ -83,4 +83,5 @@ describe("EndpointStatistics", () => {
     const btn = screen.getByRole("button");
     expect(btn).toHaveAttribute("aria-controls", "endpoint-highlights");
   });
+  it.todo("should render button with aria-expanded for accessibility");
 });
