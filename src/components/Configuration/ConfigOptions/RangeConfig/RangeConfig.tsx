@@ -31,9 +31,7 @@ export const RangeConfig = ({
   const highLabel = labels?.highLabel || "Higher";
   const rangeBarLabel = labels?.rangeBarLabel || "Rigorousness";
   const accentColor = value >= 50 ? "accent-cyan-500" : "accent-white";
-  const inputRangeLabel = `The ${
-    labels.field
-  } value represents the ${rangeBarLabel.toLowerCase()}. A lower value means '${lowLabel.toLowerCase()}' and a higher value means '${highLabel.toLowerCase()}'`;
+  const inputRangeLabel = `The ${labels.field.toLowerCase()} value represents the ${rangeBarLabel.toLowerCase()}. A lower value means '${lowLabel.toLowerCase()}' and a higher value means '${highLabel.toLowerCase()}'`;
   const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = Math.round(parseInt(event.target.value));
     setValue(updatedValue);
@@ -54,6 +52,7 @@ export const RangeConfig = ({
           max={limits.max}
           value={value}
           onChange={handleRangeChange}
+          aria-label={inputRangeLabel}
         />
       </div>
       <>
@@ -68,7 +67,7 @@ export const RangeConfig = ({
             max={limits.max}
             value={value}
             onChange={handleRangeChange}
-            aria-label={inputRangeLabel}
+            aria-label={`Increase or decrease the ${labels.field.toLowerCase()} value`}
           />
           <span className="inline text-sm italic" aria-hidden="true">
             {highLabel}
