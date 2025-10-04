@@ -1,5 +1,6 @@
 import type { ThresholdsConfig } from "../../types/types";
 import { darkGrayBlue } from "../../utils/styles";
+import { configureGeneratorDescriptionId } from "../Introduction/Introduction";
 import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 
 type ConfigurationProps = {
@@ -19,7 +20,7 @@ export const Configuration = ({
   return (
     <section
       className="flex flex-col items-center xl:w-min w-full h-full"
-      aria-describedby="configure-generator-description"
+      aria-describedby={configureGeneratorDescriptionId}
       role="region"
       aria-labelledby={configurationLabelId}
     >
