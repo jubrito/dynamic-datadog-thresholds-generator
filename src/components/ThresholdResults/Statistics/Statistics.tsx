@@ -50,34 +50,33 @@ export const EndpointStatistics = ({
       </button>
       <div
         className={` ${
-          showStats ? "delay-400 max-h-96 mt-5" : "max-h-0 mt-0"
-        } flex flex-wrap gap-4 transition-all duration-1000 ease-in-out ease-out overflow-hidden`}
+          showStats ? " max-h-96 mt-5" : "max-h-0 h-max mt-0"
+        } flex flex-wrap gap-4 transition-all duration-1200 ease-in-out overflow-hidden`}
         id={statsSectionId}
         aria-label="Endpoint insights"
+        aria-hidden={showStats ? "false" : "true"}
       >
-        {showStats && (
-          <>
+        <>
+          <StatisticsItem
+            label="Number of values analyzed:"
+            value={endpointStats.numberOfElements}
+          />
+          <StatisticsItem label="Minimum:" value={endpointStats.minimum} />
+          <StatisticsItem label="Maximum:" value={endpointStats.maximum} />
+          <StatisticsItem label="Average:" value={endpointStats.average} />
+          <StatisticsItem label="Median:" value={endpointStats.median} />
+          <StatisticsItem
+            label="Sorted percentiles:"
+            value={`[${endpointStats.sorted}]`}
+            styles={{ container: "h-18 overflow-auto" }}
+          />
+          {insufficientData && (
             <StatisticsItem
-              label="Number of values analyzed:"
-              value={endpointStats.numberOfElements}
+              label={`Not enough data. Enter more than ${insufficientDataValue} values to generate more accurate results`}
+              styles={{ label: "font-normal italic" }}
             />
-            <StatisticsItem label="Minimum:" value={endpointStats.minimum} />
-            <StatisticsItem label="Maximum:" value={endpointStats.maximum} />
-            <StatisticsItem label="Average:" value={endpointStats.average} />
-            <StatisticsItem label="Median:" value={endpointStats.median} />
-            <StatisticsItem
-              label="Sorted percentiles:"
-              value={`[${endpointStats.sorted}]`}
-              styles={{ container: "h-18 overflow-auto" }}
-            />
-            {insufficientData && (
-              <StatisticsItem
-                label={`Not enough data. Enter more than ${insufficientDataValue} values to generate more accurate results`}
-                styles={{ label: "font-normal italic" }}
-              />
-            )}
-          </>
-        )}
+          )}
+        </>
       </div>
     </div>
   );
