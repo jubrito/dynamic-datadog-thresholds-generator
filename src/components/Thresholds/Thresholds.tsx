@@ -30,8 +30,10 @@ export const Thresholds = ({
     >
       {resultsWereGenerated && (
         <>
-          <h2 className="font-bold text-2xl">
-            <span className="sr-only">Endpoint name: </span>
+          <h2
+            className="font-bold text-2xl"
+            aria-label={`Endpoint name: ${endpointName}`}
+          >
             {endpointName}
           </h2>
           <ThresholdResults
