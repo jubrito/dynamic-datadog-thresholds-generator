@@ -44,4 +44,13 @@ describe("Configuration", () => {
       "configure-generator-description-id"
     );
   });
+  it("should render generator configuration heading with id", () => {
+    const heading = screen.getByRole("heading", {
+      name: "Generator configuration",
+      level: 2,
+    });
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent("Generator configuration");
+    expect(heading).toHaveAttribute("id", configurationLabelId);
+  });
 });
