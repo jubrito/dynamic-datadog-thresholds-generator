@@ -1,3 +1,6 @@
+export const configureGeneratorDescriptionId =
+  "configure-generator-description";
+
 export const Introduction = () => {
   return (
     <div className="text-left max-w-250">
@@ -10,9 +13,9 @@ export const Introduction = () => {
           aggregation and upload it to generate warning and critical thresholds
           suggestions.
         </span>
-        <span className="pl-1" id="configure-generator-description">
-          Decide how rigorous you want to be by adjusting the configuration
-          values at any time.
+        <span className="pl-1" id={configureGeneratorDescriptionId}>
+          Configure the generator to define how rigorous you want the threshold
+          suggestions to be.
         </span>
       </h3>
     </div>
