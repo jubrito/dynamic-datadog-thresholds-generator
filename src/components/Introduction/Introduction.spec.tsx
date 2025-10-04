@@ -15,7 +15,7 @@ describe("BorderBox", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Decide how rigorous you want to be by adjusting the configuration values at any time./
+        /Configure the generator to define how rigorous you want the threshold suggestions to be./
       )
     ).toBeInTheDocument();
   });
