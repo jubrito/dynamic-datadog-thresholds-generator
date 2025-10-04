@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/dom";
+import { screen, within } from "@testing-library/dom";
 import { ConfigOptions } from "./ConfigOptions";
 import { render } from "@testing-library/react";
 
@@ -29,6 +29,14 @@ describe("ConfigOptions", () => {
       `${thresholdType} Threshold configuration`
     );
     expect(rangeConfigWrapper).toBeInTheDocument();
+  });
+  it("should render base percentile range config", () => {
+    const rangeConfigWrapper = screen.getByLabelText(
+      `${thresholdType} Threshold configuration`
+    );
+    const basePercentileField =
+      within(rangeConfigWrapper).getByLabelText("Base percentile");
+    expect(basePercentileField).toBeInTheDocument();
   });
   //   it("should have a div with aria-labelledby attribute pointing to the threshold type field id", () => {
   //     const divElement = screen.getByRole("region", {
