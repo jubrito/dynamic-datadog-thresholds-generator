@@ -15,6 +15,8 @@ type UploadCsvBoxProps = {
   updateThresholdData: React.Dispatch<React.SetStateAction<ThresholdData>>;
 };
 
+const uploadCsvDescriptionId = "upload-csv-description-id";
+
 export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
   const handleValues = (csvRows: string[][], csvHeaders: string[]) => {
     const valuesColumnIndex = csvHeaders.indexOf("value");
@@ -83,11 +85,11 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
       role="region"
     >
       <h2 className="text-2xl font-bold">CSV File Upload</h2>
-      <p className="mb-5 text-lg" id="upload-csv-description">
+      <p className="mb-5 text-lg" id={uploadCsvDescriptionId}>
         Upload a Datadog endpoint metrics csv file using the percentile
         aggregation to generate suggested thresholds.
       </p>
-      <div aria-labelledby="upload-csv-description">
+      <div aria-labelledby={uploadCsvDescriptionId}>
         <FilePond
           onupdatefiles={handleCsvUpload}
           onremovefile={() =>
