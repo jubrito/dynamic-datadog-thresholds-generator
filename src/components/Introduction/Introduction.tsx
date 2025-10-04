@@ -1,5 +1,7 @@
 export const configureGeneratorDescriptionId =
   "configure-generator-description-id";
+export const extractAndUploadCsvDescriptionI =
+  "extract-and-upload-csv-description";
 
 export const Introduction = () => {
   return (
@@ -8,7 +10,7 @@ export const Introduction = () => {
         Dynamic Threshold Generator
       </h1>
       <h3 className="text-lg mt-3 mb-5">
-        <span id="extract-and-upload-csv-description">
+        <span id={extractAndUploadCsvDescriptionI}>
           Extract a Datadog endpoint metrics csv file using any percentile
           aggregation and upload it to generate warning and critical thresholds
           suggestions.
