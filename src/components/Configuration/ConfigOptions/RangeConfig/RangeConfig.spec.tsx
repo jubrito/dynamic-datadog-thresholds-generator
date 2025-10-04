@@ -32,4 +32,12 @@ describe("RangeConfig", () => {
     expect(labelField).toBeInTheDocument();
     expect(labelField).toHaveAttribute("for", rangeFieldId);
   });
+  it("should render number input with correct attributes", () => {
+    const numberInput = screen.getByRole("spinbutton", { name: labels.field });
+    expect(numberInput).toBeInTheDocument();
+    expect(numberInput).toHaveAttribute("type", "number");
+    expect(numberInput).toHaveAttribute("min", limits.min.toString());
+    expect(numberInput).toHaveAttribute("max", limits.max.toString());
+    expect(numberInput).toHaveAttribute("value", defaultValue.toString());
+  });
 });
