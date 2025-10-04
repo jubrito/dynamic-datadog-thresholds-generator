@@ -28,8 +28,6 @@ describe("UploadCsvBox", () => {
       level: 2,
     });
     expect(heading).toBeInTheDocument();
-    //   const filePond = screen.getByRole('button', { name: /Add files/i });
-    //   expect(filePond).toBeInTheDocument();
   });
   it("should render description", () => {
     const description = screen.getByText(
