@@ -38,4 +38,8 @@ describe("GeneratorResults", () => {
     expect(endpointNameField).toBeInTheDocument();
     expect(within(endpointNameField).getByText(/path/)).toBeInTheDocument();
   });
+  it("should render thresholds suggestions", () => {
+    expect(screen.getByText(/Warning threshold: 3.9/)).toBeInTheDocument();
+    expect(screen.getByText(/Critical threshold: 7.98/)).toBeInTheDocument();
+  });
 });
