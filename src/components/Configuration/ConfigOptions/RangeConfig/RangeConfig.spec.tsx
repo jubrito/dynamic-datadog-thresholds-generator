@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/dom";
 import { RangeConfig } from "./RangeConfig";
 import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("RangeConfig", () => {
   const updateConfigPropertyMock = jest.fn();
@@ -28,12 +29,15 @@ describe("RangeConfig", () => {
         />
       );
     });
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
     it("should render label for range field", () => {
       const labelField = screen.getByText(labels.field);
       expect(labelField).toBeInTheDocument();
       expect(labelField).toHaveAttribute("for", rangeFieldId);
     });
-    it("should render number input with correct attributes", () => {
+    it("should render range field number input with correct attributes", () => {
       const numberInput = screen.getByRole("spinbutton", {
         name: labels.field,
       });
@@ -43,6 +47,16 @@ describe("RangeConfig", () => {
       expect(numberInput).toHaveAttribute("max", limits.max.toString());
       expect(numberInput).toHaveAttribute("value", defaultValue.toString());
     });
+    it("should call range change handler on number input change", async () => {
+      const numberInput = screen.getByRole("spinbutton", {
+        name: labels.field,
+      });
+      await userEvent.type(numberInput, "1");
+      expect(updateConfigPropertyMock).toHaveBeenCalledWith(
+        parseInt(`${defaultValue}${1}`)
+      );
+    });
+
     it("should render low label and hide it from screen readers", () => {
       const lowLabel = screen.getByText(labels.lowLabel);
       expect(lowLabel).toBeInTheDocument();
