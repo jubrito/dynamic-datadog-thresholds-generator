@@ -48,9 +48,6 @@ export const RangeConfig = ({
           id={rangeFieldId}
           className="ml-3 bg-black pl-3 py-1 rounded-md text-center"
           type="number"
-          aria-valuemin={limits.min}
-          aria-valuemax={limits.max}
-          aria-valuenow={value}
           min={limits.min}
           max={limits.max}
           value={value}
@@ -59,22 +56,27 @@ export const RangeConfig = ({
       </div>
       <>
         <div className="w-max">
-          <p className="inline text-sm italic">{lowLabel}</p>
+          <span className="inline text-sm italic" aria-hidden="true">
+            {lowLabel}
+          </span>
           <input
             type="range"
             className={`h-auto w-17 inline mx-4 my-2 align-middle ${accentColor}`}
-            aria-valuemin={limits.min}
-            aria-valuemax={limits.max}
-            aria-valuenow={value}
             min={limits.min}
             max={limits.max}
             value={value}
             onChange={handleRangeChange}
+            aria-label={`The ${
+              labels.field
+            } value represents the ${rangeBarLabel.toLowerCase()}. A lower value means '${lowLabel.toLowerCase()}' and a higher value means '${highLabel.toLowerCase()}'`}
           />
-
-          <p className="inline text-sm italic">{highLabel}</p>
+          <span className="inline text-sm italic" aria-hidden="true">
+            {highLabel}
+          </span>
         </div>
-        <p className="text-sm text-left">{rangeBarLabel}</p>
+        <span className="text-sm text-left" aria-hidden="true">
+          {rangeBarLabel}
+        </span>
       </>
     </div>
   );
