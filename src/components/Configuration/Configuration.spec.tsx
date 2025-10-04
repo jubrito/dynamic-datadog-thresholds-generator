@@ -24,6 +24,7 @@ describe("Configuration", () => {
       />
     );
   });
+
   it("should render config section with aria-labelledby attribute matching the id of the heading", () => {
     const configurationSection = screen.getByRole("region", {
       name: "Generator configuration",
@@ -34,6 +35,7 @@ describe("Configuration", () => {
       configurationLabelId
     );
   });
+
   it("should render config section with aria-describedby attribute matching the id of the introduction's description of the config section", () => {
     const configurationSection = screen.getByRole("region", {
       name: "Generator configuration",
@@ -44,6 +46,7 @@ describe("Configuration", () => {
       "configure-generator-description-id"
     );
   });
+
   it("should render generator configuration heading with id", () => {
     const heading = screen.getByRole("heading", {
       name: "Generator configuration",
@@ -52,5 +55,10 @@ describe("Configuration", () => {
     expect(heading).toBeInTheDocument();
     expect(heading).toHaveTextContent("Generator configuration");
     expect(heading).toHaveAttribute("id", configurationLabelId);
+  });
+
+  it("should render warning and critical config options", () => {
+    expect(screen.getByText("Warning Threshold")).toBeInTheDocument();
+    expect(screen.getByText("Critical Threshold")).toBeInTheDocument();
   });
 });
