@@ -1,13 +1,14 @@
 import { FilePond, registerPlugin } from "react-filepond";
-import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import type { ThresholdData } from "../../types/types";
 import type { FilePondFile } from "filepond";
 import { parseCSV } from "../../utils/parseCSV";
 import { darkGrayBlue } from "../../utils/styles";
 import { extractAndUploadCsvDescriptionI } from "../Introduction/Introduction";
+
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 type UploadCsvBoxProps = {
@@ -79,6 +80,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
     <section
       aria-describedby={extractAndUploadCsvDescriptionI}
       className={`flex flex-col gap-3 text-left ${darkGrayBlue.background} p-5 rounded-xl`}
+      role="region"
     >
       <h2 className="text-2xl font-bold">CSV File Upload</h2>
       <p className="mb-5 text-lg" id="upload-csv-description">
