@@ -9,19 +9,23 @@ type ConfigurationProps = {
   >;
 };
 
+const configurationLabelId = "configuration-label-id";
+
 export const Configuration = ({
   thresholdsConfig,
   updateThresholdsConfig,
 }: ConfigurationProps) => {
   const { critical, warning } = thresholdsConfig;
-
   return (
     <section
       className="flex flex-col items-center xl:w-min w-full h-full"
       aria-describedby="configure-generator-description"
+      role="region"
+      aria-labelledby={configurationLabelId}
     >
       <h2
         className={`font-bold text-2xl w-full ${darkGrayBlue.background} pl-6 pt-4 text-left rounded-t-lg`}
+        id={configurationLabelId}
       >
         Generator configuration
       </h2>
