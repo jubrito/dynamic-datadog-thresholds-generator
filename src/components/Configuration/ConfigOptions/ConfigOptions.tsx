@@ -18,12 +18,18 @@ export const ConfigOptions = ({
   defaultFactor,
   updateConfig,
 }: ConfigOptionsProps) => {
+  const thresholdLabel = `${thresholdType} Threshold`;
   return (
     <div
       className={`flex w-full flex-col ${mediumGrayBlue.background} p-6 rounded-md items-start`}
     >
-      <p className="font-bold text-xl text-left">{thresholdType} Threshold</p>
-      <div className="flex xl:flex-col flex-wrap justify-between gap-2">
+      <span className="font-bold text-xl text-left" aria-hidden="true">
+        {thresholdLabel}
+      </span>
+      <div
+        className="flex xl:flex-col flex-wrap justify-between gap-2"
+        aria-label={`${thresholdLabel} configuration`}
+      >
         <RangeConfig
           defaultValue={defaultPercentile}
           labels={{
