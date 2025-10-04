@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { GeneratorResults } from "./GeneratorResults";
 
@@ -32,6 +32,10 @@ describe("GeneratorResults", () => {
   });
 
   it("should render endpoint path", () => {
-    expect(screen.getByText("path")).toBeInTheDocument();
+    const endpointNameField = screen.getByLabelText(
+      `Endpoint name: ${thresholdData.endpointPath}`
+    );
+    expect(endpointNameField).toBeInTheDocument();
+    expect(within(endpointNameField).getByText(/path/)).toBeInTheDocument();
   });
 });
