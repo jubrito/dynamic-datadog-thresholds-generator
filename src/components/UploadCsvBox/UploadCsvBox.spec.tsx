@@ -22,13 +22,19 @@ describe("UploadCsvBox", () => {
       "extract-and-upload-csv-description"
     );
   });
-  // it('should render content', () => {
-  //     render(<UploadCsvBox updateThresholdData={updateThresholdDataMock} />);
-  //     const heading = screen.getByRole('heading', { name: /Upload your CSV file/i });
-  //     expect(heading).toBeInTheDocument();
-  //     const description = screen.getByText(extractAndUploadCsvDescriptionI);
-  //     expect(description).toBeInTheDocument();
-  //     const filePond = screen.getByRole('button', { name: /Add files/i });
-  //     expect(filePond).toBeInTheDocument();
-  // })
+  it("should render heading", () => {
+    const heading = screen.getByRole("heading", {
+      name: "CSV File Upload",
+      level: 2,
+    });
+    expect(heading).toBeInTheDocument();
+    //   const filePond = screen.getByRole('button', { name: /Add files/i });
+    //   expect(filePond).toBeInTheDocument();
+  });
+  it("should render description", () => {
+    const description = screen.getByText(
+      "Upload a Datadog endpoint metrics csv file using the percentile aggregation to generate suggested thresholds."
+    );
+    expect(description).toBeInTheDocument();
+  });
 });
