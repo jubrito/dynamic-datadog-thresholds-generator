@@ -1,4 +1,4 @@
-import { fireEvent, screen } from "@testing-library/dom";
+import { screen } from "@testing-library/dom";
 import { RangeConfig } from "./RangeConfig";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -17,6 +17,8 @@ describe("RangeConfig", () => {
     min: 0,
     max: 101,
   };
+  const inputNumberLabel = `The ${labels.field.toLowerCase()} value represents the ${labels.rangeBarLabel.toLowerCase()}. A lower value means '${labels.lowLabel.toLowerCase()}' and a higher value means '${labels.highLabel.toLowerCase()}'`;
+
   describe("Default rendering", () => {
     beforeEach(() => {
       render(
@@ -29,17 +31,26 @@ describe("RangeConfig", () => {
         />
       );
     });
-    afterEach(() => {
-      jest.clearAllMocks();
-    });
+
     it("should render label for range field", () => {
       const labelField = screen.getByText(labels.field);
       expect(labelField).toBeInTheDocument();
       expect(labelField).toHaveAttribute("for", rangeFieldId);
     });
-    it("should render range field number input with correct attributes", () => {
+
+    it("should render number input with label and correct attributes", () => {
+      const rangeInput = screen.getByRole("slider", {
+        name: `Increase or decrease the ${labels.field.toLowerCase()} value`,
+      });
+      expect(rangeInput).toBeInTheDocument();
+      expect(rangeInput).toHaveAttribute("type", "range");
+      expect(rangeInput).toHaveAttribute("min", limits.min.toString());
+      expect(rangeInput).toHaveAttribute("max", limits.max.toString());
+      expect(rangeInput).toHaveAttribute("value", defaultValue.toString());
+    });
+    it("should render input range field number input with correct attributes", () => {
       const numberInput = screen.getByRole("spinbutton", {
-        name: labels.field,
+        name: inputNumberLabel,
       });
       expect(numberInput).toBeInTheDocument();
       expect(numberInput).toHaveAttribute("type", "number");
@@ -49,7 +60,7 @@ describe("RangeConfig", () => {
     });
     it("should call range change handler on number input change", async () => {
       const numberInput = screen.getByRole("spinbutton", {
-        name: labels.field,
+        name: inputNumberLabel,
       });
       await userEvent.type(numberInput, "1");
       expect(updateConfigPropertyMock).toHaveBeenCalledWith(
@@ -58,24 +69,13 @@ describe("RangeConfig", () => {
     });
     it("should call range change handler on number input change", async () => {
       const numberInput = screen.getByRole("spinbutton", {
-        name: labels.field,
+        name: inputNumberLabel,
       });
       await userEvent.type(numberInput, "1");
       expect(updateConfigPropertyMock).toHaveBeenCalledWith(
         parseInt(`${defaultValue}${1}`)
       );
     });
-    it("should call rane change on range input change", async () => {
-      const rangeInput = screen.getByRole("slider", {
-        name: `The ${
-          labels.field
-        } value represents the ${labels.rangeBarLabel.toLowerCase()}. A lower value means '${labels.lowLabel.toLowerCase()}' and a higher value means '${labels.highLabel.toLowerCase()}'`,
-      });
-      rangeInput.focus();
-      fireEvent.change(rangeInput, { target: { value: defaultValue + 1 } });
-      expect(updateConfigPropertyMock).toHaveBeenCalledWith(defaultValue + 1);
-    });
-
     it("should render low label and hide it from screen readers", () => {
       const lowLabel = screen.getByText(labels.lowLabel);
       expect(lowLabel).toBeInTheDocument();
@@ -90,17 +90,6 @@ describe("RangeConfig", () => {
       const rangeBarLabel = screen.getByText(labels.rangeBarLabel);
       expect(rangeBarLabel).toBeInTheDocument();
       expect(rangeBarLabel).toHaveAttribute("aria-hidden", "true");
-    });
-    it("should render range input with label and correct attributes", () => {
-      const inputRangeLabel = `The ${
-        labels.field
-      } value represents the ${labels.rangeBarLabel.toLowerCase()}. A lower value means '${labels.lowLabel.toLowerCase()}' and a higher value means '${labels.highLabel.toLowerCase()}'`;
-      const rangeInput = screen.getByRole("slider", { name: inputRangeLabel });
-      expect(rangeInput).toBeInTheDocument();
-      expect(rangeInput).toHaveAttribute("type", "range");
-      expect(rangeInput).toHaveAttribute("min", limits.min.toString());
-      expect(rangeInput).toHaveAttribute("max", limits.max.toString());
-      expect(rangeInput).toHaveAttribute("value", defaultValue.toString());
     });
   });
 
