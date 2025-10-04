@@ -53,6 +53,11 @@ describe("RangeConfig", () => {
       expect(highLabel).toBeInTheDocument();
       expect(highLabel).toHaveAttribute("aria-hidden", "true");
     });
+    it("should render range bar label with correct attributes", () => {
+      const rangeBarLabel = screen.getByText(labels.rangeBarLabel);
+      expect(rangeBarLabel).toBeInTheDocument();
+      expect(rangeBarLabel).toHaveAttribute("aria-hidden", "true");
+    });
   });
 
   it("should render default optional labels when not provided", () => {
