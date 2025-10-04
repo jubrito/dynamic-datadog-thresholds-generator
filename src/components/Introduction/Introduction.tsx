@@ -1,5 +1,5 @@
 export const configureGeneratorDescriptionId =
-  "configure-generator-description";
+  "configure-generator-description-id";
 
 export const Introduction = () => {
   return (
