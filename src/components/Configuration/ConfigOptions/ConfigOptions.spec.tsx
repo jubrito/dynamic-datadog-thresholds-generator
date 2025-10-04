@@ -7,6 +7,7 @@ describe("ConfigOptions", () => {
   const defaultPercentile = 95;
   const defaultFactor = 10;
   const mockUpdateConfig = jest.fn();
+  const thresholdTypeLabel = `${thresholdType} Threshold`;
 
   beforeEach(() => {
     render(
@@ -20,7 +21,7 @@ describe("ConfigOptions", () => {
   });
 
   it("should render threshold type field and hide it from screen readers", () => {
-    const thresholdTypeField = screen.getByText(`${thresholdType} Threshold`);
+    const thresholdTypeField = screen.getByText(thresholdTypeLabel);
     expect(thresholdTypeField).toBeInTheDocument();
     expect(thresholdTypeField).toHaveAttribute("aria-hidden", "true");
   });
@@ -32,15 +33,23 @@ describe("ConfigOptions", () => {
   });
   it("should render base percentile range config", () => {
     const rangeConfigWrapper = screen.getByLabelText(
-      `${thresholdType} Threshold configuration`
+      `${thresholdTypeLabel} configuration`
     );
     const basePercentileField =
       within(rangeConfigWrapper).getByLabelText("Base percentile");
     expect(basePercentileField).toBeInTheDocument();
   });
+  it("should render rigorour factor range config", () => {
+    const rangeConfigWrapper = screen.getByLabelText(
+      `${thresholdTypeLabel} configuration`
+    );
+    const basePercentileField =
+      within(rangeConfigWrapper).getByLabelText("Rigorour factor");
+    expect(basePercentileField).toBeInTheDocument();
+  });
   //   it("should have a div with aria-labelledby attribute pointing to the threshold type field id", () => {
   //     const divElement = screen.getByRole("region", {
-  //       name: `${thresholdType} Threshold`,
+  //       name: thresholdTypeLabel,
   //     });
   //     expect(divElement).toBeInTheDocument();
   //     expect(divElement).toHaveAttribute("aria-labelledby", "threshold-type-id");
