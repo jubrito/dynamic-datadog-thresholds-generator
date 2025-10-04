@@ -63,6 +63,9 @@ export const RangeConfig = ({
           <input
             type="range"
             className={`h-auto w-17 inline mx-4 my-2 align-middle ${accentColor}`}
+            aria-valuemin={limits.min}
+            aria-valuemax={limits.max}
+            aria-valuenow={value}
             min={limits.min}
             max={limits.max}
             value={value}
