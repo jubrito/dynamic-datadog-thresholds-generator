@@ -40,4 +40,9 @@ describe("RangeConfig", () => {
     expect(numberInput).toHaveAttribute("max", limits.max.toString());
     expect(numberInput).toHaveAttribute("value", defaultValue.toString());
   });
+  it("should render low label hidden for screen readers", () => {
+    const lowLabel = screen.getByText(labels.lowLabel || "Lower");
+    expect(lowLabel).toBeInTheDocument();
+    expect(lowLabel).toHaveAttribute("aria-hidden", "true");
+  });
 });
