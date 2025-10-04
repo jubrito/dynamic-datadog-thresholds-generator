@@ -31,7 +31,7 @@ describe("GeneratorResults", () => {
     expect(container).toBeEmptyDOMElement();
   });
 
-  describe("Default rendering", () => {
+  describe("WHEN there is threshold data", () => {
     beforeEach(() => {
       render(
         <GeneratorResults
