@@ -41,8 +41,13 @@ describe("RangeConfig", () => {
     expect(numberInput).toHaveAttribute("value", defaultValue.toString());
   });
   it("should render low label hidden for screen readers", () => {
-    const lowLabel = screen.getByText(labels.lowLabel || "Lower");
+    const lowLabel = screen.getByText(labels.lowLabel);
     expect(lowLabel).toBeInTheDocument();
     expect(lowLabel).toHaveAttribute("aria-hidden", "true");
+  });
+  it("should render high label", () => {
+    const highLabel = screen.getByText(labels.highLabel);
+    expect(highLabel).toBeInTheDocument();
+    expect(highLabel).toHaveAttribute("aria-hidden", "true");
   });
 });
