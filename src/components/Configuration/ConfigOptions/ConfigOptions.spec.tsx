@@ -47,11 +47,4 @@ describe("ConfigOptions", () => {
       within(rangeConfigWrapper).getByLabelText("Rigorour factor");
     expect(basePercentileField).toBeInTheDocument();
   });
-  //   it("should have a div with aria-labelledby attribute pointing to the threshold type field id", () => {
-  //     const divElement = screen.getByRole("region", {
-  //       name: thresholdTypeLabel,
-  //     });
-  //     expect(divElement).toBeInTheDocument();
-  //     expect(divElement).toHaveAttribute("aria-labelledby", "threshold-type-id");
-  //   });
 });
