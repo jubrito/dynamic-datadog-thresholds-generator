@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/dom";
+import { fireEvent, screen } from "@testing-library/dom";
 import { RangeConfig } from "./RangeConfig";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -55,6 +55,25 @@ describe("RangeConfig", () => {
       expect(updateConfigPropertyMock).toHaveBeenCalledWith(
         parseInt(`${defaultValue}${1}`)
       );
+    });
+    it("should call range change handler on number input change", async () => {
+      const numberInput = screen.getByRole("spinbutton", {
+        name: labels.field,
+      });
+      await userEvent.type(numberInput, "1");
+      expect(updateConfigPropertyMock).toHaveBeenCalledWith(
+        parseInt(`${defaultValue}${1}`)
+      );
+    });
+    it("should call rane change on range input change", async () => {
+      const rangeInput = screen.getByRole("slider", {
+        name: `The ${
+          labels.field
+        } value represents the ${labels.rangeBarLabel.toLowerCase()}. A lower value means '${labels.lowLabel.toLowerCase()}' and a higher value means '${labels.highLabel.toLowerCase()}'`,
+      });
+      rangeInput.focus();
+      fireEvent.change(rangeInput, { target: { value: defaultValue + 1 } });
+      expect(updateConfigPropertyMock).toHaveBeenCalledWith(defaultValue + 1);
     });
 
     it("should render low label and hide it from screen readers", () => {
