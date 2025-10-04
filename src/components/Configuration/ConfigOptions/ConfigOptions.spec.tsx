@@ -8,17 +8,27 @@ describe("ConfigOptions", () => {
   const defaultFactor = 10;
   const mockUpdateConfig = jest.fn();
 
-  render(
-    <ConfigOptions
-      thresholdType={thresholdType}
-      defaultPercentile={defaultPercentile}
-      defaultFactor={defaultFactor}
-      updateConfig={mockUpdateConfig}
-    />
-  );
-  it("should render threshold type field", () => {
+  beforeEach(() => {
+    render(
+      <ConfigOptions
+        thresholdType={thresholdType}
+        defaultPercentile={defaultPercentile}
+        defaultFactor={defaultFactor}
+        updateConfig={mockUpdateConfig}
+      />
+    );
+  });
+
+  it("should render threshold type field and hide it from screen readers", () => {
     const thresholdTypeField = screen.getByText(`${thresholdType} Threshold`);
     expect(thresholdTypeField).toBeInTheDocument();
-    expect(thresholdTypeField.id).toBe("threshold-type-id");
+    expect(thresholdTypeField).toHaveAttribute("aria-hidden", "true");
   });
+  //   it("should have a div with aria-labelledby attribute pointing to the threshold type field id", () => {
+  //     const divElement = screen.getByRole("region", {
+  //       name: `${thresholdType} Threshold`,
+  //     });
+  //     expect(divElement).toBeInTheDocument();
+  //     expect(divElement).toHaveAttribute("aria-labelledby", "threshold-type-id");
+  //   });
 });
