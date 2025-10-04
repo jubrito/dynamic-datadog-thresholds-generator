@@ -37,22 +37,24 @@ export const GeneratorResults = ({
     }
   }, [showInsights]);
 
+  if (!showInsights) return null;
+
   return (
     <div
       className={`${showMainStyleTransition} h-min text-left border-0 transition-all duration-1000 ease-in-out ease-out overflow-hidden h-min p-5 rounded-xl`}
       ref={resultsRef}
     >
-      <Thresholds
-        endpointName={thresholdData.endpointPath}
-        sortedPercentileValues={sortedPercentileValues}
-        thresholdsConfig={thresholdsConfig}
-      />
-      {showInsights && (
+      <>
+        <Thresholds
+          endpointName={thresholdData.endpointPath}
+          sortedPercentileValues={sortedPercentileValues}
+          thresholdsConfig={thresholdsConfig}
+        />
         <EndpointStatistics
           endpointStats={percentileStats}
           showInsights={showInsights}
         />
-      )}
+      </>
     </div>
   );
 };
