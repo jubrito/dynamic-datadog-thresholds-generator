@@ -18,4 +18,9 @@ describe("Nav", () => {
       screen.getByRole("heading", { name: "Main Menu" })
     ).toBeInTheDocument();
   });
+  it('should render link to "Generator" page', () => {
+    const generatorLink = screen.getByRole("link", { name: "Generator" });
+    expect(generatorLink).toBeInTheDocument();
+    expect(generatorLink).toHaveAttribute("href", "/");
+  });
 });
