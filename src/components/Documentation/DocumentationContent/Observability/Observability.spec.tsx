@@ -44,13 +44,13 @@ describe("Observability", () => {
     expect(nextButton).toBeInTheDocument();
   });
 
-  //   it('should not render "Next" button', () => {
-  //     const nextButton = screen.queryByRole("button", {
-  //       name: /Next page:/i,
-  //     });
+  it('should not render "Previous" button', () => {
+    const previousButton = screen.queryByRole("button", {
+      name: /Previous page:/i,
+    });
 
-  //     expect(nextButton).not.toBeInTheDocument();
-  //   });
+    expect(previousButton).not.toBeInTheDocument();
+  });
 
   //   it('should call function update page by clicking on "Previous" button', async () => {
   //     const previousButton = screen.getByRole("button", {
