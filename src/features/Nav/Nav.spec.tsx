@@ -23,4 +23,11 @@ describe("Nav", () => {
     expect(generatorLink).toBeInTheDocument();
     expect(generatorLink).toHaveAttribute("href", "/");
   });
+  it('should render link to "Documentation" page', () => {
+    const documentationLink = screen.getByRole("link", {
+      name: "Documentation",
+    });
+    expect(documentationLink).toBeInTheDocument();
+    expect(documentationLink).toHaveAttribute("href", "/documentation");
+  });
 });
