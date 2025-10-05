@@ -27,4 +27,29 @@ describe("DocumentationContent", () => {
       screen.getByRole("heading", { name: "Monitor Configuration", level: 1 })
     ).toBeInTheDocument();
   });
+  it("should not render any section if documentation section settings are not set to open", () => {
+    render(
+      <DocumentationContent
+        documentationSectionOpen={{
+          datadog: false,
+          monitorConfiguration: false,
+          observability: false,
+          thresholds: false,
+        }}
+        openDocumentation={jest.fn()}
+      />
+    );
+    expect(
+      screen.queryByRole("heading", { name: "Observability", level: 1 })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Datadog", level: 1 })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Thresholds", level: 1 })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Monitor Configuration", level: 1 })
+    ).not.toBeInTheDocument();
+  });
 });
