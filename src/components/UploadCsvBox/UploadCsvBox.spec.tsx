@@ -1,6 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { UploadCsvBox } from "./UploadCsvBox";
 
+jest.mock("filepond/dist/filepond.min.css", () => ({}), { virtual: true });
+jest.mock(
+  "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css",
+  () => ({}),
+  { virtual: true }
+);
+
 describe("UploadCsvBox", () => {
   const updateThresholdDataMock = jest.fn();
   beforeEach(() => {
