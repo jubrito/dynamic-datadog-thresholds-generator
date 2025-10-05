@@ -84,7 +84,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
       className={`flex flex-col gap-3 text-left ${darkGrayBlue.background} p-5 rounded-xl`}
       role="region"
     >
-      <h2 className="text-2xl font-bold">CSV File Upload</h2>
+      <h2 className="text-2xl font-bold">CSV file upload</h2>
       <p className="mb-5 text-lg" id={uploadCsvDescriptionId}>
         Upload a Datadog endpoint metrics csv file using the percentile
         aggregation to generate suggested thresholds.

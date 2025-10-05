@@ -23,7 +23,7 @@ describe("UploadCsvBox", () => {
   });
   it("should render heading", () => {
     const heading = screen.getByRole("heading", {
-      name: "CSV File Upload",
+      name: "CSV file upload",
       level: 2,
     });
     expect(heading).toBeInTheDocument();
