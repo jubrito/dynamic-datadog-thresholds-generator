@@ -25,7 +25,15 @@ describe("Generator", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: "CSV File Upload",
+        name: "CSV file upload",
+      })
+    ).toBeInTheDocument();
+  });
+  it("should render configuration section", () => {
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Generator configuration",
       })
     ).toBeInTheDocument();
   });
