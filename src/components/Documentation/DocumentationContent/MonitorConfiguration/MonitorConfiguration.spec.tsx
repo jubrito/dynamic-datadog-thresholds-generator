@@ -32,4 +32,8 @@ describe("MonitorConfiguration", () => {
     const title = screen.getByRole("heading", { level: 1, name: page });
     expect(title).toBeInTheDocument();
   });
+
+  it.each(content)("should render each content text", (contentText) => {
+    expect(screen.getByText(contentText)).toBeInTheDocument();
+  });
 });
