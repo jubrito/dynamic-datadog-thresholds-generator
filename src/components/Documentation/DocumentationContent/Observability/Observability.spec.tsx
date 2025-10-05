@@ -36,19 +36,13 @@ describe("Observability", () => {
     expect(screen.getByText(contentText)).toBeInTheDocument();
   });
 
-  //   it.each(listItems)("should render each list item", (listItem) => {
-  //     expect(
-  //       screen.getByRole("listitem", { name: listItem })
-  //     ).toBeInTheDocument();
-  //   });
+  it('should render "Next" button', () => {
+    const nextButton = screen.getByRole("button", {
+      name: /Next page:/i,
+    });
 
-  //   it('should render "Previous" button', () => {
-  //     const previousButton = screen.getByRole("button", {
-  //       name: /Previous page:/i,
-  //     });
-
-  //     expect(previousButton).toBeInTheDocument();
-  //   });
+    expect(nextButton).toBeInTheDocument();
+  });
 
   //   it('should not render "Next" button', () => {
   //     const nextButton = screen.queryByRole("button", {
