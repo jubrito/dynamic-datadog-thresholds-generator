@@ -1,6 +1,8 @@
 import { screen, render } from "@testing-library/react";
 import { DocumentationNav } from "./DocumentationNav";
 
+const getNavLinkLabel = (pageName: string) => `${pageName} documentation page`;
+
 describe("DocumentationNav", () => {
   const openDocumentationMock = jest.fn();
   const documentationSectionOpen = {
@@ -9,6 +11,8 @@ describe("DocumentationNav", () => {
     thresholds: false,
     monitorConfiguration: false,
   };
+  const pages = ["Observability", "Datadog", "Thresholds", "Monitor Config"];
+
   beforeEach(() => {
     render(
       <DocumentationNav
@@ -17,24 +21,19 @@ describe("DocumentationNav", () => {
       />
     );
   });
+
   it("should render nav list with navigation role", () => {
     const nav = screen.getByLabelText("Documentation navigation");
     expect(nav).toBeInTheDocument();
     expect(nav).toHaveRole("navigation");
   });
 
-  it("should render documentation items", () => {
-    expect(
-      screen.getByLabelText("Observability documentation page")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByLabelText("Datadog documentation page")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByLabelText("Thresholds documentation page")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByLabelText("Monitor Config documentation page")
-    ).toBeInTheDocument();
+  it.each(pages)("should render each documentation item", (page) => {
+    const pageButton = screen.getByRole("button", {
+      name: getNavLinkLabel(page),
+    });
+
+    expect(pageButton).toBeInTheDocument();
+    expect(pageButton).toHaveTextContent(page);
   });
 });
