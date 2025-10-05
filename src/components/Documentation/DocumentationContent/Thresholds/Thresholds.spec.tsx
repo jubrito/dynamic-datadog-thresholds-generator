@@ -36,15 +36,15 @@ describe("Thresholds", () => {
     expect(screen.getByLabelText(contentLabel)).toBeInTheDocument();
   });
 
-  //   it('should render "Previous" and "Next" buttons', () => {
-  //     const previousButton = screen.getByRole("button", {
-  //       name: /Previous page:/i,
-  //     });
-  //     const nextButton = screen.getByRole("button", { name: /Next page:/i });
+  it('should render "Previous" and "Next" buttons', () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page:/i,
+    });
+    const nextButton = screen.getByRole("button", { name: /Next page:/i });
 
-  //     expect(previousButton).toBeInTheDocument();
-  //     expect(nextButton).toBeInTheDocument();
-  //   });
+    expect(previousButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
+  });
 
   //   it('should call function update page by clicking on "Previous" button', async () => {
   //     const previousButton = screen.getByRole("button", {
