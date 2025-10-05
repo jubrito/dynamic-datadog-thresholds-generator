@@ -23,6 +23,7 @@ export const PreviousNextButtons = ({
           className={
             "relative group text-lg hover:text-white cursor-pointer w-fit"
           }
+          role="button"
         >
           <span>
             {<ArrowLeftIcon aria-hidden="true" />}
