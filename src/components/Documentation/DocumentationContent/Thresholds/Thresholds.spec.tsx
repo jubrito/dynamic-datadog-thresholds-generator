@@ -63,20 +63,20 @@ describe("Thresholds", () => {
     expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
   });
 
-  //   it('should call function update page by clicking on "Next" buton', async () => {
-  //     const nextButton = screen.getByRole("button", {
-  //       name: /Next page: Thresholds/i,
-  //     });
+  it('should call function update page by clicking on "Next" buton', async () => {
+    const nextButton = screen.getByRole("button", {
+      name: /Next page: Monitor Configuration/i,
+    });
 
-  //     await userEvent.click(nextButton);
+    await userEvent.click(nextButton);
 
-  //     const nextAction = {
-  //       datadog: false,
-  //       monitorConfiguration: false,
-  //       observability: false,
-  //       thresholds: true, // open page
-  //     };
+    const nextAction = {
+      datadog: false,
+      monitorConfiguration: true, // open page
+      observability: false,
+      thresholds: false,
+    };
 
-  //     expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
-  //   });
+    expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
+  });
 });
