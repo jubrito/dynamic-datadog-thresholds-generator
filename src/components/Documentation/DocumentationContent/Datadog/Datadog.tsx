@@ -20,7 +20,7 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
           <div className="absolute inset-0 flex items-center justify-center xl:block">
             <img
               src={DatadogLogo}
-              alt="Datadog"
+              alt=""
               className="w-full h-full object-cover min-w-full xl:min-h-full"
             />
           </div>
