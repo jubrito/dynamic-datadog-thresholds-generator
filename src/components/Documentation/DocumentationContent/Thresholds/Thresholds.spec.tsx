@@ -6,6 +6,15 @@ import userEvent from "@testing-library/user-event";
 describe("Thresholds", () => {
   const openDocumentationMock = jest.fn();
   const page = "Thresholds";
+  const textContent = [
+    "What is it and why does it matter?",
+    "Noisy alerts.",
+    "Missed anomalies.",
+    "But how to set appropriate thresholds values when configuring alerts?",
+  ];
+  const labelContent = [
+    "Thresholds are predefined values that trigger alerts when a metric crosses them. They act as boundaries for monitoring conditions, allowing you to define when a metric crosses them. They act as boundaries for monitoring conditions, allowing you to define alert or warning state.",
+  ];
 
   beforeEach(() => {
     render(<Thresholds openDocumentation={openDocumentationMock} />);
@@ -19,19 +28,9 @@ describe("Thresholds", () => {
     expect(title).toBeInTheDocument();
   });
 
-  //   it("should render content", () => {
-  //     const intro =
-  //       /is a leading full-stack observability platform that automates application performance monitoring, log management, infrastructure monitoring, and more. One of its most powerful features are/i;
-  //     const monitors =
-  //       /monitors with automated alerts that help teams detect when systems degrade or fail./i;
-  //     const question = /But how to define if a system is degrading or failing?/i;
-  //     const thresholds =
-  //       /When configuring monitors, you can define thresholds to create alerts and receive notifications about your endpoints./i;
-  //     expect(screen.getByText(intro)).toBeInTheDocument();
-  //     expect(screen.getByText(monitors)).toBeInTheDocument();
-  //     expect(screen.getByText(question)).toBeInTheDocument();
-  //     expect(screen.getByText(thresholds)).toBeInTheDocument();
-  //   });
+  it.each(textContent)("should render all text content", (contentText) => {
+    expect(screen.getByText(contentText)).toBeInTheDocument();
+  });
 
   //   it('should render "Previous" and "Next" buttons', () => {
   //     const previousButton = screen.getByRole("button", {
