@@ -15,6 +15,7 @@ export const Documentation = () => {
   return (
     <section
       className={`${mainTopSpacing} ${mainHorizontalSpacing} grid-cols-[30px_1fr_200px]`}
+      role="region"
     >
       <div className="order-3 lg:order-1 ">
         <DocumentationNav
