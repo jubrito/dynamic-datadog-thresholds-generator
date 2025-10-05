@@ -46,22 +46,23 @@ describe("Thresholds", () => {
     expect(nextButton).toBeInTheDocument();
   });
 
-  //   it('should call function update page by clicking on "Previous" button', async () => {
-  //     const previousButton = screen.getByRole("button", {
-  //       name: /Previous page: Observability/,
-  //     });
+  it('should call function update page by clicking on "Previous" button', async () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page: Datadog/,
+    });
 
-  //     await userEvent.click(previousButton);
+    await userEvent.click(previousButton);
 
-  //     const previousAction = {
-  //       datadog: false,
-  //       monitorConfiguration: false,
-  //       observability: true, // open page
-  //       thresholds: false,
-  //     };
+    const previousAction = {
+      datadog: true, // open page
+      monitorConfiguration: false,
+      observability: false,
+      thresholds: false,
+    };
 
-  //     expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
-  //   });
+    expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
+  });
+
   //   it('should call function update page by clicking on "Next" buton', async () => {
   //     const nextButton = screen.getByRole("button", {
   //       name: /Next page: Thresholds/i,
