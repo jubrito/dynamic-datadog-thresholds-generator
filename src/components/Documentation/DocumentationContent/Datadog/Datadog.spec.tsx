@@ -65,4 +65,20 @@ describe("Datadog", () => {
 
     expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
   });
+  it('should call function update page by clicking on "Next" buton', async () => {
+    const nextButton = screen.getByRole("button", {
+      name: /Next page: Thresholds/i,
+    });
+
+    await userEvent.click(nextButton);
+
+    const nextAction = {
+      datadog: false,
+      monitorConfiguration: false,
+      observability: false,
+      thresholds: true, // open page
+    };
+
+    expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
+  });
 });
