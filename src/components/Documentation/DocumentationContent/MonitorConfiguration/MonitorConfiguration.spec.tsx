@@ -3,7 +3,7 @@ import { MonitorConfiguration } from "./MonitorConfiguration";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-describe("MonitorConfiguration", () => {
+describe("Monitor Configuration", () => {
   const openDocumentationMock = jest.fn();
   const page = "Monitor Configuration";
   const question = "How to configure and analyze Datadog monitors?";
