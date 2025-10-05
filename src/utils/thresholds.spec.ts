@@ -5,16 +5,6 @@ import {
 import type { ThresholdsConfig } from "../types/types";
 import * as statistics from "./statistics";
 
-// Mock dependencies
-jest.mock("./statistics", () => ({
-  filterExtremeValues: (arr: number[]) => arr,
-  getIQR: () => 2,
-  getInterpolatedPercentile: () => 10,
-}));
-jest.mock("./utils", () => ({
-  getWithNDecimalPlaces: (n: number) => n.toFixed(2),
-}));
-
 describe("thresholds", () => {
   describe("computeAdaptiveThresholds", () => {
     const config: ThresholdsConfig = {
@@ -24,10 +14,10 @@ describe("thresholds", () => {
 
     it("returns correct thresholds for valid input", () => {
       const result = computeAdaptiveThresholds([10, 20, 30], config);
-      // getInterpolatedPercentile returns arr[0] = 10, getIQR returns 2
-      // warning: 10 + 1.5*2 = 13, critical: 10 + 3*2 = 16
-      expect(result.warningThreshold).toBeCloseTo(13.0);
-      expect(result.criticalThreshold).toBeCloseTo(16.0);
+      // warning: 29 (interpolater percentile) + 1.5 (factor) * 10 (iqr) = 44
+      // critical: 29.8 (interpolater percentile) + 3 (factor) * 10 (iqr) = 59.8
+      expect(result.warningThreshold).toBe(44);
+      expect(result.criticalThreshold).toBeCloseTo(59.8);
     });
 
     it("should return undefined thresholds if IQR is undefined", () => {
