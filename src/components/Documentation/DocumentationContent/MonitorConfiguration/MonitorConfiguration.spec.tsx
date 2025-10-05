@@ -44,4 +44,21 @@ describe("MonitorConfiguration", () => {
 
     expect(previousButton).toBeInTheDocument();
   });
+
+  it('should call function update page by clicking on "Previous" button', async () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page: Thresholds/,
+    });
+
+    await userEvent.click(previousButton);
+
+    const previousAction = {
+      datadog: false,
+      monitorConfiguration: false,
+      observability: false,
+      thresholds: true, // open page
+    };
+
+    expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
+  });
 });
