@@ -32,6 +32,10 @@ describe("Thresholds", () => {
     expect(screen.getByText(contentText)).toBeInTheDocument();
   });
 
+  it.each(labelContent)("should render all labels", (contentLabel) => {
+    expect(screen.getByLabelText(contentLabel)).toBeInTheDocument();
+  });
+
   //   it('should render "Previous" and "Next" buttons', () => {
   //     const previousButton = screen.getByRole("button", {
   //       name: /Previous page:/i,
