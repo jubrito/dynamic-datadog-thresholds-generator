@@ -18,6 +18,12 @@ describe("Nav", () => {
       screen.getByRole("heading", { name: "Main Menu" })
     ).toBeInTheDocument();
   });
+  it("should render nav list with navigation role", () => {
+    const nav = screen.getByLabelText("Main navigation");
+    expect(nav).toBeInTheDocument();
+    expect(nav).toHaveRole("navigation");
+  });
+
   it('should render link to "Generator" page', () => {
     const generatorLink = screen.getByRole("link", { name: "Generator" });
     expect(generatorLink).toBeInTheDocument();
