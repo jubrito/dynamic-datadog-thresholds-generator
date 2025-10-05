@@ -17,14 +17,14 @@ describe("Generator", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: "Generate Dynamic Thresholds",
+        name: "Dynamic Threshold Generator",
       })
     ).toBeInTheDocument();
   });
   it("should CSV file upload section", () => {
     expect(
       screen.getByRole("heading", {
-        level: 3,
+        level: 2,
         name: "CSV File Upload",
       })
     ).toBeInTheDocument();
