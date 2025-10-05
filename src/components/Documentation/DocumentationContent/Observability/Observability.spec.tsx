@@ -52,20 +52,20 @@ describe("Observability", () => {
     expect(previousButton).not.toBeInTheDocument();
   });
 
-  //   it('should call function update page by clicking on "Previous" button', async () => {
-  //     const previousButton = screen.getByRole("button", {
-  //       name: /Previous page: Thresholds/,
-  //     });
+  it('should call function update page by clicking on "Next" button', async () => {
+    const nextButton = screen.getByRole("button", {
+      name: /Next page: Datadog/,
+    });
 
-  //     await userEvent.click(previousButton);
+    await userEvent.click(nextButton);
 
-  //     const previousAction = {
-  //       datadog: false,
-  //       Observability: false,
-  //       observability: false,
-  //       thresholds: true, // open page
-  //     };
+    const nextAction = {
+      datadog: true, // open page
+      monitorConfiguration: false,
+      observability: false,
+      thresholds: false,
+    };
 
-  //     expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
-  //   });
+    expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
+  });
 });
