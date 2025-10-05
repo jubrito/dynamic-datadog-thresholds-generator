@@ -36,4 +36,14 @@ describe("MonitorConfiguration", () => {
   it.each(content)("should render each content text", (contentText) => {
     expect(screen.getByText(contentText)).toBeInTheDocument();
   });
+
+  it('should render "Previous" and "Next" buttons', () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page:/i,
+    });
+    const nextButton = screen.getByRole("button", { name: /Next page:/i });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
+  });
 });
