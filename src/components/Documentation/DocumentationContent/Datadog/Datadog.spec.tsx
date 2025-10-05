@@ -1,22 +1,30 @@
 import { screen } from "@testing-library/dom";
 import { Datadog } from "./Datadog";
 import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("Datadog", () => {
-  const openDocumentationMock = jest.fn().mockRejectedValueOnce("");
+  const openDocumentationMock = jest.fn();
   const page = "Datadog";
+
   beforeEach(() => {
     render(<Datadog openDocumentation={openDocumentationMock} />);
   });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render datadog logo hidden from sr", () => {
     const logo = screen.getByRole("presentation", { name: "" });
     expect(logo).toBeInTheDocument();
     expect(logo).toHaveAttribute("alt", "");
   });
+
   it("should render title", () => {
     const title = screen.getAllByRole("heading", { level: 1, name: page });
     expect(title.length).toBeGreaterThan(0);
   });
+
   it("should render content", () => {
     const intro =
       /is a leading full-stack observability platform that automates application performance monitoring, log management, infrastructure monitoring, and more. One of its most powerful features are/i;
@@ -29,5 +37,32 @@ describe("Datadog", () => {
     expect(screen.getByText(monitors)).toBeInTheDocument();
     expect(screen.getByText(question)).toBeInTheDocument();
     expect(screen.getByText(thresholds)).toBeInTheDocument();
+  });
+
+  it('should render "Previous" and "Next" buttons', () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page:/i,
+    });
+    const nextButton = screen.getByRole("button", { name: /Next page:/i });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
+  });
+
+  it('should call function update page by clicking on "Previous" button', async () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page: Observability/,
+    });
+
+    await userEvent.click(previousButton);
+
+    const previousAction = {
+      datadog: false,
+      monitorConfiguration: false,
+      observability: true, // open page
+      thresholds: false,
+    };
+
+    expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
   });
 });
