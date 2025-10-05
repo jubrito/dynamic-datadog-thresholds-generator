@@ -22,4 +22,19 @@ describe("DocumentationNav", () => {
     expect(nav).toBeInTheDocument();
     expect(nav).toHaveRole("navigation");
   });
+
+  it("should render documentation items", () => {
+    expect(
+      screen.getByLabelText("Observability documentation page")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText("Datadog documentation page")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText("Thresholds documentation page")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText("Monitor Config documentation page")
+    ).toBeInTheDocument();
+  });
 });
