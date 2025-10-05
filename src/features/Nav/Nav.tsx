@@ -12,7 +12,10 @@ export const Nav = () => {
       </h2>
       <div className={`py-5 ${mainHorizontalSpacing}`}>
         <div />
-        <ul className="flex justify-between w-max gap-7 w-full">
+        <ul
+          role="navigation"
+          className="flex justify-between w-max gap-7 w-full"
+        >
           <li className="py-1 rounded-md">
             <NavLink
               to={"/"}
