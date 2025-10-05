@@ -15,6 +15,7 @@ export const Nav = () => {
         <ul
           role="navigation"
           className="flex justify-between w-max gap-7 w-full"
+          aria-label="Main navigation"
         >
           <li className="py-1 rounded-md">
             <NavLink
