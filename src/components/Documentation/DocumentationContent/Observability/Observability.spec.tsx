@@ -1,10 +1,26 @@
 import { screen } from "@testing-library/dom";
 import { Observability } from "./Observability";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { PreviousNextButtonsProps } from "../../../PreviousNextButtons/PreviousNextButtons";
+
+jest.mock("../../../PreviousNextButtons/PreviousNextButtons", () => ({
+  PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
+    <div>
+      {previous && (
+        <button role="button" aria-label={`Previous page: ${previous.label}`}>
+          Previous: {previous.label}
+        </button>
+      )}
+      {next && (
+        <button role="button" aria-label={`Next page: ${next.label}`}>
+          Next: {next.label}
+        </button>
+      )}
+    </div>
+  ),
+}));
 
 describe("Observability", () => {
-  const openDocumentationMock = jest.fn();
   const page = "Observability";
   const content = [
     "What is it and why does it matter?",
@@ -21,7 +37,7 @@ describe("Observability", () => {
   ];
 
   beforeEach(() => {
-    render(<Observability openDocumentation={openDocumentationMock} />);
+    render(<Observability />);
   });
   afterEach(() => {
     jest.clearAllMocks();
@@ -38,7 +54,7 @@ describe("Observability", () => {
 
   it('should render "Next" button', () => {
     const nextButton = screen.getByRole("button", {
-      name: /Next page:/i,
+      name: /Next page: Datadog/i,
     });
 
     expect(nextButton).toBeInTheDocument();
@@ -50,22 +66,5 @@ describe("Observability", () => {
     });
 
     expect(previousButton).not.toBeInTheDocument();
-  });
-
-  it('should call function update page by clicking on "Next" button', async () => {
-    const nextButton = screen.getByRole("button", {
-      name: /Next page: Datadog/,
-    });
-
-    await userEvent.click(nextButton);
-
-    const nextAction = {
-      datadog: true, // open page
-      monitorConfiguration: false,
-      observability: false,
-      thresholds: false,
-    };
-
-    expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
   });
 });
