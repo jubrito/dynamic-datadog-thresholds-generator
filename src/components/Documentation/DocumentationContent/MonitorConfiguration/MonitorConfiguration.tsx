@@ -1,18 +1,8 @@
-import { OpenDocumentationSection } from "../../../../types/types";
-import { closeDocumentationSections } from "../../../../utils/constants";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 import MonitorConfigExample from "../../../../assets/datadog-monitor-config-example.jpg";
 
-type MonitorConfigurationProps = {
-  openDocumentation: React.Dispatch<
-    React.SetStateAction<OpenDocumentationSection>
-  >;
-};
-
-export const MonitorConfiguration = ({
-  openDocumentation,
-}: MonitorConfigurationProps) => {
+export const MonitorConfiguration = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Monitor Configuration</h1>
@@ -77,11 +67,7 @@ export const MonitorConfiguration = ({
       <PreviousNextButtons
         previous={{
           label: "Thresholds",
-          action: () =>
-            openDocumentation({
-              ...closeDocumentationSections,
-              thresholds: true,
-            }),
+          path: "/documentation/thresholds",
         }}
       />
     </div>
