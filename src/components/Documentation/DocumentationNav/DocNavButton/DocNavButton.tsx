@@ -1,17 +1,19 @@
+import { Link } from "react-router";
+
 type DocNavButtonProps = {
-  onClick: () => void;
   isOpen: boolean;
   label: string;
+  path: string;
 };
 
 export const DocNavButton = ({
-  onClick,
+  path,
   label,
   isOpen = false,
 }: DocNavButtonProps) => {
   return (
-    <button
-      onClick={onClick}
+    <Link
+      to={path}
       className={`${
         isOpen ? "font-bold border-b-1" : "text-[#dedae3] "
       } relative group text-lg hover:text-white cursor-pointer text-right`}
@@ -19,6 +21,6 @@ export const DocNavButton = ({
     >
       <span>{label}</span>
       <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-    </button>
+    </Link>
   );
 };
