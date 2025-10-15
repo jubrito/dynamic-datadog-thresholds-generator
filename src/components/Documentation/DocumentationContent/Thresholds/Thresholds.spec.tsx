@@ -1,10 +1,26 @@
 import { screen } from "@testing-library/dom";
 import { Thresholds } from "./Thresholds";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { PreviousNextButtonsProps } from "../../../PreviousNextButtons/PreviousNextButtons";
+
+jest.mock("../../../PreviousNextButtons/PreviousNextButtons", () => ({
+  PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
+    <div>
+      {previous && (
+        <button role="button" aria-label={`Previous page: ${previous.label}`}>
+          Previous: {previous.label}
+        </button>
+      )}
+      {next && (
+        <button role="button" aria-label={`Next page: ${next.label}`}>
+          Next: {next.label}
+        </button>
+      )}
+    </div>
+  ),
+}));
 
 describe("Thresholds", () => {
-  const openDocumentationMock = jest.fn();
   const page = "Thresholds";
   const textContent = [
     "What is it and why does it matter?",
@@ -17,7 +33,7 @@ describe("Thresholds", () => {
   ];
 
   beforeEach(() => {
-    render(<Thresholds openDocumentation={openDocumentationMock} />);
+    render(<Thresholds />);
   });
   afterEach(() => {
     jest.clearAllMocks();
@@ -38,45 +54,13 @@ describe("Thresholds", () => {
 
   it('should render "Previous" and "Next" buttons', () => {
     const previousButton = screen.getByRole("button", {
-      name: /Previous page:/i,
+      name: /Previous page: Datadog/i,
     });
-    const nextButton = screen.getByRole("button", { name: /Next page:/i });
-
-    expect(previousButton).toBeInTheDocument();
-    expect(nextButton).toBeInTheDocument();
-  });
-
-  it('should call function update page by clicking on "Previous" button', async () => {
-    const previousButton = screen.getByRole("button", {
-      name: /Previous page: Datadog/,
-    });
-
-    await userEvent.click(previousButton);
-
-    const previousAction = {
-      datadog: true, // open page
-      monitorConfiguration: false,
-      observability: false,
-      thresholds: false,
-    };
-
-    expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
-  });
-
-  it('should call function update page by clicking on "Next" buton', async () => {
     const nextButton = screen.getByRole("button", {
       name: /Next page: Monitor Configuration/i,
     });
 
-    await userEvent.click(nextButton);
-
-    const nextAction = {
-      datadog: false,
-      monitorConfiguration: true, // open page
-      observability: false,
-      thresholds: false,
-    };
-
-    expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
+    expect(previousButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
   });
 });
