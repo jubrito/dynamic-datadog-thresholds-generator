@@ -1,17 +1,9 @@
-import { OpenDocumentationSection } from "../../../../types/types";
-import { closeDocumentationSections } from "../../../../utils/constants";
 import { BorderBox } from "../../../BorderBox/BorderBox";
 import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
-type ObservabilityProps = {
-  openDocumentation: React.Dispatch<
-    React.SetStateAction<OpenDocumentationSection>
-  >;
-};
-
-export const Observability = ({ openDocumentation }: ObservabilityProps) => {
+export const Observability = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Observability</h1>
@@ -51,11 +43,7 @@ export const Observability = ({ openDocumentation }: ObservabilityProps) => {
       <PreviousNextButtons
         next={{
           label: "Datadog",
-          action: () =>
-            openDocumentation({
-              ...closeDocumentationSections,
-              datadog: true,
-            }),
+          path: "/documentation/datadog",
         }}
       />
     </div>
