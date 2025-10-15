@@ -4,6 +4,7 @@ import { Generator } from "./features/Generator/Generator";
 import { Documentation } from "./features/Documentation/Documentation";
 import { Datadog } from "./components/Documentation/DocumentationContent/Datadog/Datadog";
 import { Observability } from "./components/Documentation/DocumentationContent/Observability/Observability";
+import { Thresholds } from "./components/Documentation/DocumentationContent/Thresholds/Thresholds";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
             <Route path="/documentation" element={<Documentation />}>
               <Route path="observability" element={<Observability />} />
               <Route path="datadog" element={<Datadog />} />
-              <Route path="datadog" element={<Datadog />} />
+              <Route path="thresholds" element={<Thresholds />} />
             </Route>
           </Routes>
         </div>
