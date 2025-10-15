@@ -1,4 +1,9 @@
 import DatadogLogo from "../../../../assets/datadog-logo.jpg";
+import {
+  DOCUMENTATION_ROUTE,
+  OBSERVABILITY_KEY,
+  THRESHOLDS_KEY,
+} from "../../../../utils/constants";
 import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
@@ -49,11 +54,11 @@ export const Datadog = () => {
       <PreviousNextButtons
         previous={{
           label: "Observability",
-          path: "/documentation/observability",
+          path: `${DOCUMENTATION_ROUTE}/${OBSERVABILITY_KEY}`,
         }}
         next={{
           label: "Thresholds",
-          path: "/documentation/thresholds",
+          path: `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`,
         }}
       />
     </>
