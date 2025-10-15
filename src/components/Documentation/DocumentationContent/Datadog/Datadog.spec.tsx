@@ -1,14 +1,30 @@
 import { screen } from "@testing-library/dom";
 import { Datadog } from "./Datadog";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { PreviousNextButtonsProps } from "../../../PreviousNextButtons/PreviousNextButtons";
+
+jest.mock("../../../PreviousNextButtons/PreviousNextButtons", () => ({
+  PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
+    <div>
+      {previous && (
+        <button role="button" aria-label={`Previous page: ${previous.label}`}>
+          Previous: {previous.label}
+        </button>
+      )}
+      {next && (
+        <button role="button" aria-label={`Next page: ${next.label}`}>
+          Next: {next.label}
+        </button>
+      )}
+    </div>
+  ),
+}));
 
 describe("Datadog", () => {
-  const openDocumentationMock = jest.fn();
   const page = "Datadog";
 
   beforeEach(() => {
-    render(<Datadog openDocumentation={openDocumentationMock} />);
+    render(<Datadog />);
   });
   afterEach(() => {
     jest.clearAllMocks();
@@ -41,44 +57,13 @@ describe("Datadog", () => {
 
   it('should render "Previous" and "Next" buttons', () => {
     const previousButton = screen.getByRole("button", {
-      name: /Previous page:/i,
+      name: /Previous page: Observability/i,
     });
-    const nextButton = screen.getByRole("button", { name: /Next page:/i });
-
-    expect(previousButton).toBeInTheDocument();
-    expect(nextButton).toBeInTheDocument();
-  });
-
-  it('should call function update page by clicking on "Previous" button', async () => {
-    const previousButton = screen.getByRole("button", {
-      name: /Previous page: Observability/,
-    });
-
-    await userEvent.click(previousButton);
-
-    const previousAction = {
-      datadog: false,
-      monitorConfiguration: false,
-      observability: true, // open page
-      thresholds: false,
-    };
-
-    expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
-  });
-  it('should call function update page by clicking on "Next" buton', async () => {
     const nextButton = screen.getByRole("button", {
       name: /Next page: Thresholds/i,
     });
 
-    await userEvent.click(nextButton);
-
-    const nextAction = {
-      datadog: false,
-      monitorConfiguration: false,
-      observability: false,
-      thresholds: true, // open page
-    };
-
-    expect(openDocumentationMock).toHaveBeenCalledWith(nextAction);
+    expect(previousButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
   });
 });
