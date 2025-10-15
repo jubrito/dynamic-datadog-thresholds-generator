@@ -16,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Generator />} />
             <Route path="/documentation" element={<Documentation />}>
+              <Route index element={<Observability />} />
               <Route path="observability" element={<Observability />} />
               <Route path="datadog" element={<Datadog />} />
               <Route path="thresholds" element={<Thresholds />} />
