@@ -4,6 +4,7 @@ import {
   DATADOG_KEY,
   DOCUMENTATION_ROUTE,
   OBSERVABILITY_KEY,
+  THRESHOLDS_KEY,
 } from "../../../utils/constants";
 
 export const DocumentationNav = () => {
@@ -27,7 +28,14 @@ export const DocumentationNav = () => {
           <DocNavButton
             label="Datadog"
             isOpen={pathname === `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`}
-            path="datadog"
+            path={DATADOG_KEY}
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Thresholds"
+            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`}
+            path={THRESHOLDS_KEY}
           />
         </li>
       </ul>
