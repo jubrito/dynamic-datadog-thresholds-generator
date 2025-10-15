@@ -1,13 +1,14 @@
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { Link } from "react-router";
 
-type PreviousNextButtonsProps = {
+export type PreviousNextButtonsProps = {
   next?: {
-    action: () => void;
+    path: string;
     label: string;
   };
   previous?: {
-    action: () => void;
+    path: string;
     label: string;
   };
 };
@@ -18,8 +19,8 @@ export const PreviousNextButtons = ({
   return (
     <div className="flex justify-between">
       {previous && (
-        <button
-          onClick={previous.action}
+        <Link
+          to={previous.path}
           className={
             "relative group text-lg hover:text-white cursor-pointer w-fit"
           }
@@ -35,14 +36,15 @@ export const PreviousNextButtons = ({
             </span>
           </span>
           <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-        </button>
+        </Link>
       )}
       {next && (
-        <button
-          onClick={next.action}
+        <Link
+          to={next.path}
           className={
             "relative group text-lg hover:text-white cursor-pointer w-fit"
           }
+          role="button"
         >
           <span>
             <span className="font-bold" aria-label={`Next page: ${next.label}`}>
@@ -51,7 +53,7 @@ export const PreviousNextButtons = ({
             {<ArrowRightIcon aria-hidden="true" />}
           </span>
           <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-        </button>
+        </Link>
       )}
     </div>
   );
