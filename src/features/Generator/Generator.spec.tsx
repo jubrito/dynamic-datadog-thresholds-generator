@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Generator } from "./Generator";
+import { BrowserRouter } from "react-router";
 
 jest.mock("filepond/dist/filepond.min.css", () => ({}), { virtual: true });
 jest.mock(
@@ -10,7 +11,11 @@ jest.mock(
 
 describe("Generator", () => {
   beforeEach(() => {
-    render(<Generator />);
+    render(
+      <BrowserRouter>
+        <Generator />
+      </BrowserRouter>
+    );
   });
 
   it("should render introduction section", () => {
