@@ -1,18 +1,13 @@
-import { OpenDocumentationSection } from "../../../types/types";
-import { closeDocumentationSections } from "../../../utils/constants";
+import { useLocation } from "react-router";
 import { DocNavButton } from "./DocNavButton/DocNavButton";
+import {
+  DOCUMENTATION_ROUTE,
+  OBSERVABILITY_KEY,
+} from "../../../utils/constants";
 
-type DocumentationNavProps = {
-  openDocumentation: React.Dispatch<
-    React.SetStateAction<OpenDocumentationSection>
-  >;
-  documentationSectionOpen: OpenDocumentationSection;
-};
+export const DocumentationNav = () => {
+  const { pathname } = useLocation();
 
-export const DocumentationNav = ({
-  openDocumentation,
-  documentationSectionOpen,
-}: DocumentationNavProps) => {
   return (
     <div className="bg-black border-l-20 lg:border-l-0 lg:border-r-35 border-[#030712] h-dvh h-auto p-9">
       <ul
@@ -23,49 +18,8 @@ export const DocumentationNav = ({
         <li>
           <DocNavButton
             label="Observability"
-            isOpen={documentationSectionOpen.observability}
-            onClick={() =>
-              openDocumentation({
-                ...closeDocumentationSections,
-                observability: true,
-              })
-            }
-          />
-        </li>
-        <li>
-          <DocNavButton
-            label="Datadog"
-            isOpen={documentationSectionOpen.datadog}
-            onClick={() =>
-              openDocumentation({
-                ...closeDocumentationSections,
-                datadog: true,
-              })
-            }
-          />
-        </li>
-        <li>
-          <DocNavButton
-            label="Thresholds"
-            isOpen={documentationSectionOpen.thresholds}
-            onClick={() =>
-              openDocumentation({
-                ...closeDocumentationSections,
-                thresholds: true,
-              })
-            }
-          />
-        </li>
-        <li>
-          <DocNavButton
-            label="Monitor Config"
-            isOpen={documentationSectionOpen.monitorConfiguration}
-            onClick={() =>
-              openDocumentation({
-                ...closeDocumentationSections,
-                monitorConfiguration: true,
-              })
-            }
+            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${OBSERVABILITY_KEY}`}
+            path="observability"
           />
         </li>
       </ul>
