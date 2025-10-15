@@ -1,6 +1,7 @@
 import { useLocation } from "react-router";
 import { DocNavButton } from "./DocNavButton/DocNavButton";
 import {
+  DATADOG_KEY,
   DOCUMENTATION_ROUTE,
   OBSERVABILITY_KEY,
 } from "../../../utils/constants";
@@ -20,6 +21,13 @@ export const DocumentationNav = () => {
             label="Observability"
             isOpen={pathname === `${DOCUMENTATION_ROUTE}/${OBSERVABILITY_KEY}`}
             path="observability"
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Datadog"
+            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`}
+            path="datadog"
           />
         </li>
       </ul>
