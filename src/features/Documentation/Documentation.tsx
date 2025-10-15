@@ -1,33 +1,18 @@
-import { useState } from "react";
-import { OpenDocumentationSection } from "../../types/types";
-import { DocumentationContent } from "../../components/Documentation/DocumentationContent/DocumentationContent";
 import { DocumentationNav } from "../../components/Documentation/DocumentationNav/DocumentationNav";
 import { mainHorizontalSpacing, mainTopSpacing } from "../../utils/styles";
+import { Outlet } from "react-router";
 
 export const Documentation = () => {
-  const [openDocumentationSection, setOpenDocumentationSection] =
-    useState<OpenDocumentationSection>({
-      observability: true,
-      datadog: false,
-      thresholds: false,
-      monitorConfiguration: false,
-    });
   return (
     <section
       className={`${mainTopSpacing} ${mainHorizontalSpacing} grid-cols-[30px_1fr_200px]`}
       role="region"
     >
       <div className="order-3 lg:order-1 ">
-        <DocumentationNav
-          openDocumentation={setOpenDocumentationSection}
-          documentationSectionOpen={openDocumentationSection}
-        />
+        <DocumentationNav />
       </div>
-      <div className="order-2 lg:order-2">
-        <DocumentationContent
-          openDocumentation={setOpenDocumentationSection}
-          documentationSectionOpen={openDocumentationSection}
-        />
+      <div className="order-2 lg:order-2 py-10 text-left">
+        <Outlet />
       </div>
       <div className="order-1 lg:order-3" />
     </section>
