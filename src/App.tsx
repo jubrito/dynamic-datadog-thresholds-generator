@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { Nav } from "./features/Nav/Nav";
 import { Generator } from "./features/Generator/Generator";
 import { Documentation } from "./features/Documentation/Documentation";
+import { Datadog } from "./components/Documentation/DocumentationContent/Datadog/Datadog";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
         <div className="mt-18">
           <Routes>
             <Route path="/" element={<Generator />} />
-            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/documentation" element={<Documentation />}>
+              <Route path="datadog" element={<Datadog />} />
+            </Route>
           </Routes>
         </div>
       </main>
