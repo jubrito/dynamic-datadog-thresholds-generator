@@ -1,16 +1,8 @@
-import { OpenDocumentationSection } from "../../../../types/types";
-import { closeDocumentationSections } from "../../../../utils/constants";
 import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
-type ThresholdsProps = {
-  openDocumentation: React.Dispatch<
-    React.SetStateAction<OpenDocumentationSection>
-  >;
-};
-
-export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
+export const Thresholds = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Thresholds</h1>
@@ -59,19 +51,11 @@ export const Thresholds = ({ openDocumentation }: ThresholdsProps) => {
       <PreviousNextButtons
         previous={{
           label: "Datadog",
-          action: () =>
-            openDocumentation({
-              ...closeDocumentationSections,
-              datadog: true,
-            }),
+          path: "/documentation/datadog",
         }}
         next={{
           label: "Monitor Configuration",
-          action: () =>
-            openDocumentation({
-              ...closeDocumentationSections,
-              monitorConfiguration: true,
-            }),
+          path: "/documentation/monitor-configuration",
         }}
       />
     </div>
