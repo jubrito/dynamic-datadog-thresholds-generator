@@ -21,28 +21,31 @@ export const DocumentationNav = () => {
         <li>
           <DocNavButton
             label="Observability"
-            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${OBSERVABILITY_KEY}`}
+            isOpen={
+              pathname == DOCUMENTATION_ROUTE ||
+              pathname == `${DOCUMENTATION_ROUTE}/${OBSERVABILITY_KEY}`
+            }
             path="observability"
           />
         </li>
         <li>
           <DocNavButton
             label="Datadog"
-            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`}
+            isOpen={pathname == `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`}
             path={DATADOG_KEY}
           />
         </li>
         <li>
           <DocNavButton
             label="Thresholds"
-            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`}
+            isOpen={pathname == `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`}
             path={THRESHOLDS_KEY}
           />
         </li>
         <li>
           <DocNavButton
             label="Monitor Config"
-            isOpen={pathname === `${DOCUMENTATION_ROUTE}/${MONITOR_CONFIG_KEY}`}
+            isOpen={pathname == `${DOCUMENTATION_ROUTE}/${MONITOR_CONFIG_KEY}`}
             path={MONITOR_CONFIG_KEY}
           />
         </li>
