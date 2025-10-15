@@ -1,3 +1,8 @@
+import {
+  DATADOG_KEY,
+  DOCUMENTATION_ROUTE,
+  MONITOR_CONFIG_KEY,
+} from "../../../../utils/constants";
 import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
@@ -51,11 +56,11 @@ export const Thresholds = () => {
       <PreviousNextButtons
         previous={{
           label: "Datadog",
-          path: "/documentation/datadog",
+          path: `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`,
         }}
         next={{
           label: "Monitor Configuration",
-          path: "/documentation/monitor-configuration",
+          path: `${DOCUMENTATION_ROUTE}/${MONITOR_CONFIG_KEY}`,
         }}
       />
     </div>
