@@ -1,6 +1,10 @@
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 import MonitorConfigExample from "../../../../assets/datadog-monitor-config-example.jpg";
+import {
+  DOCUMENTATION_ROUTE,
+  THRESHOLDS_KEY,
+} from "../../../../utils/constants";
 
 export const MonitorConfiguration = () => {
   return (
@@ -67,7 +71,7 @@ export const MonitorConfiguration = () => {
       <PreviousNextButtons
         previous={{
           label: "Thresholds",
-          path: "/documentation/thresholds",
+          path: `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`,
         }}
       />
     </div>
