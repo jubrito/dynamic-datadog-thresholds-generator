@@ -1,17 +1,9 @@
 import DatadogLogo from "../../../../assets/datadog-logo.jpg";
-import { OpenDocumentationSection } from "../../../../types/types";
-import { closeDocumentationSections } from "../../../../utils/constants";
 import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
 import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
-type DatadogProps = {
-  openDocumentation: React.Dispatch<
-    React.SetStateAction<OpenDocumentationSection>
-  >;
-};
-
-export const Datadog = ({ openDocumentation }: DatadogProps) => {
+export const Datadog = () => {
   return (
     <>
       <div className="flex xl:flex-nowrap flex-wrap flex-row gap-5">
@@ -57,19 +49,11 @@ export const Datadog = ({ openDocumentation }: DatadogProps) => {
       <PreviousNextButtons
         previous={{
           label: "Observability",
-          action: () =>
-            openDocumentation({
-              ...closeDocumentationSections,
-              observability: true,
-            }),
+          path: "/documentation/observability",
         }}
         next={{
           label: "Thresholds",
-          action: () =>
-            openDocumentation({
-              ...closeDocumentationSections,
-              thresholds: true,
-            }),
+          path: "/documentation/thresholds",
         }}
       />
     </>
