@@ -3,6 +3,7 @@ import { Nav } from "./features/Nav/Nav";
 import { Generator } from "./features/Generator/Generator";
 import { Documentation } from "./features/Documentation/Documentation";
 import { Datadog } from "./components/Documentation/DocumentationContent/Datadog/Datadog";
+import { Observability } from "./components/Documentation/DocumentationContent/Observability/Observability";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Generator />} />
             <Route path="/documentation" element={<Documentation />}>
+              <Route path="observability" element={<Observability />} />
+              <Route path="datadog" element={<Datadog />} />
               <Route path="datadog" element={<Datadog />} />
             </Route>
           </Routes>
