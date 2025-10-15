@@ -1,3 +1,4 @@
+import { DATADOG_KEY, DOCUMENTATION_ROUTE } from "../../../../utils/constants";
 import { BorderBox } from "../../../BorderBox/BorderBox";
 import { ColorBox } from "../../../ColorBox/ColorBox";
 import { Divider } from "../../../Divider/Divider";
@@ -43,7 +44,7 @@ export const Observability = () => {
       <PreviousNextButtons
         next={{
           label: "Datadog",
-          path: "/documentation/datadog",
+          path: `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`,
         }}
       />
     </div>
