@@ -5,6 +5,7 @@ import { Documentation } from "./features/Documentation/Documentation";
 import { Datadog } from "./components/Documentation/DocumentationContent/Datadog/Datadog";
 import { Observability } from "./components/Documentation/DocumentationContent/Observability/Observability";
 import { Thresholds } from "./components/Documentation/DocumentationContent/Thresholds/Thresholds";
+import { MonitorConfiguration } from "./components/Documentation/DocumentationContent/MonitorConfiguration/MonitorConfiguration";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
               <Route path="observability" element={<Observability />} />
               <Route path="datadog" element={<Datadog />} />
               <Route path="thresholds" element={<Thresholds />} />
+              <Route
+                path="monitor-configuration"
+                element={<MonitorConfiguration />}
+              />
             </Route>
           </Routes>
         </div>
