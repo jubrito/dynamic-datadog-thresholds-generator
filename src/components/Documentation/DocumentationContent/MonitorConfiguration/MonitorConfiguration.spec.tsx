@@ -1,10 +1,26 @@
 import { screen } from "@testing-library/dom";
 import { MonitorConfiguration } from "./MonitorConfiguration";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { PreviousNextButtonsProps } from "../../../PreviousNextButtons/PreviousNextButtons";
+
+jest.mock("../../../PreviousNextButtons/PreviousNextButtons", () => ({
+  PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
+    <div>
+      {previous && (
+        <button role="button" aria-label={`Previous page: ${previous.label}`}>
+          Previous: {previous.label}
+        </button>
+      )}
+      {next && (
+        <button role="button" aria-label={`Next page: ${next.label}`}>
+          Next: {next.label}
+        </button>
+      )}
+    </div>
+  ),
+}));
 
 describe("Monitor Configuration", () => {
-  const openDocumentationMock = jest.fn();
   const page = "Monitor Configuration";
   const question = "How to configure and analyze Datadog monitors?";
   const steps = [
@@ -22,7 +38,7 @@ describe("Monitor Configuration", () => {
   const content = [question, ...steps, ...examples];
 
   beforeEach(() => {
-    render(<MonitorConfiguration openDocumentation={openDocumentationMock} />);
+    render(<MonitorConfiguration />);
   });
   afterEach(() => {
     jest.clearAllMocks();
@@ -39,7 +55,7 @@ describe("Monitor Configuration", () => {
 
   it('should render "Previous" button', () => {
     const previousButton = screen.getByRole("button", {
-      name: /Previous page:/i,
+      name: /Previous page: Thresholds/i,
     });
 
     expect(previousButton).toBeInTheDocument();
@@ -51,22 +67,5 @@ describe("Monitor Configuration", () => {
     });
 
     expect(nextButton).not.toBeInTheDocument();
-  });
-
-  it('should call function update page by clicking on "Previous" button', async () => {
-    const previousButton = screen.getByRole("button", {
-      name: /Previous page: Thresholds/,
-    });
-
-    await userEvent.click(previousButton);
-
-    const previousAction = {
-      datadog: false,
-      monitorConfiguration: false,
-      observability: false,
-      thresholds: true, // open page
-    };
-
-    expect(openDocumentationMock).toHaveBeenCalledWith(previousAction);
   });
 });
