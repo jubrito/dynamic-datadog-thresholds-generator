@@ -13,6 +13,14 @@ describe("BorderBox", () => {
   it("should render title", () => {
     expect(screen.getByText("Dynamic Threshold Generator")).toBeInTheDocument();
   });
+  it("should connect title with tooltip", () => {
+    expect(screen.getByText("Dynamic Threshold Generator")).toHaveAttribute(
+      "aria-describedBy",
+      "generator-tooltip"
+    );
+  });
+  it.todo("should render tooltip when clicking on tooltip icon"); // find by Toggle generator explanation
+  it.todo("should hide tooltip by default");
   it("should render description", () => {
     expect(
       screen.getByText(
