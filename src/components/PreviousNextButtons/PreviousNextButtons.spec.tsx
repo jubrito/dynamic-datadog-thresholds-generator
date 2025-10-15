@@ -38,4 +38,18 @@ describe("PreviousNextButtons", () => {
       screen.getByLabelText(`Previous page: ${previousLabel}`)
     ).toBeInTheDocument();
   });
+
+  it("should render only next if previous button is not provided", async () => {
+    render(
+      <BrowserRouter>
+        <PreviousNextButtons next={{ path: "next", label: nextLabel }} />
+      </BrowserRouter>
+    );
+    expect(
+      screen.queryByLabelText(`Previous page: ${previousLabel}`)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByLabelText(`Next page: ${nextLabel}`)
+    ).toBeInTheDocument();
+  });
 });
