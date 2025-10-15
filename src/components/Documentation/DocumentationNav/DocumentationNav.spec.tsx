@@ -1,24 +1,27 @@
 import { screen, render } from "@testing-library/react";
 import { DocumentationNav } from "./DocumentationNav";
+import { BrowserRouter } from "react-router";
+import {
+  DATADOG_KEY,
+  MONITOR_CONFIG_KEY,
+  OBSERVABILITY_KEY,
+  THRESHOLDS_KEY,
+} from "../../../utils/constants";
 
 const getNavLinkLabel = (pageName: string) => `${pageName} documentation page`;
 
 describe("DocumentationNav", () => {
-  const openDocumentationMock = jest.fn();
-  const documentationSectionOpen = {
-    observability: false,
-    datadog: false,
-    thresholds: false,
-    monitorConfiguration: false,
-  };
-  const pages = ["Observability", "Datadog", "Thresholds", "Monitor Config"];
-
+  const pages = [
+    { name: "Observability", path: OBSERVABILITY_KEY },
+    { name: "Datadog", path: DATADOG_KEY },
+    { name: "Thresholds", path: THRESHOLDS_KEY },
+    { name: "Monitor Config", path: MONITOR_CONFIG_KEY },
+  ];
   beforeEach(() => {
     render(
-      <DocumentationNav
-        openDocumentation={openDocumentationMock}
-        documentationSectionOpen={documentationSectionOpen}
-      />
+      <BrowserRouter>
+        <DocumentationNav />
+      </BrowserRouter>
     );
   });
 
@@ -29,11 +32,12 @@ describe("DocumentationNav", () => {
   });
 
   it.each(pages)("should render each documentation item", (page) => {
-    const pageButton = screen.getByRole("button", {
-      name: getNavLinkLabel(page),
+    const pageButton = screen.getByRole("link", {
+      name: getNavLinkLabel(page.name),
     });
 
     expect(pageButton).toBeInTheDocument();
-    expect(pageButton).toHaveTextContent(page);
+    expect(pageButton).toHaveTextContent(page.name);
+    expect(pageButton).toHaveAttribute("href", `/${page.path}`);
   });
 });
