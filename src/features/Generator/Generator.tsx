@@ -5,6 +5,7 @@ import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { GeneratorResults } from "../../components/GeneratorResults/GeneratorResults";
+import { MainTooltip } from "../../components/MainTooltip/MainTooltip";
 
 export const Generator = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
@@ -25,10 +26,13 @@ export const Generator = () => {
   return (
     <section className={`py-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
       <div />
-      <div className={`grid gap-7 ${showInsights ? "grid-rows-2" : ""}`}>
+      <div
+        className={`grid gap-7 max-w-253 ${showInsights ? "grid-rows-2" : ""}`}
+      >
         <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1">
-          <div className="xl:col-span-2">
+          <div className="xl:col-span-2 relative">
             <Introduction />
+            <MainTooltip />
           </div>
           <UploadCsvBox updateThresholdData={setThresholdData} />
           <Configuration
