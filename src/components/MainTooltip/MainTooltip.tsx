@@ -5,12 +5,13 @@ import {
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
 } from "../../utils/constants";
+import { darkGrayBlue } from "../../utils/styles";
 
 export const MainTooltip = () => {
   return (
     <div
       role="tooltip"
-      className="bg-black text-white absolute size-full gap-5 flex flex-col h-min z-2 p-5"
+      className={`${darkGrayBlue.background} text-white absolute size-full gap-5 flex flex-col h-min z-2 p-5`}
       id="generator-tooltip"
     >
       <h1 className="text-2xl">How to use the generator</h1>
@@ -31,19 +32,21 @@ export const MainTooltip = () => {
           What do you need to know before you use this tool
         </h2>
         <span>
-          After understanding what
+          After understanding
           <Link
             to={`${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`}
             className="underline ml-1"
           >
-            what is Datadog
+            what Datadog is
           </Link>
           ,
           <Link
             to={`${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`}
             className="underline ml-1"
-          ></Link>
-          what thresholds do , and
+          >
+            what thresholds do
+          </Link>
+          , and
           <Link to={`TODO`} className="underline ml-1">
             the role percentiles have when defining thresholds
           </Link>
@@ -55,7 +58,10 @@ export const MainTooltip = () => {
             how the Datadog monitor configuration works
           </Link>
           . This way, you can
-          <Link to={`TODO`} className="underline mx-1">
+          <Link
+            to={`${DOCUMENTATION_ROUTE}/TODO-PERCENTILES`}
+            className="underline mx-1"
+          >
             learn how to define a query based on percentiles and export Datadog
             metrics
           </Link>
@@ -67,7 +73,42 @@ export const MainTooltip = () => {
         <h2 className="text-xl pb-2 font-bold">
           How to configure the generator
         </h2>
-        <span>The configuration </span>
+        <span>
+          There are two main variables you can configure, the initial percentile
+          and the rigorour factor:
+        </span>
+        <h3 className="text-xl pb-2 font-bold">Initial percentile</h3>
+        <span>
+          The base percentile allows you do choose the type of request to focus.
+          After uploading the metrics file with the percentile values from your
+          endpoint, instead of analyzing all the data uploaded, you can choose a
+          base
+          <Link
+            to={`${DOCUMENTATION_ROUTE}/TODO-PERCENTILES`}
+            className="underline mx-1"
+          >
+            percentile
+          </Link>
+          that will influence how much data the algorithm the use.
+        </span>
+        <ul className="list-inside list-disc">
+          <li>
+            Lower percentile will filter the uploaded values that represents the
+            faster requests, which measures how fast users are affected
+          </li>
+          <li>
+            A median (50th percentile) will filter the uploaded values that
+            represents the normal requests, which measures the typical user
+            experience
+          </li>
+          <li>
+            Higher percentile will filter the uploaded values that represents
+            the slower requests, which measures how slow users are affected
+          </li>
+        </ul>
+        <h3 className="text-xl pb-2 font-bold">
+          Rigorour factor 80 Lower Higher Rigorousness
+        </h3>
       </div>
       <div>
         <h2 className="text-xl pb-2 font-bold">How to use the generator</h2>
