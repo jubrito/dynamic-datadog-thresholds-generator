@@ -10,12 +10,12 @@ export const MainTooltip = () => {
   return (
     <div
       role="tooltip"
-      className="bg-black text-white absolute size-full opacity-90 gap-5 flex flex-col h-min"
+      className="bg-black text-white absolute size-full gap-5 flex flex-col h-min z-2 p-5"
       id="generator-tooltip"
     >
-      <h1 className="text-xl">How to use the generator</h1>
+      <h1 className="text-2xl">How to use the generator</h1>
       <div>
-        <h2 className="text-md pb-2 font-bold">
+        <h2 className="text-xl pb-2 font-bold">
           Why the generator can help you
         </h2>
         <span>
@@ -27,7 +27,7 @@ export const MainTooltip = () => {
         </span>
       </div>
       <div>
-        <h2 className="text-md pb-2 font-bold">
+        <h2 className="text-xl pb-2 font-bold">
           What do you need to know before you use this tool
         </h2>
         <span>
@@ -64,13 +64,13 @@ export const MainTooltip = () => {
         </span>
       </div>
       <div>
-        <h2 className="text-md pb-2 font-bold">
+        <h2 className="text-xl pb-2 font-bold">
           How to configure the generator
         </h2>
         <span>The configuration </span>
       </div>
       <div>
-        <h2 className="text-md pb-2 font-bold">How to use the generator</h2>
+        <h2 className="text-xl pb-2 font-bold">How to use the generator</h2>
         <ol className="list-inside list-decimal">
           <li>
             Extract a Datadog endpoint metrics csv file using any percentile
