@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Activity, useState } from "react";
 import { Configuration } from "../../components/Configuration/Configuration";
 import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
@@ -27,12 +27,17 @@ export const Generator = () => {
     <section className={`py-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
       <div />
       <div
-        className={`grid gap-7 max-w-253 ${showInsights ? "grid-rows-2" : ""}`}
+        className={`relative grid gap-7 max-w-253 ${
+          showInsights ? "grid-rows-2" : ""
+        }`}
       >
         <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1">
-          <div className="xl:col-span-2 relative">
+          {/* TODO extract to component with tooltip to prevent rerenders */}
+          <div className="xl:col-span-2">
             <Introduction />
-            <MainTooltip />
+            <Activity mode={"visible"}>
+              <MainTooltip />
+            </Activity>
           </div>
           <UploadCsvBox updateThresholdData={setThresholdData} />
           <Configuration
