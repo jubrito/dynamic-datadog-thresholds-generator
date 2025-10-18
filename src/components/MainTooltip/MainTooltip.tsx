@@ -5,13 +5,13 @@ import {
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
 } from "../../utils/constants";
-import { darkGrayBlue } from "../../utils/styles";
+import { mainBlue } from "../../utils/styles";
 
 export const MainTooltip = () => {
   return (
     <div
       role="tooltip"
-      className={`${darkGrayBlue.background} text-white absolute size-full gap-5 flex flex-col h-min z-2 p-5`}
+      className={`${mainBlue.background} absolute h-full overflow-y-scroll text-white absolute gap-10 flex flex-col z-2 p-5`}
       id="generator-tooltip"
     >
       <h1 className="text-2xl">How to use the generator</h1>
