@@ -7,7 +7,7 @@ export const extractAndUploadCsvDescriptionI =
 
 export const Introduction = () => {
   return (
-    <div className="text-left relative z-1000">
+    <div className="text-left relative">
       <div className="flex gap-3">
         <h1
           className="font-bold text-3xl uppercase"
