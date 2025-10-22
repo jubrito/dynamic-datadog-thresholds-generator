@@ -19,5 +19,9 @@ describe("MainTooltip", () => {
     await userEvent.click(screen.getByLabelText(closeLabel));
     expect(setDisplayTooltipMock).toHaveBeenCalledWith(false);
   });
-  it.todo("should render sections");
+  it("should render 'Why the generator can help you' section", () => {
+    expect(
+      screen.getByText("Why the generator can help you")
+    ).toBeInTheDocument();
+  });
 });
