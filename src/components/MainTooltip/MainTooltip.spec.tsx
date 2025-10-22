@@ -29,4 +29,9 @@ describe("MainTooltip", () => {
       screen.getByText("What do you need to know before you use this tool")
     ).toBeInTheDocument();
   });
+  it("should render 'How to configure the generator' section", () => {
+    expect(
+      screen.getByText("How to configure the generator")
+    ).toBeInTheDocument();
+  });
 });
