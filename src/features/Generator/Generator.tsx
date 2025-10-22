@@ -1,4 +1,4 @@
-import { Activity, useState } from "react";
+import { useState } from "react";
 import { Configuration } from "../../components/Configuration/Configuration";
 import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
@@ -6,6 +6,7 @@ import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { GeneratorResults } from "../../components/GeneratorResults/GeneratorResults";
 import { MainTooltip } from "../../components/MainTooltip/MainTooltip";
+import { WithTooltip } from "../../components/WithTooltip/WithTooltip";
 
 export const Generator = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
@@ -34,10 +35,14 @@ export const Generator = () => {
         <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1">
           {/* TODO extract to component with tooltip to prevent rerenders */}
           <div className="xl:col-span-2">
-            <Introduction />
-            <Activity mode={"visible"}>
-              <MainTooltip />
-            </Activity>
+            <WithTooltip
+              triggerComponent={(setDisplayTooltip) => (
+                <Introduction setDisplayTooltip={setDisplayTooltip} />
+              )}
+              tooltipComponent={(setDisplayTooltip) => (
+                <MainTooltip setDisplayTooltip={setDisplayTooltip} />
+              )}
+            />
           </div>
           <UploadCsvBox updateThresholdData={setThresholdData} />
           <Configuration
