@@ -34,4 +34,7 @@ describe("MainTooltip", () => {
       screen.getByText("How to configure the generator")
     ).toBeInTheDocument();
   });
+  it("should render 'Steps to use the generator' section", () => {
+    expect(screen.getByText("Steps to use the generator")).toBeInTheDocument();
+  });
 });
