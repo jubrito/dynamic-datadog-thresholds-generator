@@ -1,5 +1,5 @@
 import type { ThresholdsConfig } from "../../types/types";
-import { darkGrayBlue } from "../../utils/styles";
+import { stylesDarkGrayBlue } from "../../utils/styles";
 import { configureGeneratorDescriptionId } from "../Introduction/Introduction";
 import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 
@@ -25,14 +25,14 @@ export const Configuration = ({
       aria-labelledby={configurationLabelId}
     >
       <h2
-        className={`font-bold text-2xl w-full ${darkGrayBlue.background} pl-6 pt-4 text-left rounded-t-lg`}
+        className={`font-bold text-2xl w-full ${stylesDarkGrayBlue.background} pl-6 pt-4 text-left rounded-t-lg`}
         id={configurationLabelId}
       >
         Generator configuration
       </h2>
 
       <div
-        className={`p-5 w-full h-max ${darkGrayBlue.background} rounded-b-lg`}
+        className={`p-5 w-full h-max ${stylesDarkGrayBlue.background} rounded-b-lg`}
       >
         <div className="flex gap-5 flex-col lg:flex-row flex-wrap xl:flex-nowrap">
           <ConfigOptions

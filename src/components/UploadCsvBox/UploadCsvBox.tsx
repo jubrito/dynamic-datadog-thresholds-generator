@@ -6,7 +6,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import type { ThresholdData } from "../../types/types";
 import type { FilePondFile } from "filepond";
 import { parseCSV } from "../../utils/parseCSV";
-import { darkGrayBlue } from "../../utils/styles";
+import { stylesDarkGrayBlue } from "../../utils/styles";
 import { extractAndUploadCsvDescriptionI } from "../Introduction/Introduction";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
@@ -81,7 +81,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
   return (
     <section
       aria-describedby={extractAndUploadCsvDescriptionI}
-      className={`flex flex-col gap-3 text-left ${darkGrayBlue.background} p-5 rounded-xl`}
+      className={`flex flex-col gap-3 text-left ${stylesDarkGrayBlue.background} p-5 rounded-xl`}
       role="region"
     >
       <h2 className="text-2xl font-bold">CSV file upload</h2>

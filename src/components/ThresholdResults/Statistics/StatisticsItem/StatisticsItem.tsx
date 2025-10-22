@@ -1,4 +1,4 @@
-import { darkGrayBlue } from "../../../../utils/styles";
+import { stylesDarkGrayBlue } from "../../../../utils/styles";
 
 type StatisticsItemProps = {
   label?: string;
@@ -21,7 +21,7 @@ export const StatisticsItem = ({
   if (!label && !value) return null;
   return (
     <p
-      className={`border-1 p-3 rounded-lg flex-grow-1 ${darkGrayBlue.border} ${styles.container}`}
+      className={`border-1 p-3 rounded-lg flex-grow-1 ${stylesDarkGrayBlue.border} ${styles.container}`}
     >
       <strong>
         {label && <span className={styles?.label}>{label}</span>}

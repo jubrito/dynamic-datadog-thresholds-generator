@@ -6,7 +6,7 @@ export const stylesMainBlue = {
   background: "bg-[#0b1220]",
   border: "border-[#0b1220]",
 };
-export const darkGrayBlue = {
+export const stylesDarkGrayBlue = {
   background: "bg-[#051027ff]",
   border: "border-[#051027ff]",
 };
