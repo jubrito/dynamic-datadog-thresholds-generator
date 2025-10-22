@@ -5,7 +5,7 @@ import {
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
 } from "../../utils/constants";
-import { grayerDarkGrayBlue, stylesMainBlue } from "../../utils/styles";
+import { stylesGrayerDarkGrayBlue, stylesMainBlue } from "../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
 
 type MainTooltipProps = {
@@ -23,7 +23,7 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
       <button
         aria-label="Close explanation and go back to generator"
         onClick={() => setDisplayTooltip(false)}
-        className={`cursor-pointer ${grayerDarkGrayBlue.background} p-2 rounded-3xl`}
+        className={`cursor-pointer ${stylesGrayerDarkGrayBlue.background} p-2 rounded-3xl`}
       >
         <CloseIcon />
       </button>

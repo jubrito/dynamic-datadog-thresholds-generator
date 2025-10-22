@@ -3,7 +3,7 @@ import { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
 import { EndpointStatistics } from "../ThresholdResults/Statistics/Statistics";
 import { Thresholds } from "../Thresholds/Thresholds";
-import { grayerDarkGrayBlue } from "../../utils/styles";
+import { stylesGrayerDarkGrayBlue } from "../../utils/styles";
 import { isDataSufficient } from "../../utils/statistics";
 
 type GeneratorResultsProps = {
@@ -20,7 +20,7 @@ export const GeneratorResults = ({
   const showInsights = thresholdData.metricValues.length > 0;
   const enoughDataForInsights = isDataSufficient(percentileValues.length);
   const showMainStyleTransition = showInsights
-    ? `${grayerDarkGrayBlue.background} ${
+    ? `${stylesGrayerDarkGrayBlue.background} ${
         enoughDataForInsights ? "" : "max-h-124"
       } mt-5`
     : "bg-transparent max-h-0 mt-0";

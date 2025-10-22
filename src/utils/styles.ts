@@ -14,6 +14,6 @@ export const stylesMediumGrayBlue = {
   background: "bg-[#0e1b37]",
   border: "border-[#0e1b37]",
 };
-export const grayerDarkGrayBlue = {
+export const stylesGrayerDarkGrayBlue = {
   background: "bg-[#0d1222]",
 };
