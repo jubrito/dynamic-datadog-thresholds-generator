@@ -5,7 +5,10 @@ export const configureGeneratorDescriptionId =
 export const extractAndUploadCsvDescriptionI =
   "extract-and-upload-csv-description";
 
-export const Introduction = () => {
+type IntroductionProps = {
+  setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export const Introduction = ({ setDisplayTooltip }: IntroductionProps) => {
   return (
     <div className="text-left relative">
       <div className="flex gap-3">
@@ -15,7 +18,11 @@ export const Introduction = () => {
         >
           Dynamic Threshold Generator
         </h1>
-        <button className="cursor-pointer" aria-labelledby="tooltip-label">
+        <button
+          className="cursor-pointer"
+          aria-labelledby="tooltip-label"
+          onClick={() => setDisplayTooltip((prevState) => !prevState)}
+        >
           <span className="sr-only" id="tooltip-label">
             Toggle generator explanation
           </span>
