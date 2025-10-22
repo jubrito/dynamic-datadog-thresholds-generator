@@ -1,5 +1,5 @@
 import type { ThresholdConfig } from "../../../types/types";
-import { mediumGrayBlue } from "../../../utils/styles";
+import { stylesMediumGrayBlue } from "../../../utils/styles";
 import { RangeConfig } from "./RangeConfig/RangeConfig";
 
 type ConfigOptionsProps = {
@@ -21,7 +21,7 @@ export const ConfigOptions = ({
   const thresholdLabel = `${thresholdType} Threshold`;
   return (
     <div
-      className={`flex w-full flex-col ${mediumGrayBlue.background} p-6 rounded-md items-start`}
+      className={`flex w-full flex-col ${stylesMediumGrayBlue.background} p-6 rounded-md items-start`}
     >
       <span className="font-bold text-xl text-left" aria-hidden="true">
         {thresholdLabel}
