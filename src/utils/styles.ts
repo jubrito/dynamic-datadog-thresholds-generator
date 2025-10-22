@@ -3,6 +3,7 @@ export const mainHorizontalSpacing =
 export const mainTopSpacing = "mt-5 bg-";
 export const mainBlue = {
   background: "bg-[#0b1220]",
+  border: "border-[#0b1220]",
 };
 export const darkGrayBlue = {
   background: "bg-[#051027ff]",
