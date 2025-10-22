@@ -5,7 +5,7 @@ import {
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
 } from "../../utils/constants";
-import { mainBlue } from "../../utils/styles";
+import { grayerDarkGrayBlue, mainBlue } from "../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
 
 type MainTooltipProps = {
@@ -13,25 +13,29 @@ type MainTooltipProps = {
   displayTooltip?: boolean;
 };
 
-export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
-  return (
-    <div
-      role="tooltip"
-      className={`${mainBlue.background} absolute h-full overflow-y-scroll text-white absolute gap-10 flex flex-col z-2 p-5`}
-      id="generator-tooltip"
-    >
-      <div className="flex justify-between w-full">
-        <h1 className="text-2xl">How to use the generator</h1>
-        <button
-          aria-label="Close explanation and go back to generator"
-          onClick={() => setDisplayTooltip(false)}
-          className="cursor-pointer"
-        >
-          <CloseIcon />
-        </button>
-      </div>
+export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
+  <div
+    role="tooltip"
+    className={`${mainBlue.background} border-10 ${mainBlue.border} absolute h-full overflow-y-scroll text-white absolute z-2 p-5`}
+    id="generator-tooltip"
+    style={{
+      scrollbarColor: "#dcd7faff transparent",
+      scrollbarWidth: "thin",
+    }}
+  >
+    <div className={`float-right sticky top-0 flex justify-end`}>
+      <button
+        aria-label="Close explanation and go back to generator"
+        onClick={() => setDisplayTooltip(false)}
+        className={`cursor-pointer ${grayerDarkGrayBlue.background} p-2 rounded-3xl`}
+      >
+        <CloseIcon />
+      </button>
+    </div>
+    <div className="gap-10 flex flex-col">
+      <h1 className="text-3xl">How to use the generator</h1>
       <div>
-        <h2 className="text-xl pb-2 font-bold">
+        <h2 className="text-2xl pb-2 font-bold">
           Why the generator can help you
         </h2>
         <span>
@@ -43,7 +47,7 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
         </span>
       </div>
       <div>
-        <h2 className="text-xl pb-2 font-bold">
+        <h2 className="text-2xl pb-2 font-bold">
           What do you need to know before you use this tool
         </h2>
         <span>
@@ -85,7 +89,7 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
         </span>
       </div>
       <div>
-        <h2 className="text-xl pb-2 font-bold">
+        <h2 className="text-2xl pb-2 font-bold">
           How to configure the generator
         </h2>
         <span>
@@ -106,18 +110,18 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
           </Link>
           that will influence how much data the algorithm the use.
         </span>
-        <ul className="list-inside list-disc">
-          <li>
-            Lower percentile will filter the uploaded values that represents the
-            faster requests, which measures how fast users are affected
+        <ul className="list-inside list-disc py-1">
+          <li className="py-1">
+            Lower percentiles will filter the uploaded values that represents
+            the faster requests, which measures how fast users are affected
           </li>
-          <li>
+          <li className="py-1">
             A median (50th percentile) will filter the uploaded values that
             represents the normal requests, which measures the typical user
             experience
           </li>
-          <li>
-            Higher percentile will filter the uploaded values that represents
+          <li className="py-1">
+            Higher percentiles will filter the uploaded values that represents
             the slower requests, which measures how slow users are affected
           </li>
         </ul>
@@ -125,7 +129,7 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
         <span>Lower Higher Rigorousness</span>
       </div>
       <div>
-        <h2 className="text-xl pb-2 font-bold">How to use the generator</h2>
+        <h2 className="text-2xl pb-2 font-bold">How to use the generator</h2>
         <ol className="list-inside list-decimal">
           <li>
             Extract a Datadog endpoint metrics csv file using any percentile
@@ -139,5 +143,5 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
         </ol>
       </div>
     </div>
-  );
-};
+  </div>
+);
