@@ -19,4 +19,5 @@ describe("MainTooltip", () => {
     await userEvent.click(screen.getByLabelText(closeLabel));
     expect(setDisplayTooltipMock).toHaveBeenCalledWith(false);
   });
+  it.todo("should render sections");
 });
