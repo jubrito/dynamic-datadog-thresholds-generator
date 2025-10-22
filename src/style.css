@@ -3,9 +3,8 @@
 :root {
   background-color: #030712;
   color: rgba(255, 255, 255, 0.87);
-}
-
-#root {
+  scrollbar-color: #dcd7faff transparent;
+  scrollbar-width: thin;
   width: 100%;
   margin: 0 auto;
 }
