@@ -5,7 +5,7 @@ import {
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
 } from "../../utils/constants";
-import { grayerDarkGrayBlue, mainBlue } from "../../utils/styles";
+import { grayerDarkGrayBlue, stylesMainBlue } from "../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
 
 type MainTooltipProps = {
@@ -16,7 +16,7 @@ type MainTooltipProps = {
 export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
   <div
     role="tooltip"
-    className={`${mainBlue.background} border-10 ${mainBlue.border} absolute h-full overflow-y-scroll text-white absolute z-2 p-5`}
+    className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full overflow-y-scroll text-white absolute z-2 p-5`}
     id="generator-tooltip"
   >
     <div className={`float-right sticky top-0 flex justify-end`}>
