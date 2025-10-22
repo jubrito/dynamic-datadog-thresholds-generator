@@ -18,10 +18,6 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
     role="tooltip"
     className={`${mainBlue.background} border-10 ${mainBlue.border} absolute h-full overflow-y-scroll text-white absolute z-2 p-5`}
     id="generator-tooltip"
-    style={{
-      scrollbarColor: "#dcd7faff transparent",
-      scrollbarWidth: "thin",
-    }}
   >
     <div className={`float-right sticky top-0 flex justify-end`}>
       <button
