@@ -1,12 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { Introduction } from "./Introduction";
 import { BrowserRouter } from "react-router";
+import userEvent from "@testing-library/user-event";
 
 describe("BorderBox", () => {
+  const setDisplayTooltipMock = jest.fn();
+
   beforeEach(() => {
     render(
       <BrowserRouter>
-        <Introduction />
+        <Introduction setDisplayTooltip={setDisplayTooltipMock} />
       </BrowserRouter>
     );
   });
@@ -17,6 +20,26 @@ describe("BorderBox", () => {
     expect(screen.getByText("Dynamic Threshold Generator")).toHaveAttribute(
       "aria-describedBy",
       "generator-tooltip"
+    );
+  });
+  it("should call setDisplayTooltip to toggle tooltip explanation when clicking on the info tooltip button", async () => {
+    const tooltipButton = screen.getByText("Toggle generator explanation");
+
+    await userEvent.click(tooltipButton); // open tooltip
+
+    const setDisplayTooltipFunctionMock =
+      setDisplayTooltipMock.mock.calls[0][0];
+    const prevStateHidden = false;
+    const nextStateVisible = true;
+    expect(setDisplayTooltipFunctionMock(prevStateHidden)).toBe(
+      nextStateVisible
+    );
+
+    await userEvent.click(tooltipButton); // close tooltip
+    const prevStateVisible = true;
+    const nextStateHidden = false;
+    expect(setDisplayTooltipFunctionMock(prevStateVisible)).toBe(
+      nextStateHidden
     );
   });
   it.todo("should render tooltip when clicking on tooltip icon"); // find by Toggle generator explanation
