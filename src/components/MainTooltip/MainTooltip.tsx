@@ -6,15 +6,30 @@ import {
   THRESHOLDS_KEY,
 } from "../../utils/constants";
 import { mainBlue } from "../../utils/styles";
+import CloseIcon from "@mui/icons-material/Close";
 
-export const MainTooltip = () => {
+type MainTooltipProps = {
+  setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>;
+  displayTooltip?: boolean;
+};
+
+export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => {
   return (
     <div
       role="tooltip"
       className={`${mainBlue.background} absolute h-full overflow-y-scroll text-white absolute gap-10 flex flex-col z-2 p-5`}
       id="generator-tooltip"
     >
-      <h1 className="text-2xl">How to use the generator</h1>
+      <div className="flex justify-between w-full">
+        <h1 className="text-2xl">How to use the generator</h1>
+        <button
+          aria-label="Close explanation and go back to generator"
+          onClick={() => setDisplayTooltip(false)}
+          className="cursor-pointer"
+        >
+          <CloseIcon />
+        </button>
+      </div>
       <div>
         <h2 className="text-xl pb-2 font-bold">
           Why the generator can help you
@@ -77,7 +92,7 @@ export const MainTooltip = () => {
           There are two main variables you can configure, the initial percentile
           and the rigorour factor:
         </span>
-        <h3 className="text-xl pb-2 font-bold">Initial percentile</h3>
+        <h3 className="text-xl pt-4 pb-2">Initial percentile</h3>
         <span>
           The base percentile allows you do choose the type of request to focus.
           After uploading the metrics file with the percentile values from your
@@ -106,9 +121,8 @@ export const MainTooltip = () => {
             the slower requests, which measures how slow users are affected
           </li>
         </ul>
-        <h3 className="text-xl pb-2 font-bold">
-          Rigorour factor 80 Lower Higher Rigorousness
-        </h3>
+        <h3 className="text-xl pt-4 pb-2">Rigorour factor</h3>
+        <span>Lower Higher Rigorousness</span>
       </div>
       <div>
         <h2 className="text-xl pb-2 font-bold">How to use the generator</h2>
