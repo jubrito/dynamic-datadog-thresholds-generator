@@ -61,6 +61,4 @@ describe("Configuration", () => {
     expect(screen.getByText("Warning Threshold")).toBeInTheDocument();
     expect(screen.getByText("Critical Threshold")).toBeInTheDocument();
   });
-
-  it.todo("should display configuration explanation when hovering tooltip");
 });
