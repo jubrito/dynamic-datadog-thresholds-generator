@@ -125,7 +125,7 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
         <span>Lower Higher Rigorousness</span>
       </div>
       <div>
-        <h2 className="text-2xl pb-2 font-bold">How to use the generator</h2>
+        <h2 className="text-2xl pb-2 font-bold">Steps to use the generator</h2>
         <ol className="list-inside list-decimal">
           <li>
             Extract a Datadog endpoint metrics csv file using any percentile
