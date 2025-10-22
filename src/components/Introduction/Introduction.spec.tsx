@@ -42,8 +42,6 @@ describe("BorderBox", () => {
       nextStateHidden
     );
   });
-  it.todo("should render tooltip when clicking on tooltip icon"); // find by Toggle generator explanation
-  it.todo("should hide tooltip by default");
   it("should render description", () => {
     expect(
       screen.getByText(
