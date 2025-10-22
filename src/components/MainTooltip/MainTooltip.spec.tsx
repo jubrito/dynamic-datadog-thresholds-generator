@@ -24,4 +24,9 @@ describe("MainTooltip", () => {
       screen.getByText("Why the generator can help you")
     ).toBeInTheDocument();
   });
+  it("should render 'What do you need to know before you use this tool' section", () => {
+    expect(
+      screen.getByText("What do you need to know before you use this tool")
+    ).toBeInTheDocument();
+  });
 });
