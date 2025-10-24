@@ -7,9 +7,13 @@ export const ColorBox = ({ children, style = "" }: ColorBoxProps) => {
   const defaultDynamicStyles = !style.includes("bg-")
     ? defaultBackgroundColor
     : "";
+  const padding = `${style.includes("p-") ? "" : "p-3"}`;
+  const paddingHorizontal = `${style.includes("px-") ? "" : "px-15"}`;
+  const paddingStyle = padding + " " + paddingHorizontal;
+
   return (
     <div
-      className={`p-3 px-15 text-black font-bold ${defaultDynamicStyles} ${style}`}
+      className={`${paddingStyle} text-black font-bold ${defaultDynamicStyles} ${style}`}
     >
       {children}
     </div>
