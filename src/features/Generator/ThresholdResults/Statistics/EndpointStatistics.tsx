@@ -3,7 +3,7 @@ import { EndpointStats } from "../../../../types/types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { insufficientDataValue } from "../../../../utils/constants";
-import { StatisticsItem } from "./StatisticsItem/StatisticsItem";
+import { StatisticsItem } from "./EndpointStatistics/StatisticsItem";
 import { isDataSufficient } from "../../../../utils/statistics";
 
 type EndpointStatisticsProps = {
