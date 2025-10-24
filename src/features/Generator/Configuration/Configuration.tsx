@@ -1,6 +1,6 @@
-import type { ThresholdsConfig } from "../../types/types";
-import { stylesDarkGrayBlue } from "../../utils/styles";
-import { configureGeneratorDescriptionId } from "../Introduction/Introduction";
+import { configureGeneratorDescriptionId } from "../../../components/Introduction/Introduction";
+import type { ThresholdsConfig } from "../../../types/types";
+import { stylesDarkGrayBlue } from "../../../utils/styles";
 import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 
 type ConfigurationProps = {

@@ -1,5 +1,5 @@
-import type { ThresholdConfig } from "../../../types/types";
-import { stylesMediumGrayBlue } from "../../../utils/styles";
+import type { ThresholdConfig } from "../../../../types/types";
+import { stylesMediumGrayBlue } from "../../../../utils/styles";
 import { RangeConfig } from "./RangeConfig/RangeConfig";
 
 type ConfigOptionsProps = {
