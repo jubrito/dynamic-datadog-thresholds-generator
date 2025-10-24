@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { EndpointStatistics } from "./Statistics";
+import { EndpointStatistics } from "./EndpointStatistics";
 import userEvent from "@testing-library/user-event";
 
 describe("EndpointStatistics", () => {
