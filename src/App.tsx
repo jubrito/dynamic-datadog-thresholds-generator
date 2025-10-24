@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { Nav } from "./features/Nav/Nav";
 import { Generator } from "./features/Generator/Generator";
 import { Documentation } from "./features/Documentation/Documentation";
-import { Datadog } from "./components/Documentation/DocumentationContent/Datadog/Datadog";
-import { Observability } from "./components/Documentation/DocumentationContent/Observability/Observability";
-import { Thresholds } from "./components/Documentation/DocumentationContent/Thresholds/Thresholds";
-import { MonitorConfiguration } from "./components/Documentation/DocumentationContent/MonitorConfiguration/MonitorConfiguration";
+import { Datadog } from "./components/DocumentationContent/DocumentationPagesContent/Datadog/Datadog";
+import { Observability } from "./components/DocumentationContent/DocumentationPagesContent/Observability/Observability";
+import { Thresholds } from "./components/DocumentationContent/DocumentationPagesContent/Thresholds/Thresholds";
+import { MonitorConfiguration } from "./components/DocumentationContent/DocumentationPagesContent/MonitorConfiguration/MonitorConfiguration";
 
 function App() {
   return (

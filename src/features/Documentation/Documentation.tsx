@@ -1,4 +1,4 @@
-import { DocumentationNav } from "../../components/Documentation/DocumentationNav/DocumentationNav";
+import { DocumentationNav } from "../../components/DocumentationContent/DocumentationNav/DocumentationNav";
 import { mainHorizontalSpacing, mainTopSpacing } from "../../utils/styles";
 import { Outlet } from "react-router";
 
