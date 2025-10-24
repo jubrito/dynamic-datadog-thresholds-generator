@@ -5,7 +5,7 @@ import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { GeneratorResults } from "../../components/GeneratorResults/GeneratorResults";
-import { MainTooltip } from "../../components/MainTooltip/MainTooltip";
+import { MainTooltip } from "./MainTooltip/MainTooltip";
 import { WithTooltip } from "../../components/WithTooltip/WithTooltip";
 
 export const Generator = () => {

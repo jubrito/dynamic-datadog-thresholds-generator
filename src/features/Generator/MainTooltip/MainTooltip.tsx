@@ -4,8 +4,11 @@ import {
   DOCUMENTATION_ROUTE,
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
-} from "../../utils/constants";
-import { stylesGrayerDarkGrayBlue, stylesMainBlue } from "../../utils/styles";
+} from "../../../utils/constants";
+import {
+  stylesGrayerDarkGrayBlue,
+  stylesMainBlue,
+} from "../../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
 
 type MainTooltipProps = {
