@@ -1,4 +1,4 @@
-import { Percentile } from "../../types/types";
+import { Percentile } from "../../../types/types";
 
 type ThresholdProps = {
   warningThreshold?: Percentile;

@@ -1,4 +1,4 @@
-import { stylesDarkGrayBlue } from "../../../../utils/styles";
+import { stylesDarkGrayBlue } from "../../../../../utils/styles";
 
 type StatisticsItemProps = {
   label?: string;
