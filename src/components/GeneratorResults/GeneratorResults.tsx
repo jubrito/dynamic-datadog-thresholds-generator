@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { getSortedAscending, getStatistics } from "../../utils/utils";
-import { EndpointStatistics } from "../../features/Generator/ThresholdResults/Statistics/EndpointStatistics";
+import { EndpointStatistics } from "../../features/Generator/ThresholdResults/EndpointStatistics/EndpointStatistics";
 import { Thresholds } from "../Thresholds/Thresholds";
 import { stylesGrayerDarkGrayBlue } from "../../utils/styles";
 import { isDataSufficient } from "../../utils/statistics";
