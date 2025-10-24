@@ -1,6 +1,6 @@
-import { DocumentationNav } from "../../components/DocumentationContent/DocumentationNav/DocumentationNav";
 import { mainHorizontalSpacing, mainTopSpacing } from "../../utils/styles";
 import { Outlet } from "react-router";
+import { DocumentationNav } from "./DocumentationNav/DocumentationNav";
 
 export const Documentation = () => {
   return (

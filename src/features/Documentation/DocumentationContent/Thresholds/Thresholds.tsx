@@ -1,11 +1,11 @@
+import { ColorBox } from "../../../../components/ColorBox/ColorBox";
+import { Divider } from "../../../../components/Divider/Divider";
+import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
 import {
   DATADOG_KEY,
   DOCUMENTATION_ROUTE,
   MONITOR_CONFIG_KEY,
 } from "../../../../utils/constants";
-import { ColorBox } from "../../../ColorBox/ColorBox";
-import { Divider } from "../../../Divider/Divider";
-import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
 export const Thresholds = () => {
   return (

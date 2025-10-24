@@ -4,9 +4,9 @@ import {
   OBSERVABILITY_KEY,
   THRESHOLDS_KEY,
 } from "../../../../utils/constants";
-import { ColorBox } from "../../../ColorBox/ColorBox";
-import { Divider } from "../../../Divider/Divider";
-import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
+import { ColorBox } from "../../../../components/ColorBox/ColorBox";
+import { Divider } from "../../../../components/Divider/Divider";
+import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
 
 export const Datadog = () => {
   return (

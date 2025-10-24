@@ -1,8 +1,8 @@
+import { BorderBox } from "../../../../components/BorderBox/BorderBox";
+import { ColorBox } from "../../../../components/ColorBox/ColorBox";
+import { Divider } from "../../../../components/Divider/Divider";
+import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
 import { DATADOG_KEY, DOCUMENTATION_ROUTE } from "../../../../utils/constants";
-import { BorderBox } from "../../../BorderBox/BorderBox";
-import { ColorBox } from "../../../ColorBox/ColorBox";
-import { Divider } from "../../../Divider/Divider";
-import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
 
 export const Observability = () => {
   return (

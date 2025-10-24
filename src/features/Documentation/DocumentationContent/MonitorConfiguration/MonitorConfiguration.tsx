@@ -1,5 +1,5 @@
-import { Divider } from "../../../Divider/Divider";
-import { PreviousNextButtons } from "../../../PreviousNextButtons/PreviousNextButtons";
+import { Divider } from "../../../../components/Divider/Divider";
+import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
 import MonitorConfigExample from "../../../../assets/datadog-monitor-config-example.jpg";
 import {
   DOCUMENTATION_ROUTE,

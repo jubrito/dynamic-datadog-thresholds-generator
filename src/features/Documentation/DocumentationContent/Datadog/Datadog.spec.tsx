@@ -1,24 +1,27 @@
 import { screen } from "@testing-library/dom";
 import { Datadog } from "./Datadog";
 import { render } from "@testing-library/react";
-import { PreviousNextButtonsProps } from "../../../PreviousNextButtons/PreviousNextButtons";
+import { PreviousNextButtonsProps } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
 
-jest.mock("../../../PreviousNextButtons/PreviousNextButtons", () => ({
-  PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
-    <div>
-      {previous && (
-        <button role="button" aria-label={`Previous page: ${previous.label}`}>
-          Previous: {previous.label}
-        </button>
-      )}
-      {next && (
-        <button role="button" aria-label={`Next page: ${next.label}`}>
-          Next: {next.label}
-        </button>
-      )}
-    </div>
-  ),
-}));
+jest.mock(
+  "../../../../components/PreviousNextButtons/PreviousNextButtons",
+  () => ({
+    PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
+      <div>
+        {previous && (
+          <button role="button" aria-label={`Previous page: ${previous.label}`}>
+            Previous: {previous.label}
+          </button>
+        )}
+        {next && (
+          <button role="button" aria-label={`Next page: ${next.label}`}>
+            Next: {next.label}
+          </button>
+        )}
+      </div>
+    ),
+  })
+);
 
 describe("Datadog", () => {
   const page = "Datadog";
