@@ -1,5 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
-import { ThresholdData, ThresholdsConfig } from "../../types/types";
+import { ThresholdData, ThresholdsConfig } from "../../../types/types";
 import { GeneratorResults } from "./GeneratorResults";
 
 describe("GeneratorResults", () => {

@@ -4,9 +4,9 @@ import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
-import { GeneratorResults } from "../../components/GeneratorResults/GeneratorResults";
 import { MainTooltip } from "./MainTooltip/MainTooltip";
 import { WithTooltip } from "../../components/WithTooltip/WithTooltip";
+import { GeneratorResults } from "./GeneratorResults/GeneratorResults";
 
 export const Generator = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
