@@ -1,12 +1,12 @@
 import { useState } from "react";
 import type { ThresholdData, ThresholdsConfig } from "../../types/types";
-import { UploadCsvBox } from "../../components/UploadCsvBox/UploadCsvBox";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { MainTooltip } from "./MainTooltip/MainTooltip";
 import { WithTooltip } from "../../components/WithTooltip/WithTooltip";
 import { GeneratorResults } from "./GeneratorResults/GeneratorResults";
 import { Configuration } from "./Configuration/Configuration";
+import { UploadCsvBox } from "./UploadCsvBox/UploadCsvBox";
 
 export const Generator = () => {
   const [thresholdsConfig, setThresholdsConfig] = useState<ThresholdsConfig>({
