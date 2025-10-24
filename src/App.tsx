@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { Nav } from "./features/Nav/Nav";
 import { Generator } from "./features/Generator/Generator";
 import { Documentation } from "./features/Documentation/Documentation";
-import { Datadog } from "./components/DocumentationContent/DocumentationPagesContent/Datadog/Datadog";
-import { Observability } from "./components/DocumentationContent/DocumentationPagesContent/Observability/Observability";
-import { Thresholds } from "./components/DocumentationContent/DocumentationPagesContent/Thresholds/Thresholds";
-import { MonitorConfiguration } from "./components/DocumentationContent/DocumentationPagesContent/MonitorConfiguration/MonitorConfiguration";
+import { Observability } from "./features/Documentation/DocumentationContent/Observability/Observability";
+import { Datadog } from "./features/Documentation/DocumentationContent/Datadog/Datadog";
+import { Thresholds } from "./features/Generator/Thresholds/Thresholds";
+import { MonitorConfiguration } from "./features/Documentation/DocumentationContent/MonitorConfiguration/MonitorConfiguration";
 
 function App() {
   return (
@@ -19,7 +19,24 @@ function App() {
               <Route index element={<Observability />} />
               <Route path="observability" element={<Observability />} />
               <Route path="datadog" element={<Datadog />} />
-              <Route path="thresholds" element={<Thresholds />} />
+              <Route
+                path="thresholds"
+                element={
+                  <Thresholds
+                    sortedPercentileValues={[]}
+                    thresholdsConfig={{
+                      warning: {
+                        percentile: 0,
+                        factor: 0,
+                      },
+                      critical: {
+                        percentile: 0,
+                        factor: 0,
+                      },
+                    }}
+                  />
+                }
+              />
               <Route
                 path="monitor-configuration"
                 element={<MonitorConfiguration />}
