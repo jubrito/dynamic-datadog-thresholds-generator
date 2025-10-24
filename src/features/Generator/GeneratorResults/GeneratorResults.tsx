@@ -4,7 +4,7 @@ import { EndpointStatistics } from "../../../features/Generator/ThresholdResults
 import { stylesGrayerDarkGrayBlue } from "../../../utils/styles";
 import { isDataSufficient } from "../../../utils/statistics";
 import { ThresholdData, ThresholdsConfig } from "../../../types/types";
-import { Thresholds } from "../../../components/Thresholds/Thresholds";
+import { Thresholds } from "../Thresholds/Thresholds";
 
 type GeneratorResultsProps = {
   thresholdData: ThresholdData;

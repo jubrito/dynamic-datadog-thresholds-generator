@@ -1,6 +1,6 @@
-import type { Percentile, ThresholdsConfig } from "../../types/types";
-import { computeAdaptiveThresholds } from "../../utils/thresholds";
-import { ThresholdResults } from "../../features/Generator/ThresholdResults/ThresholdResults";
+import type { Percentile, ThresholdsConfig } from "../../../types/types";
+import { computeAdaptiveThresholds } from "../../../utils/thresholds";
+import { ThresholdResults } from "../../../features/Generator/ThresholdResults/ThresholdResults";
 
 type ThresholdsProps = {
   endpointName?: string;

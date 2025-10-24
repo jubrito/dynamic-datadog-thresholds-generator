@@ -12,7 +12,7 @@ const mockConfig = {
   },
 };
 
-jest.mock("../../utils/thresholds", () => ({
+jest.mock("../../../utils/thresholds", () => ({
   computeAdaptiveThresholds: jest.fn(() => ({
     warningThreshold: 10,
     criticalThreshold: 20,
