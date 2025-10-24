@@ -2,7 +2,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 export const configureGeneratorDescriptionId =
   "configure-generator-description-id";
-export const extractAndUploadCsvDescriptionI =
+export const extractAndUploadCsvDescriptionId =
   "extract-and-upload-csv-description";
 
 type IntroductionProps = {
@@ -30,7 +30,7 @@ export const Introduction = ({ setDisplayTooltip }: IntroductionProps) => {
         </button>
       </div>
       <h3 className="text-lg mt-3 mb-5">
-        <span id={extractAndUploadCsvDescriptionI}>
+        <span id={extractAndUploadCsvDescriptionId}>
           Extract a Datadog endpoint metrics csv file using any percentile
           aggregation and upload it to generate warning and critical thresholds
           suggestions.
