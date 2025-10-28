@@ -8,10 +8,12 @@ export const extractAndUploadCsvDescriptionId =
 type IntroductionProps = {
   setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;
   ariaControlsIds?: string;
+  isExpanded?: boolean;
 };
 export const Introduction = ({
   setDisplayContent,
   ariaControlsIds,
+  isExpanded,
 }: IntroductionProps) => {
   return (
     <div className="text-left relative">
@@ -27,6 +29,7 @@ export const Introduction = ({
           aria-labelledby="tooltip-label"
           onClick={() => setDisplayContent((prevState) => !prevState)}
           aria-controls={ariaControlsIds}
+          aria-expanded={isExpanded}
         >
           <span className="sr-only" id="tooltip-label">
             Toggle generator explanation
