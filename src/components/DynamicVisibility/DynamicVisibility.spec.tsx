@@ -9,9 +9,15 @@ describe("DynamicVisibility", () => {
         contentComponent={(_, displayContent) => (
           <button>Tooltip Display tooltip: {String(displayContent)}</button>
         )}
-        triggerComponent={(setDisplayContent, _, ariaControlsIds) => (
+        triggerComponent={(
+          setDisplayContent,
+          _,
+          ariaControlsIds,
+          isExpanded
+        ) => (
           <button
             aria-controls={ariaControlsIds}
+            aria-expanded={`${!!isExpanded}`}
             onClick={() => setDisplayContent((prevState) => !prevState)}
           >
             Trigger Display tooltip
@@ -54,5 +60,16 @@ describe("DynamicVisibility", () => {
       "aria-controls",
       "content-component-id to-hide-component-id"
     );
+  });
+  it("should render button with aria expanded based on displayContent", async () => {
+    const trigger = screen.getByRole("button", {
+      name: "Trigger Display tooltip",
+    });
+
+    expect(trigger).toHaveAttribute("aria-expanded", "false");
+
+    await userEvent.click(trigger);
+
+    expect(trigger).toHaveAttribute("aria-expanded", "true");
   });
 });
