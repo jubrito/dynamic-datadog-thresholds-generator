@@ -24,13 +24,13 @@ const Heading = ({ children }: { children: string }) => (
 export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
   <div
     role="tooltip"
-    className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full overflow-y-scroll text-white absolute z-2 p-5 w-full`}
+    className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute min-h-100 h-full overflow-y-scroll text-white absolute z-2 p-5 w-full`}
     id="generator-tooltip"
   >
     <div
       className={`w-full sticky top-0 flex justify-between mb-8 ${stylesGrayerDarkGrayBlue.background}`}
     >
-      <h1 className="text-3xl">How to use the generator</h1>
+      <h2 className="text-3xl">How to use the generator</h2>
       <button
         aria-label="Close explanation and go back to generator"
         onClick={() => setDisplayContent(false)}
