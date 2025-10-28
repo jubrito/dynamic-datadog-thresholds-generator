@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { WithTooltip } from "./WithTooltip";
+import { DynamicVisibility } from "./WithTooltip";
 import userEvent from "@testing-library/user-event";
 
 describe("WithTooltip", () => {
   it("should display and hide tooltip with displayContent value when clicking on trigger", async () => {
     render(
-      <WithTooltip
+      <DynamicVisibility
         contentComponent={(_, displayContent) => (
           <button>Tooltip Display tooltip: {String(displayContent)}</button>
         )}

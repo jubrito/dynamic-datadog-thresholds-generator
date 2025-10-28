@@ -3,7 +3,7 @@ import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { MainTooltip } from "./MainTooltip/MainTooltip";
-import { WithTooltip } from "../../components/WithTooltip/WithTooltip";
+import { DynamicVisibility } from "../../components/WithTooltip/WithTooltip";
 import { GeneratorResults } from "./GeneratorResults/GeneratorResults";
 import { Configuration } from "./Configuration/Configuration";
 import { UploadCsvBox } from "./UploadCsvBox/UploadCsvBox";
@@ -35,7 +35,7 @@ export const Generator = () => {
         <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1">
           {/* TODO extract to component with tooltip to prevent rerenders */}
           <div className="xl:col-span-2">
-            <WithTooltip
+            <DynamicVisibility
               triggerComponent={(setDisplayContent) => (
                 <Introduction setDisplayContent={setDisplayContent} />
               )}

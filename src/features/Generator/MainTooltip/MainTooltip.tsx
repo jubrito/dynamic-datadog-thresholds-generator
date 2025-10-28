@@ -10,7 +10,7 @@ import {
   stylesMainBlue,
 } from "../../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
-import { WithTooltip } from "../../../components/WithTooltip/WithTooltip";
+import { DynamicVisibility } from "../../../components/WithTooltip/WithTooltip";
 
 type MainTooltipProps = {
   setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;
@@ -35,7 +35,7 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
 
     <div className="gap-10 flex flex-col">
       <h1 className="text-3xl">How to use the generator</h1>
-      <WithTooltip
+      <DynamicVisibility
         isAccordion
         triggerComponent={() => (
           <h2 className="text-2xl pb-2 font-bold">

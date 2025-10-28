@@ -19,14 +19,14 @@ type WithTooltipProps = {
 const AccordionIcon = ({ isExpanded }: { isExpanded: boolean }) =>
   isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />;
 
-export const WithTooltip = ({
+export const DynamicVisibility = ({
   triggerComponent,
   contentComponent,
   isAccordion,
   defaultDisplayTooltip = false,
 }: WithTooltipProps) => {
   const [displayContent, setDisplayContent] = useState(defaultDisplayTooltip);
-  const tooltipVisibility = displayContent ? "visible" : "hidden";
+  const contentVisibility = displayContent ? "visible" : "hidden";
 
   return (
     <div>
@@ -41,7 +41,7 @@ export const WithTooltip = ({
       )}
       {!isAccordion && triggerComponent(setDisplayContent, displayContent)}
 
-      <Activity mode={tooltipVisibility}>
+      <Activity mode={contentVisibility}>
         {contentComponent(setDisplayContent, displayContent)}
       </Activity>
     </div>
