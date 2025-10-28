@@ -6,6 +6,7 @@ export const mainTopSpacing = "mt-5 bg-";
 export const stylesMainBlue = {
   background: "bg-[#0b1220]",
   border: "border-[#0b1220]",
+  shadow: "shadow-[#0b1220]",
 };
 export const stylesDarkGrayBlue = {
   background: "bg-[#051027ff]",
@@ -17,4 +18,5 @@ export const stylesMediumGrayBlue = {
 };
 export const stylesGrayerDarkGrayBlue = {
   background: "bg-[#0d1222]",
+  shadow: "shadow-[#0b1220]",
 };
