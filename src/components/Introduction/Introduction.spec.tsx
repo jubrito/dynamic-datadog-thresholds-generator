@@ -9,7 +9,10 @@ describe("BorderBox", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
-        <Introduction setDisplayContent={setDisplayTooltipMock} />
+        <Introduction
+          setDisplayContent={setDisplayTooltipMock}
+          ariaControlsIds="aria-controls-ids"
+        />
       </BrowserRouter>
     );
   });
@@ -53,5 +56,11 @@ describe("BorderBox", () => {
         /Configure the generator to define how rigorous you want the threshold suggestions to be./
       )
     ).toBeInTheDocument();
+  });
+  it("should render button with aria-controlls received", () => {
+    const tooltipButton = screen.getByRole("button", {
+      name: "Toggle generator explanation",
+    });
+    expect(tooltipButton).toHaveAttribute("aria-controls", "aria-controls-ids");
   });
 });
