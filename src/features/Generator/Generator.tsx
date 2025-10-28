@@ -34,8 +34,11 @@ export const Generator = () => {
       >
         <div className="xl:col-span-2">
           <DynamicVisibility
-            triggerComponent={(setDisplayContent) => (
-              <Introduction setDisplayContent={setDisplayContent} />
+            triggerComponent={(setDisplayContent, _, ariaControlsIds) => (
+              <Introduction
+                setDisplayContent={setDisplayContent}
+                ariaControlsIds={ariaControlsIds}
+              />
             )}
             contentComponent={(setDisplayContent) => (
               <MainTooltip setDisplayContent={setDisplayContent} />
