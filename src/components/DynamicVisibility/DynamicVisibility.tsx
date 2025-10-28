@@ -18,6 +18,9 @@ type WithTooltipProps = {
   ) => React.ReactNode;
   isAccordion?: boolean;
   defaultDisplayTooltip?: boolean;
+  styles?: {
+    triggerComponent: string;
+  };
 };
 
 const AccordionIcon = ({ isExpanded }: { isExpanded: boolean }) =>
@@ -29,6 +32,9 @@ export const DynamicVisibility = ({
   toHideComponent,
   isAccordion = false,
   defaultDisplayTooltip = false,
+  styles = {
+    triggerComponent: "",
+  },
 }: WithTooltipProps) => {
   const [displayContent, setDisplayContent] = useState(defaultDisplayTooltip);
   const contentVisibility = displayContent ? "visible" : "hidden";
@@ -38,7 +44,7 @@ export const DynamicVisibility = ({
     <div>
       {isAccordion && (
         <button
-          className="flex justify-between cursor-pointer items-center w-full"
+          className={`flex justify-between cursor-pointer items-center w-full ${styles.triggerComponent}`}
           onClick={() => setDisplayContent((prev) => !prev)}
         >
           {triggerComponent(setDisplayContent, displayContent)}
