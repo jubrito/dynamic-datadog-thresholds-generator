@@ -32,7 +32,6 @@ export const Generator = () => {
           showInsights ? "grid-rows-2" : ""
         }`}
       >
-        {/* <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1"> */}
         <div className="xl:col-span-2">
           <DynamicVisibility
             triggerComponent={(setDisplayContent) => (
@@ -57,7 +56,6 @@ export const Generator = () => {
         thresholdData={thresholdData}
         thresholdsConfig={thresholdsConfig}
       />
-      {/* </div> */}
       <div />
     </section>
   );
