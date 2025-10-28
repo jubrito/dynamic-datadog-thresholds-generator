@@ -3,7 +3,7 @@ import { Activity, useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-type WithTooltipProps = {
+type DynamicVisibilityProps = {
   triggerComponent: (
     setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
     displayContent?: boolean
@@ -35,7 +35,7 @@ export const DynamicVisibility = ({
   styles = {
     triggerComponent: "",
   },
-}: WithTooltipProps) => {
+}: DynamicVisibilityProps) => {
   const [displayContent, setDisplayContent] = useState(defaultDisplayTooltip);
   const contentVisibility = displayContent ? "visible" : "hidden";
   const toHideComponentVisibility = !displayContent ? "visible" : "hidden";
