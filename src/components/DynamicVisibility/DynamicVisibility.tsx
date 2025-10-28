@@ -12,6 +12,10 @@ type WithTooltipProps = {
     setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
     displayContent?: boolean
   ) => React.ReactNode;
+  toHideComponent?: (
+    setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
+    displayContent?: boolean
+  ) => React.ReactNode;
   isAccordion?: boolean;
   defaultDisplayTooltip?: boolean;
 };
@@ -22,11 +26,13 @@ const AccordionIcon = ({ isExpanded }: { isExpanded: boolean }) =>
 export const DynamicVisibility = ({
   triggerComponent,
   contentComponent,
-  isAccordion,
+  toHideComponent,
+  isAccordion = false,
   defaultDisplayTooltip = false,
 }: WithTooltipProps) => {
   const [displayContent, setDisplayContent] = useState(defaultDisplayTooltip);
   const contentVisibility = displayContent ? "visible" : "hidden";
+  const toHideComponentVisibility = !displayContent ? "visible" : "hidden";
 
   return (
     <div>
@@ -44,6 +50,11 @@ export const DynamicVisibility = ({
       <Activity mode={contentVisibility}>
         {contentComponent(setDisplayContent, displayContent)}
       </Activity>
+      {toHideComponent && (
+        <Activity mode={toHideComponentVisibility}>
+          {toHideComponent(setDisplayContent, displayContent)}
+        </Activity>
+      )}
     </div>
   );
 };
