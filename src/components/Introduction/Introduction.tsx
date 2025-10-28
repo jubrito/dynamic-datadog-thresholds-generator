@@ -7,8 +7,12 @@ export const extractAndUploadCsvDescriptionId =
 
 type IntroductionProps = {
   setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;
+  ariaControlsIds?: string;
 };
-export const Introduction = ({ setDisplayContent }: IntroductionProps) => {
+export const Introduction = ({
+  setDisplayContent,
+  ariaControlsIds,
+}: IntroductionProps) => {
   return (
     <div className="text-left relative">
       <div className="flex gap-3">
@@ -22,6 +26,7 @@ export const Introduction = ({ setDisplayContent }: IntroductionProps) => {
           className="cursor-pointer"
           aria-labelledby="tooltip-label"
           onClick={() => setDisplayContent((prevState) => !prevState)}
+          aria-controls={ariaControlsIds}
         >
           <span className="sr-only" id="tooltip-label">
             Toggle generator explanation
