@@ -11,6 +11,7 @@ import {
 } from "../../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import { DynamicVisibility } from "../../../components/DynamicVisibility/DynamicVisibility";
+import { BorderBox } from "../../../components/BorderBox/BorderBox";
 
 type MainTooltipProps = {
   setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;
@@ -47,6 +48,7 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
           <Heading>Why this generator can help you</Heading>
         )}
         contentComponent={() => <WhyGeneratorHelps />}
+        styles={{ triggerComponent: "border-b-1 mb-2" }}
       />
       <DynamicVisibility
         isAccordion
@@ -54,6 +56,7 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
           <Heading>What you need to know before using this tool</Heading>
         )}
         contentComponent={() => <WhatYouNeedToKnow />}
+        styles={{ triggerComponent: "border-b-1 mb-2" }}
       />
       <DynamicVisibility
         isAccordion
@@ -61,11 +64,13 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
           <Heading>How to configure the generator</Heading>
         )}
         contentComponent={() => <HowToConfigure />}
+        styles={{ triggerComponent: "border-b-1 mb-2" }}
       />
       <DynamicVisibility
         isAccordion
         triggerComponent={() => <Heading>Steps to use the generator</Heading>}
         contentComponent={() => <StepsToUse />}
+        styles={{ triggerComponent: "border-b-1 mb-2" }}
       />
     </div>
   </div>
@@ -140,21 +145,25 @@ const HowToConfigure = () => (
       </Link>
       that will influence how much data the algorithm the use.
     </span>
-    <ul className="list-inside list-disc py-1">
-      <li className="py-1">
-        Lower percentiles will filter the uploaded values that represents the
-        faster requests, which measures how fast users are affected
-      </li>
-      <li className="py-1">
-        A median (50th percentile) will filter the uploaded values that
-        represents the normal requests, which measures the typical user
-        experience
-      </li>
-      <li className="py-1">
-        Higher percentiles will filter the uploaded values that represents the
-        slower requests, which measures how slow users are affected
-      </li>
-    </ul>
+    <div className="flex gap-5 mt-5">
+      <BorderBox style="flex flex-col gap-2">
+        <span className="font-bold">Lower percentiles</span>
+        <span>
+          filter the uploaded values that represents the faster requests, which
+          measures how fast users are affected
+        </span>
+      </BorderBox>
+      <BorderBox style="flex flex-col gap-2">
+        <span className="font-bold">A median (50th percentile)</span>
+        filters the uploaded values that represents the normal requests, which
+        measures the typical user experience
+      </BorderBox>
+      <BorderBox style="flex flex-col gap-2">
+        <span className="font-bold">Higher percentiles</span>
+        filter the uploaded values that represents the slower requests, which
+        measures how slow users are affected
+      </BorderBox>
+    </div>
     <h3 className="text-xl pt-4 pb-2">Rigorour factor</h3>
     <span>Lower Higher Rigorousness</span>
   </>
