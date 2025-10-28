@@ -7,7 +7,8 @@ type DynamicVisibilityProps = {
   triggerComponent: (
     setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
     displayContent?: boolean,
-    ariaControlsIds?: string
+    ariaControlsIds?: string,
+    isExpanded?: boolean
   ) => React.ReactNode;
   contentComponent: (
     setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
@@ -53,13 +54,19 @@ export const DynamicVisibility = ({
           className={`flex justify-between cursor-pointer items-center w-full ${styles.triggerComponent}`}
           onClick={() => setDisplayContent((prev) => !prev)}
           aria-controls={controls}
+          aria-expanded={`${!!displayContent}`}
         >
           {triggerComponent(setDisplayContent, displayContent)}
           <AccordionIcon isExpanded={displayContent} />
         </button>
       )}
       {!isAccordion &&
-        triggerComponent(setDisplayContent, displayContent, controls)}
+        triggerComponent(
+          setDisplayContent,
+          displayContent,
+          controls,
+          displayContent
+        )}
 
       <Activity mode={contentVisibility}>
         <div id={contentComponentId}>
