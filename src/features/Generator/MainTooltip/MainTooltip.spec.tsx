@@ -27,18 +27,18 @@ describe("MainTooltip", () => {
     await userEvent.click(screen.getByLabelText(closeLabel));
     expect(setDisplayTooltipMock).toHaveBeenCalledWith(false);
   });
-  it("should render 'Why the generator can help you' section", () => {
+  it("should render 'Why this generator can help you' section", () => {
     expect(
       screen.getByRole("heading", {
-        name: "Why the generator can help you",
+        name: "Why this generator can help you",
         level: 3,
       })
     ).toBeInTheDocument();
   });
-  it("should render 'What do you need to know before you use this tool' section", () => {
+  it("should render 'What you need to know before using this tool' section", () => {
     expect(
       screen.getByRole("heading", {
-        name: "What do you need to know before you use this tool",
+        name: "What you need to know before using this tool",
         level: 3,
       })
     ).toBeInTheDocument();
