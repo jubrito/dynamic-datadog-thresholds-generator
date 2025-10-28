@@ -8,7 +8,7 @@ type WithTooltipProps = {
     setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>,
     displayTooltip?: boolean
   ) => React.ReactNode;
-  tooltipComponent: (
+  contentComponent: (
     setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>,
     displayTooltip?: boolean
   ) => React.ReactNode;
@@ -21,7 +21,7 @@ const AccordionIcon = ({ isExpanded }: { isExpanded: boolean }) =>
 
 export const WithTooltip = ({
   triggerComponent,
-  tooltipComponent,
+  contentComponent,
   isAccordion,
   defaultDisplayTooltip = false,
 }: WithTooltipProps) => {
@@ -42,7 +42,7 @@ export const WithTooltip = ({
       {!isAccordion && triggerComponent(setDisplayTooltip, displayTooltip)}
 
       <Activity mode={tooltipVisibility}>
-        {tooltipComponent(setDisplayTooltip, displayTooltip)}
+        {contentComponent(setDisplayTooltip, displayTooltip)}
       </Activity>
     </div>
   );

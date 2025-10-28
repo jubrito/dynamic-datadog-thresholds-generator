@@ -39,7 +39,7 @@ export const Generator = () => {
               triggerComponent={(setDisplayTooltip) => (
                 <Introduction setDisplayTooltip={setDisplayTooltip} />
               )}
-              tooltipComponent={(setDisplayTooltip) => (
+              contentComponent={(setDisplayTooltip) => (
                 <MainTooltip setDisplayTooltip={setDisplayTooltip} />
               )}
             />

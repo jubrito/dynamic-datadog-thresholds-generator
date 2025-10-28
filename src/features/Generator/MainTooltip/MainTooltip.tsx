@@ -10,6 +10,7 @@ import {
   stylesMainBlue,
 } from "../../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
+import { WithTooltip } from "../../../components/WithTooltip/WithTooltip";
 
 type MainTooltipProps = {
   setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,8 +32,26 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
         <CloseIcon />
       </button>
     </div>
+
     <div className="gap-10 flex flex-col">
       <h1 className="text-3xl">How to use the generator</h1>
+      <WithTooltip
+        isAccordion
+        triggerComponent={() => (
+          <h2 className="text-2xl pb-2 font-bold">
+            Why the generator can help you
+          </h2>
+        )}
+        contentComponent={() => (
+          <span>
+            This generator is a tool to generate dynamic thresholds based on the
+            historical data of your endpoints. Instead of relying on arbitrary
+            threshold values that may lead to noisy alerts, this tool can be
+            used statistical analysis to determine the appropriate thresholds
+            for your endpoints.
+          </span>
+        )}
+      />
       <div>
         <h2 className="text-2xl pb-2 font-bold">
           Why the generator can help you

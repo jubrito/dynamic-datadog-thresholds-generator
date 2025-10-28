@@ -6,7 +6,7 @@ describe("WithTooltip", () => {
   it("should display and hide tooltip with displayTooltip value when clicking on trigger", async () => {
     render(
       <WithTooltip
-        tooltipComponent={(_, displayTooltip) => (
+        contentComponent={(_, displayTooltip) => (
           <button>Tooltip Display tooltip: {String(displayTooltip)}</button>
         )}
         triggerComponent={(setDisplayTooltip) => (
