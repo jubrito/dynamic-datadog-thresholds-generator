@@ -1,6 +1,7 @@
+- extract component with style animation border bottom
+- add style animation extracted component to main tooltip accordion
 - error handling
   - when fails to upload
-- display 'high rigour factors and percentiles' text explanation when hovering a (?) tooltip on <Configuration/>
 - change to es5
 
 https://tailwindcss.com/docs/align-items
