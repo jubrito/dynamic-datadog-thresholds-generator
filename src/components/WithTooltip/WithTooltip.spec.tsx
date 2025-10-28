@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { DynamicVisibility } from "./WithTooltip";
+import { DynamicVisibility } from "./DynamicVisibility";
 import userEvent from "@testing-library/user-event";
 
 describe("WithTooltip", () => {

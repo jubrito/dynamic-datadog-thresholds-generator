@@ -10,7 +10,7 @@ import {
   stylesMainBlue,
 } from "../../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
-import { DynamicVisibility } from "../../../components/WithTooltip/WithTooltip";
+import { DynamicVisibility } from "../../../components/WithTooltip/DynamicVisibility";
 
 type MainTooltipProps = {
   setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;

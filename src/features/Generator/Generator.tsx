@@ -3,7 +3,7 @@ import type { ThresholdData, ThresholdsConfig } from "../../types/types";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { MainTooltip } from "./MainTooltip/MainTooltip";
-import { DynamicVisibility } from "../../components/WithTooltip/WithTooltip";
+import { DynamicVisibility } from "../../components/WithTooltip/DynamicVisibility";
 import { GeneratorResults } from "./GeneratorResults/GeneratorResults";
 import { Configuration } from "./Configuration/Configuration";
 import { UploadCsvBox } from "./UploadCsvBox/UploadCsvBox";
