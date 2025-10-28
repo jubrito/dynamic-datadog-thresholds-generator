@@ -9,8 +9,11 @@ describe("DynamicVisibility", () => {
         contentComponent={(_, displayContent) => (
           <button>Tooltip Display tooltip: {String(displayContent)}</button>
         )}
-        triggerComponent={(setDisplayContent) => (
-          <button onClick={() => setDisplayContent((prevState) => !prevState)}>
+        triggerComponent={(setDisplayContent, _, ariaControlsIds) => (
+          <button
+            aria-controls={ariaControlsIds}
+            onClick={() => setDisplayContent((prevState) => !prevState)}
+          >
             Trigger Display tooltip
           </button>
         )}
@@ -44,5 +47,12 @@ describe("DynamicVisibility", () => {
     await userEvent.click(trigger);
 
     expect(screen.queryByText("Component to hide")).not.toBeVisible();
+  });
+  it("should render button with aria controls pointing to elements it is controlling", () => {
+    const triggerComponent = screen.getByRole("button");
+    expect(triggerComponent).toHaveAttribute(
+      "aria-controls",
+      "content-component-id to-hide-component-id"
+    );
   });
 });
