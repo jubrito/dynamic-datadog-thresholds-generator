@@ -12,6 +12,7 @@ describe("BorderBox", () => {
         <Introduction
           setDisplayContent={setDisplayTooltipMock}
           ariaControlsIds="aria-controls-ids"
+          isExpanded
         />
       </BrowserRouter>
     );
@@ -62,5 +63,11 @@ describe("BorderBox", () => {
       name: "Toggle generator explanation",
     });
     expect(tooltipButton).toHaveAttribute("aria-controls", "aria-controls-ids");
+  });
+  it("should render button with aria-expanded based on props", () => {
+    const tooltipButton = screen.getByRole("button", {
+      name: "Toggle generator explanation",
+    });
+    expect(tooltipButton).toHaveAttribute("aria-expanded", "true");
   });
 });
