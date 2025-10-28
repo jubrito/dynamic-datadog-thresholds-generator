@@ -14,7 +14,14 @@ describe("MainTooltip", () => {
       </MemoryRouter>
     );
   });
-
+  it("should render main title", () => {
+    expect(
+      screen.getByRole("heading", {
+        name: "How to use the generator",
+        level: 2,
+      })
+    ).toBeInTheDocument();
+  });
   it("should call setDisplayContent with false to close tooltip when clicking on close", async () => {
     const closeLabel = "Close explanation and go back to generator";
     await userEvent.click(screen.getByLabelText(closeLabel));
