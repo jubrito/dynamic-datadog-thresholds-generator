@@ -6,7 +6,8 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 type DynamicVisibilityProps = {
   triggerComponent: (
     setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
-    displayContent?: boolean
+    displayContent?: boolean,
+    ariaControlsIds?: string
   ) => React.ReactNode;
   contentComponent: (
     setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
@@ -39,6 +40,11 @@ export const DynamicVisibility = ({
   const [displayContent, setDisplayContent] = useState(defaultDisplayTooltip);
   const contentVisibility = displayContent ? "visible" : "hidden";
   const toHideComponentVisibility = !displayContent ? "visible" : "hidden";
+  const toHideComponentId = "to-hide-component-id";
+  const contentComponentId = "content-component-id";
+  const controls = `${contentComponentId} ${
+    toHideComponent ? toHideComponentId : ""
+  }`;
 
   return (
     <div>
@@ -46,19 +52,25 @@ export const DynamicVisibility = ({
         <button
           className={`flex justify-between cursor-pointer items-center w-full ${styles.triggerComponent}`}
           onClick={() => setDisplayContent((prev) => !prev)}
+          aria-controls={controls}
         >
           {triggerComponent(setDisplayContent, displayContent)}
           <AccordionIcon isExpanded={displayContent} />
         </button>
       )}
-      {!isAccordion && triggerComponent(setDisplayContent, displayContent)}
+      {!isAccordion &&
+        triggerComponent(setDisplayContent, displayContent, controls)}
 
       <Activity mode={contentVisibility}>
-        {contentComponent(setDisplayContent, displayContent)}
+        <div id={contentComponentId}>
+          {contentComponent(setDisplayContent, displayContent)}
+        </div>
       </Activity>
       {toHideComponent && (
         <Activity mode={toHideComponentVisibility}>
-          {toHideComponent(setDisplayContent, displayContent)}
+          <div id={toHideComponentId}>
+            {toHideComponent(setDisplayContent, displayContent)}
+          </div>
         </Activity>
       )}
     </div>
