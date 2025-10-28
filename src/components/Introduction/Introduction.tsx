@@ -29,7 +29,7 @@ export const Introduction = ({
           aria-labelledby="tooltip-label"
           onClick={() => setDisplayContent((prevState) => !prevState)}
           aria-controls={ariaControlsIds}
-          aria-expanded={isExpanded}
+          aria-expanded={`${!!isExpanded}`}
         >
           <span className="sr-only" id="tooltip-label">
             Toggle generator explanation
