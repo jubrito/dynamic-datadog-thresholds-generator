@@ -6,9 +6,9 @@ export const extractAndUploadCsvDescriptionId =
   "extract-and-upload-csv-description";
 
 type IntroductionProps = {
-  setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;
 };
-export const Introduction = ({ setDisplayTooltip }: IntroductionProps) => {
+export const Introduction = ({ setDisplayContent }: IntroductionProps) => {
   return (
     <div className="text-left relative">
       <div className="flex gap-3">
@@ -21,7 +21,7 @@ export const Introduction = ({ setDisplayTooltip }: IntroductionProps) => {
         <button
           className="cursor-pointer"
           aria-labelledby="tooltip-label"
-          onClick={() => setDisplayTooltip((prevState) => !prevState)}
+          onClick={() => setDisplayContent((prevState) => !prevState)}
         >
           <span className="sr-only" id="tooltip-label">
             Toggle generator explanation

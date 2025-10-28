@@ -10,11 +10,11 @@ describe("MainTooltip", () => {
   beforeEach(() => {
     render(
       <MemoryRouter>
-        <MainTooltip setDisplayTooltip={setDisplayTooltipMock} />
+        <MainTooltip setDisplayContent={setDisplayTooltipMock} />
       </MemoryRouter>
     );
   });
-  it("should call setDisplayTooltip with false to close tooltip when clicking on close", async () => {
+  it("should call setDisplayContent with false to close tooltip when clicking on close", async () => {
     const closeLabel = "Close explanation and go back to generator";
     await userEvent.click(screen.getByLabelText(closeLabel));
     expect(setDisplayTooltipMock).toHaveBeenCalledWith(false);

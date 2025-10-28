@@ -9,7 +9,7 @@ describe("BorderBox", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
-        <Introduction setDisplayTooltip={setDisplayTooltipMock} />
+        <Introduction setDisplayContent={setDisplayTooltipMock} />
       </BrowserRouter>
     );
   });
@@ -22,7 +22,7 @@ describe("BorderBox", () => {
       "generator-tooltip"
     );
   });
-  it("should call setDisplayTooltip to toggle tooltip explanation when clicking on the info tooltip button", async () => {
+  it("should call setDisplayContent to toggle tooltip explanation when clicking on the info tooltip button", async () => {
     const tooltipButton = screen.getByText("Toggle generator explanation");
 
     await userEvent.click(tooltipButton); // open tooltip

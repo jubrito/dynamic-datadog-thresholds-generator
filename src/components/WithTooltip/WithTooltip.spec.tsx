@@ -3,14 +3,14 @@ import { WithTooltip } from "./WithTooltip";
 import userEvent from "@testing-library/user-event";
 
 describe("WithTooltip", () => {
-  it("should display and hide tooltip with displayTooltip value when clicking on trigger", async () => {
+  it("should display and hide tooltip with displayContent value when clicking on trigger", async () => {
     render(
       <WithTooltip
-        contentComponent={(_, displayTooltip) => (
-          <button>Tooltip Display tooltip: {String(displayTooltip)}</button>
+        contentComponent={(_, displayContent) => (
+          <button>Tooltip Display tooltip: {String(displayContent)}</button>
         )}
-        triggerComponent={(setDisplayTooltip) => (
-          <button onClick={() => setDisplayTooltip((prevState) => !prevState)}>
+        triggerComponent={(setDisplayContent) => (
+          <button onClick={() => setDisplayContent((prevState) => !prevState)}>
             Trigger Display tooltip
           </button>
         )}

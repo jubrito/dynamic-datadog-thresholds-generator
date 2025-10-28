@@ -5,12 +5,12 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 type WithTooltipProps = {
   triggerComponent: (
-    setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>,
-    displayTooltip?: boolean
+    setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
+    displayContent?: boolean
   ) => React.ReactNode;
   contentComponent: (
-    setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>,
-    displayTooltip?: boolean
+    setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>,
+    displayContent?: boolean
   ) => React.ReactNode;
   isAccordion?: boolean;
   defaultDisplayTooltip?: boolean;
@@ -25,24 +25,24 @@ export const WithTooltip = ({
   isAccordion,
   defaultDisplayTooltip = false,
 }: WithTooltipProps) => {
-  const [displayTooltip, setDisplayTooltip] = useState(defaultDisplayTooltip);
-  const tooltipVisibility = displayTooltip ? "visible" : "hidden";
+  const [displayContent, setDisplayContent] = useState(defaultDisplayTooltip);
+  const tooltipVisibility = displayContent ? "visible" : "hidden";
 
   return (
     <div>
       {isAccordion && (
         <button
           className="flex justify-between cursor-pointer items-center w-full"
-          onClick={() => setDisplayTooltip((prev) => !prev)}
+          onClick={() => setDisplayContent((prev) => !prev)}
         >
-          {triggerComponent(setDisplayTooltip, displayTooltip)}
-          <AccordionIcon isExpanded={displayTooltip} />
+          {triggerComponent(setDisplayContent, displayContent)}
+          <AccordionIcon isExpanded={displayContent} />
         </button>
       )}
-      {!isAccordion && triggerComponent(setDisplayTooltip, displayTooltip)}
+      {!isAccordion && triggerComponent(setDisplayContent, displayContent)}
 
       <Activity mode={tooltipVisibility}>
-        {contentComponent(setDisplayTooltip, displayTooltip)}
+        {contentComponent(setDisplayContent, displayContent)}
       </Activity>
     </div>
   );

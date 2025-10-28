@@ -13,11 +13,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import { WithTooltip } from "../../../components/WithTooltip/WithTooltip";
 
 type MainTooltipProps = {
-  setDisplayTooltip: React.Dispatch<React.SetStateAction<boolean>>;
-  displayTooltip?: boolean;
+  setDisplayContent: React.Dispatch<React.SetStateAction<boolean>>;
+  displayContent?: boolean;
 };
 
-export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
+export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
   <div
     role="tooltip"
     className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full overflow-y-scroll text-white absolute z-2 p-5`}
@@ -26,7 +26,7 @@ export const MainTooltip = ({ setDisplayTooltip }: MainTooltipProps) => (
     <div className={`float-right sticky top-0 flex justify-end`}>
       <button
         aria-label="Close explanation and go back to generator"
-        onClick={() => setDisplayTooltip(false)}
+        onClick={() => setDisplayContent(false)}
         className={`cursor-pointer ${stylesGrayerDarkGrayBlue.background} p-2 rounded-3xl`}
       >
         <CloseIcon />

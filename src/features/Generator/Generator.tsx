@@ -36,11 +36,11 @@ export const Generator = () => {
           {/* TODO extract to component with tooltip to prevent rerenders */}
           <div className="xl:col-span-2">
             <WithTooltip
-              triggerComponent={(setDisplayTooltip) => (
-                <Introduction setDisplayTooltip={setDisplayTooltip} />
+              triggerComponent={(setDisplayContent) => (
+                <Introduction setDisplayContent={setDisplayContent} />
               )}
-              contentComponent={(setDisplayTooltip) => (
-                <MainTooltip setDisplayTooltip={setDisplayTooltip} />
+              contentComponent={(setDisplayContent) => (
+                <MainTooltip setDisplayContent={setDisplayContent} />
               )}
             />
           </div>
