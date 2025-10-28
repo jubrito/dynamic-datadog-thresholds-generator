@@ -32,29 +32,32 @@ export const Generator = () => {
           showInsights ? "grid-rows-2" : ""
         }`}
       >
-        <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1">
-          {/* TODO extract to component with tooltip to prevent rerenders */}
-          <div className="xl:col-span-2">
-            <DynamicVisibility
-              triggerComponent={(setDisplayContent) => (
-                <Introduction setDisplayContent={setDisplayContent} />
-              )}
-              contentComponent={(setDisplayContent) => (
-                <MainTooltip setDisplayContent={setDisplayContent} />
-              )}
-            />
-          </div>
-          <UploadCsvBox updateThresholdData={setThresholdData} />
-          <Configuration
-            thresholdsConfig={thresholdsConfig}
-            updateThresholdsConfig={setThresholdsConfig}
+        {/* <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(30px,600px)_minmax(object-fit,600px)] grid-cols-1"> */}
+        <div className="xl:col-span-2">
+          <DynamicVisibility
+            triggerComponent={(setDisplayContent) => (
+              <Introduction setDisplayContent={setDisplayContent} />
+            )}
+            contentComponent={(setDisplayContent) => (
+              <MainTooltip setDisplayContent={setDisplayContent} />
+            )}
+            toHideComponent={() => (
+              <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(0px,600px)_minmax(0,600px)] grid-cols-1">
+                <UploadCsvBox updateThresholdData={setThresholdData} />
+                <Configuration
+                  thresholdsConfig={thresholdsConfig}
+                  updateThresholdsConfig={setThresholdsConfig}
+                />
+              </div>
+            )}
           />
         </div>
-        <GeneratorResults
-          thresholdData={thresholdData}
-          thresholdsConfig={thresholdsConfig}
-        />
       </div>
+      <GeneratorResults
+        thresholdData={thresholdData}
+        thresholdsConfig={thresholdsConfig}
+      />
+      {/* </div> */}
       <div />
     </section>
   );
