@@ -25,7 +25,7 @@ const Heading = ({ children }: { children: string }) => (
 export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
   <div
     role="tooltip"
-    className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute min-h-105 h-full overflow-y-scroll text-white absolute z-2 px-5 w-full`}
+    className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute min-h-105 h-full overflow-y-scroll text-white absolute z-2 px-5 w-full rounded-xl`}
     id="generator-tooltip"
   >
     <div
