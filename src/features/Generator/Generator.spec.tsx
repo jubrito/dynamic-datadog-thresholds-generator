@@ -42,4 +42,14 @@ describe("Generator", () => {
       })
     ).toBeInTheDocument();
   });
+  it("should not render tooltip section initially", () => {
+    expect(
+      screen.queryByRole("heading", {
+        level: 2,
+        name: "How to use the generator",
+      })
+    ).not.toBeInTheDocument();
+  });
+
+  it("should hide CSV file upload and configuration sections when clicking on the tooltip", () => {});
 });
