@@ -34,10 +34,16 @@ export const Generator = () => {
       >
         <div className="xl:col-span-2">
           <DynamicVisibility
-            triggerComponent={(setDisplayContent, _, ariaControlsIds) => (
+            triggerComponent={(
+              setDisplayContent,
+              _,
+              ariaControlsIds,
+              isExpanded
+            ) => (
               <Introduction
                 setDisplayContent={setDisplayContent}
                 ariaControlsIds={ariaControlsIds}
+                isExpanded={isExpanded}
               />
             )}
             contentComponent={(setDisplayContent) => (
