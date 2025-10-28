@@ -18,7 +18,7 @@ type MainTooltipProps = {
 };
 
 const Heading = ({ children }: { children: string }) => (
-  <h2 className="text-xl pb-2 font-bold">{children}</h2>
+  <h3 className="text-xl pb-2 font-bold">{children}</h3>
 );
 
 export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
