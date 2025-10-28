@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { DynamicVisibility } from "./DynamicVisibility";
 import userEvent from "@testing-library/user-event";
 
-describe("WithTooltip", () => {
-  it("should display and hide tooltip with displayContent value when clicking on trigger", async () => {
+describe("DynamicVisibility", () => {
+  beforeEach(() => {
     render(
       <DynamicVisibility
         contentComponent={(_, displayContent) => (
@@ -14,8 +14,11 @@ describe("WithTooltip", () => {
             Trigger Display tooltip
           </button>
         )}
+        toHideComponent={() => <span>Component to hide</span>}
       />
     );
+  });
+  it("should display and hide tooltip with displayContent value when clicking on trigger", async () => {
     const tooltipDisplay = screen.queryByRole("button", {
       name: "Tooltip Display tooltip: false",
     });
@@ -30,5 +33,16 @@ describe("WithTooltip", () => {
       name: "Tooltip Display tooltip: true",
     });
     expect(tooltipHide).toBeInTheDocument();
+  });
+  it("should hide component to hide when displayContent is true", async () => {
+    expect(screen.queryByText("Component to hide")).toBeInTheDocument();
+
+    const trigger = screen.getByRole("button", {
+      name: "Trigger Display tooltip",
+    });
+
+    await userEvent.click(trigger);
+
+    expect(screen.queryByText("Component to hide")).not.toBeVisible();
   });
 });
