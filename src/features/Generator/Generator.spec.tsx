@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Generator } from "./Generator";
 import { BrowserRouter } from "react-router";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("filepond/dist/filepond.min.css", () => ({}), { virtual: true });
 jest.mock(
@@ -51,5 +52,27 @@ describe("Generator", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("should hide CSV file upload and configuration sections when clicking on the tooltip", () => {});
+  it("should hide CSV file upload and configuration sections when clicking on the tooltip", async () => {
+    const tooltipButton = screen.getByRole("button");
+    await userEvent.click(tooltipButton);
+
+    expect(
+      screen.getByRole("heading", {
+        level: 2,
+        name: "How to use the generator",
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", {
+        level: 2,
+        name: "CSV file upload",
+      })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", {
+        level: 2,
+        name: "Generator configuration",
+      })
+    ).not.toBeInTheDocument();
+  });
 });
