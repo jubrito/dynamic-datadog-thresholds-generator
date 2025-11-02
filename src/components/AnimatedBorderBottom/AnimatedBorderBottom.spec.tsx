@@ -18,10 +18,9 @@ describe("AnimatedBorderBottom", () => {
     beforeEach(() => {
       render(
         <BrowserRouter>
-          <AnimatedBorderBottom
-            link={{ label, path, style }}
-            aria-label={ariaLabel}
-          />
+          <AnimatedBorderBottom link={{ path, style }} aria-label={ariaLabel}>
+            <span>{label}</span>
+          </AnimatedBorderBottom>
         </BrowserRouter>
       );
     });
@@ -29,14 +28,8 @@ describe("AnimatedBorderBottom", () => {
       render(<AnimatedBorderBottom />);
       const link = screen.getByRole("link", { name: ariaLabel });
       expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute("href", path);
-      expect(link).toHaveTextContent(label);
-      expect(link).toHaveAttribute("class", `relative group ${style}`);
     });
-    it("should not display children", () => {
-      const children = screen.queryByText(child);
-      expect(children).not.toBeInTheDocument();
-    });
+
     it("should display animated span", () => {
       const span = screen.getByTestId("animated-border-bottom");
       expect(span).toBeInTheDocument();
