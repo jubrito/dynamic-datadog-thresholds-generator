@@ -1,6 +1,6 @@
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { Link } from "react-router";
+import { AnimatedBorderBottom } from "../AnimatedBorderBottom/AnimatedBorderBottom";
 
 export type PreviousNextButtonsProps = {
   next?: {
@@ -16,44 +16,40 @@ export const PreviousNextButtons = ({
   previous,
   next,
 }: PreviousNextButtonsProps) => {
+  const linkStyle = "font-bold text-lg hover:text-white cursor-pointer w-fit";
   return (
     <div className="flex justify-between">
       {previous && (
-        <Link
-          to={previous.path}
-          className={
-            "relative group text-lg hover:text-white cursor-pointer w-fit"
-          }
-          role="button"
+        <AnimatedBorderBottom
+          borderStyle="bg-indigo-500"
+          link={{
+            path: previous.path,
+            style: linkStyle,
+            role: "button",
+          }}
+          aria-label={`Previous page: ${previous.label}`}
         >
           <span>
             {<ArrowLeftIcon aria-hidden="true" />}
-            <span
-              className="font-bold"
-              aria-label={`Previous page: ${previous.label}`}
-            >
-              Previous: {previous.label}
-            </span>
+            Previous: {previous.label}
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-        </Link>
+        </AnimatedBorderBottom>
       )}
       {next && (
-        <Link
-          to={next.path}
-          className={
-            "relative group text-lg hover:text-white cursor-pointer w-fit"
-          }
-          role="button"
+        <AnimatedBorderBottom
+          borderStyle="bg-indigo-500"
+          link={{
+            path: next.path,
+            style: linkStyle,
+            role: "button",
+          }}
+          aria-label={`Next page: ${next.label}`}
         >
-          <span>
-            <span className="font-bold" aria-label={`Next page: ${next.label}`}>
-              Next: {next.label}
-            </span>
-            {<ArrowRightIcon aria-hidden="true" />}
+          <span aria-hidden="true">
+            Next: {next.label}
+            {<ArrowRightIcon />}
           </span>
-          <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-indigo-500 group-hover:w-full"></span>
-        </Link>
+        </AnimatedBorderBottom>
       )}
     </div>
   );
