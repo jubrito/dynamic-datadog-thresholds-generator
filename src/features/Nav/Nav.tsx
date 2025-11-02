@@ -3,6 +3,7 @@ import {
   stylesGrayerDarkGrayBlue,
   mainHorizontalSpacing,
 } from "../../utils/styles";
+import { AnimatedBorderBottom } from "../../components/AnimatedBorderBottom/AnimatedBorderBottom";
 
 export const Nav = () => {
   return (
@@ -21,30 +22,32 @@ export const Nav = () => {
           aria-label="Main navigation"
         >
           <li className="py-1 rounded-md">
-            <NavLink
-              to={"/"}
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-cyan-500 font-bold" : "text-[#dedae3] "
-                } relative group text-xl hover:text-[#64e6ff] cursor-pointer`
-              }
-            >
-              <span>Generator</span>
-              <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
-            </NavLink>
+            <AnimatedBorderBottom>
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  `${
+                    isActive ? "text-cyan-500 font-bold" : "text-[#dedae3] "
+                  } relative group text-xl hover:text-[#64e6ff] cursor-pointer`
+                }
+              >
+                <span>Generator</span>
+              </NavLink>
+            </AnimatedBorderBottom>
           </li>
           <li className="py-1 rounded-md">
-            <NavLink
-              to={"/documentation"}
-              className={({ isActive }) =>
-                `${
-                  isActive ? "text-cyan-500 font-bold" : "text-[#dedae3] "
-                } relative group text-xl hover:text-[#64e6ff] cursor-pointer`
-              }
-            >
-              <span>Documentation</span>
-              <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-cyan-500 group-hover:w-full"></span>
-            </NavLink>
+            <AnimatedBorderBottom>
+              <NavLink
+                to={"/documentation"}
+                className={({ isActive }) =>
+                  `${
+                    isActive ? "text-cyan-500 font-bold" : "text-[#dedae3] "
+                  } relative group text-xl hover:text-[#64e6ff] cursor-pointer`
+                }
+              >
+                <span>Documentation</span>
+              </NavLink>
+            </AnimatedBorderBottom>
           </li>
         </ul>
         <div />
