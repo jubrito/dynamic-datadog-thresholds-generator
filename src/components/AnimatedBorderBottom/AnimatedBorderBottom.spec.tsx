@@ -37,12 +37,20 @@ describe("AnimatedBorderBottom", () => {
       const children = screen.queryByText(child);
       expect(children).not.toBeInTheDocument();
     });
+    it("should display animated span", () => {
+      const span = screen.getByTestId("animated-border-bottom");
+      expect(span).toBeInTheDocument();
+      expect(span).toHaveClass(
+        "absolute -bottom-1 left-0 w-0 transition-all h-0.5 group-hover:w-full bg-cyan-500 "
+      );
+      expect(span).toHaveAttribute("aria-hidden", "true");
+    });
   });
   describe("WHEN children is provided but link is not", () => {
     beforeEach(() => {
       render(
         <BrowserRouter>
-          <AnimatedBorderBottom children={<span>{child}</span>} />
+          <AnimatedBorderBottom children={<p>{child}</p>} />
         </BrowserRouter>
       );
     });
