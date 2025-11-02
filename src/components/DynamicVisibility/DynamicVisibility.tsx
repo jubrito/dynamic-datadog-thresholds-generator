@@ -2,6 +2,7 @@ import React from "react";
 import { Activity, useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { AnimatedBorderBottom } from "../AnimatedBorderBottom/AnimatedBorderBottom";
 
 type DynamicVisibilityProps = {
   triggerComponent: (
@@ -22,6 +23,7 @@ type DynamicVisibilityProps = {
   defaultDisplayTooltip?: boolean;
   styles?: {
     triggerComponent: string;
+    border?: string;
   };
 };
 
@@ -50,15 +52,17 @@ export const DynamicVisibility = ({
   return (
     <div>
       {isAccordion && (
-        <button
-          className={`flex justify-between cursor-pointer items-center w-full ${styles.triggerComponent}`}
-          onClick={() => setDisplayContent((prev) => !prev)}
-          aria-controls={controls}
-          aria-expanded={`${!!displayContent}`}
-        >
-          {triggerComponent(setDisplayContent, displayContent)}
-          <AccordionIcon isExpanded={displayContent} />
-        </button>
+        <AnimatedBorderBottom borderStyle={styles.border}>
+          <button
+            className={`flex justify-between cursor-pointer items-center w-full ${styles.triggerComponent}`}
+            onClick={() => setDisplayContent((prev) => !prev)}
+            aria-controls={controls}
+            aria-expanded={`${!!displayContent}`}
+          >
+            {triggerComponent(setDisplayContent, displayContent)}
+            <AccordionIcon isExpanded={displayContent} />
+          </button>
+        </AnimatedBorderBottom>
       )}
       {!isAccordion &&
         triggerComponent(
