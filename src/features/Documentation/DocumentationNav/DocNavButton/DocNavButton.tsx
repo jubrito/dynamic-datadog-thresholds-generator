@@ -18,11 +18,12 @@ export const DocNavButton = ({
     <AnimatedBorderBottom
       borderStyle="bg-indigo-500"
       link={{
-        label,
         path,
         style,
       }}
       aria-label={`${label} documentation page`}
-    />
+    >
+      <span>{label}</span>
+    </AnimatedBorderBottom>
   );
 };
