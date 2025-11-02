@@ -33,6 +33,10 @@ describe("AnimatedBorderBottom", () => {
       expect(link).toHaveTextContent(label);
       expect(link).toHaveAttribute("class", `relative group ${style}`);
     });
+    it("should not display children", () => {
+      const children = screen.queryByText(child);
+      expect(children).not.toBeInTheDocument();
+    });
   });
   describe("WHEN children is provided but link is not", () => {
     beforeEach(() => {
