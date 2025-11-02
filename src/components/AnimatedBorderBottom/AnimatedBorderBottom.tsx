@@ -4,6 +4,7 @@ type AnimatedBorderBottomProps = {
   borderStyle?: string;
   children?: React.ReactNode;
   link?: {
+    role?: string;
     path: string;
     style?: string;
   };
@@ -35,6 +36,7 @@ export const AnimatedBorderBottom = ({
       <Link
         to={link.path}
         className={`relative group ${link.style}`}
+        role={link.role}
         {...defaultLinkProps}
       >
         {children}
