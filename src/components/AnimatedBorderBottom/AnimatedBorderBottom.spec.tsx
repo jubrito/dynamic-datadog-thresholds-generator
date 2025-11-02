@@ -3,11 +3,11 @@ import { AnimatedBorderBottom } from "./AnimatedBorderBottom";
 import { BrowserRouter } from "react-router";
 
 describe("AnimatedBorderBottom", () => {
-  // it("should not display anything if link and children are not provided", () => {
-  //   // render(<AnimatedBorderBottom />)
+  it("should not display anything if link and children are not provided", () => {
+    const { container } = render(<AnimatedBorderBottom />);
+    expect(container).toBeEmptyDOMElement();
+  });
 
-  //   expect();
-  // });
   const ariaLabel = "aria label";
   const label = "label";
   const path = "/path";
