@@ -44,7 +44,6 @@ describe("AnimatedBorderBottom", () => {
       const link = screen.getByRole("link", { name: ariaLabel });
       expect(link).toHaveAttribute("class", `relative group ${style}`);
     });
-
     it("should display animated span", () => {
       const span = screen.getByTestId("animated-border-bottom");
       expect(span).toBeInTheDocument();
