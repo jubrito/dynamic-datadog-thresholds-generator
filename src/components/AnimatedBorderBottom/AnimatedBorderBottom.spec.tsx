@@ -51,5 +51,10 @@ describe("AnimatedBorderBottom", () => {
       expect(children).toBeInTheDocument();
       expect(children.parentElement).toHaveClass("relative group");
     });
+    it("should not display link", () => {
+      render(<AnimatedBorderBottom />);
+      const link = screen.queryByRole("link", { name: ariaLabel });
+      expect(link).not.toBeInTheDocument();
+    });
   });
 });
