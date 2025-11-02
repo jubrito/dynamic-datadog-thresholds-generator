@@ -34,6 +34,11 @@ describe("AnimatedBorderBottom", () => {
       const link = screen.getByRole("link", { name: ariaLabel });
       expect(link).toHaveTextContent(label);
     });
+    it("should display link with correct href", () => {
+      render(<AnimatedBorderBottom />);
+      const link = screen.getByRole("link", { name: ariaLabel });
+      expect(link).toHaveAttribute("href", path);
+    });
 
     it("should display animated span", () => {
       const span = screen.getByTestId("animated-border-bottom");
