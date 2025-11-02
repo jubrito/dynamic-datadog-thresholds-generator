@@ -46,9 +46,9 @@ export const AnimatedBorderBottom = ({
   }
 
   return (
-    <>
-      <div className="relative group">{children}</div>
+    <div className="relative group">
+      {children}
       {animatedBorder}
-    </>
+    </div>
   );
 };
