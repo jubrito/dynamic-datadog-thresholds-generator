@@ -7,50 +7,65 @@ describe("AnimatedBorderBottom", () => {
     const { container } = render(<AnimatedBorderBottom />);
     expect(container).toBeEmptyDOMElement();
   });
-
   const ariaLabel = "aria label";
   const label = "label";
   const path = "/path";
   const style = "style";
   const child = "child";
 
-  describe("WHEN link is provided but children is not", () => {
-    beforeEach(() => {
+  describe("WHEN link is provided", () => {
+    it("should render with custom role if is provided", () => {
       render(
         <BrowserRouter>
-          <AnimatedBorderBottom link={{ path, style }} aria-label={ariaLabel}>
+          <AnimatedBorderBottom
+            link={{ path, style, role: "button" }}
+            aria-label={ariaLabel}
+          >
             <span>{label}</span>
           </AnimatedBorderBottom>
         </BrowserRouter>
       );
-    });
-    it("should display link", () => {
-      render(<AnimatedBorderBottom />);
-      const link = screen.getByRole("link", { name: ariaLabel });
+      const link = screen.getByRole("button", { name: ariaLabel });
       expect(link).toBeInTheDocument();
     });
-    it("should wrap label with link", () => {
-      render(<AnimatedBorderBottom />);
-      const link = screen.getByRole("link", { name: ariaLabel });
-      expect(link).toHaveTextContent(label);
-    });
-    it("should display link with correct href", () => {
-      render(<AnimatedBorderBottom />);
-      const link = screen.getByRole("link", { name: ariaLabel });
-      expect(link).toHaveAttribute("href", path);
-    });
-    it("should display link with classes that will enable animation", () => {
-      render(<AnimatedBorderBottom />);
-      const link = screen.getByRole("link", { name: ariaLabel });
-      expect(link).toHaveAttribute("class", `relative group ${style}`);
-    });
-    it("should display animated span", () => {
-      const span = screen.getByTestId("animated-border-bottom");
-      expect(span).toBeInTheDocument();
-      expect(span).toHaveClass(
-        "absolute -bottom-1 left-0 w-0 transition-all h-0.5 group-hover:w-full bg-cyan-500 "
-      );
-      expect(span).toHaveAttribute("aria-hidden", "true");
+    describe("Default rendering", () => {
+      beforeEach(() => {
+        render(
+          <BrowserRouter>
+            <AnimatedBorderBottom link={{ path, style }} aria-label={ariaLabel}>
+              <span>{label}</span>
+            </AnimatedBorderBottom>
+          </BrowserRouter>
+        );
+      });
+      it("should display link", () => {
+        render(<AnimatedBorderBottom />);
+        const link = screen.getByRole("link", { name: ariaLabel });
+        expect(link).toBeInTheDocument();
+      });
+      it("should wrap label with link", () => {
+        render(<AnimatedBorderBottom />);
+        const link = screen.getByRole("link", { name: ariaLabel });
+        expect(link).toHaveTextContent(label);
+      });
+      it("should display link with correct href", () => {
+        render(<AnimatedBorderBottom />);
+        const link = screen.getByRole("link", { name: ariaLabel });
+        expect(link).toHaveAttribute("href", path);
+      });
+      it("should display link with classes that will enable animation", () => {
+        render(<AnimatedBorderBottom />);
+        const link = screen.getByRole("link", { name: ariaLabel });
+        expect(link).toHaveAttribute("class", `relative group ${style}`);
+      });
+      it("should display animated span", () => {
+        const span = screen.getByTestId("animated-border-bottom");
+        expect(span).toBeInTheDocument();
+        expect(span).toHaveClass(
+          "absolute -bottom-1 left-0 w-0 transition-all h-0.5 group-hover:w-full bg-cyan-500 "
+        );
+        expect(span).toHaveAttribute("aria-hidden", "true");
+      });
     });
   });
   describe("WHEN children is provided but link is not", () => {
