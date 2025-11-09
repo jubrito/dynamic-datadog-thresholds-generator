@@ -5,10 +5,7 @@ import {
   MONITOR_CONFIG_KEY,
   THRESHOLDS_KEY,
 } from "../../../utils/constants";
-import {
-  stylesGrayerDarkGrayBlue,
-  stylesMainBlue,
-} from "../../../utils/styles";
+import { stylesMainBlue } from "../../../utils/styles";
 import CloseIcon from "@mui/icons-material/Close";
 import { DynamicVisibility } from "../../../components/DynamicVisibility/DynamicVisibility";
 import { BorderBox } from "../../../components/BorderBox/BorderBox";
@@ -25,12 +22,10 @@ const Heading = ({ children }: { children: string }) => (
 export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
   <div
     role="tooltip"
-    className={`${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute min-h-105 h-full overflow-y-scroll text-white absolute z-2 px-5 w-full rounded-xl`}
+    className={`min-h-110 overflow-y-hidden ${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full text-white absolute px-5 w-full rounded-xl`}
     id="generator-tooltip"
   >
-    <div
-      className={`w-full sticky top-0 flex justify-between pb-4 mb-3 shadow-lg ${stylesGrayerDarkGrayBlue.shadow} ${stylesGrayerDarkGrayBlue.background}`}
-    >
+    <div className={`w-full flex justify-between pb-4 mb-3 shadow-lg`}>
       <h2 className="text-3xl pt-2">How to use the generator</h2>
       <button
         aria-label="Close explanation and go back to generator"
@@ -40,38 +35,39 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
         <CloseIcon />
       </button>
     </div>
-
-    <div className="gap-10 flex flex-col w-full">
-      <DynamicVisibility
-        isAccordion
-        triggerComponent={() => (
-          <Heading>Why this generator can help you</Heading>
-        )}
-        contentComponent={() => <WhyGeneratorHelps />}
-        styles={{ triggerComponent: "border-b-1 mb-2" }}
-      />
-      <DynamicVisibility
-        isAccordion
-        triggerComponent={() => (
-          <Heading>What you need to know before using this tool</Heading>
-        )}
-        contentComponent={() => <WhatYouNeedToKnow />}
-        styles={{ triggerComponent: "border-b-1 mb-2" }}
-      />
-      <DynamicVisibility
-        isAccordion
-        triggerComponent={() => (
-          <Heading>How to configure the generator</Heading>
-        )}
-        contentComponent={() => <HowToConfigure />}
-        styles={{ triggerComponent: "border-b-1 mb-2" }}
-      />
-      <DynamicVisibility
-        isAccordion
-        triggerComponent={() => <Heading>Steps to use the generator</Heading>}
-        contentComponent={() => <StepsToUse />}
-        styles={{ triggerComponent: "border-b-1 mb-2" }}
-      />
+    <div className="overflow-y-scroll h-80">
+      <div className="gap-10 flex flex-col w-full">
+        <DynamicVisibility
+          isAccordion
+          triggerComponent={() => (
+            <Heading>Why this generator can help you</Heading>
+          )}
+          contentComponent={() => <WhyGeneratorHelps />}
+          styles={{ triggerComponent: "border-b-1 mb-2" }}
+        />
+        <DynamicVisibility
+          isAccordion
+          triggerComponent={() => (
+            <Heading>What you need to know before using this tool</Heading>
+          )}
+          contentComponent={() => <WhatYouNeedToKnow />}
+          styles={{ triggerComponent: "border-b-1 mb-2" }}
+        />
+        <DynamicVisibility
+          isAccordion
+          triggerComponent={() => (
+            <Heading>How to configure the generator</Heading>
+          )}
+          contentComponent={() => <HowToConfigure />}
+          styles={{ triggerComponent: "border-b-1 mb-2" }}
+        />
+        <DynamicVisibility
+          isAccordion
+          triggerComponent={() => <Heading>Steps to use the generator</Heading>}
+          contentComponent={() => <StepsToUse />}
+          styles={{ triggerComponent: "border-b-1 mb-2" }}
+        />
+      </div>
     </div>
   </div>
 );
