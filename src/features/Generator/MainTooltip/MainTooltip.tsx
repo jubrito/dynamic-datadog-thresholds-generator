@@ -22,10 +22,10 @@ const Heading = ({ children }: { children: string }) => (
 export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
   <div
     role="tooltip"
-    className={`min-h-110 overflow-y-hidden ${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full text-white absolute px-5 w-full rounded-xl`}
+    className={`pl-11 pr-3 pt-3 min-h-110 overflow-y-hidden ${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full text-white absolute w-full rounded-xl`}
     id="generator-tooltip"
   >
-    <div className={`w-full flex justify-between pb-4 mb-3 shadow-lg`}>
+    <div className={`w-full flex justify-between pb-4 pr-8 mb-3 shadow-lg`}>
       <h2 className="text-3xl pt-2">How to use the generator</h2>
       <button
         aria-label="Close explanation and go back to generator"
@@ -35,7 +35,7 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
         <CloseIcon />
       </button>
     </div>
-    <div className="overflow-y-scroll h-80 pr-1">
+    <div className="overflow-y-scroll h-80 pr-4">
       <div className="gap-10 flex flex-col w-full">
         <DynamicVisibility
           isAccordion
@@ -171,8 +171,16 @@ const StepsToUse = () => (
       Extract a Datadog endpoint metrics csv file using any percentile
       aggregation.
     </li>
-    <li>Update the configuration to generate more or less rigorous results</li>
-    <li>Upload your metrics file to generate the results</li>
-    <li>Update the configuration at any time</li>
+    <li>Update the configuration to generate more or less rigorous results.</li>
+    <li>Upload your metrics file to generate the results.</li>
+    <li>Update the configuration at any time.</li>
+    <li>
+      Use the generated thresholds suggestions and statistics to define your
+      percentiles.
+    </li>
+    <li>
+      Update the thresholds on the Datadog Monitor to enable meaningful alerts
+      and monitor your endpoints.
+    </li>
   </ol>
 );
