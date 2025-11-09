@@ -35,7 +35,7 @@ export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
         <CloseIcon />
       </button>
     </div>
-    <div className="overflow-y-scroll h-80">
+    <div className="overflow-y-scroll h-80 pr-1">
       <div className="gap-10 flex flex-col w-full">
         <DynamicVisibility
           isAccordion
