@@ -167,8 +167,31 @@ const HowToConfigure = () => (
         measures how slow users are affected
       </BorderBox>
     </div>
-    <h3 className="text-xl pt-4 pb-2">Rigorour factor</h3>
-    <span>Lower Higher Rigorousness</span>
+    <h3 className="text-xl pt-4 pb-2 font-bold">Rigorour factor</h3>
+    <div className="flex flex-col gap-5 mt-2">
+      <span>
+        To generate percentiles, multiple statistical methods are used to filter
+        extreme values and focus on the values that can better represent the
+        type of request we want to focus.
+      </span>
+      <span>
+        The rigorour factor can be used to define how rigorous you want these
+        methodos to by setting a threshold factor. It provides more flexibility
+        by letting you choose if you want more or less strict thresholds.
+      </span>
+      <div className="flex gap-5">
+        <BorderBox style="flex flex-col gap-2">
+          <span className="font-bold">Lower rigorour factors</span>
+          will generate more forgiving thresholds by focusing on a wider range
+          of requests, which can be useful if you want generate more alerts.
+        </BorderBox>
+        <BorderBox style="flex flex-col gap-2">
+          <span className="font-bold">Higher rigorour factors</span>
+          will generate stricter thresholds which can be useful to generate less
+          noisy alerts by focusing on the slowest requests.
+        </BorderBox>
+      </div>
+    </div>
   </>
 );
 
