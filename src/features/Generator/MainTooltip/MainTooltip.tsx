@@ -127,20 +127,27 @@ const HowToConfigure = () => (
       There are two main variables you can configure, the initial percentile and
       the rigorour factor:
     </span>
-    <h3 className="text-xl pt-4 pb-2">Initial percentile</h3>
-    <span>
-      The base percentile allows you do choose the type of request to focus.
-      After uploading the metrics file with the percentile values from your
-      endpoint, instead of analyzing all the data uploaded, you can choose a
-      base
-      <Link
-        to={`${DOCUMENTATION_ROUTE}/TODO-PERCENTILES`}
-        className="underline mx-1"
-      >
-        percentile
-      </Link>
-      that will influence how much data the algorithm the use.
-    </span>
+    <h3 className="text-xl pt-4 pb-2 font-bold">Initial percentile</h3>
+    <div className="flex flex-col gap-5 mt-2">
+      <span>
+        The base percentile allows you do choose the type of request to focus.
+        Even though you are already uploading the metrics file with a specific
+        percentile aggregation, this configuration allows you to further filter
+        the data used to generate the thresholds.
+      </span>
+      <span>
+        This means that after uploading the metrics file with the percentile
+        values from your endpoint, instead of analyzing all the data uploaded,
+        you can choose a base
+        <Link
+          to={`${DOCUMENTATION_ROUTE}/TODO-PERCENTILES`}
+          className="underline mx-1"
+        >
+          percentile
+        </Link>
+        that will influence how much data the algorithm the use.
+      </span>
+    </div>
     <div className="flex gap-5 mt-5">
       <BorderBox style="flex flex-col gap-2">
         <span className="font-bold">Lower percentiles</span>
