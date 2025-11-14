@@ -1,4 +1,4 @@
-import { EndpointStats, Percentile } from "../types/types";
+import { EndpointStats, Percentile } from "../types/generator";
 import { getAverage, getMedian } from "./statistics";
 
 export const getStatistics = (

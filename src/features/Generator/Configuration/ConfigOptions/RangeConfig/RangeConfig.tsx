@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ThresholdConfig } from "../../../../../types/types";
+import type { ThresholdConfig } from "../../../../../types/generator";
 
 type RangeConfigProps = {
   rangeFieldId: string;

@@ -1,4 +1,4 @@
-import type { ThresholdConfig } from "../../../../types/types";
+import type { ThresholdConfig } from "../../../../types/generator";
 import { stylesMediumGrayBlue } from "../../../../utils/styles";
 import { RangeConfig } from "./RangeConfig/RangeConfig";
 

@@ -2,7 +2,7 @@ import {
   computeAdaptiveThresholds,
   getThresholdWithTukeyFence,
 } from "./thresholds";
-import type { ThresholdsConfig } from "../types/types";
+import type { ThresholdsConfig } from "../types/generator";
 import * as statistics from "./statistics";
 
 describe("thresholds", () => {

@@ -1,4 +1,4 @@
-import type { Percentile, ThresholdsConfig } from "../types/types";
+import type { Percentile, ThresholdsConfig } from "../types/generator";
 import {
   filterExtremeValues,
   getIQR,

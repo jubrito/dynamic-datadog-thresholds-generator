@@ -1,5 +1,5 @@
 import { configureGeneratorDescriptionId } from "../../../components/Introduction/Introduction";
-import type { ThresholdsConfig } from "../../../types/types";
+import type { ThresholdsConfig } from "../../../types/generator";
 import { stylesDarkGrayBlue } from "../../../utils/styles";
 import { ConfigOptions } from "./ConfigOptions/ConfigOptions";
 

@@ -3,7 +3,7 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond/dist/filepond.min.css";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import type { ThresholdData } from "../../../types/types";
+import type { ThresholdData } from "../../../types/generator";
 import type { FilePondFile } from "filepond";
 import { parseCSV } from "../../../utils/parseCSV";
 import { stylesDarkGrayBlue } from "../../../utils/styles";

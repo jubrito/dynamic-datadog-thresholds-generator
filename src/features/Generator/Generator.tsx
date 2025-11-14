@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ThresholdData, ThresholdsConfig } from "../../types/types";
+import type { ThresholdData, ThresholdsConfig } from "../../types/generator";
 import { mainTopSpacing, mainHorizontalSpacing } from "../../utils/styles";
 import { Introduction } from "../../components/Introduction/Introduction";
 import { MainTooltip } from "./MainTooltip/MainTooltip";

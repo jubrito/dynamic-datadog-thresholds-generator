@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { EndpointStats } from "../../../../types/types";
+import { EndpointStats } from "../../../../types/generator";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { insufficientDataValue } from "../../../../utils/constants";

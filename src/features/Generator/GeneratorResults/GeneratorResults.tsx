@@ -3,7 +3,7 @@ import { getSortedAscending, getStatistics } from "../../../utils/utils";
 import { EndpointStatistics } from "../../../features/Generator/ThresholdResults/EndpointStatistics/EndpointStatistics";
 import { stylesGrayerDarkGrayBlue } from "../../../utils/styles";
 import { isDataSufficient } from "../../../utils/statistics";
-import { ThresholdData, ThresholdsConfig } from "../../../types/types";
+import { ThresholdData, ThresholdsConfig } from "../../../types/generator";
 import { Thresholds } from "../Thresholds/Thresholds";
 
 type GeneratorResultsProps = {

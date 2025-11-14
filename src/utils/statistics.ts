@@ -1,4 +1,4 @@
-import type { Percentile } from "../types/types";
+import type { Percentile } from "../types/generator";
 import { insufficientDataValue } from "./constants";
 import { getWithNDecimalPlaces } from "./utils";
 

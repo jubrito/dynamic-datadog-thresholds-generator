@@ -1,4 +1,4 @@
-import type { Percentile, ThresholdsConfig } from "../../../types/types";
+import type { Percentile, ThresholdsConfig } from "../../../types/generator";
 import { computeAdaptiveThresholds } from "../../../utils/thresholds";
 import { ThresholdResults } from "../../../features/Generator/ThresholdResults/ThresholdResults";
 

@@ -1,4 +1,4 @@
-import { OpenDocumentationSection } from "../types/types";
+import { OpenDocumentationSection } from "../types/generator";
 
 export const closeDocumentationSections: OpenDocumentationSection = {
   observability: false,
