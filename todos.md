@@ -1,5 +1,3 @@
-- extract component with style animation border bottom
-- add style animation extracted component to main tooltip accordion
 - error handling
   - when fails to upload
 - change to es5
