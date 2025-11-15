@@ -22,7 +22,7 @@ const Heading = ({ children }: { children: string }) => (
 export const MainTooltip = ({ setDisplayContent }: MainTooltipProps) => (
   <div
     role="tooltip"
-    className={`pl-11 pr-3 pt-3 min-h-110 overflow-y-hidden ${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full text-white absolute w-full rounded-xl`}
+    className={`mt-3 pl-11 pr-3 pt-3 min-h-110 overflow-y-hidden ${stylesMainBlue.background} border-10 ${stylesMainBlue.border} absolute h-full text-white absolute w-full rounded-xl`}
     id="generator-tooltip"
   >
     <div className={`w-full flex justify-between pb-4 pr-8 mb-3 shadow-lg`}>
@@ -196,8 +196,8 @@ const HowToConfigure = () => (
 );
 
 const StepsToUse = () => (
-  <ol className="list-inside list-decimal">
-    <li>
+  <ol className="list-inside list-decimal flex flex-col gap-4">
+    <li className="mt-2">
       Extract a Datadog endpoint metrics csv file using any percentile
       aggregation.
     </li>
