@@ -25,6 +25,10 @@ export const UploadCsvBox = ({
 }: UploadCsvBoxProps) => {
   const filePondRef = React.useRef<FilePond>(null);
 
+  const clearFile = (receivedFile: FilePondFile) => {
+    filePondRef.current?.removeFile(receivedFile?.id ?? receivedFile?.file);
+  };
+
   const handleValues = (csvRows: string[][], csvHeaders: string[]) => {
     const valuesColumnIndex = csvHeaders.indexOf("value");
 
@@ -53,6 +57,7 @@ export const UploadCsvBox = ({
 
     if (queriesColumnIndex === -1) {
       setFileUploadFailed(true);
+      clearFile(file);
       console.error("Failed to retrieve CSV queries to identify endpoint name");
       return;
     }
@@ -69,6 +74,7 @@ export const UploadCsvBox = ({
 
     if (!filepondFile) {
       setFileUploadFailed(true);
+      clearFile(filepondFile);
       return;
     }
 
@@ -77,6 +83,7 @@ export const UploadCsvBox = ({
 
       if (csvData.length === 0) {
         setFileUploadFailed(true);
+        clearFile(filepondFile);
         console.error("CSV is empty or invalid.");
         return;
       }
