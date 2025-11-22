@@ -8,23 +8,29 @@ import type { FilePondFile } from "filepond";
 import { parseCSV } from "../../../utils/parseCSV";
 import { stylesDarkGrayBlue } from "../../../utils/styles";
 import { extractAndUploadCsvDescriptionId } from "../../../components/Introduction/Introduction";
+import React from "react";
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 type UploadCsvBoxProps = {
   updateThresholdData: React.Dispatch<React.SetStateAction<ThresholdData>>;
+  setFileUploadFailed: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const uploadCsvDescriptionId = "upload-csv-description-id";
 
-export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
+export const UploadCsvBox = ({
+  updateThresholdData,
+  setFileUploadFailed,
+}: UploadCsvBoxProps) => {
+  const filePondRef = React.useRef<FilePond>(null);
+
   const handleValues = (csvRows: string[][], csvHeaders: string[]) => {
     const valuesColumnIndex = csvHeaders.indexOf("value");
 
-    if (valuesColumnIndex === -1) {
-      alert(
-        "Failed to retrieve CSV values to calculate thresholds. Please upload a valid file."
-      );
+    if (valuesColumnIndex < 0) {
+      setFileUploadFailed(true);
+      console.error("Failed to retrieve CSV values to calculate thresholds.");
       return [];
     }
 
@@ -38,11 +44,16 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
     return endpointPath;
   };
 
-  const handleEndpointPath = (csvRow: string[][], csvHeaders: string[]) => {
+  const handleEndpointPath = (
+    csvRow: string[][],
+    csvHeaders: string[],
+    file: FilePondFile
+  ) => {
     const queriesColumnIndex = csvHeaders.indexOf("query");
 
     if (queriesColumnIndex === -1) {
-      console.warn("Failed to retrieve CSV queries to identify endpoint name");
+      setFileUploadFailed(true);
+      console.error("Failed to retrieve CSV queries to identify endpoint name");
       return;
     }
 
@@ -54,27 +65,36 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
 
   const handleCsvUpload = async (receivedFiles: FilePondFile[]) => {
     const [firstReceivedFile] = receivedFiles;
-    const file = firstReceivedFile?.file as File;
+    const filepondFile = firstReceivedFile;
 
-    if (!file) return;
+    if (!filepondFile) {
+      setFileUploadFailed(true);
+      return;
+    }
 
     try {
-      const csvData = await parseCSV(file);
+      const csvData = await parseCSV(filepondFile.file as File);
 
       if (csvData.length === 0) {
-        alert("CSV is empty or invalid.");
+        setFileUploadFailed(true);
+        console.error("CSV is empty or invalid.");
         return;
       }
 
       const [csvHeaders, ...csvRows] = csvData;
       const metricValues = handleValues(csvRows, csvHeaders);
-      const endpointPath = handleEndpointPath(csvRows, csvHeaders);
+      const endpointPath = handleEndpointPath(
+        csvRows,
+        csvHeaders,
+        filepondFile
+      );
       updateThresholdData({
         metricValues,
         endpointPath,
       });
     } catch (error) {
-      alert("Failed to parse CSV file:" + error);
+      setFileUploadFailed(true);
+      console.error("Failed to parse CSV file:" + error);
     }
   };
 
@@ -91,6 +111,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
       </p>
       <div aria-labelledby={uploadCsvDescriptionId}>
         <FilePond
+          acceptedFileTypes={[".csv", "text/csv"]}
           onupdatefiles={handleCsvUpload}
           onremovefile={() =>
             updateThresholdData({ metricValues: [], endpointPath: undefined })
@@ -101,6 +122,7 @@ export const UploadCsvBox = ({ updateThresholdData }: UploadCsvBoxProps) => {
           name="files"
           labelIdle="Click here or Drag & Drop a csv file to upload"
           className="custom-filepond"
+          ref={filePondRef}
         />
       </div>
     </section>
