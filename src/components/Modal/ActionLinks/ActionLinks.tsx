@@ -12,7 +12,7 @@ export type ActionLinks = {
 export type LinkProps = {
   pathToNavigate?: string;
   label?: string;
-  externalLink?: boolean;
+  isExternalLink?: boolean;
 };
 
 type InternalLinkProps = {
@@ -82,7 +82,7 @@ export const ActionLinks = ({
 
   return (
     <div className="bg-gray-700/25 px-4 py-4 sm:flex sm:flex-row-reverse sm:px-6">
-      {!primaryLink.externalLink && (
+      {!primaryLink.isExternalLink && (
         <InternalLink
           styles={styles}
           label={primaryLink.label}
@@ -90,7 +90,7 @@ export const ActionLinks = ({
           linkType={LINK_TYPES.PRIMARY}
         />
       )}
-      {primaryLink.externalLink && (
+      {primaryLink.isExternalLink && (
         <ExternalLink
           styles={styles}
           label={primaryLink.label}
@@ -98,7 +98,7 @@ export const ActionLinks = ({
           linkType={LINK_TYPES.PRIMARY}
         />
       )}
-      {secondaryLink && !secondaryLink.externalLink && (
+      {secondaryLink && !secondaryLink.isExternalLink && (
         <InternalLink
           styles={styles}
           label={secondaryLink.label}
@@ -106,7 +106,7 @@ export const ActionLinks = ({
           linkType={LINK_TYPES.SECONDARY}
         />
       )}
-      {secondaryLink && secondaryLink.externalLink && (
+      {secondaryLink && secondaryLink.isExternalLink && (
         <ExternalLink
           styles={styles}
           label={secondaryLink.label}

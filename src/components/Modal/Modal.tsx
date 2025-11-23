@@ -113,7 +113,7 @@ export const Modal = ({
               secondaryLink={{
                 pathToNavigate: secondaryLink?.pathToNavigate,
                 label: secondaryLink?.label,
-                externalLink: true,
+                isExternalLink: true,
               }}
               variant={variant}
             />
