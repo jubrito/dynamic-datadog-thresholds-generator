@@ -8,7 +8,26 @@ describe("ActionLinks", () => {
   const primaryLabel = "primary-label";
   const secondaryLabel = "secondary-label";
 
-  describe("Primary Link", () => {
+  describe("Internal links", () => {
+    it("should not render links if label is not defined", () => {
+      render(
+        <BrowserRouter>
+          <ActionLinks
+            primaryLink={{
+              pathToNavigate: "/path",
+              label: undefined,
+            }}
+            secondaryLink={{
+              pathToNavigate: "/path",
+              label: undefined,
+            }}
+          />
+        </BrowserRouter>
+      );
+      const links = screen.queryAllByRole("link");
+      expect(links).toHaveLength(0);
+    });
+
     it("should render internal primary link with path", () => {
       render(
         <BrowserRouter>
@@ -24,26 +43,6 @@ describe("ActionLinks", () => {
       expect(link).toBeInTheDocument();
       expect(link).toHaveAttribute("href", internalPathToNavigate);
     });
-
-    it("should render external primary anchor correctly", () => {
-      render(
-        <BrowserRouter>
-          <ActionLinks
-            primaryLink={{
-              pathToNavigate: externalPathToNavigate,
-              label: primaryLabel,
-              isExternalLink: true,
-            }}
-          />
-        </BrowserRouter>
-      );
-      const link = screen.getByRole("anchor", { name: primaryLabel });
-      expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute("href", externalPathToNavigate);
-    });
-  });
-
-  describe("Primary Link", () => {
     it("should render internal secondary primary link with path", () => {
       render(
         <BrowserRouter>
@@ -62,6 +61,25 @@ describe("ActionLinks", () => {
       const link = screen.getByRole("link", { name: secondaryLabel });
       expect(link).toBeInTheDocument();
       expect(link).toHaveAttribute("href", internalPathToNavigate);
+    });
+  });
+
+  describe("External links", () => {
+    it("should render external primary anchor correctly", () => {
+      render(
+        <BrowserRouter>
+          <ActionLinks
+            primaryLink={{
+              pathToNavigate: externalPathToNavigate,
+              label: primaryLabel,
+              isExternalLink: true,
+            }}
+          />
+        </BrowserRouter>
+      );
+      const link = screen.getByRole("anchor", { name: primaryLabel });
+      expect(link).toBeInTheDocument();
+      expect(link).toHaveAttribute("href", externalPathToNavigate);
     });
 
     it("should render external secondary anchor correctly", () => {
