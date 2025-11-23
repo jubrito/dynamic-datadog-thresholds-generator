@@ -24,7 +24,7 @@ export const EndpointStatistics = ({
 
   return (
     <div
-      className={`transition duration-500 ${showMainInsightsTransition}`}
+      className={`p-5 transition duration-500 ${showMainInsightsTransition}`}
       ref={statsResultsRef}
     >
       <AnimatedBorderBottom>

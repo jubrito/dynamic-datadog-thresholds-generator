@@ -16,7 +16,7 @@ describe("EndpointStatistics", () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={false} />
     );
-    const region = screen.getByRole("button").closest("div");
+    const region = screen.getByRole("button").closest("div")?.parentElement;
     expect(region).toHaveClass("opacity-0");
   });
 
@@ -25,7 +25,7 @@ describe("EndpointStatistics", () => {
       <EndpointStatistics endpointStats={baseStats} showInsights={true} />
     );
 
-    const section = screen.getByRole("button").closest("div");
+    const section = screen.getByRole("button").closest("div")?.parentElement;
     expect(section).toHaveClass("opacity-100");
 
     await userEvent.click(
@@ -43,7 +43,7 @@ describe("EndpointStatistics", () => {
     render(
       <EndpointStatistics endpointStats={baseStats} showInsights={true} />
     );
-    const section = screen.getByRole("button").closest("div");
+    const section = screen.getByRole("button").closest("div")?.parentElement;
     expect(section).toHaveClass("opacity-100");
 
     await userEvent.click(

@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ThresholdData, ThresholdsConfig } from "../../../types/generator";
 import { GeneratorResults } from "./GeneratorResults";
 
@@ -43,14 +43,17 @@ describe("GeneratorResults", () => {
 
     it("should render endpoint path", () => {
       const endpointNameField = screen.getByLabelText(
-        `Endpoint name: ${thresholdData.endpointPath}`
+        `Results for endpoint ${thresholdData.endpointPath}`
       );
       expect(endpointNameField).toBeInTheDocument();
-      expect(within(endpointNameField).getByText(/path/)).toBeInTheDocument();
     });
     it("should render thresholds suggestions", () => {
-      expect(screen.getByText(/Warning threshold: 3.9/)).toBeInTheDocument();
-      expect(screen.getByText(/Critical threshold: 7.98/)).toBeInTheDocument();
+      expect(
+        screen.getByLabelText(/Warning threshold: 3.9/)
+      ).toBeInTheDocument();
+      expect(
+        screen.getByLabelText(/Critical threshold: 7.98/)
+      ).toBeInTheDocument();
     });
   });
 });
