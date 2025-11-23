@@ -29,7 +29,7 @@ export const Generator = () => {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         isOpen={fileUploadFailed}
         onClose={() => {}}
         title="The file uploaded is not valid"
@@ -50,50 +50,44 @@ export const Generator = () => {
             endpoint's percentile metrics data.
           </p>
         </div>
-      </Modal>
+      </Modal> */}
       <section className={`py-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
         <div />
-        <div
-          className={`relative grid gap-7 max-w-253 ${
-            showInsights ? "grid-rows-2" : ""
-          }`}
-        >
-          <div className="xl:col-span-2">
-            <DynamicVisibility
-              triggerComponent={(
-                setDisplayContent,
-                _,
-                ariaControlsIds,
-                isExpanded
-              ) => (
-                <Introduction
-                  setDisplayContent={setDisplayContent}
-                  ariaControlsIds={ariaControlsIds}
-                  isExpanded={isExpanded}
+        <div className={`relative grid gap-7 max-w-253`}>
+          <DynamicVisibility
+            triggerComponent={(
+              setDisplayContent,
+              _,
+              ariaControlsIds,
+              isExpanded
+            ) => (
+              <Introduction
+                setDisplayContent={setDisplayContent}
+                ariaControlsIds={ariaControlsIds}
+                isExpanded={isExpanded}
+              />
+            )}
+            contentComponent={(setDisplayContent) => (
+              <MainTooltip setDisplayContent={setDisplayContent} />
+            )}
+            toHideComponent={() => (
+              <div className="gap-11 flex flex-col xl:flex-row">
+                <UploadCsvBox
+                  updateThresholdData={setThresholdData}
+                  setFileUploadFailed={setFileUploadFailed}
                 />
-              )}
-              contentComponent={(setDisplayContent) => (
-                <MainTooltip setDisplayContent={setDisplayContent} />
-              )}
-              toHideComponent={() => (
-                <div className="grid gap-11 8xl:grid-cols-[minmax(300px,600px)_minmax(auto,600px)] xl:grid-cols-[minmax(0px,600px)_minmax(0,600px)] grid-cols-1">
-                  <UploadCsvBox
-                    updateThresholdData={setThresholdData}
-                    setFileUploadFailed={setFileUploadFailed}
-                  />
-                  <Configuration
-                    thresholdsConfig={thresholdsConfig}
-                    updateThresholdsConfig={setThresholdsConfig}
-                  />
-                </div>
-              )}
-            />
-          </div>
+                <Configuration
+                  thresholdsConfig={thresholdsConfig}
+                  updateThresholdsConfig={setThresholdsConfig}
+                />
+              </div>
+            )}
+          />
+          <GeneratorResults
+            thresholdData={thresholdData}
+            thresholdsConfig={thresholdsConfig}
+          />
         </div>
-        <GeneratorResults
-          thresholdData={thresholdData}
-          thresholdsConfig={thresholdsConfig}
-        />
         <div />
       </section>
     </>
