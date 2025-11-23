@@ -46,6 +46,8 @@ const ExternalLink = ({
       target="_blank"
       rel="noopener noreferrer"
       className={`${linkStyle} cursor-pointer inline-flex w-full justify-center rounded-md leading-none px-3 py-2 text-sm font-bold sm:w-auto`}
+      role="anchor"
+      aria-label={label}
     >
       {label}
     </a>
@@ -62,6 +64,8 @@ const InternalLink = ({
   const secondaryLinkStyle = "bg-white/10 text-white hover:bg-white/20";
   const linkStyle =
     linkType == LINK_TYPES.PRIMARY ? primaryLinkStyle : secondaryLinkStyle;
+  if (!label) return null;
+
   return (
     <Link
       to={pathToNavigate || ""}
