@@ -5,6 +5,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { insufficientDataValue } from "../../../../utils/constants";
 import { StatisticsItem } from "./EndpointStatistics/StatisticsItem";
 import { isDataSufficient } from "../../../../utils/statistics";
+import { AnimatedBorderBottom } from "../../../../components/AnimatedBorderBottom/AnimatedBorderBottom";
 
 type EndpointStatisticsProps = {
   endpointStats: EndpointStats;
@@ -26,28 +27,30 @@ export const EndpointStatistics = ({
       className={`transition duration-500 ${showMainInsightsTransition}`}
       ref={statsResultsRef}
     >
-      <button
-        onClick={() => setShowStats((prevValue) => !prevValue)}
-        aria-controls={statsSectionId}
-        className="
-            transition-all duration-100 cursor-pointer text-lg font-bold text-white p-2 pl-0 rounded-lg border-1 border-transparent hover:border-white"
-        aria-expanded={showStats ? "true" : "false"}
-        aria-label={`${
-          showStats ? "Hide" : "Show"
-        } endpoint insights visibility`}
-      >
-        <div className="flex">
-          <div className="pr-3" aria-hidden="true">
-            {!showStats && <VisibilityIcon aria-hidden="true" />}
-            {showStats && <VisibilityOffIcon aria-hidden="true" />}
+      <AnimatedBorderBottom>
+        <button
+          onClick={() => setShowStats((prevValue) => !prevValue)}
+          aria-controls={statsSectionId}
+          className="
+            transition-all duration-100 cursor-pointer text-lg font-bold text-white p-2 pl-0 rounded-lg border-1 border-transparent"
+          aria-expanded={showStats ? "true" : "false"}
+          aria-label={`${
+            showStats ? "Hide" : "Show"
+          } endpoint insights visibility`}
+        >
+          <div className="flex">
+            <div className="pr-3" aria-hidden="true">
+              {!showStats && <VisibilityIcon aria-hidden="true" />}
+              {showStats && <VisibilityOffIcon aria-hidden="true" />}
+            </div>
+            <span className="mt-0.5 w-max">
+              {!showStats && <span>Show </span>}
+              {showStats && <span>Hide </span>}
+              endpoint insights
+            </span>
           </div>
-          <span className="mt-0.5 w-max">
-            {!showStats && <span>Show </span>}
-            {showStats && <span>Hide </span>}
-            endpoint insights
-          </span>
-        </div>
-      </button>
+        </button>
+      </AnimatedBorderBottom>
       <div
         className={` ${
           showStats ? " max-h-96 mt-5" : "max-h-0 h-max mt-0"
