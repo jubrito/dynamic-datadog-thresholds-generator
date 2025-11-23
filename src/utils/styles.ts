@@ -7,11 +7,11 @@ export const mainTopSpacing = "mt-5 bg-";
 
 export const VARIANT_STYLES = {
   [VARIANTS.ERROR]: {
-    bg: "bg-red-500",
-    shadow: "bg-red-500/10",
-    icon: "text-red-500",
+    bg: "bg-pink-600",
+    shadow: "bg-pink-600/10",
+    icon: "text-pink-600",
     bgText: "text-white",
-    bgHover: "hover:bg-red-600",
+    bgHover: "hover:bg-pink-800",
   },
   [VARIANTS.WARNING]: {
     bg: "bg-orange-500",
