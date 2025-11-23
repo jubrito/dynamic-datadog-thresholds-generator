@@ -14,11 +14,11 @@ describe("ActionLinks", () => {
         <BrowserRouter>
           <ActionLinks
             primaryLink={{
-              pathToNavigate: "/path",
+              pathToNavigate: internalPathToNavigate,
               label: undefined,
             }}
             secondaryLink={{
-              pathToNavigate: "/path",
+              pathToNavigate: internalPathToNavigate,
               label: undefined,
             }}
           />
@@ -65,6 +65,25 @@ describe("ActionLinks", () => {
   });
 
   describe("External links", () => {
+    it("should not render anchors if label is not defined", () => {
+      render(
+        <BrowserRouter>
+          <ActionLinks
+            primaryLink={{
+              pathToNavigate: internalPathToNavigate,
+              label: undefined,
+            }}
+            secondaryLink={{
+              pathToNavigate: internalPathToNavigate,
+              label: undefined,
+            }}
+          />
+        </BrowserRouter>
+      );
+      const anchors = screen.queryAllByRole("anchor");
+      expect(anchors).toHaveLength(0);
+    });
+
     it("should render external primary anchor correctly", () => {
       render(
         <BrowserRouter>
