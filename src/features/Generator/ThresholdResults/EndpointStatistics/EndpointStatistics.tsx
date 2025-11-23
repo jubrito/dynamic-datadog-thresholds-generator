@@ -60,14 +60,14 @@ export const EndpointStatistics = ({
         aria-hidden={showStats ? "false" : "true"}
       >
         <>
-          <StatisticsItem
-            label="Number of values analyzed:"
-            value={endpointStats.numberOfElements}
-          />
           <StatisticsItem label="Minimum:" value={endpointStats.minimum} />
           <StatisticsItem label="Maximum:" value={endpointStats.maximum} />
           <StatisticsItem label="Average:" value={endpointStats.average} />
           <StatisticsItem label="Median:" value={endpointStats.median} />
+          <StatisticsItem
+            label="Number of values analyzed:"
+            value={endpointStats.numberOfElements}
+          />
           <StatisticsItem
             label="Sorted percentiles:"
             value={`[${endpointStats.sorted}]`}
