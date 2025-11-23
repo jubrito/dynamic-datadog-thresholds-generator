@@ -28,7 +28,10 @@ export const GeneratorResults = ({
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const scrollToResults = () => {
-    resultsRef.current?.scrollIntoView({ behavior: "smooth" });
+    resultsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   useEffect(() => {
