@@ -1,6 +1,7 @@
 import type { Percentile, ThresholdsConfig } from "../../../types/generator";
 import { computeAdaptiveThresholds } from "../../../utils/thresholds";
 import { ThresholdResults } from "../../../features/Generator/ThresholdResults/ThresholdResults";
+import { stylesDarkGrayBlue } from "../../../utils/styles";
 
 type ThresholdsProps = {
   endpointName?: string;
@@ -25,16 +26,17 @@ export const Thresholds = ({
       role="region"
       className={`${
         resultsWereGenerated ? "opacity-100" : "opacity-0"
-      } transition-opacity duration-500 rounded-xl pb-7`}
+      } transition-opacity duration-500 rounded-xl`}
       aria-live="polite"
     >
       {resultsWereGenerated && (
         <>
           <h2
-            className="font-bold text-2xl"
+            className={`p-5 text-3xl ${stylesDarkGrayBlue.background}`}
             aria-label={`Endpoint name: ${endpointName}`}
           >
-            {endpointName}
+            <span className="text-white/80">Generator results for</span>
+            <span className="font-bold pl-2">{endpointName}</span>
           </h2>
           <ThresholdResults
             warningThreshold={warningThreshold}
