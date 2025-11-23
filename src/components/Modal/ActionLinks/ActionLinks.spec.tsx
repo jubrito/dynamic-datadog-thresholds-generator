@@ -7,8 +7,9 @@ describe("ActionLinks", () => {
   const externalPathToNavigate = "www.external.com";
 
   describe("Primary Link", () => {
+    const label = "label";
+
     it("should render internal primary link with path", () => {
-      const label = "label";
       render(
         <BrowserRouter>
           <ActionLinks
@@ -24,8 +25,21 @@ describe("ActionLinks", () => {
       expect(link).toHaveAttribute("href", internalPathToNavigate);
     });
 
-    it.skip("should render external primary link correctly", () => {
-      // Test implementation for external primary link
+    it("should render external primary anchor correctly", () => {
+      render(
+        <BrowserRouter>
+          <ActionLinks
+            primaryLink={{
+              pathToNavigate: internalPathToNavigate,
+              label,
+              isExternalLink: true,
+            }}
+          />
+        </BrowserRouter>
+      );
+      const link = screen.getByRole("anchor", { name: label });
+      expect(link).toBeInTheDocument();
+      expect(link).toHaveAttribute("href", internalPathToNavigate);
     });
   });
 });
