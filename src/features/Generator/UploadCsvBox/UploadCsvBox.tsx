@@ -26,7 +26,8 @@ export const UploadCsvBox = ({
   const filePondRef = React.useRef<FilePond>(null);
 
   const clearFile = (receivedFile: FilePondFile) => {
-    filePondRef.current?.removeFile(receivedFile?.id ?? receivedFile?.file);
+    if (!receivedFile || !receivedFile.id) return;
+    filePondRef.current?.removeFile(receivedFile.id);
   };
 
   const handleValues = (csvRows: string[][], csvHeaders: string[]) => {
@@ -114,8 +115,9 @@ export const UploadCsvBox = ({
       <h2 className="text-2xl font-bold">CSV file upload</h2>
       <p className="mb-5 text-lg" id={uploadCsvDescriptionId}>
         Upload a Datadog endpoint metrics csv file using the percentile
-        aggregation to generate suggested thresholds.
+        aggregation to generate thresholds.
       </p>
+
       <div aria-labelledby={uploadCsvDescriptionId}>
         <FilePond
           acceptedFileTypes={[".csv", "text/csv"]}

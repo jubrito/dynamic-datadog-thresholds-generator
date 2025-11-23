@@ -10,8 +10,14 @@ jest.mock(
 
 describe("UploadCsvBox", () => {
   const updateThresholdDataMock = jest.fn();
+  const setFileUploadFailedMock = jest.fn();
   beforeEach(() => {
-    render(<UploadCsvBox updateThresholdData={updateThresholdDataMock} />);
+    render(
+      <UploadCsvBox
+        updateThresholdData={updateThresholdDataMock}
+        setFileUploadFailed={setFileUploadFailedMock}
+      />
+    );
   });
 
   it("should render section described by introduction description", () => {
@@ -30,8 +36,15 @@ describe("UploadCsvBox", () => {
   });
   it("should render description", () => {
     const description = screen.getByText(
-      "Upload a Datadog endpoint metrics csv file using the percentile aggregation to generate suggested thresholds."
+      "Upload a Datadog endpoint metrics csv file using the percentile aggregation to generate thresholds."
     );
     expect(description).toBeInTheDocument();
   });
+  it.todo(
+    "should set file upload failed and clear file when no file is provided"
+  );
+  it.todo("should set file upload failed and clear file  when upload fails");
+  it.todo(
+    "should set file upload failed and clear file when file upload is not csv"
+  );
 });
