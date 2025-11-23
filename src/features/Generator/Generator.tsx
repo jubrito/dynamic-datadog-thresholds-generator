@@ -25,11 +25,10 @@ export const Generator = () => {
     metricValues: [],
   });
   const [fileUploadFailed, setFileUploadFailed] = useState(false);
-  const showInsights = thresholdData.metricValues.length > 0;
 
   return (
     <>
-      {/* <Modal
+      <Modal
         isOpen={fileUploadFailed}
         onClose={() => {}}
         title="The file uploaded is not valid"
@@ -50,7 +49,7 @@ export const Generator = () => {
             endpoint's percentile metrics data.
           </p>
         </div>
-      </Modal> */}
+      </Modal>
       <section className={`py-10 ${mainHorizontalSpacing} ${mainTopSpacing}`}>
         <div />
         <div className={`relative grid gap-7 max-w-253`}>
