@@ -20,11 +20,26 @@ jest.mock("../../../utils/thresholds", () => ({
 }));
 
 describe("Thresholds", () => {
-  it("should not render results when there are no endpointName or percentile value", () => {
+  it("should not render results when there are or percentile values", () => {
     render(
       <Thresholds
         sortedPercentileValues={[]}
         endpointName={"endpoint-name"}
+        thresholdsConfig={mockConfig}
+      />
+    );
+    const section = screen.getByRole("region", { hidden: true });
+    expect(section).toHaveClass(/opacity-0/);
+    expect(screen.queryByText(/endpoint-name/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Warning threshold:/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Critical threshold:/)).not.toBeInTheDocument();
+  });
+
+  it("should not render results when there is no endpoint name", () => {
+    render(
+      <Thresholds
+        sortedPercentileValues={[1]}
+        endpointName={""}
         thresholdsConfig={mockConfig}
       />
     );
@@ -46,9 +61,9 @@ describe("Thresholds", () => {
     const section = screen.getByRole("region", { hidden: true });
     expect(section).toHaveClass(/opacity-100/);
     expect(screen.getByText("/api/test")).toBeInTheDocument();
-    expect(screen.getByText(/Warning threshold:/)).toBeInTheDocument();
+    expect(screen.getByText(/Warning threshold/)).toBeInTheDocument();
     expect(screen.getByText(/10/)).toBeInTheDocument();
-    expect(screen.getByText(/Critical threshold:/)).toBeInTheDocument();
+    expect(screen.getByText(/Critical threshold/)).toBeInTheDocument();
     expect(screen.getByText(/20/)).toBeInTheDocument();
   });
 
