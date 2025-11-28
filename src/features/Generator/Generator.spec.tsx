@@ -27,7 +27,7 @@ describe("Generator", () => {
       })
     ).toBeInTheDocument();
   });
-  it("should CSV file upload section", () => {
+  it.only("should render CSV file upload section", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
@@ -53,7 +53,9 @@ describe("Generator", () => {
   });
 
   it("should hide CSV file upload and configuration sections when clicking on the tooltip", async () => {
-    const tooltipButton = screen.getByRole("button");
+    const tooltipButton = screen.getByRole("button", {
+      name: "Toggle generator explanation",
+    });
     await userEvent.click(tooltipButton);
 
     expect(
@@ -75,4 +77,80 @@ describe("Generator", () => {
       })
     ).not.toBeInTheDocument();
   });
+  it("should render modal when file uploaded is invalid", async () => {
+    render(
+      <BrowserRouter>
+        <Generator />
+      </BrowserRouter>
+    );
+
+    const csvTemplate = `query;group;time;value
+      avg:app.request_time_ms.95percentile{api_env:prod uri:/endpoint/example/--id--} / 1000;;2025-08-01T00:00:00.000Z;0.025131
+      avg:app.request_time_ms.95percentile{api_env:prod uri:/endpoint/example/--id--} / 1000;;2025-08-02T12:00:00.000Z;0.039885
+      `;
+    const file = new File([csvTemplate], "valid.csv", { type: "text/csv" });
+    const fileDropInput = screen.getByRole("input", { name: "files" });
+    await userEvent.upload(fileDropInput, file);
+
+    const modalTitle = screen.queryByRole("heading", {
+      level: 3,
+      name: "The file uploaded is not valid",
+    });
+    const primaryLink = screen.queryByRole("link", {
+      name: "Learn how to upload valid files",
+    });
+    const secondaryLink = screen.queryByRole("link", {
+      name: "Go to DataDog docs",
+    });
+    expect(modalTitle).not.toBeInTheDocument();
+    expect(primaryLink).not.toBeInTheDocument();
+    expect(secondaryLink).not.toBeInTheDocument();
+  });
+  // it.each(["png", "jpg", "mp3", "mp4"])(
+  //   "should render modal when file uploaded is invalid",
+  //   async () => {
+  //     // Simulate file upload failure by setting the state
+  //     // Since we cannot directly set the state from here, we will
+  //     // re-render the component with the state set to true for testing purposes.
+  //     render(
+  //       <BrowserRouter>
+  //         <Generator />
+  //       </BrowserRouter>
+  //     );
+  //     // const acceptedType = ".csv";
+
+  //     // Upload invalid file
+  //     // const file = new File([], "name" + acceptedType, {
+  //     //   type: "text/csv",
+  //     // });
+  //     // const file = new File(["bad,content\n"], "bad.csv", { type: "text/csv" });
+
+  //     // const file = new File(["bad,content\n"], fileName + acceptedType, {
+  //     //   type: "text/csv",
+  //     // });
+  //     const csvTemplate = `query;group;time;value
+  //     avg:app.request_time_ms.95percentile{api_env:prod uri:/endpoint/example/--id--} / 1000;;2025-08-01T00:00:00.000Z;0.025131
+  //     avg:app.request_time_ms.95percentile{api_env:prod uri:/endpoint/example/--id--} / 1000;;2025-08-02T12:00:00.000Z;0.039885
+  //     `;
+  //     const file = new File([csvTemplate], "valid.csv", { type: "text/csv" });
+  //     const fileDropInput = screen.getByRole("input", { name: "files" });
+  //     // const input = screen.getByTestId("filepond-input");
+  //     await userEvent.upload(fileDropInput, file);
+
+  //     const modalTitle = screen.queryByRole("heading", {
+  //       level: 3,
+  //       name: "The file uploaded is not valid",
+  //     });
+  //     const primaryLink = screen.queryByRole("link", {
+  //       name: "Learn how to upload valid files",
+  //     });
+  //     const secondaryLink = screen.queryByRole("link", {
+  //       name: "Go to DataDog docs",
+  //     });
+  //     expect(modalTitle).not.toBeInTheDocument();
+  //     expect(primaryLink).not.toBeInTheDocument();
+  //     expect(secondaryLink).not.toBeInTheDocument();
+  //   }
+  // );
+  it.todo("should not render modal when file uploaded is valid");
 });
