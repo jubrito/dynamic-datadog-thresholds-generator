@@ -43,4 +43,12 @@ describe("Monitoring Strategies", () => {
   it.each(content)("should render each content text", (contentText) => {
     expect(screen.getByText(contentText)).toBeInTheDocument();
   });
+
+  it('should render "Previous" button', () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page: Monitor Configuration/i,
+    });
+
+    expect(previousButton).toBeInTheDocument();
+  });
 });
