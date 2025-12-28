@@ -6,6 +6,7 @@ import { Observability } from "./features/Documentation/DocumentationContent/Obs
 import { Datadog } from "./features/Documentation/DocumentationContent/Datadog/Datadog";
 import { MonitorConfiguration } from "./features/Documentation/DocumentationContent/MonitorConfiguration/MonitorConfiguration";
 import { Thresholds } from "./features/Documentation/DocumentationContent/Thresholds/Thresholds";
+import { MonitoringStrategies } from "./features/Documentation/DocumentationContent/MonitoringStrategies/MonitoringStrategies";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
               <Route
                 path="monitor-configuration"
                 element={<MonitorConfiguration />}
+              />
+              <Route
+                path="monitoring-strategies"
+                element={<MonitoringStrategies />}
               />
             </Route>
           </Routes>

@@ -17,6 +17,7 @@ export const OBSERVABILITY_KEY = "observability";
 export const DATADOG_KEY = "datadog";
 export const THRESHOLDS_KEY = "thresholds";
 export const MONITOR_CONFIG_KEY = "monitor-configuration";
+export const MONITORING_STRATEGIES_KEY = "monitoring-strategies";
 
 export const VARIANTS = {
   INFO: "info",

@@ -4,6 +4,7 @@ import {
   DATADOG_KEY,
   DOCUMENTATION_ROUTE,
   MONITOR_CONFIG_KEY,
+  MONITORING_STRATEGIES_KEY,
   OBSERVABILITY_KEY,
   THRESHOLDS_KEY,
 } from "../../../utils/constants";
@@ -47,6 +48,15 @@ export const DocumentationNav = () => {
             label="Monitor Configuration"
             isOpen={pathname == `${DOCUMENTATION_ROUTE}/${MONITOR_CONFIG_KEY}`}
             path={MONITOR_CONFIG_KEY}
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Monitoring Strategies"
+            isOpen={
+              pathname == `${DOCUMENTATION_ROUTE}/${MONITORING_STRATEGIES_KEY}`
+            }
+            path={MONITORING_STRATEGIES_KEY}
           />
         </li>
       </ul>
