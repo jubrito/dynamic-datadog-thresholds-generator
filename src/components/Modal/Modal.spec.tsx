@@ -40,5 +40,8 @@ describe("Modal", () => {
     it("should render primary link", () => {
       expect(screen.getByText(primaryLink.label)).toBeInTheDocument();
     });
+    it("should render secondary link", () => {
+      expect(screen.getByText(secondaryLink.label)).toBeInTheDocument();
+    });
   });
 });
