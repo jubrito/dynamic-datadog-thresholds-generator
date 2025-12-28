@@ -3,7 +3,8 @@ import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/
 import MonitorConfigExample from "../../../../assets/datadog-monitor-config-example.jpg";
 import {
   DOCUMENTATION_ROUTE,
-  THRESHOLDS_KEY,
+  METRIC_MONITORS_KEY,
+  MONITORING_STRATEGIES_KEY,
 } from "../../../../utils/constants";
 
 export const MonitorConfiguration = () => {
@@ -70,8 +71,12 @@ export const MonitorConfiguration = () => {
       <Divider />
       <PreviousNextButtons
         previous={{
-          label: "Thresholds",
-          path: `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`,
+          label: "Metric Monitors",
+          path: `${DOCUMENTATION_ROUTE}/${METRIC_MONITORS_KEY}`,
+        }}
+        next={{
+          label: "Monitoring Strategies",
+          path: `${DOCUMENTATION_ROUTE}/${MONITORING_STRATEGIES_KEY}`,
         }}
       />
     </div>

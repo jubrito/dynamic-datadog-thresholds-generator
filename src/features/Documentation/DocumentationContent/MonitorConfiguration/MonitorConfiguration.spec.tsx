@@ -1,27 +1,7 @@
 import { screen } from "@testing-library/dom";
 import { MonitorConfiguration } from "./MonitorConfiguration";
 import { render } from "@testing-library/react";
-import { PreviousNextButtonsProps } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
-
-jest.mock(
-  "../../../../components/PreviousNextButtons/PreviousNextButtons",
-  () => ({
-    PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
-      <div>
-        {previous && (
-          <button role="button" aria-label={`Previous page: ${previous.label}`}>
-            Previous: {previous.label}
-          </button>
-        )}
-        {next && (
-          <button role="button" aria-label={`Next page: ${next.label}`}>
-            Next: {next.label}
-          </button>
-        )}
-      </div>
-    ),
-  })
-);
+import { BrowserRouter } from "react-router";
 
 describe("Monitor Configuration", () => {
   const page = "Monitor Configuration";
@@ -41,7 +21,11 @@ describe("Monitor Configuration", () => {
   const content = [question, ...steps, ...examples];
 
   beforeEach(() => {
-    render(<MonitorConfiguration />);
+    render(
+      <BrowserRouter>
+        <MonitorConfiguration />
+      </BrowserRouter>
+    );
   });
   afterEach(() => {
     jest.clearAllMocks();
@@ -58,17 +42,17 @@ describe("Monitor Configuration", () => {
 
   it('should render "Previous" button', () => {
     const previousButton = screen.getByRole("button", {
-      name: /Previous page: Thresholds/i,
+      name: /Previous page: Metric Monitors/i,
     });
 
     expect(previousButton).toBeInTheDocument();
   });
 
-  it('should not render "Next" button', () => {
+  it('should render "Next" button', () => {
     const nextButton = screen.queryByRole("button", {
-      name: /Next page:/i,
+      name: /Next page: Monitoring Strategies/i,
     });
 
-    expect(nextButton).not.toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
   });
 });
