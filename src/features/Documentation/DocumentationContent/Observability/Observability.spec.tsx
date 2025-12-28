@@ -1,27 +1,7 @@
 import { screen } from "@testing-library/dom";
 import { Observability } from "./Observability";
 import { render } from "@testing-library/react";
-import { PreviousNextButtonsProps } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
-
-jest.mock(
-  "../../../../components/PreviousNextButtons/PreviousNextButtons",
-  () => ({
-    PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
-      <div>
-        {previous && (
-          <button role="button" aria-label={`Previous page: ${previous.label}`}>
-            Previous: {previous.label}
-          </button>
-        )}
-        {next && (
-          <button role="button" aria-label={`Next page: ${next.label}`}>
-            Next: {next.label}
-          </button>
-        )}
-      </div>
-    ),
-  })
-);
+import { BrowserRouter } from "react-router";
 
 describe("Observability", () => {
   const page = "Observability";
@@ -40,7 +20,11 @@ describe("Observability", () => {
   ];
 
   beforeEach(() => {
-    render(<Observability />);
+    render(
+      <BrowserRouter>
+        <Observability />
+      </BrowserRouter>
+    );
   });
   afterEach(() => {
     jest.clearAllMocks();
