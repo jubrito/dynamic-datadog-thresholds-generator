@@ -37,5 +37,8 @@ describe("Modal", () => {
     it("should render children", () => {
       expect(screen.getByText(content)).toBeInTheDocument();
     });
+    it("should render primary link", () => {
+      expect(screen.getByText(primaryLink.label)).toBeInTheDocument();
+    });
   });
 });
