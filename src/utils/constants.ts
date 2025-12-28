@@ -18,6 +18,7 @@ export const DATADOG_KEY = "datadog";
 export const THRESHOLDS_KEY = "thresholds";
 export const MONITOR_CONFIG_KEY = "monitor-configuration";
 export const MONITORING_STRATEGIES_KEY = "monitoring-strategies";
+export const METRIC_MONITORS_KEY = "metric-monitors";
 
 export const VARIANTS = {
   INFO: "info",

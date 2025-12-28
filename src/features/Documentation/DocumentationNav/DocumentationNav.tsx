@@ -3,6 +3,7 @@ import { DocNavButton } from "./DocNavButton/DocNavButton";
 import {
   DATADOG_KEY,
   DOCUMENTATION_ROUTE,
+  METRIC_MONITORS_KEY,
   MONITOR_CONFIG_KEY,
   MONITORING_STRATEGIES_KEY,
   OBSERVABILITY_KEY,
@@ -41,6 +42,13 @@ export const DocumentationNav = () => {
             label="Thresholds"
             isOpen={pathname == `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`}
             path={THRESHOLDS_KEY}
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Metric Monitors"
+            isOpen={pathname == `${DOCUMENTATION_ROUTE}/${METRIC_MONITORS_KEY}`}
+            path={METRIC_MONITORS_KEY}
           />
         </li>
         <li>

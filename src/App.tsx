@@ -9,11 +9,13 @@ import { Thresholds } from "./features/Documentation/DocumentationContent/Thresh
 import { MonitoringStrategies } from "./features/Documentation/DocumentationContent/MonitoringStrategies/MonitoringStrategies";
 import {
   DATADOG_KEY,
+  METRIC_MONITORS_KEY,
   MONITOR_CONFIG_KEY,
   MONITORING_STRATEGIES_KEY,
   OBSERVABILITY_KEY,
   THRESHOLDS_KEY,
 } from "./utils/constants";
+import { MetricMonitors } from "./features/Documentation/DocumentationContent/MetricMonitors/MetricMonitors";
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
               <Route path={OBSERVABILITY_KEY} element={<Observability />} />
               <Route path={DATADOG_KEY} element={<Datadog />} />
               <Route path={THRESHOLDS_KEY} element={<Thresholds />} />
+              <Route path={METRIC_MONITORS_KEY} element={<MetricMonitors />} />
               <Route
                 path={MONITOR_CONFIG_KEY}
                 element={<MonitorConfiguration />}
