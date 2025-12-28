@@ -1,10 +1,9 @@
-import { ColorBox } from "../../../../components/ColorBox/ColorBox";
 import { Divider } from "../../../../components/Divider/Divider";
 import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
 import {
   DATADOG_KEY,
   DOCUMENTATION_ROUTE,
-  MONITOR_CONFIG_KEY,
+  METRIC_MONITORS_KEY,
 } from "../../../../utils/constants";
 
 export const Thresholds = () => {
@@ -49,9 +48,6 @@ export const Thresholds = () => {
           <li>Missed anomalies.</li>
         </ul>
       </div>
-      <ColorBox style="bg-pink-600 text-white w-fit">
-        But how to set appropriate thresholds values when configuring alerts?
-      </ColorBox>
       <Divider />
       <PreviousNextButtons
         previous={{
@@ -59,8 +55,8 @@ export const Thresholds = () => {
           path: `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`,
         }}
         next={{
-          label: "Monitor Configuration",
-          path: `${DOCUMENTATION_ROUTE}/${MONITOR_CONFIG_KEY}`,
+          label: "Metric Monitors",
+          path: `${DOCUMENTATION_ROUTE}/${METRIC_MONITORS_KEY}`,
         }}
       />
     </div>

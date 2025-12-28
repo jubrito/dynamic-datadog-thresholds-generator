@@ -1,27 +1,7 @@
 import { screen } from "@testing-library/dom";
 import { Thresholds } from "./Thresholds";
 import { render } from "@testing-library/react";
-import { PreviousNextButtonsProps } from "../../../../components/PreviousNextButtons/PreviousNextButtons";
-
-jest.mock(
-  "../../../../components/PreviousNextButtons/PreviousNextButtons",
-  () => ({
-    PreviousNextButtons: ({ previous, next }: PreviousNextButtonsProps) => (
-      <div>
-        {previous && (
-          <button role="button" aria-label={`Previous page: ${previous.label}`}>
-            Previous: {previous.label}
-          </button>
-        )}
-        {next && (
-          <button role="button" aria-label={`Next page: ${next.label}`}>
-            Next: {next.label}
-          </button>
-        )}
-      </div>
-    ),
-  })
-);
+import { BrowserRouter } from "react-router";
 
 describe("Thresholds", () => {
   const page = "Thresholds";
@@ -29,14 +9,17 @@ describe("Thresholds", () => {
     "What is it and why does it matter?",
     "Noisy alerts.",
     "Missed anomalies.",
-    "But how to set appropriate thresholds values when configuring alerts?",
   ];
   const labelContent = [
     "Thresholds are predefined values that trigger alerts when a metric crosses them. They act as boundaries for monitoring conditions, allowing you to define when a metric crosses them. They act as boundaries for monitoring conditions, allowing you to define alert or warning state.",
   ];
 
   beforeEach(() => {
-    render(<Thresholds />);
+    render(
+      <BrowserRouter>
+        <Thresholds />
+      </BrowserRouter>
+    );
   });
   afterEach(() => {
     jest.clearAllMocks();
@@ -60,7 +43,7 @@ describe("Thresholds", () => {
       name: /Previous page: Datadog/i,
     });
     const nextButton = screen.getByRole("button", {
-      name: /Next page: Monitor Configuration/i,
+      name: /Next page: Metric Monitors/i,
     });
 
     expect(previousButton).toBeInTheDocument();
