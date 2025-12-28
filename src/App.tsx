@@ -7,6 +7,13 @@ import { Datadog } from "./features/Documentation/DocumentationContent/Datadog/D
 import { MonitorConfiguration } from "./features/Documentation/DocumentationContent/MonitorConfiguration/MonitorConfiguration";
 import { Thresholds } from "./features/Documentation/DocumentationContent/Thresholds/Thresholds";
 import { MonitoringStrategies } from "./features/Documentation/DocumentationContent/MonitoringStrategies/MonitoringStrategies";
+import {
+  DATADOG_KEY,
+  MONITOR_CONFIG_KEY,
+  MONITORING_STRATEGIES_KEY,
+  OBSERVABILITY_KEY,
+  THRESHOLDS_KEY,
+} from "./utils/constants";
 
 function App() {
   return (
@@ -18,15 +25,15 @@ function App() {
             <Route path="/" element={<Generator />} />
             <Route path="/documentation" element={<Documentation />}>
               <Route index element={<Observability />} />
-              <Route path="observability" element={<Observability />} />
-              <Route path="datadog" element={<Datadog />} />
-              <Route path="thresholds" element={<Thresholds />} />
+              <Route path={OBSERVABILITY_KEY} element={<Observability />} />
+              <Route path={DATADOG_KEY} element={<Datadog />} />
+              <Route path={THRESHOLDS_KEY} element={<Thresholds />} />
               <Route
-                path="monitor-configuration"
+                path={MONITOR_CONFIG_KEY}
                 element={<MonitorConfiguration />}
               />
               <Route
-                path="monitoring-strategies"
+                path={MONITORING_STRATEGIES_KEY}
                 element={<MonitoringStrategies />}
               />
             </Route>
