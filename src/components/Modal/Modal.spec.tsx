@@ -34,5 +34,8 @@ describe("Modal", () => {
     it("should render title", () => {
       expect(screen.getByText(title)).toBeInTheDocument();
     });
+    it("should render children", () => {
+      expect(screen.getByText(content)).toBeInTheDocument();
+    });
   });
 });
