@@ -1,4 +1,3 @@
-- replace variants separate consts with new VARIANTS const
 - change to es5
 
 https://tailwindcss.com/docs/align-items
