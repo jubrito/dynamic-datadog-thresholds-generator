@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { Modal } from "./Modal";
 import { VARIANTS } from "../../utils/constants";
 import { BrowserRouter } from "react-router";
+import userEvent from "@testing-library/user-event";
 
 describe("Modal", () => {
   describe("default rendering", () => {
@@ -42,6 +43,19 @@ describe("Modal", () => {
     });
     it("should render secondary link", () => {
       expect(screen.getByText(secondaryLink.label)).toBeInTheDocument();
+    });
+    it("should close modal when clicking on close button", async () => {
+      const closeButton = screen.getByRole("button", {
+        name: "Close explanation and go back to generator",
+      });
+
+      await userEvent.click(closeButton);
+
+      expect(onCloseMock).toHaveBeenCalled();
+
+      await waitFor(() => {
+        expect(screen.queryByText(title)).not.toBeInTheDocument();
+      });
     });
   });
 });
