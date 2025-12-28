@@ -67,13 +67,13 @@ export const MonitoringStrategies = () => {
           </tr>
           <tr>
             <td className="pt-4 font-bold pr-10">
-              <p className="border-1 border-pink-500 p-5 pr-0">
+              <p className="border-1 border-pink-500 p-5">
                 Alerts might not reflect endpoints' reality: what's considered
                 "normal" for one endpoint could be "abnormal" for another
               </p>
             </td>
             <td className="pt-4 font-bold">
-              <p className="border-1 border-violet-500 p-5 pr-0">
+              <p className="border-1 border-violet-500 p-5">
                 Meaningful alerts considering endpoints characteristics: each
                 threshold defined considers what is "normal" for that endpoint
               </p>
