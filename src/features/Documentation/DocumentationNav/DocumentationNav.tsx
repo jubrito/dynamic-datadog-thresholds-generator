@@ -44,7 +44,7 @@ export const DocumentationNav = () => {
         </li>
         <li>
           <DocNavButton
-            label="Monitor Config"
+            label="Monitor Configuration"
             isOpen={pathname == `${DOCUMENTATION_ROUTE}/${MONITOR_CONFIG_KEY}`}
             path={MONITOR_CONFIG_KEY}
           />

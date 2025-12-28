@@ -15,7 +15,7 @@ describe("DocumentationNav", () => {
     { name: "Observability", path: OBSERVABILITY_KEY },
     { name: "Datadog", path: DATADOG_KEY },
     { name: "Thresholds", path: THRESHOLDS_KEY },
-    { name: "Monitor Config", path: MONITOR_CONFIG_KEY },
+    { name: "Monitor Configuration", path: MONITOR_CONFIG_KEY },
   ];
   beforeEach(() => {
     render(
