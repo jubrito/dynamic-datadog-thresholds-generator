@@ -51,4 +51,12 @@ describe("Monitoring Strategies", () => {
 
     expect(previousButton).toBeInTheDocument();
   });
+
+  it('should not render "Next" button', () => {
+    const nextButton = screen.queryByRole("button", {
+      name: /Next page:/i,
+    });
+
+    expect(nextButton).not.toBeInTheDocument();
+  });
 });
