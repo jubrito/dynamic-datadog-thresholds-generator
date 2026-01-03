@@ -10,7 +10,7 @@ export const Thresholds = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Thresholds</h1>
-      <h2 className="text-2xl">What is it and why does it matter?</h2>
+      <h2 className="text-2xl">Thresholds and Alerts</h2>
       <p
         aria-label="Thresholds are predefined values that trigger alerts when a metric
         crosses them. They act as boundaries for monitoring conditions, allowing
@@ -25,7 +25,7 @@ export const Thresholds = () => {
           when a metric crosses them. They act as boundaries for monitoring
           conditions, allowing you to define
         </span>
-        <span className="font-bold" aria-hidden="true">
+        <span className="font-bold ml-1" aria-hidden="true">
           <span aria-hidden="true">
             when a system is considered to be in an
           </span>
