@@ -5,8 +5,8 @@ import { BrowserRouter } from "react-router";
 
 describe("Observability", () => {
   const page = "Observability";
+  const subtitle = "What is it and why does it matter?";
   const content = [
-    "What is it and why does it matter?",
     "Observability is the practice of measuring the internal state of systems by examining outputs, such as metrics and logs.",
     "Observability tools are critical to detect, debug, and resolve performance issues before they impact users.",
     "To address observability, we can use tools such as Datadog, a plataform that provides an observability service to monitor servers, databases, tools, and services, through a SaaS-based data analytics platform.",
@@ -33,6 +33,14 @@ describe("Observability", () => {
   it("should render title", () => {
     const title = screen.getByRole("heading", { level: 1, name: page });
     expect(title).toBeInTheDocument();
+  });
+
+  it("should render subtitle", () => {
+    const subtitleEl = screen.getByRole("heading", {
+      level: 2,
+      name: subtitle,
+    });
+    expect(subtitleEl).toBeInTheDocument();
   });
 
   it.each(content)("should render all content", (contentText) => {

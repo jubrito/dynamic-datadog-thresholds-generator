@@ -8,7 +8,7 @@ export const Observability = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Observability</h1>
-      <p className="text-2xl">What is it and why does it matter?</p>
+      <h2 className="text-2xl">What is it and why does it matter?</h2>
       <p>
         Observability is the practice of measuring the internal state of systems
         by examining outputs, such as metrics and logs.
