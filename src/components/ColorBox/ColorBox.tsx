@@ -1,8 +1,9 @@
 type ColorBoxProps = {
   children: React.ReactNode;
   style?: string;
+  id?: string;
 };
-export const ColorBox = ({ children, style = "" }: ColorBoxProps) => {
+export const ColorBox = ({ children, style = "", id }: ColorBoxProps) => {
   const defaultBackgroundColor = "bg-cyan-500";
   const defaultDynamicStyles = !style.includes("bg-")
     ? defaultBackgroundColor
@@ -14,6 +15,7 @@ export const ColorBox = ({ children, style = "" }: ColorBoxProps) => {
   return (
     <div
       className={`${paddingStyle} text-black font-bold ${defaultDynamicStyles} ${style}`}
+      id={id}
     >
       {children}
     </div>
