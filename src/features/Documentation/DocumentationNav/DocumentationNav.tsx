@@ -7,6 +7,7 @@ import {
   MONITOR_CONFIG_KEY,
   MONITORING_STRATEGIES_KEY,
   OBSERVABILITY_KEY,
+  QUERIES_FORMULAS_KEY,
   THRESHOLDS_KEY,
 } from "../../../utils/constants";
 
@@ -42,6 +43,15 @@ export const DocumentationNav = () => {
             label="Thresholds"
             isOpen={pathname == `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`}
             path={THRESHOLDS_KEY}
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Queries and Formulas"
+            isOpen={
+              pathname == `${DOCUMENTATION_ROUTE}/${QUERIES_FORMULAS_KEY}`
+            }
+            path={QUERIES_FORMULAS_KEY}
           />
         </li>
         <li>

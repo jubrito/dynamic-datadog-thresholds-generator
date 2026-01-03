@@ -47,7 +47,7 @@ describe("Metric Monitors", () => {
 
   it('should render "Previous" and "Next" buttons', () => {
     const previousButton = screen.getByRole("button", {
-      name: /Previous page: Thresholds/i,
+      name: /Previous page: Queries and Formulas/i,
     });
     const nextButton = screen.getByRole("button", {
       name: /Next page: Monitor Configuration/i,

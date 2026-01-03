@@ -4,7 +4,7 @@ import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/
 import {
   DOCUMENTATION_ROUTE,
   MONITOR_CONFIG_KEY,
-  THRESHOLDS_KEY,
+  QUERIES_FORMULAS_KEY,
 } from "../../../../utils/constants";
 import Endpoints from "../../../../assets/endpoints.jpg";
 
@@ -40,8 +40,8 @@ export const MetricMonitors = () => {
       <Divider />
       <PreviousNextButtons
         previous={{
-          label: "Thresholds",
-          path: `${DOCUMENTATION_ROUTE}/${THRESHOLDS_KEY}`,
+          label: "Queries and Formulas",
+          path: `${DOCUMENTATION_ROUTE}/${QUERIES_FORMULAS_KEY}`,
         }}
         next={{
           label: "Monitor Configuration",

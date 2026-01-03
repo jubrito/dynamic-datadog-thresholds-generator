@@ -13,9 +13,11 @@ import {
   MONITOR_CONFIG_KEY,
   MONITORING_STRATEGIES_KEY,
   OBSERVABILITY_KEY,
+  QUERIES_FORMULAS_KEY,
   THRESHOLDS_KEY,
 } from "./utils/constants";
 import { MetricMonitors } from "./features/Documentation/DocumentationContent/MetricMonitors/MetricMonitors";
+import { QueriesFormulas } from "./features/Documentation/DocumentationContent/QueriesFormulas/QueriesFormulas";
 
 function App() {
   return (
@@ -30,6 +32,10 @@ function App() {
               <Route path={OBSERVABILITY_KEY} element={<Observability />} />
               <Route path={DATADOG_KEY} element={<Datadog />} />
               <Route path={THRESHOLDS_KEY} element={<Thresholds />} />
+              <Route
+                path={QUERIES_FORMULAS_KEY}
+                element={<QueriesFormulas />}
+              />
               <Route path={METRIC_MONITORS_KEY} element={<MetricMonitors />} />
               <Route
                 path={MONITOR_CONFIG_KEY}

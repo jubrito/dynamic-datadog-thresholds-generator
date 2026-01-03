@@ -16,6 +16,7 @@ export const DOCUMENTATION_ROUTE = "/documentation";
 export const OBSERVABILITY_KEY = "observability";
 export const DATADOG_KEY = "datadog";
 export const THRESHOLDS_KEY = "thresholds";
+export const QUERIES_FORMULAS_KEY = "queries-formulas";
 export const MONITOR_CONFIG_KEY = "monitor-configuration";
 export const MONITORING_STRATEGIES_KEY = "monitoring-strategies";
 export const METRIC_MONITORS_KEY = "metric-monitors";

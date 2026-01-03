@@ -45,7 +45,7 @@ describe("Thresholds", () => {
       name: /Previous page: Datadog/i,
     });
     const nextButton = screen.getByRole("button", {
-      name: /Next page: Metric Monitors/i,
+      name: /Next page: Queries and Formulas/i,
     });
 
     expect(previousButton).toBeInTheDocument();

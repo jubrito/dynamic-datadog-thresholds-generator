@@ -3,7 +3,7 @@ import { PreviousNextButtons } from "../../../../components/PreviousNextButtons/
 import {
   DATADOG_KEY,
   DOCUMENTATION_ROUTE,
-  METRIC_MONITORS_KEY,
+  QUERIES_FORMULAS_KEY,
 } from "../../../../utils/constants";
 
 export const Thresholds = () => {
@@ -55,8 +55,8 @@ export const Thresholds = () => {
           path: `${DOCUMENTATION_ROUTE}/${DATADOG_KEY}`,
         }}
         next={{
-          label: "Metric Monitors",
-          path: `${DOCUMENTATION_ROUTE}/${METRIC_MONITORS_KEY}`,
+          label: "Queries and Formulas",
+          path: `${DOCUMENTATION_ROUTE}/${QUERIES_FORMULAS_KEY}`,
         }}
       />
     </div>

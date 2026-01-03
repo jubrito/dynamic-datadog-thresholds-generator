@@ -1,3 +1,4 @@
+- extract routes component and add to app
 - change to es5
 
 https://tailwindcss.com/docs/align-items
