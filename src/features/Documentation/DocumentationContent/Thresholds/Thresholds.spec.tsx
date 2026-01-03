@@ -5,11 +5,8 @@ import { BrowserRouter } from "react-router";
 
 describe("Thresholds", () => {
   const page = "Thresholds";
-  const textContent = [
-    "What is it and why does it matter?",
-    "Noisy alerts.",
-    "Missed anomalies.",
-  ];
+  const subtitle = "What is it and why does it matter?";
+  const textContent = ["Noisy alerts.", "Missed anomalies."];
   const labelContent = [
     "Thresholds are predefined values that trigger alerts when a metric crosses them. They act as boundaries for monitoring conditions, allowing you to define when a metric crosses them. They act as boundaries for monitoring conditions, allowing you to define alert or warning state.",
   ];
@@ -27,6 +24,11 @@ describe("Thresholds", () => {
 
   it("should render title", () => {
     const title = screen.getByRole("heading", { level: 1, name: page });
+    expect(title).toBeInTheDocument();
+  });
+
+  it("should render subtitle", () => {
+    const title = screen.getByRole("heading", { level: 2, name: subtitle });
     expect(title).toBeInTheDocument();
   });
 
