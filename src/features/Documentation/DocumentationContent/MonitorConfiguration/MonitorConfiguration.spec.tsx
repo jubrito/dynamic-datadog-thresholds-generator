@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router";
 
 describe("Monitor Configuration", () => {
   const page = "Monitor Configuration";
-  const question = "How to configure and analyze Datadog monitors?";
+  const question = "How to configure and analyze Datadog metric monitors?";
   const steps = [
     "Define a query to extract metrics",
     "Define a formula",

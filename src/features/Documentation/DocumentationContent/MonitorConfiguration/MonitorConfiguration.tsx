@@ -11,7 +11,9 @@ export const MonitorConfiguration = () => {
   return (
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Monitor Configuration</h1>
-      <p className="text-2xl">How to configure and analyze Datadog monitors?</p>
+      <p className="text-2xl">
+        How to configure and analyze Datadog metric monitors?
+      </p>
       <div>
         <p className="mb-4">
           <span className="text-cyan-600 text-2xl font-bold px-5">1.</span>
