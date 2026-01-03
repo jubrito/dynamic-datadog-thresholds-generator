@@ -12,8 +12,8 @@ export const Datadog = () => {
   return (
     <>
       <div className="flex xl:flex-nowrap flex-wrap flex-row gap-5">
+        <h1 className="text-4xl font-bold block xl:hidden">Datadog</h1>
         <div className="min-w-full h-80 max-h-70 xl:h-auto xl:max-h-unset bg-[#100860] relative  xl:max-w-280 xl:min-w-80">
-          <h1 className="text-4xl font-bold block xl:hidden mb-5">Datadog</h1>
           <div className="absolute inset-0 flex items-center justify-center xl:block">
             <img
               src={DatadogLogo}
