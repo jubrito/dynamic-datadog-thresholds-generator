@@ -5,7 +5,8 @@ import { MonitoringStrategies } from "./MonitoringStrategies";
 
 describe("Monitoring Strategies", () => {
   const page = "Monitoring Strategies";
-
+  const caption =
+    "Advantages and disavantages of using a single monitor or specific monitors for multiple endpoints";
   const blanketMonitorsContent = [
     /Blanket Monitors/,
     /Singular latency threshold/,
@@ -38,6 +39,11 @@ describe("Monitoring Strategies", () => {
   it("should render title", () => {
     const title = screen.getByRole("heading", { level: 1, name: page });
     expect(title).toBeInTheDocument();
+  });
+
+  it("should render caption", () => {
+    const captionEl = screen.getByRole("caption", { name: caption });
+    expect(captionEl).toBeInTheDocument();
   });
 
   it.each(content)("should render each content text", (contentText) => {

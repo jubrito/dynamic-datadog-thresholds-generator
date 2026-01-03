@@ -12,6 +12,10 @@ export const MonitoringStrategies = () => {
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Monitoring Strategies</h1>
       <table className="column-gap-20">
+        <caption className="pb-5 text-left">
+          Advantages and disavantages of using a single monitor or specific
+          monitors for multiple endpoints
+        </caption>
         <thead>
           <tr>
             <th className="text-2xl">
