@@ -5,7 +5,8 @@ import { BrowserRouter } from "react-router";
 
 describe("Monitor Configuration", () => {
   const page = "Monitor Configuration";
-  const question = "How to configure and analyze Datadog metric monitors?";
+  const subtitle = "How to configure and analyze Datadog metric monitors?";
+
   const steps = [
     "Define a query to extract metrics",
     "Define a formula",
@@ -18,7 +19,7 @@ describe("Monitor Configuration", () => {
     "Example: Evaluate the average of the query over the last 15 minutes",
     "Example: Trigger alert when the evaluated value (from query) is above the alert threshold 6",
   ];
-  const content = [question, ...steps, ...examples];
+  const content = [...steps, ...examples];
 
   beforeEach(() => {
     render(
@@ -33,6 +34,11 @@ describe("Monitor Configuration", () => {
 
   it("should render title", () => {
     const title = screen.getByRole("heading", { level: 1, name: page });
+    expect(title).toBeInTheDocument();
+  });
+
+  it("should render subtitle", () => {
+    const title = screen.getByRole("heading", { level: 2, name: subtitle });
     expect(title).toBeInTheDocument();
   });
 
