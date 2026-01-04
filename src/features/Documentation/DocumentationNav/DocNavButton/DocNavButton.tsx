@@ -13,7 +13,7 @@ export const DocNavButton = ({
 }: DocNavButtonProps) => {
   const style = `${
     isOpen ? "font-bold border-b-1" : "text-[#dedae3] "
-  } relative group text-lg hover:text-white cursor-pointer text-right`;
+  } relative group text-lg hover:text-white cursor-pointer text-right border-b-1`;
   return (
     <AnimatedBorderBottom
       borderStyle="bg-indigo-500"

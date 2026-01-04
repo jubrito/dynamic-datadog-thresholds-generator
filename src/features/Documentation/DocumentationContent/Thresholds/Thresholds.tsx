@@ -44,7 +44,7 @@ export const Thresholds = () => {
           className="list-inside list-disc"
           aria-labelledby="when-defining-thresholds-label"
         >
-          <li className="py-4">Noisy alerts.</li>
+          <li className="my-4">Noisy alerts.</li>
           <li>Missed anomalies.</li>
         </ul>
       </div>

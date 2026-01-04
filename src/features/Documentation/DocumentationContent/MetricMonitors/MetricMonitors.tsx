@@ -13,7 +13,6 @@ export const MetricMonitors = () => {
     <div className="flex flex-col gap-5">
       <h1 className="text-4xl font-bold">Monitors</h1>
       <h2 className="text-2xl">Metric Monitors</h2>
-
       <p>
         Metric Monitors can be a great tool to
         <strong className="pl-1">

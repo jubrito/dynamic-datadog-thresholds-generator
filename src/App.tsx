@@ -8,6 +8,7 @@ import { MonitorConfiguration } from "./features/Documentation/DocumentationCont
 import { Thresholds } from "./features/Documentation/DocumentationContent/Thresholds/Thresholds";
 import { MonitoringStrategies } from "./features/Documentation/DocumentationContent/MonitoringStrategies/MonitoringStrategies";
 import {
+  AGGREGATIONS_PERCENTILES_QUERIES,
   DATADOG_KEY,
   METRIC_MONITORS_KEY,
   MONITOR_CONFIG_KEY,
@@ -18,6 +19,7 @@ import {
 } from "./utils/constants";
 import { MetricMonitors } from "./features/Documentation/DocumentationContent/MetricMonitors/MetricMonitors";
 import { QueriesFormulas } from "./features/Documentation/DocumentationContent/QueriesFormulas/QueriesFormulas";
+import { AggregationsPercentilesQueries } from "./features/Documentation/DocumentationContent/AggregationsPercentilesQueries/AggregationsPercentilesQueries";
 
 function App() {
   return (
@@ -44,6 +46,10 @@ function App() {
               <Route
                 path={MONITORING_STRATEGIES_KEY}
                 element={<MonitoringStrategies />}
+              />
+              <Route
+                path={AGGREGATIONS_PERCENTILES_QUERIES}
+                element={<AggregationsPercentilesQueries />}
               />
             </Route>
           </Routes>

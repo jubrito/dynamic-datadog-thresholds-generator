@@ -8,6 +8,7 @@ import {
   MONITORING_STRATEGIES_KEY,
   OBSERVABILITY_KEY,
   QUERIES_FORMULAS_KEY,
+  AGGREGATIONS_PERCENTILES_QUERIES,
   THRESHOLDS_KEY,
 } from "../../../utils/constants";
 
@@ -75,6 +76,16 @@ export const DocumentationNav = () => {
               pathname == `${DOCUMENTATION_ROUTE}/${MONITORING_STRATEGIES_KEY}`
             }
             path={MONITORING_STRATEGIES_KEY}
+          />
+        </li>
+        <li>
+          <DocNavButton
+            label="Aggregations, Percentiles & Queries"
+            isOpen={
+              pathname ==
+              `${DOCUMENTATION_ROUTE}/${AGGREGATIONS_PERCENTILES_QUERIES}`
+            }
+            path={AGGREGATIONS_PERCENTILES_QUERIES}
           />
         </li>
       </ul>

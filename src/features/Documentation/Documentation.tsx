@@ -14,7 +14,7 @@ export const Documentation = () => {
       <div className="order-2 lg:order-2 py-10 text-left">
         <Outlet />
       </div>
-      <div className="order-1 lg:order-3" />
+      <div className="order-1 lg:order-3 lg:hidden block" />
     </section>
   );
 };
