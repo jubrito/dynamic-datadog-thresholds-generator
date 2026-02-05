@@ -102,4 +102,13 @@ describe("AggregationsPercentilesQueries", () => {
       screen.getByRole("heading", { level: 2, name: sectionTitle })
     ).toBeInTheDocument();
   });
+
+  it.each(sectionSubtitles)(
+    "should render each section subtitle",
+    (sectionSubtitle) => {
+      expect(
+        screen.getByRole("heading", { level: 3, name: sectionSubtitle })
+      ).toBeInTheDocument();
+    }
+  );
 });
