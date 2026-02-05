@@ -78,4 +78,12 @@ describe("QueriesFormulas", () => {
       expect(screen.getByText(content)).toBeInTheDocument();
     }
   );
+
+  it.each(queryCodes)('should render "Queries" codes', (code) => {
+    const codeTextContents = screen
+      .getAllByRole("code")
+      .map((codeElement) => codeElement.textContent);
+
+    expect(codeTextContents).toContain(code);
+  });
 });
