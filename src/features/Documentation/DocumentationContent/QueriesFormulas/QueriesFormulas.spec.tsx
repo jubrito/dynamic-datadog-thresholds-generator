@@ -94,4 +94,10 @@ describe("QueriesFormulas", () => {
 
     expect(codeTextContents).toContain(code);
   });
+
+  it("should render formula section content", () => {
+    formulaSectionContent.forEach((content) => {
+      expect(screen.getByText(content, { exact: false })).toBeInTheDocument();
+    });
+  });
 });
