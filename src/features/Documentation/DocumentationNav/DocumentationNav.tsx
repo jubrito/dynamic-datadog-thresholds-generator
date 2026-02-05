@@ -16,7 +16,7 @@ export const DocumentationNav = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="bg-black border-l-20 lg:border-l-0 lg:border-r-35 border-[#030712] h-dvh h-auto p-9">
+    <div className="bg-black border-l-20 lg:border-l-0 lg:border-r-35 border-[#030712] h-dvh p-9">
       <ul
         aria-label="Documentation navigation"
         role="navigation"
