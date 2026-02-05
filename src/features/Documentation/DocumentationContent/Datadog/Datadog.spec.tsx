@@ -43,15 +43,23 @@ describe("Datadog", () => {
     expect(screen.getByText(thresholds)).toBeInTheDocument();
   });
 
-  it('should render "Previous" and "Next" buttons', () => {
+  it('should render "Previous" button', () => {
     const previousButton = screen.getByRole("button", {
       name: /Previous page: Observability/i,
     });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(previousButton).toHaveAttribute(
+      "href",
+      "/documentation/observability"
+    );
+  });
+  it('should render "Next" button', () => {
     const nextButton = screen.getByRole("button", {
       name: /Next page: Thresholds/i,
     });
 
-    expect(previousButton).toBeInTheDocument();
     expect(nextButton).toBeInTheDocument();
+    expect(nextButton).toHaveAttribute("href", "/documentation/thresholds");
   });
 });
