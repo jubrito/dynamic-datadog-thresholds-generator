@@ -49,8 +49,8 @@ const SUM = {
   description: "Sum of all values in the time window.",
   textColor: "text-black",
   content: [
-    "Doesn’t reflect speed or quality",
-    "Unsuitable for dynamic environments",
+    "Doesn’t reflect speed",
+    "Doesn’t reflect quality",
     "Fails to account for variations in traffic volume, making it unsuitable for dynamic environments.",
     "Not useful for performance thresholds as it can be misleading when comparing endpoints with vastly different request rates",
   ],
@@ -67,7 +67,7 @@ const PERCENTILE = {
     "Customizable Sensitivity: Can focus on the “bad but common” cases but also the worst case scenarios",
     "Easier to filter out noisy outliers (e.g., the 1% of requests that are abnormally slow)",
     "Detects gradual degradation early",
-    "Scalability",
+    "Scalable",
   ],
 };
 const aggregations = [AVG, MIN_MAX, SUM, PERCENTILE];
@@ -110,30 +110,33 @@ export const AggregationsPercentilesQueries = () => {
         })}
       </ul>
       <h3 className="text-left text-xl">
-        Advantages and disavantages of each aggregation:
+        Advantages and disadvantages of each aggregation:
       </h3>
-      <div className="flex flex-wrap w-full">
+      <div className="flex flex-wrap w-full gap-5">
         {aggregations.map((agg) => {
           const labelId = `aggregation-label-${agg.acronym}`;
           return (
             <BorderBox
-              style={`${agg.border} p-0 mb-5 border-2 mr-5 size-full min-w-full`}
+              style={`${agg.border} flex flex-wrap basis-full flex-grow p-0 border-2`}
+              key={agg.label}
             >
               <ColorBox
-                style={`${agg.bg} ${agg.textColor} text-xl px-5 mr-10 w-full`}
+                style={`${agg.bg} ${agg.textColor} w-full text-xl px-5 w-full`}
                 id={labelId}
               >
-                {agg.label}
+                <h4>{agg.label}</h4>
               </ColorBox>
               <div>
                 {agg.content.map((item) => {
                   return (
-                    <div aria-labelledby={labelId}>
-                      <p key={item} className="block m-2 max-w-170 xl:w-115">
-                        <PlayArrowIcon className={`pr-1 ${agg.color}`} />
-                        {item}
-                      </p>
-                    </div>
+                    <p
+                      aria-labelledby={labelId}
+                      key={item}
+                      className="block m-2"
+                    >
+                      <PlayArrowIcon className={`pr-1 ${agg.color}`} />
+                      {item}
+                    </p>
                   );
                 })}
               </div>
@@ -152,17 +155,17 @@ export const AggregationsPercentilesQueries = () => {
           <p>If we analyze an endpoint request time:</p>
           <BorderBox>
             <ColorBox style={`mr-2 w-fit p-1 px-1 inline bg-white text-black`}>
-              P50 (median)
+              <span id="percentile-p50-label">P50 (median)</span>
             </ColorBox>
-            <p className="my-2 mb-5">
-              Means 50% of the requests are faster than this value, 50% are
+            <p className="my-2 mb-5" aria-labelledby="percentile-p50-label">
+              Means 50% of the requests are faster than this value and 50% are
               slower
             </p>
             <ColorBox style={`mr-2 w-fit p-1 px-1 inline bg-white text-black`}>
-              P95 (95th percentile)
+              <span id="percentile-p95-label">P95 (95th percentile)</span>
             </ColorBox>
-            <p className="mt-2">
-              Means 95% of the requests are faster than this value, 5% are
+            <p className="mt-2" aria-labelledby="percentile-p95-label">
+              Means 95% of the requests are faster than this value and 5% are
               slower
             </p>
           </BorderBox>
