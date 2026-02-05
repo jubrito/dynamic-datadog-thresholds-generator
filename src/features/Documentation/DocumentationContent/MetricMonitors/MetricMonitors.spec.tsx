@@ -45,15 +45,26 @@ describe("Metric Monitors", () => {
     expect(screen.getByText(text)).toBeInTheDocument();
   });
 
-  it('should render "Previous" and "Next" buttons', () => {
+  it('should render "Previous" button', () => {
     const previousButton = screen.getByRole("button", {
       name: /Previous page: Queries and Formulas/i,
     });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(previousButton).toHaveAttribute(
+      "href",
+      "/documentation/queries-formulas"
+    );
+  });
+  it('should render "Next" button', () => {
     const nextButton = screen.getByRole("button", {
       name: /Next page: Monitor Configuration/i,
     });
 
-    expect(previousButton).toBeInTheDocument();
     expect(nextButton).toBeInTheDocument();
+    expect(nextButton).toHaveAttribute(
+      "href",
+      "/documentation/monitor-configuration"
+    );
   });
 });
