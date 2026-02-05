@@ -86,4 +86,12 @@ describe("QueriesFormulas", () => {
 
     expect(codeTextContents).toContain(code);
   });
+
+  it.each(formulaCodes)('should render "Formulas" codes', (code) => {
+    const codeTextContents = screen
+      .getAllByRole("code")
+      .map((codeElement) => codeElement.textContent);
+
+    expect(codeTextContents).toContain(code);
+  });
 });
