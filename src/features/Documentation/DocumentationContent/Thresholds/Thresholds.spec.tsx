@@ -40,15 +40,24 @@ describe("Thresholds", () => {
     expect(screen.getByLabelText(contentLabel)).toBeInTheDocument();
   });
 
-  it('should render "Previous" and "Next" buttons', () => {
+  it('should render "Previous" "Next" button', () => {
     const previousButton = screen.getByRole("button", {
       name: /Previous page: Datadog/i,
     });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(previousButton).toHaveAttribute("href", "/documentation/datadog");
+  });
+
+  it('should render "Next" button', () => {
     const nextButton = screen.getByRole("button", {
       name: /Next page: Queries and Formulas/i,
     });
 
-    expect(previousButton).toBeInTheDocument();
     expect(nextButton).toBeInTheDocument();
+    expect(nextButton).toHaveAttribute(
+      "href",
+      "/documentation/queries-formulas"
+    );
   });
 });
