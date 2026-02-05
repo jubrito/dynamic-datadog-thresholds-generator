@@ -111,4 +111,88 @@ describe("AggregationsPercentilesQueries", () => {
       ).toBeInTheDocument();
     }
   );
+
+  it.each(aggregationsAbbr)(
+    "should render each aggregation abbreviation",
+    (abbrs) => {
+      expect(screen.getByText(abbrs)).toBeInTheDocument();
+    }
+  );
+
+  it.each(aggregationsContent)(
+    "should render each aggregation content",
+    (aggregationsContent) => {
+      expect(
+        screen.getByText(aggregationsContent, { exact: false })
+      ).toBeInTheDocument();
+    }
+  );
+
+  describe.each(aggregationsProsAndCons)(
+    "Aggregations pros and cons",
+    (aggrProsAndCons) => {
+      it("should render each aggregation pros and cons label", () => {
+        expect(
+          screen.getByRole("heading", { level: 4, name: aggrProsAndCons.label })
+        ).toBeInTheDocument();
+      });
+      it.each(aggrProsAndCons.content)(
+        "should render each aggregation pros and cons content",
+        (prosAndCons) => {
+          expect(
+            screen.getByText(prosAndCons, { exact: false })
+          ).toBeInTheDocument();
+        }
+      );
+    }
+  );
+
+  it.each(percentilesContent)(
+    "should render each percentiles content",
+    (percentilesContent) => {
+      expect(
+        screen.getByText(percentilesContent, { exact: false })
+      ).toBeInTheDocument();
+    }
+  );
+
+  it.each(queriesAndFormulasContent)(
+    "should render each queries and formulas content",
+    (queriesAndFormulasContent) => {
+      expect(
+        screen.getByText(queriesAndFormulasContent, { exact: false })
+      ).toBeInTheDocument();
+    }
+  );
+
+  it.each(queriesAndFormulasCode)(
+    "should render each queries and formulas code",
+    (queriesAndFormulasCode) => {
+      const codeTextContents = screen
+        .getAllByRole("code")
+        .map((codeElement) => codeElement.textContent);
+
+      expect(codeTextContents).toContain(queriesAndFormulasCode);
+    }
+  );
+
+  it('should not render "Previous" button', () => {
+    const previousButton = screen.queryByRole("button", {
+      name: /Previous page: Monitoring Strategies/i,
+    });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(previousButton).toHaveAttribute(
+      "href",
+      "/documentation/monitoring-strategies"
+    );
+  });
+
+  it('should not render "Next" button', () => {
+    const nextButton = screen.queryByRole("button", {
+      name: /Next page:/i,
+    });
+
+    expect(nextButton).not.toBeInTheDocument();
+  });
 });
