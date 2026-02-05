@@ -96,4 +96,10 @@ describe("AggregationsPercentilesQueries", () => {
     const title = screen.getByRole("heading", { level: 1, name: page });
     expect(title).toBeInTheDocument();
   });
+
+  it.each(sectionTitles)("should render each section title", (sectionTitle) => {
+    expect(
+      screen.getByRole("heading", { level: 2, name: sectionTitle })
+    ).toBeInTheDocument();
+  });
 });
