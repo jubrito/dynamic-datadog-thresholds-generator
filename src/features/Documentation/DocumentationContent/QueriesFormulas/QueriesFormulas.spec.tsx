@@ -109,4 +109,16 @@ describe("QueriesFormulas", () => {
     expect(previousButton).toBeInTheDocument();
     expect(previousButton).toHaveAttribute("href", "/documentation/thresholds");
   });
+
+  it('should render "Next" button', () => {
+    const nextButton = screen.getByRole("button", {
+      name: /Next page: Metric Monitors/i,
+    });
+
+    expect(nextButton).toBeInTheDocument();
+    expect(nextButton).toHaveAttribute(
+      "href",
+      "/documentation/metric-monitors"
+    );
+  });
 });
