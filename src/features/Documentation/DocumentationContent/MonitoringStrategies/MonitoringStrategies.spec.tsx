@@ -56,6 +56,10 @@ describe("Monitoring Strategies", () => {
     });
 
     expect(previousButton).toBeInTheDocument();
+    expect(previousButton).toHaveAttribute(
+      "href",
+      "/documentation/monitor-configuration"
+    );
   });
 
   it('should not render "Next" button', () => {
