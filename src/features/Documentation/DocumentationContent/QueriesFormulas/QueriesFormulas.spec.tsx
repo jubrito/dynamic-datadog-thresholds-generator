@@ -100,4 +100,13 @@ describe("QueriesFormulas", () => {
       expect(screen.getByText(content, { exact: false })).toBeInTheDocument();
     });
   });
+
+  it('should render "Previous" button', () => {
+    const previousButton = screen.getByRole("button", {
+      name: /Previous page: Thresholds/i,
+    });
+
+    expect(previousButton).toBeInTheDocument();
+    expect(previousButton).toHaveAttribute("href", "/documentation/thresholds");
+  });
 });
