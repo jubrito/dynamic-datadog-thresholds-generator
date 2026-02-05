@@ -62,4 +62,13 @@ describe("QueriesFormulas", () => {
       screen.getByRole("heading", { level: 1, name: "Queries and Formulas" })
     ).toBeInTheDocument();
   });
+
+  it.each(["Queries", "Formulas"])(
+    "should render section titles",
+    (sectionTitle) => {
+      expect(
+        screen.getByRole("heading", { level: 2, name: sectionTitle })
+      ).toBeInTheDocument();
+    }
+  );
 });
