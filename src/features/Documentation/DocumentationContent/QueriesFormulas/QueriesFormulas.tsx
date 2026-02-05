@@ -21,7 +21,7 @@ export const QueriesFormulas = () => {
         <li>
           <strong>Metric Name: </strong> The name of the metric you want to
           query (e.g., <code>system.cpu.user</code>,
-          <code>http.request.duration</code>)
+          <code className="pl-1">http.request.duration</code>)
         </li>
         <li className="my-4">
           <strong>Scope: </strong>Filters to narrow down the data, such as tags
@@ -30,7 +30,7 @@ export const QueriesFormulas = () => {
         </li>
         <li>
           <strong>Aggregator: </strong>The method used to aggregate data points
-          (e.g., avg, sum, min, max, percentile).
+          (e.g., avg, sum, m in, max, percentile).
         </li>
       </ul>
       <h3 className="text-lg">
@@ -41,7 +41,7 @@ export const QueriesFormulas = () => {
       </ColorBox>
       <p>
         This query calculates the average duration of HTTP requests for the{" "}
-        <code>api</code>
+        <code className="pr-1">api</code>
         service in the <code>prod</code> environment.
       </p>
       <Divider />
@@ -71,7 +71,7 @@ export const QueriesFormulas = () => {
         <strong>Formula example:</strong>
       </h3>
       <ColorBox style="bg-gray-400 w-max">
-        <code>{`(q("avg:http.request.duration{env:prod,service:api}") / q("count:http.requests{env:prod,service:api}")) * 100`}</code>
+        <code>{`x / 1000 // convert query above (which measures the request time) from ms to seconds`}</code>
       </ColorBox>
       <Divider />
       <PreviousNextButtons
