@@ -71,4 +71,11 @@ describe("QueriesFormulas", () => {
       ).toBeInTheDocument();
     }
   );
+
+  it.each(queriesSectionContent)(
+    'should render "Queries" section content',
+    (content) => {
+      expect(screen.getByText(content)).toBeInTheDocument();
+    }
+  );
 });
