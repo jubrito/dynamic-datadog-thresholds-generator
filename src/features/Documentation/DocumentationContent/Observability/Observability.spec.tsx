@@ -53,6 +53,7 @@ describe("Observability", () => {
     });
 
     expect(nextButton).toBeInTheDocument();
+    expect(nextButton).toHaveAttribute("href", "/documentation/datadog");
   });
 
   it('should not render "Previous" button', () => {
